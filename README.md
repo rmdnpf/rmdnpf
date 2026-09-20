@@ -2,7 +2,7 @@
 
 ### Aspiring SOC Analyst | Blue Team Enthusiast
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=rmdnpf&label=Profile views&color=0e75b6&style=flat" alt="rmdnpf" /> </p>
+<p align="left"> <img src="https://visitor-badge.laobi.icu/badge?page_id=rmdnpf.rmdnpf" alt="rmdnpf" /> </p>
 
 - 🔭 I'm currently working on **Writeups & walkthroughs for TryHackMe blue team rooms**
 
