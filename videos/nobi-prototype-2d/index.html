@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Prototype Karakter 2D</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; background: #f4eee2; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #f4eee2; }
+      #stage { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+      <svg id="stage" class="clip" data-start="0" data-duration="8" data-track-index="1" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- getaran garis halus statis agar tidak terlalu rapi/geometris -->
+          <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <filter id="grain" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.2  0 0 0 0 0.1  0 0 0 0.09 0"/>
+          </filter>
+        </defs>
+
+        <rect id="bg" width="1080" height="1920" fill="#f4eee2"/>
+        <rect id="bg-grain" width="1080" height="1920" filter="url(#grain)"/>
+
+        <g transform="translate(0 150)"><g id="ch" filter="url(#wobble)" stroke="#141414" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+          <!-- BADAN: hoodie + kaos hitam -->
+          <g id="ch-body">
+            <path d="M92 1250 C94 1130 140 1030 250 990 C330 960 400 940 452 928 L640 928 C700 940 790 962 850 995 C950 1040 996 1140 992 1250 Z" fill="#f9f4e9" stroke="none"/>
+            <path d="M440 926 L652 926 C644 972 604 1012 546 1018 C490 1014 450 972 440 926 Z" fill="#141414" stroke="none"/>
+            <path d="M92 1250 C94 1130 140 1030 250 990 C330 960 400 940 452 928" stroke-width="7"/>
+            <path d="M640 928 C700 940 790 962 850 995 C950 1040 996 1140 992 1250" stroke-width="7"/>
+            <path d="M428 944 C470 1010 618 1016 664 946" stroke-width="6"/>
+            <path d="M440 928 C402 902 360 910 328 942" stroke-width="6"/>
+            <path d="M652 926 C692 900 734 906 766 938" stroke-width="6"/>
+            <path d="M262 1000 C236 1090 230 1170 242 1250" stroke-width="5"/>
+            <path d="M842 1000 C872 1092 874 1172 862 1250" stroke-width="5"/>
+            <path d="M170 1110 C158 1170 156 1214 160 1250" stroke-width="4" opacity="0.7"/>
+            <path d="M925 1130 C934 1180 934 1220 930 1250" stroke-width="4" opacity="0.7"/>
+            <path d="M96 1252 C260 1262 420 1246 600 1256 C760 1262 900 1250 990 1256" stroke-width="5" opacity="0.85"/>
+            <path d="M486 1010 C480 1072 488 1130 484 1186" stroke-width="5"/>
+            <path d="M610 1012 C616 1068 607 1130 612 1182" stroke-width="5"/>
+            <path d="M479 1186 C478 1198 492 1204 494 1190 C494 1182 486 1178 479 1186 Z" fill="#141414" stroke-width="3"/>
+            <path d="M605 1184 C604 1196 618 1202 620 1188 C620 1180 612 1176 605 1184 Z" fill="#141414" stroke-width="3"/>
+          </g>
+
+          <!-- LEHER -->
+          <g id="ch-neck">
+            <path d="M470 806 C468 858 464 898 442 936 C500 952 590 952 650 936 C630 898 628 858 626 812" fill="#f9f4e9" stroke-width="6"/>
+          <path d="M488 862 C500 868 512 870 524 868 M482 880 C498 888 514 890 530 886 M478 898 C498 908 518 910 540 904" stroke-width="3" opacity="0.7"/>
+          </g>
+
+          <!-- TELINGA -->
+          <g id="ch-ears">
+            <path d="M336 520 C300 504 268 530 278 576 C286 616 320 630 344 612" fill="#f9f4e9" stroke-width="6"/>
+            <path d="M304 546 C296 566 304 586 322 592" stroke-width="4"/>
+            <path d="M758 530 C792 518 814 548 803 592 C794 624 768 634 752 618" fill="#f9f4e9" stroke-width="6"/>
+            <path d="M782 556 C791 574 785 592 768 598" stroke-width="4"/>
+          </g>
+
+          <!-- WAJAH -->
+          <g id="ch-face">
+            <path d="M330 520 C322 440 360 360 450 335 C520 318 620 322 690 370 C748 410 770 480 762 560 C756 640 730 720 680 780 C640 826 590 846 545 842 C490 838 440 810 400 760 C355 700 336 600 330 520 Z" fill="#f9f4e9" stroke-width="7"/>
+            <path d="M398 598 L404 610 M412 606 L417 618 M696 606 L702 618" stroke-width="4"/>
+          </g>
+
+          <!-- HIDUNG -->
+          <g id="ch-nose">
+            <path d="M549 560 C553 592 541 614 526 624 C538 632 557 631 567 620" stroke-width="5"/>
+          </g>
+
+          <!-- MATA (bentuk 'normal'; kedip/separuh/terkejut dibuat di tahap 3) -->
+          <g id="ch-eyes">
+            <g id="ch-eye-L">
+              <path d="M450 530 C452 508 476 504 482 528 C486 552 468 566 456 556 C450 550 449 540 450 530 Z" fill="#141414" stroke-width="3"/>
+              <circle cx="470" cy="521" r="5" fill="#f9f4e9" stroke="none"/>
+              <path d="M440 520 C448 500 478 494 494 512" stroke-width="4"/>
+            </g>
+            <g id="ch-eye-R">
+              <path d="M608 524 C610 502 636 500 641 522 C646 546 628 560 616 550 C609 544 607 534 608 524 Z" fill="#141414" stroke-width="3"/>
+              <circle cx="632" cy="517" r="5" fill="#f9f4e9" stroke="none"/>
+              <path d="M598 514 C606 494 636 490 652 508" stroke-width="4"/>
+            </g>
+          </g>
+
+          <!-- ALIS (kiri/kanan terpisah) -->
+          <g id="ch-brows">
+            <path id="ch-brow-L" d="M416 492 C438 468 480 462 504 478 C480 476 450 480 424 500 Z" fill="#141414" stroke-width="3"/>
+            <path id="ch-brow-R" d="M586 480 C612 458 656 458 686 476 C660 474 624 478 596 494 Z" fill="#141414" stroke-width="3"/>
+          </g>
+
+          <!-- MULUT (netral/M; 6 bentuk lain dibuat di tahap 3) -->
+          <g id="ch-mouth">
+            <g id="ch-mouth-M"><path d="M497 706 C522 714 562 713 592 700" stroke-width="6"/></g>
+          </g>
+
+          <!-- RAMBUT -->
+          <g id="ch-hair">
+            <path d="M316 524 C292 410 334 292 436 246 C470 230 500 208 540 214 C562 192 600 206 612 220 C630 214 642 222 652 232 C734 262 788 338 782 442 C780 486 774 524 768 552 L750 470 C744 440 730 416 712 400 C706 424 694 440 676 448 C664 422 646 406 624 398 C616 424 600 442 576 448 C560 422 538 404 512 398 C500 418 484 434 456 438 C444 416 424 402 400 402 C392 436 376 470 350 506 Z" fill="#141414" stroke-width="4"/>
+            <path d="M500 214 C492 190 480 178 462 170 M600 206 C612 184 630 172 650 168 M372 300 C350 286 336 262 330 240 M742 330 C760 316 770 296 772 276" stroke-width="4"/>
+            <path d="M468 292 C500 272 540 264 582 268 M626 300 C656 296 690 306 712 330 M392 330 C376 350 372 380 380 410" stroke="#f9f4e9" stroke-width="5" opacity="0.8"/>
+          </g>
+        </g></g>
+      </svg>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
