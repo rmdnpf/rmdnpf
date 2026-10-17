@@ -2,7 +2,7 @@
 import wave
 import numpy as np
 
-SR, DUR, BPM = 44100, 60.0, 150
+SR, DUR, BPM = 44100, 55.2, 150
 rng = np.random.default_rng(7)
 n = int(SR * DUR)
 out = np.zeros(n)
@@ -38,32 +38,33 @@ def crash():
     ln = int(SR * 2.2)
     return hp(rng.standard_normal(ln)) * env(ln, 2.2) * 0.6
 
-# bagian: 0-6 sparse, 6-38 swing ride, 38-48 roll naik, 48-54 sparse, 54-60 hit akhir
+# bagian: 0-4.8 sparse, 4.8-49.2 swing ride, 35.2-40.4 roll naik, 49.2-49.6 hening, 49.6 hit verdict
 t = 0.0
 swing = 2 / 3
 k = 0
 while t < DUR - 0.01:
     b = t
-    if 6 <= b < 54:
+    if 4.8 <= b < 49.2:
         add(b, ride(), 0.5)
         add(b + beat * swing, ride(), 0.35)           # pola ride swing
-        if k % 2 == 1 and not (48 <= b < 54): add(b, snare(), 0.45)   # backbeat
-        if k % 4 == 0 and not (38 <= b < 54): add(b, kick(), 0.6)
-    if 38 <= b < 48:                                  # roll snare naik
+        if k % 2 == 1 and not (41.2 <= b < 49.2): add(b, snare(), 0.45)   # backbeat
+        if k % 4 == 0 and not (35.2 <= b < 49.2): add(b, kick(), 0.6)
+    if 35.2 <= b < 40.4:                                  # roll snare naik
         steps = 4
         for s in range(steps):
-            add(b + s * beat / steps, snare(), 0.25 + 0.5 * (b - 38) / 10)
+            add(b + s * beat / steps, snare(), 0.25 + 0.5 * (b - 35.2) / 5.2)
         add(b, kick(), 0.6)
-    if b < 6 and k % 2 == 0: add(b, snare(), 0.35)
+    if b < 4.8 and k % 2 == 0: add(b, snare(), 0.35)
     t += beat; k += 1
 
 add(0.0, kick(), 0.9)
-add(6.0, crash(), 0.5)
-add(24.0, crash(), 0.4)
-add(38.0, crash(), 0.4)
+add(4.8, crash(), 0.5)
+add(10.4, crash(), 0.4)
+add(21.2, crash(), 0.4)
+add(31.6, crash(), 0.4)
 # 53.5-54.0 hening lalu hantaman verdict
-mask = np.ones(n); mask[int(53.4 * SR):int(54.0 * SR)] = 0.0; out *= mask
-add(54.0, kick(), 1.0); add(54.0, snare(), 0.8); add(54.0, crash(), 0.8)
+mask = np.ones(n); mask[int(49.1 * SR):int(49.6 * SR)] = 0.0; out *= mask
+add(49.6, kick(), 1.0); add(49.6, snare(), 0.8); add(49.6, crash(), 0.8)
 
 out = out / (np.max(np.abs(out)) + 1e-9) * 0.85
 pcm = (out * 32767).astype("<i2")
