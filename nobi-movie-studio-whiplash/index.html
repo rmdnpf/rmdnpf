@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nobi Movie Studio — Whiplash (2014)</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; background: #0b0b0f; }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0b0b0f;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        color: #f4ebd9;
+      }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .bg-spot {
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse 80% 45% at 50% 28%, rgba(242,169,59,0.30), rgba(242,169,59,0) 70%),
+          radial-gradient(ellipse 120% 80% at 50% 110%, rgba(200,16,46,0.22), rgba(200,16,46,0) 65%);
+      }
+      .abs { position: absolute; }
+      .display { font-family: "League Gothic", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; }
+      .center { left: 0; right: 0; text-align: center; }
+      .brass { color: #f2a93b; }
+      .red { color: #c8102e; }
+      .tag {
+        font-weight: 900; font-size: 34px; letter-spacing: 0.18em; text-transform: uppercase;
+        color: #f2a93b;
+      }
+      .card {
+        position: absolute; left: 90px; right: 90px; padding: 26px 34px;
+        background: #f4ebd9; color: #0b0b0f; border-left: 14px solid #c8102e;
+        font-family: "League Gothic", sans-serif; text-transform: uppercase;
+        font-size: 84px; line-height: 1;
+      }
+      .panel {
+        position: absolute; left: 60px; right: 60px; height: 540px; overflow: hidden;
+        border: 6px solid #f4ebd9; background: #15151c;
+      }
+      .name {
+        position: absolute; left: 24px; bottom: 20px; padding: 6px 22px;
+        background: #c8102e; color: #f4ebd9; font-family: "League Gothic", sans-serif;
+        font-size: 64px; text-transform: uppercase;
+      }
+      .sub {
+        position: absolute; left: 60px; right: 60px; top: 1250px; height: 190px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .sub span {
+        display: inline-block; padding: 14px 30px; border-radius: 18px;
+        background: rgba(11,11,15,0.82); color: #f4ebd9; text-align: center;
+        font-weight: 900; font-size: 58px; line-height: 1.18; letter-spacing: -0.01em;
+        max-width: 960px;
+      }
+      .sub em { font-style: normal; color: #f2a93b; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-v63y" id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1080" data-height="1920">
+
+      <!-- SCENE 1 · HOOK 0–6 -->
+      <section data-hf-id="hf-5mpv" id="s1" class="scene clip" data-start="0" data-duration="6" data-track-index="1">
+        <div data-hf-id="hf-4bh2" class="bg-spot"></div>
+        <div data-hf-id="hf-v6dh" id="s1-title" class="abs center display" style="top:230px; font-size:330px;">
+          <div data-hf-id="hf-vyvk" id="s1-a">Seberapa</div>
+          <div data-hf-id="hf-xuet" id="s1-b" class="brass">jauh?</div>
+        </div>
+        <div data-hf-id="hf-8ydm" id="s1-rule" class="abs" style="left:90px; top:1010px; width:900px; height:14px; background:#c8102e; transform-origin:left center;"></div>
+        <svg data-hf-id="hf-rpn8" id="s1-snare" class="abs" style="left:240px; top:1060px;" width="600" height="300" viewBox="0 0 600 300">
+          <rect data-hf-id="hf-2x3j" x="70" y="110" width="460" height="130" rx="10" fill="#c8102e"/>
+          <rect data-hf-id="hf-zktr" x="70" y="150" width="460" height="14" fill="#0b0b0f" opacity="0.35"/>
+          <ellipse data-hf-id="hf-j7zi" cx="300" cy="110" rx="230" ry="50" fill="#f4ebd9"/>
+          <ellipse data-hf-id="hf-f8yt" cx="300" cy="110" rx="200" ry="38" fill="none" stroke="#f2a93b" stroke-width="6"/>
+          <g data-hf-id="hf-cywz" fill="#f2a93b"><rect data-hf-id="hf-hcsn" x="70" y="112" width="12" height="128"/><rect data-hf-id="hf-hbps" x="518" y="112" width="12" height="128"/><rect data-hf-id="hf-df48" x="190" y="150" width="10" height="90"/><rect data-hf-id="hf-3bi6" x="400" y="150" width="10" height="90"/></g>
+        </svg>
+        <svg data-hf-id="hf-rt6a" id="s1-stickL" class="abs" style="left:150px; top:930px;" width="420" height="60" viewBox="0 0 420 60"><rect data-hf-id="hf-vdlo" x="0" y="22" width="400" height="16" rx="8" fill="#f2a93b"/><circle data-hf-id="hf-95n7" cx="404" cy="30" r="14" fill="#f4ebd9"/></svg>
+        <svg data-hf-id="hf-vknn" id="s1-stickR" class="abs" style="left:520px; top:930px;" width="420" height="60" viewBox="0 0 420 60"><rect data-hf-id="hf-1tme" x="20" y="22" width="400" height="16" rx="8" fill="#f2a93b"/><circle data-hf-id="hf-cwqe" cx="16" cy="30" r="14" fill="#f4ebd9"/></svg>
+      </section>
+
+      <!-- SCENE 2 · JUDUL 6–12 -->
+      <section data-hf-id="hf-4vfe" id="s2" class="scene clip" data-start="6" data-duration="6" data-track-index="1">
+        <div data-hf-id="hf-0lbu" class="bg-spot"></div>
+        <div data-hf-id="hf-dayp" id="s2-brand" class="abs center tag" style="top:360px;">Nobi Movie Studio</div>
+        <div data-hf-id="hf-ocsj" id="s2-clap" class="abs" style="left:150px; top:430px; width:780px; height:70px; background:repeating-linear-gradient(115deg,#f4ebd9 0 60px,#0b0b0f 60px 120px); border:6px solid #f4ebd9; transform-origin:left bottom;"></div>
+        <div data-hf-id="hf-lgcg" id="s2-title" class="abs center display" style="top:530px; font-size:300px;">Whiplash</div>
+        <div data-hf-id="hf-0afh" id="s2-year" class="abs center display brass" style="top:830px; font-size:190px;">2014</div>
+        <div data-hf-id="hf-bao2" id="s2-review" class="abs center tag" style="top:1040px; color:#f4ebd9; font-size:40px;">Review Film · Tanpa Spoiler</div>
+      </section>
+
+      <!-- SCENE 3 · DUEL 12–24 -->
+      <section data-hf-id="hf-3drb" id="s3" class="scene clip" data-start="12" data-duration="12" data-track-index="1">
+        <div data-hf-id="hf-0zmv" class="bg-spot"></div>
+        <div data-hf-id="hf-w7gn" id="s3-pa" class="panel" style="top:90px;">
+          <svg data-hf-id="hf-1uga" width="960" height="528" viewBox="0 0 960 528">
+            <rect data-hf-id="hf-owkv" width="960" height="528" fill="#1d1a24"/>
+            <circle data-hf-id="hf-ihkz" cx="480" cy="250" r="230" fill="#f2a93b" opacity="0.18"/>
+            <ellipse data-hf-id="hf-litf" cx="480" cy="420" rx="260" ry="48" fill="#f4ebd9"/>
+            <rect data-hf-id="hf-pljf" x="220" y="420" width="520" height="110" fill="#c8102e"/>
+            <rect data-hf-id="hf-tg5y" x="400" y="200" width="160" height="150" rx="30" fill="#f4ebd9" opacity="0"/>
+            <rect data-hf-id="hf-jmle" x="395" y="250" width="170" height="190" rx="40" fill="#f4ebd9"/>
+            <circle data-hf-id="hf-3m6x" cx="480" cy="190" r="78" fill="#e8b68f"/>
+            <path data-hf-id="hf-rlsk" d="M402 185 Q480 90 558 185 Q540 130 480 125 Q420 130 402 185Z" fill="#2a1d14"/>
+            <g data-hf-id="hf-c5xk" id="s3-armL"><rect data-hf-id="hf-3pqk" x="270" y="270" width="150" height="26" rx="13" fill="#e8b68f" transform="rotate(25 420 283)"/><rect data-hf-id="hf-s95c" x="180" y="330" width="230" height="12" rx="6" fill="#f2a93b" transform="rotate(-10 410 336)"/></g>
+            <g data-hf-id="hf-vpb2" id="s3-armR"><rect data-hf-id="hf-wir6" x="540" y="270" width="150" height="26" rx="13" fill="#e8b68f" transform="rotate(-25 540 283)"/><rect data-hf-id="hf-p70d" x="560" y="330" width="230" height="12" rx="6" fill="#f2a93b" transform="rotate(10 560 336)"/></g>
+            <g data-hf-id="hf-2ifd" id="s3-sweat" fill="#9ad6ff"><circle data-hf-id="hf-sy3f" cx="410" cy="150" r="8"/><circle data-hf-id="hf-xlbs" cx="560" cy="165" r="7"/><circle data-hf-id="hf-9yj9" cx="440" cy="120" r="6"/></g>
+          </svg>
+          <div data-hf-id="hf-06lc" class="name">Andrew</div>
+        </div>
+        <div data-hf-id="hf-0yqt" id="s3-pb" class="panel" style="top:660px;">
+          <svg data-hf-id="hf-tir2" width="960" height="528" viewBox="0 0 960 528">
+            <rect data-hf-id="hf-zakm" width="960" height="528" fill="#1d1620"/>
+            <circle data-hf-id="hf-ibm6" cx="480" cy="250" r="230" fill="#c8102e" opacity="0.2"/>
+            <rect data-hf-id="hf-zv37" x="330" y="300" width="300" height="240" rx="50" fill="#0b0b0f"/>
+            <rect data-hf-id="hf-d53k" x="300" y="270" width="360" height="90" rx="40" fill="#0b0b0f"/>
+            <circle data-hf-id="hf-j725" cx="480" cy="190" r="84" fill="#d9a888"/>
+            <path data-hf-id="hf-oxax" d="M410 168 L550 168" stroke="#0b0b0f" stroke-width="12" stroke-linecap="round"/>
+            <path data-hf-id="hf-6a5f" d="M425 150 L470 168 M535 150 L490 168" stroke="#0b0b0f" stroke-width="10" stroke-linecap="round"/>
+            <path data-hf-id="hf-d733" d="M440 232 Q480 210 520 232" stroke="#0b0b0f" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <rect data-hf-id="hf-zu42" id="s3-point" x="640" y="280" width="190" height="30" rx="15" fill="#d9a888"/>
+            <circle data-hf-id="hf-1v8k" cx="840" cy="295" r="18" fill="#d9a888"/>
+          </svg>
+          <div data-hf-id="hf-xqle" class="name">Fletcher</div>
+        </div>
+        <svg data-hf-id="hf-qy67" id="s3-cymbal" class="abs" style="left:0; top:560px;" width="240" height="80" viewBox="0 0 240 80">
+          <ellipse data-hf-id="hf-0i9b" cx="120" cy="40" rx="110" ry="22" fill="#f2a93b"/><ellipse data-hf-id="hf-u89s" cx="120" cy="36" rx="30" ry="8" fill="#ffd27a"/>
+        </svg>
+      </section>
+
+      <!-- SCENE 4 · ALASAN 24–38 -->
+      <section data-hf-id="hf-d3ar" id="s4" class="scene clip" data-start="24" data-duration="14" data-track-index="1">
+        <div data-hf-id="hf-1dxw" class="bg-spot"></div>
+        <div data-hf-id="hf-ji4b" id="s4-bpm" class="abs center display brass" style="top:110px; font-size:240px;"><span data-hf-id="hf-6pmi" id="s4-bpmv">90</span><span data-hf-id="hf-fpol" style="font-size:90px; color:#f4ebd9;"> BPM</span></div>
+        <svg data-hf-id="hf-hbp8" id="s4-kit" class="abs" style="left:40px; top:430px;" width="1000" height="620" viewBox="0 0 1000 620">
+          <rect data-hf-id="hf-qo7i" x="400" y="300" width="200" height="40" fill="#0b0b0f"/>
+          <g data-hf-id="hf-y7tp" id="s4-kick"><ellipse data-hf-id="hf-jrpa" cx="500" cy="430" rx="170" ry="170" fill="#c8102e"/><ellipse data-hf-id="hf-9h4j" cx="500" cy="430" rx="120" ry="120" fill="#0b0b0f"/><circle data-hf-id="hf-k67i" cx="500" cy="430" r="20" fill="#f2a93b"/></g>
+          <g data-hf-id="hf-cqpq" id="s4-hat"><ellipse data-hf-id="hf-v3o2" cx="150" cy="250" rx="110" ry="18" fill="#f2a93b"/><ellipse data-hf-id="hf-e3uw" cx="150" cy="226" rx="110" ry="18" fill="#ffd27a"/><rect data-hf-id="hf-keyg" x="146" y="250" width="8" height="300" fill="#f4ebd9"/></g>
+          <g data-hf-id="hf-3q54" id="s4-crash"><ellipse data-hf-id="hf-vd7e" cx="850" cy="150" rx="120" ry="20" fill="#f2a93b"/><rect data-hf-id="hf-sdyl" x="846" y="150" width="8" height="400" fill="#f4ebd9"/></g>
+          <g data-hf-id="hf-pi7t" id="s4-tom"><rect data-hf-id="hf-myl6" x="590" y="215" width="190" height="90" rx="8" fill="#c8102e"/><ellipse data-hf-id="hf-d176" cx="685" cy="215" rx="95" ry="26" fill="#f4ebd9"/></g>
+          <g data-hf-id="hf-dt56" id="s4-snare"><rect data-hf-id="hf-i31x" x="270" y="270" width="190" height="80" rx="8" fill="#c8102e"/><ellipse data-hf-id="hf-zda8" cx="365" cy="270" rx="95" ry="26" fill="#f4ebd9"/></g>
+          <rect data-hf-id="hf-j0d2" id="s4-stickA" x="250" y="150" width="180" height="12" rx="6" fill="#f2a93b" transform="rotate(25 340 156)"/>
+          <rect data-hf-id="hf-cf8i" id="s4-stickB" x="360" y="150" width="180" height="12" rx="6" fill="#f2a93b" transform="rotate(-25 450 156)"/>
+        </svg>
+        <div data-hf-id="hf-vm52" id="s4-c1" class="card" style="top:1060px;">Editing tajam</div>
+        <div data-hf-id="hf-2ja0" id="s4-c2" class="card" style="top:1060px;">Ritme = detak jantung</div>
+        <div data-hf-id="hf-caxq" id="s4-c3" class="card" style="top:1060px;">106 menit tanpa napas</div>
+      </section>
+
+      <!-- SCENE 5 · BUKTI 38–48 -->
+      <section data-hf-id="hf-pjob" id="s5" class="scene clip" data-start="38" data-duration="10" data-track-index="1">
+        <div data-hf-id="hf-1s8x" class="bg-spot"></div>
+        <svg data-hf-id="hf-oyrp" id="s5-oscar" class="abs" style="left:340px; top:150px;" width="400" height="640" viewBox="0 0 400 640">
+          <defs data-hf-id="hf-mh0t"><linearGradient data-hf-id="hf-k2e5" id="gold" x1="0" x2="1"><stop data-hf-id="hf-xblx" offset="0" stop-color="#b9791a"/><stop data-hf-id="hf-h7mf" offset="0.5" stop-color="#ffd27a"/><stop data-hf-id="hf-4zp2" offset="1" stop-color="#b9791a"/></linearGradient></defs>
+          <circle data-hf-id="hf-7zbj" cx="200" cy="90" r="52" fill="url(#gold)"/>
+          <path data-hf-id="hf-pbfz" d="M140 150 Q200 130 260 150 L280 400 L120 400Z" fill="url(#gold)"/>
+          <rect data-hf-id="hf-l96h" x="90" y="400" width="220" height="40" rx="6" fill="url(#gold)"/>
+          <rect data-hf-id="hf-2fex" x="60" y="440" width="280" height="120" rx="8" fill="#15151c" stroke="url(#gold)" stroke-width="8"/>
+        </svg>
+        <div data-hf-id="hf-zhlm" id="s5-ribbon" class="abs center display" style="top:830px; font-size:120px;">
+          <div data-hf-id="hf-gazy" class="brass">Oscar · Aktor Pendukung</div>
+          <div data-hf-id="hf-i20t">J.K. Simmons</div>
+        </div>
+        <div data-hf-id="hf-6gc4" id="s5-meter" class="abs" style="left:90px; right:90px; top:1110px;">
+          <div data-hf-id="hf-c5ch" class="tag" style="margin-bottom:10px; color:#f4ebd9;">Napas penonton</div>
+          <div data-hf-id="hf-5tgl" style="height:44px; background:#26242e; border-radius:22px; overflow:hidden;"><div data-hf-id="hf-ylkb" id="s5-fill" style="height:100%; width:100%; background:#c8102e; transform-origin:left center;"></div></div>
+        </div>
+      </section>
+
+      <!-- SCENE 6 · DILEMA 48–54 -->
+      <section data-hf-id="hf-m3uo" id="s6" class="scene clip" data-start="48" data-duration="6" data-track-index="1">
+        <div data-hf-id="hf-26jy" class="bg-spot"></div>
+        <div data-hf-id="hf-vpjp" id="s6-q" class="abs center display brass" style="top:100px; font-size:420px;">?</div>
+        <svg data-hf-id="hf-qu05" id="s6-scale" class="abs" style="left:90px; top:560px;" width="900" height="560" viewBox="0 0 900 560">
+          <rect data-hf-id="hf-6ctr" x="435" y="120" width="30" height="400" fill="#f4ebd9"/>
+          <rect data-hf-id="hf-gwr7" x="300" y="510" width="300" height="30" rx="8" fill="#f4ebd9"/>
+          <g data-hf-id="hf-5rik" id="s6-beam">
+            <rect data-hf-id="hf-bv2k" x="60" y="110" width="780" height="22" rx="11" fill="#f2a93b"/>
+            <g data-hf-id="hf-3lu6" id="s6-panL"><line data-hf-id="hf-7wky" x1="100" y1="120" x2="100" y2="300" stroke="#f4ebd9" stroke-width="4"/><rect data-hf-id="hf-lrj3" x="20" y="300" width="160" height="22" rx="10" fill="#f4ebd9"/><text data-hf-id="hf-h97b" x="100" y="270" text-anchor="middle" font-family="League Gothic, sans-serif" font-size="80" fill="#f2a93b">BAKAT</text></g>
+            <g data-hf-id="hf-o0go" id="s6-panR"><line data-hf-id="hf-5g8o" x1="800" y1="120" x2="800" y2="300" stroke="#f4ebd9" stroke-width="4"/><rect data-hf-id="hf-mr1g" x="720" y="300" width="160" height="22" rx="10" fill="#f4ebd9"/><text data-hf-id="hf-lkus" x="800" y="270" text-anchor="middle" font-family="League Gothic, sans-serif" font-size="80" fill="#c8102e">HARGA</text></g>
+          </g>
+        </svg>
+      </section>
+
+      <!-- SCENE 7 · VERDICT 54–60 -->
+      <section data-hf-id="hf-ld6s" id="s7" class="scene clip" data-start="54" data-duration="6" data-track-index="1">
+        <div data-hf-id="hf-u2n2" id="s7-bg" class="abs" style="inset:0; background:#f4ebd9;"></div>
+        <div data-hf-id="hf-rlyv" id="s7-q" class="abs center display" style="top:100px; font-size:140px; color:#0b0b0f; padding:0 60px;">Layak ditonton atau lewati?</div>
+        <div data-hf-id="hf-sgxp" id="s7-stamp" class="abs center display" style="top:570px; font-size:190px; color:#c8102e; border:14px solid #c8102e; margin:0 90px; padding:26px 0; left:0; right:0; transform:rotate(-6deg);"><div data-hf-id="hf-xfqe">Layak</div><div data-hf-id="hf-7jol">ditonton ✔</div></div>
+        <div data-hf-id="hf-e60y" id="s7-rating" class="abs center display" style="top:1050px; font-size:190px; color:#0b0b0f;"><span data-hf-id="hf-xqmc" id="s7-score">9</span>/10</div>
+        <div data-hf-id="hf-jppx" id="s7-logo" class="abs center tag" style="top:1510px; color:#0b0b0f;">Nobi Movie Studio</div>
+      </section>
+
+      <!-- SUBTITLE · track 5 -->
+      <div data-hf-id="hf-m2fp" class="sub clip" data-start="0.3" data-duration="2.7" data-track-index="5"><span data-hf-id="hf-als7" id="u01">Seberapa jauh kamu rela</span></div>
+      <div data-hf-id="hf-w7jm" class="sub clip" data-start="3.0" data-duration="2.8" data-track-index="5"><span data-hf-id="hf-x9x5" id="u02">berdarah demi jadi <em data-hf-id="hf-ic1d">yang terbaik?</em></span></div>
+      <div data-hf-id="hf-ay46" class="sub clip" data-start="6.2" data-duration="1.6" data-track-index="5"><span data-hf-id="hf-p2cl" id="u03">Halo, aku <em data-hf-id="hf-lce0">Nobi!</em></span></div>
+      <div data-hf-id="hf-wmrs" class="sub clip" data-start="7.8" data-duration="2.6" data-track-index="5"><span data-hf-id="hf-4jph" id="u04">Malam ini kita bahas <em data-hf-id="hf-9mz3">Whiplash,</em></span></div>
+      <div data-hf-id="hf-625b" class="sub clip" data-start="10.4" data-duration="1.4" data-track-index="5"><span data-hf-id="hf-8dea" id="u05">dua ribu empat belas.</span></div>
+      <div data-hf-id="hf-fvv9" class="sub clip" data-start="12.2" data-duration="3.4" data-track-index="5"><span data-hf-id="hf-cade" id="u06"><em data-hf-id="hf-hile">Andrew,</em> drummer muda di konservatori</span></div>
+      <div data-hf-id="hf-keoq" class="sub clip" data-start="15.6" data-duration="1.8" data-track-index="5"><span data-hf-id="hf-tghm" id="u07">musik paling bergengsi.</span></div>
+      <div data-hf-id="hf-ax48" class="sub clip" data-start="17.4" data-duration="3.0" data-track-index="5"><span data-hf-id="hf-7w7q" id="u08"><em data-hf-id="hf-o7g0">Fletcher,</em> konduktor yang mengajar</span></div>
+      <div data-hf-id="hf-aajl" class="sub clip" data-start="20.4" data-duration="2.0" data-track-index="5"><span data-hf-id="hf-v0sr" id="u09">lewat teriakan, hinaan,</span></div>
+      <div data-hf-id="hf-kgh1" class="sub clip" data-start="22.4" data-duration="1.5" data-track-index="5"><span data-hf-id="hf-p5if" id="u10">dan <em data-hf-id="hf-ztkf">simbal melayang.</em></span></div>
+      <div data-hf-id="hf-jaal" class="sub clip" data-start="24.2" data-duration="2.2" data-track-index="5"><span data-hf-id="hf-ayqv" id="u11">Ini bukan film olahraga,</span></div>
+      <div data-hf-id="hf-pfas" class="sub clip" data-start="26.4" data-duration="3.0" data-track-index="5"><span data-hf-id="hf-6cx5" id="u12">tapi rasanya seperti <em data-hf-id="hf-4byc">pertandingan.</em></span></div>
+      <div data-hf-id="hf-8xfo" class="sub clip" data-start="29.4" data-duration="2.2" data-track-index="5"><span data-hf-id="hf-kdac" id="u13"><em data-hf-id="hf-7mzs">Editing-nya</em> tajam,</span></div>
+      <div data-hf-id="hf-qwad" class="sub clip" data-start="31.6" data-duration="2.8" data-track-index="5"><span data-hf-id="hf-t97w" id="u14">dan tiap ketukan drum</span></div>
+      <div data-hf-id="hf-8ovb" class="sub clip" data-start="34.4" data-duration="3.4" data-track-index="5"><span data-hf-id="hf-fa24" id="u15">bikin jantung ikut <em data-hf-id="hf-0tey">berdebar.</em></span></div>
+      <div data-hf-id="hf-kfr6" class="sub clip" data-start="38.2" data-duration="2.8" data-track-index="5"><span data-hf-id="hf-2rdm" id="u16"><em data-hf-id="hf-acp2">J.K. Simmons</em> menang Oscar</span></div>
+      <div data-hf-id="hf-34o5" class="sub clip" data-start="41.0" data-duration="1.8" data-track-index="5"><span data-hf-id="hf-vok7" id="u17">lewat peran Fletcher.</span></div>
+      <div data-hf-id="hf-bquy" class="sub clip" data-start="42.8" data-duration="3.0" data-track-index="5"><span data-hf-id="hf-h05k" id="u18">Dan adegan akhirnya… tanpa spoiler,</span></div>
+      <div data-hf-id="hf-5reg" class="sub clip" data-start="45.8" data-duration="2.0" data-track-index="5"><span data-hf-id="hf-4m9w" id="u19">kamu bakal <em data-hf-id="hf-prh9">lupa bernapas.</em></span></div>
+      <div data-hf-id="hf-k4wo" class="sub clip" data-start="48.2" data-duration="1.4" data-track-index="5"><span data-hf-id="hf-2e0g" id="u20">Pertanyaannya:</span></div>
+      <div data-hf-id="hf-34ei" class="sub clip" data-start="49.6" data-duration="2.0" data-track-index="5"><span data-hf-id="hf-jsmd" id="u21">apakah kejeniusan layak</span></div>
+      <div data-hf-id="hf-i3o2" class="sub clip" data-start="51.6" data-duration="1.8" data-track-index="5"><span data-hf-id="hf-9j5d" id="u22">dibayar semahal itu?</span></div>
+      <div data-hf-id="hf-t0j4" class="sub clip" data-start="54.2" data-duration="2.0" data-track-index="5"><span data-hf-id="hf-xm41" id="u23">Layak ditonton atau lewati?</span></div>
+      <div data-hf-id="hf-i2vd" class="sub clip" data-start="56.2" data-duration="1.2" data-track-index="5"><span data-hf-id="hf-5l69" id="u24"><em data-hf-id="hf-5m53">Layak ditonton!</em></span></div>
+      <div data-hf-id="hf-d2j0" class="sub clip" data-start="57.4" data-duration="2.5" data-track-index="5"><span data-hf-id="hf-go4j" id="u25">Nobi kasih sembilan dari sepuluh.</span></div>
+
+      <!-- AUDIO · track 8 (bed). VO ditambahkan setelah file Cartesia tersedia. -->
+      <audio data-hf-id="hf-gib9" id="bgm" src="assets/bgm.wav" data-start="0" data-duration="60" data-track-index="8" data-volume="0.55"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const B = 0.4; // 150 BPM
+
+      // subtitle pop-in
+      for (let i = 1; i <= 25; i++) {
+        const id = "#u" + String(i).padStart(2, "0");
+        const el = document.querySelector(id);
+        const start = parseFloat(el.parentElement.dataset.start);
+        tl.fromTo(id, { scale: 0.85, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.22, ease: "back.out(2)" }, start);
+      }
+
+      // S1 hook
+      tl.fromTo("#s1-a", { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power4.out" }, 0.1);
+      tl.fromTo("#s1-b", { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power4.out" }, 0.45);
+      tl.fromTo("#s1-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, 0.8);
+      tl.fromTo("#s1-snare", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.3);
+      for (let k = 0; k < 11; k++) {
+        const t = 0.8 + k * B;
+        const side = k % 2 === 0 ? "#s1-stickL" : "#s1-stickR";
+        tl.fromTo(side, { y: -40, rotation: k % 2 ? 14 : -14 }, { y: 120, rotation: 0, duration: 0.12, ease: "power2.in", transformOrigin: "50% 50%" }, t)
+          .to(side, { y: -40, rotation: k % 2 ? 14 : -14, duration: 0.2, ease: "power2.out" }, t + 0.12)
+          .fromTo("#s1-title", { scale: 1.0 }, { scale: 1.04, duration: 0.08, yoyo: true, repeat: 1, ease: "power1.out" }, t + 0.1);
+      }
+
+      // S2 title
+      tl.fromTo("#s2-brand", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 6.2);
+      tl.fromTo("#s2-clap", { rotation: -28 }, { rotation: 0, duration: 0.35, ease: "bounce.out" }, 6.4);
+      tl.fromTo("#s2-title", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "power4.out" }, 6.8);
+      tl.fromTo("#s2-year", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 7.4);
+      tl.fromTo("#s2-review", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 8.2);
+
+      // S3 duel
+      tl.fromTo("#s3-pa", { x: -1100 }, { x: 0, duration: 0.6, ease: "power4.out" }, 12.1);
+      tl.fromTo("#s3-pb", { x: 1100 }, { x: 0, duration: 0.6, ease: "power4.out" }, 12.4);
+      for (let k = 0; k < 14; k++) {
+        const t = 12.8 + k * B;
+        tl.to(k % 2 ? "#s3-armR" : "#s3-armL", { y: 22, duration: 0.1, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+      }
+      tl.fromTo("#s3-sweat circle", { y: 0, opacity: 1 }, { y: 70, opacity: 0, duration: 0.9, stagger: 0.25, repeat: 3, ease: "power1.in" }, 13);
+      tl.fromTo("#s3-point", { x: 0 }, { x: -50, duration: 0.15, yoyo: true, repeat: 7, ease: "power2.inOut" }, 17.6);
+      tl.fromTo("#s3-cymbal", { x: -260, y: 0, rotation: 0 }, { x: 1120, y: -120, rotation: 720, duration: 1.1, ease: "none" }, 22.6);
+
+      // S4 alasan
+      const bpm = { v: 90 };
+      tl.fromTo("#s4-kit", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 24.2);
+      tl.to(bpm, { v: 240, duration: 13, ease: "power1.in", onUpdate: () => { document.getElementById("s4-bpmv").textContent = Math.round(bpm.v); } }, 24.3);
+      for (let k = 0; k < 33; k++) {
+        const t = 24.8 + k * B;
+        const part = ["#s4-snare", "#s4-hat", "#s4-tom", "#s4-kick", "#s4-crash"][k % 5];
+        tl.fromTo(part, { scale: 1 }, { scale: 1.07, duration: 0.07, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "50% 50%" }, t);
+        tl.fromTo(k % 2 ? "#s4-stickA" : "#s4-stickB", { y: 0 }, { y: 70, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.in" }, t);
+      }
+      [["#s4-c1", 27.2, 31.0], ["#s4-c2", 31.2, 34.6], ["#s4-c3", 34.8, 37.8]].forEach(([id, a]) => {
+        tl.fromTo(id, { x: 1200 }, { x: 0, duration: 0.35, ease: "power4.out" }, a);
+      });
+      tl.to("#s4-c1", { x: -1200, duration: 0.3, ease: "power3.in" }, 30.9);
+      tl.to("#s4-c2", { x: -1200, duration: 0.3, ease: "power3.in" }, 34.5);
+
+      // S5 bukti
+      tl.fromTo("#s5-oscar", { y: -300, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, 38.3);
+      tl.fromTo("#s5-oscar", { rotation: -4 }, { rotation: 4, duration: 1.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 39.0);
+      tl.fromTo("#s5-ribbon", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 39.0);
+      tl.fromTo("#s5-meter", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 42.6);
+      tl.fromTo("#s5-fill", { scaleX: 1 }, { scaleX: 0.06, duration: 4.6, ease: "power2.in" }, 43);
+
+      // S6 dilema
+      tl.fromTo("#s6-q", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(2)" }, 48.2);
+      tl.fromTo("#s6-scale", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 48.5);
+      tl.fromTo("#s6-beam", { rotation: -6, svgOrigin: "450 120" }, { rotation: 6, svgOrigin: "450 120", duration: 2.4, ease: "elastic.out(1,0.4)" }, 49.2);
+      tl.to("#s6-q", { scale: 1.08, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 50.2);
+
+      // S7 verdict
+      tl.fromTo("#s7-q", { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power4.out" }, 54.1);
+      tl.fromTo("#s7-stamp", { scale: 3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, 56.2);
+      tl.fromTo("#s7-stamp", { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, 56.38);
+      tl.fromTo("#s7-rating", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, 57.4);
+      tl.fromTo("#s7-logo", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 58.3);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
