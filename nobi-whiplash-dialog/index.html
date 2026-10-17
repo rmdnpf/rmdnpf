@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nobi Movie Studio — Satu Menit</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;background:#0b0b0f}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:#0b0b0f;font-family:Inter,sans-serif;color:#f4ebd9}
+.scene{position:absolute;inset:0;overflow:hidden}
+.bg-spot{position:absolute;inset:0;background:radial-gradient(ellipse 80% 45% at 50% 28%,rgba(242,169,59,.28),rgba(242,169,59,0) 70%),radial-gradient(ellipse 120% 80% at 50% 110%,rgba(200,16,46,.22),rgba(200,16,46,0) 65%)}
+.abs{position:absolute}.center{left:0;right:0;text-align:center}
+.display{font-family:"League Gothic",sans-serif;text-transform:uppercase;line-height:.92;letter-spacing:.01em}
+.tag{font-weight:900;font-size:34px;letter-spacing:.18em;text-transform:uppercase;color:#f2a93b}
+.card{position:absolute;left:60px;width:960px;height:560px;background:#f4ebd9;border-radius:28px;overflow:hidden}
+.card .bar{position:absolute;left:0;right:0;bottom:0;height:16px}
+.name{position:absolute;left:24px;top:22px;padding:6px 22px;background:#111;color:#f4ebd9;font-family:"League Gothic",sans-serif;font-size:60px;text-transform:uppercase;border-radius:6px}
+.sub{position:absolute;left:60px;right:60px;top:1330px;height:190px;display:flex;align-items:center;justify-content:center}
+.sub span{display:inline-block;padding:14px 30px;border-radius:18px;background:rgba(11,11,15,.82);color:#f4ebd9;text-align:center;font-weight:900;font-size:58px;line-height:1.18;letter-spacing:-.01em;max-width:960px}</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26.95" data-width="1080" data-height="1920">
+      <section id="s-title" class="scene clip" data-start="0" data-duration="1.6" data-track-index="1">
+        <div class="bg-spot"></div>
+        <div id="t-brand" class="abs center tag" style="top:760px;">Nobi Movie Studio · Whiplash</div>
+        <div id="t-title" class="abs center display" style="top:830px;font-size:300px;">Satu<br>menit</div>
+      </section>
+      <section id="s-dialog" class="scene clip" data-start="1.6" data-duration="21.55" data-track-index="1">
+        <div class="bg-spot"></div>
+        <div id="card-f" class="card" style="top:110px;"><svg width="960" height="560" viewBox="0 0 960 560">
+  <g stroke="#111" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M232 560 Q244 424 360 396 L600 396 Q716 424 728 560Z" fill="#111"/>
+    <path d="M452 340 L508 340 L508 402 Q480 430 452 402Z" fill="#fff"/>
+    <path d="M436 396 L480 448 L524 396Z" fill="#fff"/>
+    <g id="f-head">
+      <ellipse cx="380" cy="256" rx="18" ry="28" fill="#fff"/><ellipse cx="580" cy="256" rx="18" ry="28" fill="#fff"/>
+      <ellipse cx="480" cy="246" rx="100" ry="112" fill="#fff"/>
+      <path d="M430 160 Q480 148 530 160 M440 178 Q480 168 520 178" fill="none" stroke-width="4"/>
+      <path d="M402 214 L468 238 M558 214 L492 238" fill="none" stroke-width="14"/>
+      <circle cx="440" cy="262" r="15" fill="#fff"/><circle cx="520" cy="262" r="15" fill="#fff"/>
+      <circle cx="442" cy="264" r="7" fill="#111" stroke="none"/><circle cx="522" cy="264" r="7" fill="#111" stroke="none"/>
+      <path d="M480 274 L468 306 Q480 313 494 306" fill="none" stroke-width="5"/>
+      <g id="f-m0"><path d="M452 334 L508 334" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/></g><g id="f-m1" opacity="0"><ellipse cx="480" cy="334" rx="26" ry="9" fill="#111"/></g><g id="f-m2" opacity="0"><path d="M452 322 Q480 316 508 322 Q506 354 480 356 Q454 354 452 322Z" fill="#111"/><ellipse cx="480" cy="347" rx="12" ry="6" fill="#c8102e"/></g>
+    </g>
+  </g></svg><div class="name">Fletcher</div><div class="bar" style="background:#c8102e"></div></div>
+        <div id="card-a" class="card" style="top:700px;"><svg width="960" height="560" viewBox="0 0 960 560">
+  <g stroke="#111" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M232 560 Q244 424 360 396 L600 396 Q716 424 728 560Z" fill="#fff"/>
+    <path d="M416 396 Q480 446 544 396" fill="none"/>
+    <path d="M452 340 L508 340 L508 402 Q480 424 452 402Z" fill="#fff"/>
+    <g id="a-head">
+      <ellipse cx="380" cy="256" rx="18" ry="28" fill="#fff"/><ellipse cx="580" cy="256" rx="18" ry="28" fill="#fff"/>
+      <ellipse cx="480" cy="246" rx="100" ry="112" fill="#fff"/>
+      <path d="M374 232 Q368 120 480 112 Q592 120 586 232 Q574 172 520 162 Q490 150 462 160 Q384 176 374 232Z" fill="#111"/>
+      <path d="M410 222 L462 232 M550 222 L498 232" fill="none" stroke-width="9"/>
+      <circle cx="440" cy="258" r="19" fill="#fff"/><circle cx="520" cy="258" r="19" fill="#fff"/>
+      <circle cx="444" cy="260" r="8" fill="#111" stroke="none"/><circle cx="524" cy="260" r="8" fill="#111" stroke="none"/>
+      <path d="M480 270 L470 304 Q480 311 492 304" fill="none" stroke-width="5"/>
+      <g id="a-m0"><path d="M450 328 Q480 342 510 328" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/></g><g id="a-m1" opacity="0"><ellipse cx="480" cy="334" rx="20" ry="9" fill="#111"/></g><g id="a-m2" opacity="0"><path d="M452 322 Q480 316 508 322 Q506 354 480 356 Q454 354 452 322Z" fill="#111"/><ellipse cx="480" cy="347" rx="12" ry="6" fill="#c8102e"/></g>
+      <path d="M392 170 q-10 18 0 24 q10 -5 0 -24z" fill="#9ad6ff" stroke-width="3"/>
+    </g>
+  </g></svg><div class="name">Andrew</div><div class="bar" style="background:#f2a93b"></div></div>
+      </section>
+      <section id="s-end" class="scene clip" data-start="23.15" data-duration="3.8" data-track-index="1">
+        <div class="abs" style="inset:0;background:#f4ebd9;"></div>
+        <div id="e-q" class="abs center display" style="top:260px;font-size:200px;color:#111;padding:0 60px;">Whiplash<br>(2014)</div>
+        <div id="e-stamp" class="abs display center" style="top:820px;font-size:190px;color:#c8102e;border:14px solid #c8102e;margin:0 90px;padding:26px 0;left:0;right:0;transform:rotate(-6deg);"><div>Layak</div><div>ditonton ✔</div></div>
+        <div id="e-logo" class="abs center tag" style="top:1400px;color:#111;">Nobi Movie Studio</div>
+      </section>
+      <div class="sub clip" id="sub01" data-start="1.9" data-duration="2.55" data-track-index="5"><span id="u01">Kamu terlambat satu menit.</span></div>
+      <div class="sub clip" id="sub02" data-start="4.75" data-duration="1.25" data-track-index="5"><span id="u02">Maaf, Pak.</span></div>
+      <div class="sub clip" id="sub03" data-start="6" data-duration="0.9" data-track-index="5"><span id="u03">Macet.</span></div>
+      <div class="sub clip" id="sub04" data-start="7.2" data-duration="2.49" data-track-index="5"><span id="u04">Di panggung, tidak ada macet.</span></div>
+      <div class="sub clip" id="sub05" data-start="9.69" data-duration="3.66" data-track-index="5"><span id="u05">Hanya ada yang siap, dan yang tersingkir.</span></div>
+      <div class="sub clip" id="sub06" data-start="13.65" data-duration="1.41" data-track-index="5"><span id="u06">Saya siap, Pak.</span></div>
+      <div class="sub clip" id="sub07" data-start="15.06" data-duration="1.74" data-track-index="5"><span id="u07">Hitung dari awal.</span></div>
+      <div class="sub clip" id="sub08" data-start="17.1" data-duration="0.53" data-track-index="5"><span id="u08">Lagi.</span></div>
+      <div class="sub clip" id="sub09" data-start="17.63" data-duration="2.82" data-track-index="5"><span id="u09">Sampai tanganmu berdarah.</span></div>
+      <div class="sub clip" id="sub10" data-start="20.75" data-duration="1.95" data-track-index="5"><span id="u10">Satu ronde lagi.</span></div>
+      
+    </div>
+    <script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const L = [{"who":"F","start":1.9,"end":4.3,"mouth":[[2,1],[2.11,2],[2.22,1],[2.33,0],[2.44,2],[2.55,1],[2.66,2],[2.77,0],[2.88,1],[2.99,2],[3.1,1],[3.21,0],[3.32,2],[3.43,1],[3.54,2],[3.65,0],[3.76,1],[3.87,2],[3.98,1],[4.09,0]]},{"who":"A","start":4.75,"end":6.75,"mouth":[[4.85,1],[4.96,2],[5.07,1],[5.18,0],[5.29,2],[5.4,1],[5.51,2],[5.62,0],[5.73,1],[5.84,2],[5.95,1],[6.06,0],[6.17,2],[6.28,1],[6.39,2],[6.5,0],[6.61,1]]},{"who":"F","start":7.2,"end":13.2,"mouth":[[7.3,1],[7.41,2],[7.52,1],[7.63,0],[7.74,2],[7.85,1],[7.96,2],[8.07,0],[8.18,1],[8.29,2],[8.4,1],[8.51,0],[8.62,2],[8.73,1],[8.84,2],[8.95,0],[9.06,1],[9.17,2],[9.28,1],[9.39,0],[9.5,2],[9.61,1],[9.72,2],[9.83,0],[9.94,1],[10.05,2],[10.16,1],[10.27,0],[10.38,2],[10.49,1],[10.6,2],[10.71,0],[10.82,1],[10.93,2],[11.04,1],[11.15,0],[11.26,2],[11.37,1],[11.48,2],[11.59,0],[11.7,1],[11.81,2],[11.92,1],[12.03,0],[12.14,2],[12.25,1],[12.36,2],[12.47,0],[12.58,1],[12.69,2],[12.8,1],[12.91,0],[13.02,2]]},{"who":"A","start":13.65,"end":16.65,"mouth":[[13.75,1],[13.86,2],[13.97,1],[14.08,0],[14.19,2],[14.3,1],[14.41,2],[14.52,0],[14.63,1],[14.74,2],[14.85,1],[14.96,0],[15.07,2],[15.18,1],[15.29,2],[15.4,0],[15.51,1],[15.62,2],[15.73,1],[15.84,0],[15.95,2],[16.06,1],[16.17,2],[16.28,0],[16.39,1],[16.5,2]]},{"who":"F","start":17.1,"end":20.3,"mouth":[[17.2,1],[17.31,2],[17.42,1],[17.53,0],[17.64,2],[17.75,1],[17.86,2],[17.97,0],[18.08,1],[18.19,2],[18.3,1],[18.41,0],[18.52,2],[18.63,1],[18.74,2],[18.85,0],[18.96,1],[19.07,2],[19.18,1],[19.29,0],[19.4,2],[19.51,1],[19.62,2],[19.73,0],[19.84,1],[19.95,2],[20.06,1],[20.17,0]]},{"who":"A","start":20.75,"end":22.55,"mouth":[[20.85,1],[20.96,2],[21.07,1],[21.18,0],[21.29,2],[21.4,1],[21.51,2],[21.62,0],[21.73,1],[21.84,2],[21.95,1],[22.06,0],[22.17,2],[22.28,1],[22.39,2]]}];
+const DS = 1.6, DE = 23.15;
+// judul
+tl.fromTo("#t-brand",{opacity:0,y:-30},{opacity:1,y:0,duration:.5,ease:"power3.out"},.1);
+tl.fromTo("#t-title",{scale:1.5,opacity:0},{scale:1,opacity:1,duration:.5,ease:"power4.out"},.3);
+// kartu masuk
+tl.fromTo("#card-f",{x:-1200},{x:0,duration:.55,ease:"power4.out"},DS);
+tl.fromTo("#card-a",{x:1200},{x:0,duration:.55,ease:"power4.out"},DS+.15);
+tl.set("#card-f",{opacity:.62,scale:.96},0); tl.set("#card-a",{opacity:.62,scale:.96},0);
+// subtitle
+document.querySelectorAll(".sub").forEach((el,i)=>{ const id="#u"+String(i+1).padStart(2,"0"); tl.fromTo(id,{scale:.88,opacity:0,y:20},{scale:1,opacity:1,y:0,duration:.2,ease:"back.out(2)"},parseFloat(el.dataset.start)); });
+// speaker, mulut, goyang kepala
+const P = { F: "f", A: "a" };
+L.forEach((l)=>{
+  const p = P[l.who], o = p==="f"?"a":"f";
+  tl.to("#card-"+p,{opacity:1,scale:1,duration:.18,ease:"power2.out"},l.start-.1);
+  tl.to("#card-"+o,{opacity:.62,scale:.96,duration:.18,ease:"power2.out"},l.start-.1);
+  l.mouth.forEach(([t,s])=>{ for(let k=0;k<3;k++) tl.set("#"+p+"-m"+k,{opacity:k===s?1:0},t); });
+  tl.set("#"+p+"-m0",{opacity:1},l.end); tl.set("#"+p+"-m1",{opacity:0},l.end); tl.set("#"+p+"-m2",{opacity:0},l.end);
+  for(let t=l.start;t<l.end-.2;t+=.32) tl.to("#"+p+"-head",{y:-6,duration:.16,yoyo:true,repeat:1,ease:"sine.inOut"},t);
+});
+// end card
+tl.fromTo("#e-q",{y:-60,opacity:0},{y:0,opacity:1,duration:.5,ease:"power4.out"},DE+.1);
+tl.fromTo("#e-stamp",{scale:3,opacity:0},{scale:1,opacity:1,duration:.18,ease:"power4.in"},DE+1.0);
+tl.fromTo("#e-stamp",{x:0},{x:12,duration:.05,yoyo:true,repeat:5},DE+1.18);
+tl.fromTo("#e-logo",{opacity:0},{opacity:1,duration:.6},DE+2.0);
+window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
