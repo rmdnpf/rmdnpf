@@ -126,9 +126,9 @@
             <g stroke="#f4ebd9" stroke-width="22" opacity="0.2"><line x1="480" y1="280" x2="480" y2="-40"/><line x1="480" y1="280" x2="150" y2="-20"/><line x1="480" y1="280" x2="810" y2="-20"/><line x1="480" y1="280" x2="-20" y2="170"/><line x1="480" y1="280" x2="980" y2="170"/></g>
             <g transform="rotate(-18 190 150)"><ellipse cx="190" cy="150" rx="92" ry="15" fill="#0b0b0f"/><ellipse cx="190" cy="146" rx="88" ry="11" fill="none" stroke="#f4ebd9" stroke-width="3"/></g>
             <g fill="#0b0b0f" stroke="#0b0b0f">
-              <path d="M200 528 Q215 360 360 330 L600 330 Q745 360 760 528Z" stroke="none"/>
-              <line x1="310" y1="372" x2="240" y2="528" stroke-width="76" stroke-linecap="round"/>
-              <rect x="438" y="250" width="84" height="94" stroke="none"/>
+              <path d="M268 528 L284 384 Q296 320 372 306 L452 294 L508 294 L588 306 Q664 320 676 384 L692 528Z" stroke="none"/>
+              <line x1="306" y1="372" x2="270" y2="528" stroke-width="62" stroke-linecap="round"/>
+              <path d="M452 258 L508 258 L522 306 L438 306Z" stroke="none"/>
               <g id="s3-fhead">
                 <ellipse cx="410" cy="196" rx="12" ry="22" stroke="none"/><ellipse cx="550" cy="196" rx="12" ry="22" stroke="none"/>
                 <ellipse cx="480" cy="190" rx="70" ry="86" stroke="none"/>
@@ -136,9 +136,9 @@
                 <path d="M440 178 L470 190 M520 178 L490 190" fill="none" stroke="#f4ebd9" stroke-width="8" stroke-linecap="round"/>
                 <path d="M450 248 Q480 242 510 248 Q504 282 480 284 Q456 282 450 248Z" fill="#f4ebd9" stroke="none"/>
               </g>
-              <g id="s3-point" fill="none"><line x1="665" y1="365" x2="748" y2="430" stroke-width="64" stroke-linecap="round"/><line x1="748" y1="430" x2="800" y2="302" stroke-width="34" stroke-linecap="round"/><circle cx="804" cy="282" r="25" fill="#0b0b0f" stroke="none"/><line x1="804" y1="270" x2="804" y2="194" stroke-width="17" stroke-linecap="round"/></g>
+              <g id="s3-point" fill="none"><line x1="655" y1="350" x2="726" y2="420" stroke-width="56" stroke-linecap="round"/><line x1="726" y1="420" x2="772" y2="302" stroke-width="32" stroke-linecap="round"/><circle cx="776" cy="282" r="23" fill="#0b0b0f" stroke="none"/><line x1="776" y1="270" x2="776" y2="198" stroke-width="14" stroke-linecap="round"/></g>
             </g>
-            <path d="M360 332 L600 332" stroke="#f4ebd9" stroke-width="3" opacity="0.6"/>
+            <path d="M296 340 Q312 316 376 308 M584 308 Q648 316 664 340 M262 420 L246 528" stroke="#f4ebd9" stroke-width="3" fill="none" opacity="0.55" stroke-linecap="round"/>
           </svg>
           <div data-hf-id="hf-xqle" class="name">Fletcher</div>
         </div>
@@ -292,7 +292,7 @@
         tl.to(k % 2 ? "#s3-armR" : "#s3-armL", { rotation: k % 2 ? -14 : 14, svgOrigin: k % 2 ? "535 292" : "430 292", duration: 0.1, yoyo: true, repeat: 1, ease: "power1.inOut" }, t0 + 0.8 + k * B);
       }
       tl.fromTo("#s3-sweat path", { y: 0, opacity: 1 }, { y: 70, opacity: 0, duration: 0.9, stagger: 0.25, repeat: 8, ease: "power1.in" }, t0 + 0.9);
-      tl.fromTo("#s3-point", { rotation: 0, svgOrigin: "665 365" }, { rotation: -9, svgOrigin: "665 365", duration: 0.15, yoyo: true, repeat: 15, ease: "power2.inOut" }, t0 + 5.0);
+      tl.fromTo("#s3-point", { rotation: 0, svgOrigin: "655 350" }, { rotation: -9, svgOrigin: "655 350", duration: 0.15, yoyo: true, repeat: 15, ease: "power2.inOut" }, t0 + 5.0);
       tl.fromTo("#s3-fhead", { scale: 1, svgOrigin: "480 340" }, { scale: 1.035, svgOrigin: "480 340", duration: 0.2, yoyo: true, repeat: 15, ease: "sine.inOut" }, t0 + 5.0);
       tl.fromTo("#s3-cymbal", { x: -260, y: 0, rotation: 0 }, { x: 1120, y: -120, rotation: 720, duration: 1.1, ease: "none" }, t0 + 9.0);
 
