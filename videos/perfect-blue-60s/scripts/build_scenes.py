@@ -100,7 +100,9 @@ stage = f'''<svg class="abs" style="left:40px;top:500px" width="1000" height="72
  <rect width="1000" height="700" rx="26" fill="url(#bg4)" stroke="{PAPER}" stroke-width="8"/>
  {beams}
  <ellipse cx="500" cy="520" rx="470" ry="74" fill="{NAVY}" opacity=".55"/>
- {person(250, 520, 1.0, NAVY, PINK, True, .28)}{person(750, 520, 1.0, NAVY, PINK, True, .28)}{person(500, 540, 1.25, NAVY, PAPER, True, 1)}
+ <image href="assets/figures/idol-long.png" x="40" y="130" width="{int(560*484/1416)}" height="560" opacity=".62"/>
+ <image href="assets/figures/idol-twin.png" x="700" y="150" width="{int(540*444/1356)}" height="540" opacity=".62"/>
+ <image href="assets/figures/mima-mic.png" x="300" y="30" width="400" height="600"/>
  {crowd}
  <path d="M0 0 H90 Q60 300 70 700 H0 Z M1000 0 H910 Q940 300 930 700 H1000 Z" fill="{RED}" opacity=".9"/>
 </svg>'''
@@ -139,9 +141,8 @@ sizes = [(960, 1280), (780, 1040), (620, 830), (470, 630), (340, 450)]
 for i, (w, h) in enumerate(sizes):
     col = [BLUE, PINK][i % 2]
     frames += f'<div class="abs nest" style="left:{540-w//2}px;top:{860-h//2}px;width:{w}px;height:{h}px;border:10px solid {col};transform:rotate({[-2,1.5,-1,2.5,-3][i]}deg);background:{[PANEL,NAVY][i%2]}"></div>'
-fig = f'''<svg class="abs" style="left:380px;top:690px" width="320" height="400" viewBox="0 0 320 400">
- <g transform="translate(-28,0)">{person(190, 380, 0.9, PINK+"cc", PINK, False)}</g>
- <g transform="translate(28,0)">{person(130, 380, 0.9, BLUE+"cc", PAPER, False)}</g></svg>'''
+fig = f'''<img class="abs" src="assets/figures/mima-side-blue.png" style="left:380px;top:420px;height:900px;width:auto;opacity:.92">
+<img class="abs" src="assets/figures/mima-stand-pink.png" style="left:250px;top:400px;height:920px;width:auto;opacity:.95">'''
 cracks = [(540, 520)]
 lines = ""
 for k in range(9):
@@ -163,8 +164,7 @@ f6 = f'''
 mirror = f'''<svg class="abs" style="left:190px;top:260px" width="700" height="980" viewBox="0 0 700 980">
  <path d="M30 960 V330 C30 130 160 30 350 30 C540 30 670 130 670 330 V960 Z" fill="{PINK}" stroke="{PAPER}" stroke-width="16"/>
  <path d="M70 940 V334 C70 160 180 72 350 72 C520 72 630 160 630 334 V940 Z" fill="{BLUE}" opacity=".85"/>
- <g transform="translate(0,40)"><path d="M264 480 Q262 372 350 366 Q438 372 436 480 Q438 540 414 584 L286 584 Q262 540 264 480 Z" fill="{NAVY}" stroke="{PAPER}" stroke-width="5"/>{person(350, 930, 2.0, NAVY, PAPER, False)}
- <path d="M282 420 Q350 350 418 420 Q380 396 350 392 Q316 396 282 420Z" fill="{NAVY}" stroke="{PAPER}" stroke-width="4"/></g>
+ <image href="assets/figures/idol-long-pink.png" x="86" y="96" width="{int(860*484/1416)}" height="860"/>
  <path d="M520 120 L610 60 L580 200Z" fill="{PAPER}" fill-opacity=".22"/>
 </svg>'''
 f7 = f'''
