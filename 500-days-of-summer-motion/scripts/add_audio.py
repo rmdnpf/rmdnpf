@@ -14,12 +14,11 @@ def _len(path):
         return w.getnframes() / w.getframerate()
 
 for n, t in vo:
-    lines.append(f'      <audio id="vo{n:02d}" src="assets/vo/{n:02d}.wav" data-start="{t}" data-duration="{round(_len(f"assets/vo/{n:02d}.wav"), 2)}" data-track-index="7" data-volume="1"></audio>')
+    lines.append(f'      <audio id="vo{n:02d}" src="assets/vo/{n:02d}.wav" data-start="{t}" data-duration="{round(_len(f"assets/vo/{n:02d}.wav"), 2)}" data-track-index="7" data-audio-group="voiceover" data-volume="1"></audio>')
 vol = "0.5" if vo else "0.6"
 carve = ""
 if vo:
-    srcs = ",".join(f'&quot;vo{n:02d}&quot;' for n, _ in vo)
-    carve = f' data-fx-carve="{{&quot;enabled&quot;:true,&quot;sources&quot;:[{srcs}],&quot;strength&quot;:0.8}}"'
+    carve = ' data-fx-carve="{&quot;enabled&quot;:true,&quot;sources&quot;:[&quot;voiceover&quot;],&quot;strength&quot;:0.8}"'
 lines.append(f'      <audio id="bgm" src="assets/bgm.wav" data-start="0" data-duration="60" data-track-index="8" data-volume="{vol}"{carve}></audio>')
 def wav_len(path):
     with wave.open(path) as w:
