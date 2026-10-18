@@ -164,7 +164,8 @@ f6 = f'''
 mirror = f'''<svg class="abs" style="left:190px;top:260px" width="700" height="980" viewBox="0 0 700 980">
  <path d="M30 960 V330 C30 130 160 30 350 30 C540 30 670 130 670 330 V960 Z" fill="{PINK}" stroke="{PAPER}" stroke-width="16"/>
  <path d="M70 940 V334 C70 160 180 72 350 72 C520 72 630 160 630 334 V940 Z" fill="{BLUE}" opacity=".85"/>
- <image href="assets/figures/idol-long-pink.png" x="86" y="96" width="{int(860*484/1416)}" height="860"/>
+ <image href="assets/figures/rumi-idol-pink.png" x="56" y="110" width="640" height="850" opacity=".4" preserveAspectRatio="xMidYMax meet"/>
+ <image href="assets/figures/rumi-mgr-paper.png" x="40" y="96" width="620" height="864" preserveAspectRatio="xMidYMax meet"/>
  <path d="M520 120 L610 60 L580 200Z" fill="{PAPER}" fill-opacity=".22"/>
 </svg>'''
 f7 = f'''

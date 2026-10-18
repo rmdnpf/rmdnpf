@@ -60,6 +60,12 @@ for nm, sl in (("idol-long", slice(0, cut)), ("idol-twin", slice(cut, w))):
     aa, ll = aa[y0:y1 + 1, x0:x1 + 1], ll[y0:y1 + 1, x0:x1 + 1]
     save(aa, ll, f"assets/figures/{nm}.png")
     for k in NEED[nm]: save(aa, ll, f"assets/figures/{nm}-{k}.png", *PAL[k])
+for name in ["rumi-mgr", "rumi-idol"]:
+    a, al = cutout(src + name + ".png")
+    ys, xs = np.where(al > 0.05); y0, y1, x0, x1 = ys.min(), ys.max(), xs.min(), xs.max()
+    aa, ll = a[y0:y1 + 1, x0:x1 + 1], al[y0:y1 + 1, x0:x1 + 1]
+    save(aa, ll, f"assets/figures/{name}.png")
+    for k in ("pink", "paper"): save(aa, ll, f"assets/figures/{name}-{k}.png", *({**PAL, "paper": ("#f2f0ff", "#8fa0ff")}[k]))
 for name in ["eye-blue", "eye-red", "mima-stand2"]:
     a, al = cutout(src + name + ".png")
     # rapikan: potong ke kotak isi
