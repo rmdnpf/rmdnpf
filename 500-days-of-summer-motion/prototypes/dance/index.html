@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=1080, height=1920">
+<title>Dance Prototype</title>
+<script src="assets/gsap.min.js"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:#efe3cf;overflow:hidden}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#efe3cf;font-family:"Space Mono",monospace}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.layer{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+#in{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;transform-origin:50% 50%;filter:saturate(1.1) contrast(1.02)}
+.plate{position:absolute}
+.fig{position:absolute;transform-origin:0 0;opacity:0;filter:drop-shadow(5px 0 3px rgba(255,200,110,.55))}
+.pt{position:absolute;left:0;top:0;width:0;height:0}
+.cast{position:absolute;opacity:0;filter:blur(8px)}
+.sil{position:absolute;opacity:0;filter:blur(1.2px)}
+.crowd{position:absolute;width:0;height:0;opacity:0}
+.ground{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(15,12,20,.6),rgba(15,12,20,0) 70%)}
+.bird{position:absolute;opacity:0}
+.fgs{position:absolute;opacity:0;filter:blur(6px)}
+.grade{background:linear-gradient(180deg,rgba(255,205,120,.10),rgba(255,160,80,.10));mix-blend-mode:soft-light}
+.vign{background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 62%,rgba(0,0,0,.42) 100%)}
+.flash{background:#fff7e6;opacity:0}
+.sk{fill:none;stroke:#f4ead8;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+#freeze{position:absolute;left:0;top:0;width:1080px;height:1920px;box-shadow:inset 0 0 0 0 #efe3cf;pointer-events:none}
+#subgrad{position:absolute;left:0;top:1340px;width:1080px;height:580px;background:linear-gradient(180deg,rgba(14,10,8,0),rgba(14,10,8,.72) 70%,rgba(14,10,8,.82))}
+#sub{position:absolute;left:90px;top:1560px;width:900px;text-align:center;color:#f7f0e2;font-size:40px;line-height:1.35;text-shadow:0 2px 6px rgba(0,0,0,.8);opacity:0;min-height:110px}
+</style></head><body>
+<div id="root" data-composition-id="dance" data-width="1080" data-height="1920" data-start="0" data-duration="6.6">
+ <div id="stage" class="clip" data-start="0" data-duration="6.6" data-track-index="0">
+  <div id="in">
+   <div id="bg" class="layer"><div id="bgs" class="layer"><img class="plate" src="assets/new/plate.jpg" style="left:-470px;top:-829px;width:1843px;height:2765px" alt=""><svg id="sketch" style="position:absolute;left:-470px;top:-829px" width="1843" height="2765" viewBox="0 0 1843 2765"><rect id="skfill" x="1035" y="702" width="144" height="882" fill="rgba(63,106,160,.28)" opacity="0"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1584 L1035 702 L1179 702 L1179 1584"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 772 L1179 772"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 842 L1179 842"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 912 L1179 912"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 982 L1179 982"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1052 L1179 1052"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1122 L1179 1122"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1192 L1179 1192"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1262 L1179 1262"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1332 L1179 1332"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1402 L1179 1402"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1472 L1179 1472"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1542 L1179 1542"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1071 702 L1071 1584"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1107 702 L1107 1584"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1143 702 L1143 1584"/><path class="sk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1035 1584 L1179 702"/></svg></div></div>
+   <div id="world" class="layer">
+    <div id="cr0" class="crowd" data-flip="0" style="left:90px;top:1235px"><div class="ground" style="left:-118px;top:-14px;width:236px;height:25px;opacity:.55"></div><img id="cr0-strut" class="sil" src="assets/new/cr0-strut.png" style="left:-197px;top:-533px;width:381px;height:571px" alt=""><img id="cr0-land" class="sil" src="assets/new/cr0-land.png" style="left:-211px;top:-516px;width:381px;height:571px" alt=""><img id="cr0-point" class="sil" src="assets/new/cr0-point.png" style="left:-212px;top:-542px;width:381px;height:571px" alt=""></div><div id="cr1" class="crowd" data-flip="1" style="left:250px;top:1195px"><div class="ground" style="left:-95px;top:-14px;width:190px;height:20px;opacity:.55"></div><img id="cr1-strut" class="sil" src="assets/new/cr1-strut.png" style="left:-159px;top:-430px;width:307px;height:461px" alt=""><img id="cr1-land" class="sil" src="assets/new/cr1-land.png" style="left:-170px;top:-416px;width:307px;height:461px" alt=""><img id="cr1-point" class="sil" src="assets/new/cr1-point.png" style="left:-171px;top:-437px;width:307px;height:461px" alt=""></div><div id="cr2" class="crowd" data-flip="0" style="left:830px;top:1195px"><div class="ground" style="left:-95px;top:-14px;width:190px;height:20px;opacity:.55"></div><img id="cr2-strut" class="sil" src="assets/new/cr2-strut.png" style="left:-159px;top:-430px;width:307px;height:461px" alt=""><img id="cr2-land" class="sil" src="assets/new/cr2-land.png" style="left:-170px;top:-416px;width:307px;height:461px" alt=""><img id="cr2-point" class="sil" src="assets/new/cr2-point.png" style="left:-171px;top:-437px;width:307px;height:461px" alt=""></div><div id="cr3" class="crowd" data-flip="1" style="left:990px;top:1235px"><div class="ground" style="left:-118px;top:-14px;width:236px;height:25px;opacity:.55"></div><img id="cr3-strut" class="sil" src="assets/new/cr3-strut.png" style="left:-197px;top:-533px;width:381px;height:571px" alt=""><img id="cr3-land" class="sil" src="assets/new/cr3-land.png" style="left:-211px;top:-516px;width:381px;height:571px" alt=""><img id="cr3-point" class="sil" src="assets/new/cr3-point.png" style="left:-212px;top:-542px;width:381px;height:571px" alt=""></div><div id="cr4" class="crowd" data-flip="1" style="left:420px;top:1150px"><div class="ground" style="left:-72px;top:-14px;width:144px;height:15px;opacity:.55"></div><img id="cr4-strut" class="sil" src="assets/new/cr4-strut.png" style="left:-121px;top:-327px;width:233px;height:350px" alt=""><img id="cr4-land" class="sil" src="assets/new/cr4-land.png" style="left:-129px;top:-316px;width:233px;height:350px" alt=""><img id="cr4-point" class="sil" src="assets/new/cr4-point.png" style="left:-130px;top:-332px;width:233px;height:350px" alt=""></div><div id="cr5" class="crowd" data-flip="0" style="left:670px;top:1150px"><div class="ground" style="left:-72px;top:-14px;width:144px;height:15px;opacity:.55"></div><img id="cr5-strut" class="sil" src="assets/new/cr5-strut.png" style="left:-121px;top:-327px;width:233px;height:350px" alt=""><img id="cr5-land" class="sil" src="assets/new/cr5-land.png" style="left:-129px;top:-316px;width:233px;height:350px" alt=""><img id="cr5-point" class="sil" src="assets/new/cr5-point.png" style="left:-130px;top:-332px;width:233px;height:350px" alt=""></div>
+    <div id="pt" class="pt" style="left:540px;top:1380px">
+      <div id="dground" class="ground" style="left:-210px;top:-18px;width:420px;height:56px"></div>
+      <div id="dcast" class="pt"><img id="c-strut" class="cast" src="assets/new/c-strut.png" style="left:-317px;top:-860px;width:614px;height:922px;transform-origin:317px 860px;transform:scaleY(-.3) skewX(35deg)" alt=""><img id="c-land" class="cast" src="assets/new/c-land.png" style="left:-340px;top:-833px;width:614px;height:922px;transform-origin:340px 833px;transform:scaleY(-.3) skewX(35deg)" alt=""><img id="c-point" class="cast" src="assets/new/c-point.png" style="left:-342px;top:-874px;width:614px;height:922px;transform-origin:342px 874px;transform:scaleY(-.3) skewX(35deg)" alt=""></div>
+      <div id="dancer" class="pt" style="transform-origin:0 0"><img id="d-strut" class="fig" src="assets/new/strut.png" style="left:-317px;top:-860px;width:614px;height:922px" alt=""><img id="d-jump" class="fig" src="assets/new/jump.png" style="left:-333px;top:-712px;width:614px;height:922px" alt=""><img id="d-land" class="fig" src="assets/new/land.png" style="left:-340px;top:-833px;width:614px;height:922px" alt=""><img id="d-point" class="fig" src="assets/new/point.png" style="left:-342px;top:-874px;width:614px;height:922px" alt=""></div>
+    </div>
+    <div id="birdw" style="position:absolute;left:0;top:0;width:0;height:0"><svg id="bird" class="bird" viewBox="0 0 120 80" width="96" height="64" style="left:-48px;top:-60px"><g><polygon points="30,44 2,34 6,52" fill="#2a5db0"/><ellipse cx="58" cy="44" rx="30" ry="19" fill="#3b7dd8"/><ellipse cx="62" cy="52" rx="20" ry="10" fill="#a9c6e3"/><circle cx="88" cy="32" r="13" fill="#3b7dd8"/><polygon points="99,30 114,34 99,38" fill="#e3a43c"/><circle cx="92" cy="29" r="2.4" fill="#16243a"/><path id="bwing" d="M50 40 Q36 8 78 22 Q70 44 50 44Z" fill="#2a5db0" style="transform-origin:52px 42px"/><path d="M56 62 L54 74 M66 62 L66 74" stroke="#e3a43c" stroke-width="3" stroke-linecap="round"/></g></svg></div>
+   </div>
+   <img id="fgs" class="fgs" src="assets/new/fgs.png" style="left:0;top:0;width:768px;height:1152px" alt="">
+   <div class="layer grade"></div><div class="layer vign"></div><div id="flash" class="layer flash"></div>
+  </div>
+  <div id="freeze"></div>
+  <div id="subgrad"></div><div id="sub"></div>
+ </div>
+ <audio id="vo6" src="assets/vo/06.wav" data-start="0.05" data-duration="6.4" data-track-index="2" data-volume="1.0" data-audio-group="voiceover"></audio>
+ <audio id="bgm" src="assets/bgm.wav" data-start="0" data-duration="6.6" data-track-index="3" data-volume="0.35"></audio>
+ <audio id="sx1" src="assets/sfx/whoosh.wav" data-start="1.75" data-duration="0.7" data-track-index="4" data-volume="0.5"></audio>
+ <audio id="sx2" src="assets/sfx/pop.wav" data-start="2.88" data-duration="0.18" data-track-index="5" data-volume="0.6"></audio>
+ <audio id="sx3" src="assets/sfx/ding.wav" data-start="4.0" data-duration="1.4" data-track-index="6" data-volume="0.5"></audio>
+ <audio id="sx4" src="assets/sfx/whoosh.wav" data-start="4.55" data-duration="0.7" data-track-index="7" data-volume="0.4"></audio>
+</div>
+<script>const CFG={"GX": 540, "GY": 1380, "K": 0.6, "hand": [730, 521], "sc": [0.62, 0.5, 0.5, 0.62, 0.38, 0.38]};
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  var F = 0.92, VC = 540;
+  function camVars(cx, cy, s) {
+    var bs = 1 + (s - 1) * F;                       // latar hampir ikut zoom (lantai tetap menempel pada kaki)
+    return {
+      world: { x: VC - cx * s, y: 960 - cy * s, scale: s },
+      bg: { x: VC - (cx * F + 540 * (1 - F)) * bs, y: 960 - (cy * F + 960 * (1 - F)) * bs, scale: bs }
+    };
+  }
+  function camSet(t, cx, cy, s) { var v = camVars(cx, cy, s); tl.set("#world", v.world, t); tl.set("#bg", v.bg, t); }
+  function camMove(t, dur, cx, cy, s, ease) {
+    var v = camVars(cx, cy, s);
+    tl.to("#world", Object.assign({ duration: dur, ease: ease }, v.world), t);
+    tl.to("#bg", Object.assign({ duration: dur, ease: ease }, v.bg), t);
+  }
+  var c0 = camVars(540, 960, 1); gsap.set("#world", c0.world); gsap.set("#bg", c0.bg);
+  gsap.set("#bgs", { x: 0 });
+  var POSES = ["strut", "jump", "land", "point"], CASTS = ["strut", "land", "point"];
+  function show(t, p) {
+    POSES.forEach(function (q) { tl.set("#d-" + q, { opacity: q === p ? 1 : 0 }, t); });
+    CASTS.forEach(function (q) { tl.set("#c-" + q, { opacity: q === p ? 0.4 : 0 }, t); });
+  }
+  gsap.set("#d-strut", { opacity: 1 }); gsap.set("#c-strut", { opacity: 0.4 });
+
+  // --- penari: 5 fase pose
+  // A (0,2-1,8) langkah percaya diri: pose strut, naik-turun di tempat; latar bergulir (kamera mengikuti)
+  tl.to("#dancer", { y: -10, rotation: 1.2, duration: 0.225, ease: "sine.inOut", yoyo: true, repeat: 6 }, 0.2);
+  tl.to("#bgs", { x: -300, duration: 1.7, ease: "sine.inOut" }, 0.1);
+  // B (1,8-3,3) antisipasi, lompat, mendarat
+  tl.set("#dancer", { y: 0, rotation: 0 }, 1.8);
+  show(1.8, "land");
+  tl.to("#dancer", { scaleY: 0.93, duration: 0.2, ease: "power1.in" }, 1.8);
+  show(2.0, "jump");
+  tl.to("#dancer", { y: -380, scaleY: 1.04, duration: 0.45, ease: "power2.out" }, 2.0);
+  tl.to("#dancer", { y: 0, scaleY: 1, duration: 0.45, ease: "power2.in" }, 2.45);
+  tl.to("#dground", { scaleX: 0.55, opacity: 0.4, duration: 0.45, ease: "power2.out" }, 2.0);
+  tl.to("#dground", { scaleX: 1, opacity: 1, duration: 0.45, ease: "power2.in" }, 2.45);
+  tl.fromTo("#flash", { opacity: 0.25 }, { opacity: 0, duration: 0.25, immediateRender: false }, 2.0);
+  show(2.9, "land");
+  tl.fromTo("#dancer", { scaleY: 0.9 }, { scaleY: 1, duration: 0.4, ease: "elastic.out(1,0.55)", immediateRender: false }, 2.9);
+  tl.fromTo("#flash", { opacity: 0.3 }, { opacity: 0, duration: 0.25, immediateRender: false }, 2.9);
+  // C (3,3-4,3) menunjuk ke langit; burung hinggap
+  show(3.3, "point");
+  tl.to("#dancer", { rotation: 1.2, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.3);
+  // D (4,3-6,1) rangkaian pose pada ketukan
+  show(4.3, "strut");
+  tl.to("#dancer", { y: -10, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.3);
+  show(4.7, "land");
+  tl.fromTo("#dancer", { scaleY: 0.94 }, { scaleY: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, 4.7);
+  show(5.1, "jump");
+  tl.to("#dancer", { y: -150, duration: 0.2, ease: "power2.out" }, 5.1);
+  tl.to("#dancer", { y: 0, duration: 0.2, ease: "power2.in" }, 5.3);
+  show(5.45, "land");
+  tl.fromTo("#dancer", { scaleY: 0.94 }, { scaleY: 1, duration: 0.25, ease: "power2.out", immediateRender: false }, 5.45);
+  show(5.75, "point");
+
+  // --- kerumunan siluet (dari kode): muncul bergantian, menari dengan fase berbeda
+  var starts = [3.2, 3.35, 3.5, 3.65, 3.8, 3.95], seq = ["strut", "land", "point", "land"];
+  for (var i = 0; i < starts.length; i++) {
+    (function (i) {
+      var g = "#cr" + i, el = document.querySelector(g);
+      var imgs = el.querySelectorAll("img");
+      if (el.getAttribute("data-flip") === "1")
+        for (var m = 0; m < imgs.length; m++) gsap.set(imgs[m], { transformOrigin: (-parseFloat(imgs[m].style.left)) + "px 0px", scaleX: -1 });
+      tl.fromTo(g, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, starts[i]);
+      var j = 0;
+      for (var t = starts[i]; t < 6.1; t += 0.45, j++) {
+        var p = seq[(j + i) % seq.length];
+        ["strut", "land", "point"].forEach(function (q) { tl.set("#cr" + i + "-" + q, { opacity: q === p ? 0.5 : 0 }, t); });
+      }
+      tl.to(g, { y: -10, duration: 0.225, ease: "sine.inOut", yoyo: true, repeat: Math.floor((6.0 - starts[i]) / 0.225) - 1 }, starts[i] + 0.3);
+    })(i);
+  }
+  // pejalan di latar depan lewat sebentar (oklusi)
+  tl.fromTo("#fgs", { x: 1240, y: 820, opacity: 0.5, scaleX: -1 }, { x: -700, duration: 1.3, ease: "none", immediateRender: false }, 0.25);
+  tl.set("#fgs", { opacity: 0 }, 1.6);
+
+  // --- burung biru
+  var h = CFG.hand, bx = h[0] - 6, by = h[1] + 20;
+  tl.set("#bird", { x: -140, y: 300, opacity: 0 }, 3.3);
+  tl.set("#bird", { opacity: 1 }, 3.4);
+  tl.to("#bird", { x: bx, duration: 0.55, ease: "power1.inOut" }, 3.4);
+  tl.to("#bird", { y: 240, duration: 0.25, ease: "power1.out" }, 3.4);
+  tl.to("#bird", { y: by, duration: 0.3, ease: "power2.in" }, 3.65);
+  tl.to("#bwing", { scaleY: 0.25, duration: 0.07, ease: "none", yoyo: true, repeat: 7 }, 3.4);
+  tl.to("#bird", { y: by - 8, duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.0);
+  tl.to("#bird", { x: 1300, y: 80, duration: 0.8, ease: "power2.in" }, 4.25);
+  tl.to("#bwing", { scaleY: 0.25, duration: 0.07, ease: "none", yoyo: true, repeat: 9 }, 4.25);
+  tl.set("#bird", { opacity: 0 }, 5.1);
+
+  // --- sketsa arsitektur tergambar di menara lalu terisi warna
+  tl.to("#sketch path", { strokeDashoffset: 0, duration: 0.5, ease: "power1.inOut", stagger: 0.05 }, 5.0);
+  tl.to("#skfill", { opacity: 1, duration: 0.4 }, 5.7);
+
+  // --- kamera: potongan keras tiap bagian, gerak sebagai pengikut penari
+  camSet(0, 540, 960, 1.0);
+  camMove(0.2, 1.6, 540, 960, 1.08, "sine.inOut");                         // A  mengikuti langkah
+  camSet(1.8, 540, 1010, 1.25);                                            // B  lebih dekat untuk lompatan
+  camMove(2.0, 0.45, 540, 880, 1.25, "power2.out");
+  camMove(2.45, 0.5, 540, 1010, 1.25, "power2.in");
+  camSet(3.3, 540, 990, 1.0);                                              // C  lebar: burung dan kerumunan
+  camMove(3.3, 1.3, 540, 960, 1.05, "sine.inOut");
+  camMove(4.6, 1.1, 540, 520, 1.0, "power2.inOut");                        // D  menyapu naik ke gedung
+  camMove(5.7, 0.45, 540, 760, 1.0, "power1.inOut");
+
+  // --- pembekuan seperti foto, lalu memutih ke kertas (menuju adegan berikutnya)
+  tl.fromTo("#flash", { opacity: 0.9 }, { opacity: 0, duration: 0.25, immediateRender: false }, 6.15);
+  tl.to("#in", { scale: 0.94, duration: 0.35, ease: "power2.out" }, 6.2);
+  tl.to("#freeze", { boxShadow: "inset 0 0 0 40px #efe3cf", duration: 0.2 }, 6.2);
+  tl.to("#in", { opacity: 0, duration: 0.2 }, 6.4);
+
+  // --- subtitle: tanpa kotak; mengikuti jeda ucapan VO 06 (+0,05 dtk)
+  var subs = [[0.2, 2.15, "Tapi ada juga tarian di jalan,"], [2.33, 3.9, "lagu-lagu indie,"], [4.16, 6.3, "dan kota Los Angeles yang jadi saksi."]];
+  subs.forEach(function (s) {
+    tl.set("#sub", { opacity: 1, innerHTML: s[2] }, s[0]);
+    tl.set("#sub", { opacity: 0 }, s[1]);
+  });
+  tl.to("#subgrad", { opacity: 0, duration: 0.2 }, 6.3);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["dance"] = tl;
+})();
+</script>
+</body></html>
