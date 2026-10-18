@@ -33,3 +33,15 @@ def cutout(name, tol, const=False, pockets=False):
 print("mark-flying", cutout("mark-flying", 22)); print("omni-standing", cutout("omni-standing", 22)); print("omni-flying", cutout("omni-flying", 22, const=True, pockets=True)); print("guardians-group", cutout("guardians-group", 22, const=True))
 for n in COPY: shutil.copy(SRC + n + ".png", OUT + n + ".png")
 print("ok")
+
+# --- mark-standing2: latar hitam + aura biru -> alpha (aura dibuat samar) ---
+def cutout_black(name_in, name_out, glow_gain=0.35):
+    im = Image.open(SRC + name_in + ".png").convert("RGB"); a = np.array(im).astype(np.float32); h, w, _ = a.shape
+    mx = a.max(2); lab, n = ndi.label(mx < 85)
+    border = np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]])); border = border[border > 0]
+    bg = np.isin(lab, border); glow = np.clip((mx - 14) / (150 - 14), 0, 1) * glow_gain
+    alpha = np.where(bg, glow, 1.0); alpha[bg & (mx < 14)] = 0
+    al = Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
+    out = im.convert("RGBA"); out.putalpha(al)
+    ys, xs = np.where(np.array(al) > 12); out = out.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1)); out.save(OUT + name_out + ".png"); return out.size
+print("mark-standing2", cutout_black("mark-standing-black", "mark-standing2"))

@@ -55,13 +55,20 @@ def tagchip(text, x, y, color=YEL, size=46):
     return f'<div class="abs chip" style="left:{x}px;top:{y}px;border-color:{color};color:{color};font-size:{size}px">{text}</div>'
 def sub(n): return f'<div class="sub"><span>{SUB[n]}</span></div>' if not HAS_VO else ""
 
+
+# dinding bingkai: bukaan bingkai tengah di photo-wall.png (1536x1024) = (653,313)-(915,638); pusatnya diselaraskan ke layar
+WS = 2.44; WCX, WCY = 784, 475.5; WL = round(540 - WCX * WS); WT = round(840 - WCY * WS)
+FX0, FY0 = round(WL + 653 * WS), round(WT + 313 * WS); FW, FH = round(262 * WS), round(325 * WS)
+def wall_framed(extra="", id_=""):
+    return img("photo-wall", f"left:{WL}px;top:{WT}px;width:{round(1536*WS)}px;height:auto;max-width:none;{extra}", id_, "bg")
+def in_frame(inner, id_="", cls=""):
+    return f'<div id="{id_}" class="abs {cls}" style="left:{FX0}px;top:{FY0}px;width:{FW}px;height:{FH}px;overflow:hidden">{inner}</div>'
+
 F = {}
 # 1 Hook
-F[1] = (wide_bg("photo-wall", -980, "filter:brightness(.55) saturate(.9)", "f1-bg") + particles(26) +
-        '<svg id="f1-fam" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><defs><clipPath id="fclip"><rect x="170" y="400" width="740" height="888"/></clipPath></defs>'
-        f'<rect x="144" y="374" width="792" height="940" fill="#0B1230" stroke="{CREAM}" stroke-width="14" rx="6"/></svg>' +
-        img("family-photo", "left:170px;top:400px;width:740px;height:888px;object-fit:cover", "f1-photo") +
-        f'<svg id="f1-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g stroke="{CREAM}" stroke-width="4" fill="none" stroke-linecap="round"><polyline class="crk" points="640,404 610,520 650,610 600,730"/><polyline class="crk" points="610,520 540,560"/></g></svg>' +
+F[1] = (wall_framed("filter:brightness(.7)", "f1-bg") + particles(20) +
+        in_frame('<img id="f1-photo" src="assets/art/family-photo.png" style="width:100%;height:100%;object-fit:cover;display:block">', "f1-fwrap") +
+        f'<svg id="f1-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g stroke="{CREAM}" stroke-width="4" fill="none" stroke-linecap="round"><polyline class="crk" points="{FX0+FW},{FY0} {FX0+FW-70},{FY0+90} {FX0+FW-40},{FY0+170}"/><polyline class="crk" points="{FX0+FW-70},{FY0+90} {FX0+FW-150},{FY0+110}"/></g></svg>' +
         '<div id="f1-warn" class="abs warn">⚠ SPOILER</div>' + alt(.03, "0 M", pid="f1-alt") + sub(1))
 # 2 Judul
 F[2] = (wide_bg("photo-wall", -900, "filter:brightness(.8)", "f2-bg") + particles(24) +
@@ -79,18 +86,18 @@ F[4] = (tall_bg("sky-day", "", "f4-bg") +
         alt(.4, "2.000 M", pid="f4-alt") + sub(4))
 # 5 Guardians tewas
 F[5] = (wide_bg("city-wreck", -900, "filter:brightness(.8)", "f5-bg") + '<div id="f5-red" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 80%,#B3202A66,transparent 70%)"></div>' +
-        img("guardians-group", "left:-60px;top:760px;width:1200px;height:auto;filter:brightness(.7) saturate(.8)", "f5-guard") +
-        img("omni-standing", "left:250px;top:90px;height:880px;width:auto;filter:drop-shadow(0 0 40px #B3202A)", "f5-omni") + particles(30, "#f25a4a", 200, 1400, .7) +
+        img("guardians-group", "left:-90px;top:640px;width:1260px;height:auto;filter:brightness(.45) saturate(.7);transform:rotate(-7deg)", "f5-guard") +
+        img("omni-standing", "left:150px;top:470px;height:1080px;width:auto;filter:drop-shadow(0 0 40px #B3202A)", "f5-omni") + particles(30, "#f25a4a", 200, 1400, .7) +
         alt(.5, "—", RED, "f5-alt") + sub(5))
 # 6 Foto pecah
-F[6] = (wide_bg("photo-wall", -900, "filter:brightness(.45)", "f6-bg") +
-        f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><rect x="144" y="374" width="792" height="940" fill="#0B1230" stroke="{CREAM}" stroke-width="14" rx="6"/></svg>' +
-        img("family-photo", "left:170px;top:400px;width:740px;height:888px;object-fit:cover", "f6-photo") +
-        '<div id="f6-dark" class="abs" style="left:170px;top:400px;width:740px;height:888px;background:linear-gradient(90deg,transparent 35%,#0B1230e8 80%)"></div>' +
-        f'<svg id="f6-cracks" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(600, 760, 10, 40, 560, 6, CREAM, 5)}</g>'
-        + "".join(f'<polygon class="shard" points="{x},{y} {x+70},{y+28} {x+22},{y+88}" fill="{CREAM}" fill-opacity=".16" stroke="{CREAM}" stroke-width="3"/>' for x, y in [(210, 1340), (780, 1380), (330, 330), (900, 1250), (120, 760)]) + '</svg>' +
+LEFT = "polygon(0 0,56% 0,61% 18%,54% 40%,61% 66%,55% 100%,0 100%)"; RIGHT = "polygon(56% 0,100% 0,100% 100%,55% 100%,61% 66%,54% 40%,61% 18%)"
+F[6] = (wall_framed("filter:brightness(.5)", "f6-bg") +
+        in_frame('<img id="f6-left" class="abs" src="assets/art/family-photo.png" style="left:0;top:0;width:100%;height:100%;object-fit:cover;clip-path:' + LEFT + '">', "f6-fwrapL") +
+        f'<div id="f6-fwrapR" class="abs" style="left:{FX0}px;top:{FY0}px;width:{FW}px;height:{FH}px"><img id="f6-right" class="abs" src="assets/art/family-photo.png" style="left:34px;top:-18px;width:100%;height:100%;object-fit:cover;clip-path:{RIGHT};filter:brightness(.35) saturate(.7)"></div>' +
+        f'<svg id="f6-cracks" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(FX0 + round(FW*.58), FY0 + round(FH*.42), 8, 30, 360, 6, CREAM, 5)}</g>'
+        + "".join(f'<polygon class="shard" points="{x},{y} {x+60},{y+24} {x+18},{y+76}" fill="{CREAM}" fill-opacity=".18" stroke="{CREAM}" stroke-width="3"/>' for x, y in [(FX0+30, FY0+FH+30), (FX0+FW-120, FY0+FH+60), (FX0+200, FY0-60), (FX0+FW+20, FY0+FH-120)]) + '</svg>' +
         alt(.7, "30.000 M", pid="f6-alt") + sub(6))
-# 7 Viltrum
+# 7 Viltrum# 7 Viltrum
 fleet = "".join(f'<path class="ship" d="M{x} {y} L{x+34} {y+64} L{x} {y+46} L{x-34} {y+64} Z" fill="#0B1230" stroke="{RED}" stroke-width="3"/>' for x, y in [(270, 700), (400, 640), (540, 760), (680, 640), (810, 700), (470, 860), (610, 880)])
 F[7] = (tall_bg("space-bg", "", "f7-bg") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="f7-sym" transform="translate(540 380)"><circle r="190" fill="none" stroke="{RED}" stroke-width="10"/><circle r="150" fill="{RED}" fill-opacity=".14" stroke="{RED}" stroke-width="4" stroke-dasharray="14 10"/><path d="M-90 -80 L0 90 L90 -80 L50 -80 L0 20 L-50 -80 Z" fill="{RED}"/></g>{fleet}</svg>' +
@@ -102,12 +109,11 @@ F[8] = (tall_bg("sky-day", "filter:brightness(.8) hue-rotate(10deg)", "f8-bg") +
         f'<svg id="f8-tear" class="abs" style="left:560px;top:760px" width="50" height="80" viewBox="0 0 50 80"><path d="M25 4 C25 4 4 40 4 54 A21 21 0 0 0 46 54 C46 40 25 4 25 4Z" fill="#9fb4ff" stroke="{CREAM}" stroke-width="3"/></svg>' +
         alt(.6, "ANGKASA", pid="f8-alt") + sub(8))
 # 9 Tafsiran
-F[9] = (wide_bg("photo-wall", -900, "filter:brightness(.55)", "f9-bg") +
-        f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><rect x="124" y="354" width="832" height="980" fill="#0B1230" stroke="{CREAM}" stroke-width="14" rx="6"/></svg>' +
-        img("omni-standing", "left:470px;top:420px;height:880px;width:auto;clip-path:inset(0 0 0 0)", "f9-omni") + img("mark-flying", "left:140px;top:560px;height:700px;width:auto;transform:scaleX(-1)", "f9-mark") +
-        f'<svg id="f9-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(520, 800, 7, 30, 420, 12, CREAM, 4)}</g></svg>' +
+F[9] = (wall_framed("filter:brightness(.55)", "f9-bg") +
+        in_frame('<img id="f9-omni" class="abs" src="assets/art/omni-standing.png" style="left:' + str(round(FW*0.42)) + 'px;top:40px;height:' + str(round(FH*0.95)) + 'px;width:auto"><img id="f9-mark" class="abs" src="assets/art/mark-standing2.png" style="left:-40px;top:150px;height:' + str(round(FH*0.78)) + 'px;width:auto">', "f9-fwrap") +
+        f'<svg id="f9-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(FX0 + round(FW*.46), FY0 + round(FH*.5), 5, 20, 260, 12, CREAM, 4)}</g></svg>' +
         '<div class="abs theory"><span>TAFSIRAN</span></div><div class="abs tframe"></div>' + sub(9))
-# 10 Penutup
+# 10 Penutup# 10 Penutup
 F[10] = (tall_bg("mark-standing", "filter:brightness(.7);top:250px", "f10-bg") +
          f'<div id="f10-title" class="abs center disp" style="top:90px;font-size:190px;color:{YEL};text-shadow:0 6px 40px #000">SIAPA DIRIMU?</div>' + alt(.14, "100 M", pid="f10-alt") +
          '<div class="abs theory" style="top:1100px;opacity:0"><span>TAFSIRAN</span></div>' + sub(10))
