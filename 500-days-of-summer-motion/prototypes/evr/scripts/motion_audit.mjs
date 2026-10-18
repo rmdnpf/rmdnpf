@@ -22,8 +22,8 @@ const rows = await page.evaluate(({ FPS, N }) => {
     for (const k of ["L", "R"]) {
       const w = document.getElementById(k + "-world");
       r[k + "w"] = [g(w, "scaleX"), g(w, "scaleY"), g(w, "x"), g(w, "y")];
-      r[k + "bg"] = [g(document.getElementById(k + "-bg"), "scaleX"), g(document.getElementById(k + "-bg"), "x")];
-      for (const n of ["tom", "sum-lean", "sum-twirl"]) {
+      
+      for (const n of ["tom", "sum", "hug"]) {
         const el = document.getElementById(k + "-" + n);
         // posisi kaki dalam koordinat dunia: tengah-bawah elemen + translasi GSAP (pivot di kaki, rotasi tidak menggeser kaki)
         r[k + n] = { op: +getComputedStyle(el).opacity, fx: el.offsetLeft + el.offsetWidth / 2 + g(el, "x"), fy: el.offsetTop + el.offsetHeight + g(el, "y"), rot: g(el, "rotation") };
@@ -34,7 +34,7 @@ const rows = await page.evaluate(({ FPS, N }) => {
   return out;
 }, { FPS, N });
 await browser.close();
-const cuts = [6, 57, 117, 177, 225]; // frame potongan keras (0.2,1.9,3.9,5.9,7.5 s)
+const cuts = [57, 117, 177, 225]; // frame potongan keras (0.2,1.9,3.9,5.9,7.5 s)
 let fail = [], report = [];
 // 1) kamera sama di dua panel (relatif terhadap pusat tampilan; panel R sebelum 9.0 s bergeser +540 px)
 let maxCam = 0;
@@ -63,7 +63,7 @@ report.push(`jendela statis terpanjang: ${(maxStill / FPS).toFixed(2)} s (batas 
 // 4) kaki Summer/Tom berdiri: drift kaki dalam ruang dunia per 0.5 s di luar potongan/busur
 function world(r, k, n) { return rows.length && r[k + n].fx; }
 const drift = [];
-for (const k of ["L", "R"]) for (const n of ["tom", "sum-lean", "sum-twirl"]) {
+for (const k of ["L", "R"]) for (const n of ["tom", "sum", "hug"]) {
   let worst = 0, at = 0;
   for (let i = 15; i < rows.length - 15; i++) {
     const a = rows[i], b = rows[i + 15];
@@ -77,4 +77,4 @@ for (const k of ["L", "R"]) for (const n of ["tom", "sum-lean", "sum-twirl"]) {
 }
 for (const [id, d, t] of drift) report.push(`drift kaki ${id}: ${d.toFixed(1)} px dunia/0.5 s (maks, mulai t=${t.toFixed(2)}) ${d <= 4 ? "ok" : "BERGERAK (dikomentari di README: langkah/busur disengaja)"}`);
 console.log(report.join("\n"));
-if (process.argv.includes("--dump")) console.log(JSON.stringify(rows.filter((_, i) => i % 15 === 0).map((r) => ({ t: r.t, cam: r.Lw, tom: r.Ltom, lean: r.Llean, R: r.Rw }))));
+if (process.argv.includes("--dump")) console.log(JSON.stringify(rows.filter((_, i) => i % 15 === 0).map((r) => ({ t: r.t, cam: r.Lw, tom: r.Ltom, lean: r.Lsum, R: r.Rw }))));

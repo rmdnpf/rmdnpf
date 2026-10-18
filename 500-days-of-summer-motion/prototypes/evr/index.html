@@ -1,136 +1,82 @@
 <!doctype html>
 <html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=1080, height=1920">
-<title>EVR Prototype</title>
+<title>EVR Prototype v2</title>
 <script src="assets/gsap.min.js"></script>
-<style>@font-face{font-family:"Space Mono";src:local("Space Mono")}
-*{margin:0;padding:0;box-sizing:border-box}
+<style>*{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;background:#111;overflow:hidden}
 #root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#111;font-family:"Space Mono",monospace}
 #stage{position:absolute;left:0;top:0;width:1080px;height:1920px}
 .panel{position:absolute;top:0;height:1920px;width:540px;overflow:hidden}
 #L{left:0}#R{left:0;width:1080px;clip-path:inset(0 0 0 540px)}
 .layer{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
-.world{transform-origin:0 0}
-.warm{--wall1:#f3c88a;--wall2:#c9793a;--sky1:#f7b46a;--sky2:#6b3a52;--floor:#6d3f28;--sk:#3a2230;--rim:rgba(255,196,110,.9)}
-.cool{--wall1:#b9b3ab;--wall2:#7d776f;--sky1:#c9ccd0;--sky2:#8d939b;--floor:#55524e;--sk:#6b7078;--rim:rgba(255,214,160,.55)}
-.wall{position:absolute;left:0;top:0;width:1080px;height:1500px;background:linear-gradient(180deg,var(--wall1),var(--wall2))}
-.door{position:absolute;left:250px;top:430px;width:360px;height:1070px;background:linear-gradient(180deg,var(--sky1),var(--sky2));border:18px solid #2a211c;border-bottom:0}
-.sky{position:absolute;left:640px;top:0;width:440px;height:1500px;background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 70%)}
-.skyline{position:absolute;left:640px;top:1020px;width:440px;height:480px;background:
- linear-gradient(var(--sk),var(--sk)) 20px 140px/70px 340px no-repeat,
- linear-gradient(var(--sk),var(--sk)) 110px 60px/60px 420px no-repeat,
- linear-gradient(var(--sk),var(--sk)) 190px 200px/90px 280px no-repeat,
- linear-gradient(var(--sk),var(--sk)) 300px 100px/70px 380px no-repeat,
- linear-gradient(var(--sk),var(--sk)) 380px 220px/60px 260px no-repeat}
-.rail{position:absolute;left:640px;top:1300px;width:440px;height:16px;background:#2a211c;box-shadow:0 160px 0 -6px rgba(42,33,28,.6)}
-.floor{position:absolute;left:0;top:1500px;width:1080px;height:420px;background:linear-gradient(180deg,var(--floor),#1d1511)}
-.shaft{position:absolute;top:0;width:150px;height:1500px;transform-origin:50% 0;opacity:.0}
-.warm .shaft{background:linear-gradient(180deg,rgba(255,226,170,.55),rgba(255,226,170,0));opacity:1;mix-blend-mode:screen}
-.cool .shaft{background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0));opacity:1}
-.s1{left:640px;transform:skewX(-14deg)}.s2{left:820px;transform:skewX(-14deg)}
-.bulb{position:absolute;width:14px;height:14px;border-radius:50%;background:#ffe9b0;box-shadow:0 0 18px 6px rgba(255,214,130,.7)}
-.cool .bulb{background:#cfc7b8;box-shadow:none}
-.guest{position:absolute;border-radius:60px 60px 0 0;background:rgba(40,24,30,.75)}
-.cool .guest{background:rgba(70,72,78,.6)}
-.fig{position:absolute;transform-origin:50% 100%;filter:drop-shadow(8px 0 0 var(--rim))}
-.warm .fig{filter:drop-shadow(9px 0 3px rgba(255,190,100,.85)) drop-shadow(0 0 22px rgba(255,200,120,.35))}
-.dsh{position:absolute;filter:brightness(0) blur(7px);opacity:0;transform-origin:50% 100%;transform:skewX(-8deg) scaleX(1.5)}
-.cshadow{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.55),rgba(0,0,0,0) 70%)}
-.plant{position:absolute;left:230px;top:1180px;width:150px;height:760px;border-radius:70px 90px 0 0;background:linear-gradient(90deg,#1a1d12,#2a3320);opacity:.9}
-.hand{position:absolute;opacity:0;transform-origin:50% 100%}
-.ring,.glint{opacity:0}
+.plate,.handimg,.fgp,.fig,.cast{position:absolute}
+.fig{transform-origin:50% 100%}
+.hug{opacity:0}
+.shg{opacity:1}
+.shg:nth-of-type(n){}
+.ct{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(20,10,5,.9),rgba(20,10,5,0) 72%)}
+.cast{transform-origin:50% 100%;transform:scaleY(-.3) skewX(35deg);filter:brightness(0) blur(7px);opacity:.4}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(255,214,140,.55),rgba(255,190,100,0) 68%);mix-blend-mode:screen;opacity:.0}
+.handw{opacity:0}
+.glint{position:absolute;opacity:0}
 .bokehs{pointer-events:none}
-.bk{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,225,150,.55),rgba(255,200,110,.0) 70%);mix-blend-mode:screen}
+.bk{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,225,150,.5),rgba(255,200,110,0) 70%);mix-blend-mode:screen}
 .panel .grade{left:-400px;width:1900px}
-.warm .grade{background:linear-gradient(180deg,rgba(255,170,70,.28),rgba(255,120,60,.12));mix-blend-mode:soft-light}
-.cool .grade{background:linear-gradient(180deg,rgba(120,130,150,.30),rgba(120,130,150,.30))}
-.vign{width:540px;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
-.label{position:absolute;left:0;top:70px;width:540px;text-align:center;color:#f4ead8;font-size:26px;letter-spacing:6px;text-shadow:0 2px 8px rgba(0,0,0,.6);opacity:0}
+.warm #L-in,#L-in{filter:saturate(1.12) contrast(1.03)}
+#R-in{filter:saturate(.5) brightness(.94) contrast(.96)}
+.warm .grade{background:linear-gradient(180deg,rgba(255,170,70,.16),rgba(255,120,60,.10));mix-blend-mode:soft-light}
+.cool .grade{background:linear-gradient(180deg,rgba(110,128,158,.30),rgba(110,128,158,.26))}
+.flash{background:rgba(255,236,190,1);opacity:0;mix-blend-mode:screen;left:-400px;width:1900px}
+.vign{width:540px;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 58%,rgba(0,0,0,.5) 100%)}
+.label{position:absolute;left:0;top:70px;width:540px;text-align:center;color:#f4ead8;font-size:26px;letter-spacing:6px;text-shadow:0 2px 8px rgba(0,0,0,.6);opacity:0;z-index:3}
+#L .vign,#L .label{left:0}#R .vign,#R .label{left:540px}
 #split{position:absolute;left:539px;top:960px;width:2px;height:0;background:#f4ead8;opacity:.9;transform:translateY(-50%)}
+#topgrad{position:absolute;left:0;top:0;width:1080px;height:260px;background:linear-gradient(180deg,rgba(14,10,8,.7),rgba(14,10,8,0))}
 #subgrad{position:absolute;left:0;top:1340px;width:1080px;height:580px;background:linear-gradient(180deg,rgba(14,10,8,0),rgba(14,10,8,.72) 70%,rgba(14,10,8,.82))}
 #sub{position:absolute;left:90px;top:1560px;width:900px;text-align:center;color:#f7f0e2;font-size:40px;line-height:1.35;text-shadow:0 2px 6px rgba(0,0,0,.8);opacity:0;min-height:110px}
-#topgrad{position:absolute;left:0;top:0;width:1080px;height:260px;background:linear-gradient(180deg,rgba(14,10,8,.7),rgba(14,10,8,0))}
-.label{z-index:3}
-#L .vign,#L .label{left:0}#R .vign,#R .label{left:540px}
+.ceil{position:absolute;left:-600px;top:-1100px;width:2400px;height:1110px;background:rgb(148,110,81)}
+.glint{mix-blend-mode:screen}
 </style></head><body>
 <div id="root" data-composition-id="evr" data-width="1080" data-height="1920" data-start="0" data-duration="9.5">
  <div id="stage" class="clip" data-start="0" data-duration="9.5" data-track-index="0">
 
   <div id="L" class="panel warm">
    <div id="L-in" class="layer">
-    <div id="L-bg" class="layer bg">
-      <div class="wall"></div><div class="door"></div><div class="sky"></div>
-      <div class="skyline"></div><div class="rail"></div>
-      <div class="floor"></div>
-      <div class="shaft s1"></div><div class="shaft s2"></div>
-      <i class="bulb" style="left:260px;top:344px"></i><i class="bulb" style="left:308px;top:349px"></i><i class="bulb" style="left:356px;top:354px"></i><i class="bulb" style="left:404px;top:357px"></i><i class="bulb" style="left:452px;top:359px"></i><i class="bulb" style="left:500px;top:360px"></i><i class="bulb" style="left:548px;top:360px"></i><i class="bulb" style="left:596px;top:360px"></i><i class="bulb" style="left:644px;top:358px"></i><i class="bulb" style="left:692px;top:356px"></i><i class="bulb" style="left:740px;top:352px"></i><i class="bulb" style="left:788px;top:348px"></i><i class="bulb" style="left:836px;top:342px"></i>
-      <div id="L-guests" class="layer"><div class="guest" style="left:360px;top:900px;width:120px;height:600px"></div><div class="guest" style="left:500px;top:860px;width:110px;height:640px"></div><div class="guest" style="left:850px;top:930px;width:130px;height:570px"></div><div class="guest" style="left:960px;top:890px;width:120px;height:610px"></div><div class="guest" style="left:300px;top:950px;width:100px;height:550px"></div></div>
-      <img id="L-dance-a" class="fig dsh" src="assets/fig/L-dance-a.png" style="left:117px;top:810px;width:336px;height:690px" alt=""><img id="L-dance-b" class="fig dsh" src="assets/fig/L-dance-b.png" style="left:168px;top:700px;width:235px;height:800px" alt="">
+    <div id="L-bg" class="layer"><div class="ceil"></div><img class="plate" src="assets/new/L-bg.jpg" style="left:-100px;top:0;width:1280px;height:1920px" alt=""></div>
+    <div id="L-world" class="layer">
+      <div id="L-glow" class="glow" style="left:620px;top:206px;width:520px;height:1034px"></div>
+      <div id="L-shg-tom" class="shg"><div class="ct" style="left:535px;top:1138px;width:171px;height:44px"></div><img class="cast" src="assets/new/L-tom-sh.png" style="left:505px;top:220px;width:276px;height:940px" alt=""></div><div id="L-shg-sum" class="shg"><div class="ct" style="left:791px;top:1138px;width:179px;height:44px"></div><img class="cast" src="assets/new/L-sum-sh.png" style="left:750px;top:286px;width:288px;height:874px" alt=""></div><div id="L-shg-hug" class="shg"><div class="ct" style="left:491px;top:1138px;width:298px;height:44px"></div><img class="cast" src="assets/new/L-hug-sh.png" style="left:561px;top:220px;width:481px;height:940px" alt=""></div><img id="L-tom" class="fig tom" src="assets/new/L-tom.png" style="left:505px;top:220px;width:276px;height:940px;" alt=""><img id="L-sum" class="fig sum" src="assets/new/L-sum.png" style="left:750px;top:286px;width:288px;height:874px;" alt=""><img id="L-hug" class="fig hug" src="assets/new/L-hug.png" style="left:561px;top:220px;width:481px;height:940px;" alt="">
     </div>
-    <div id="L-world" class="layer world">
-      <div id="L-shT" class="cshadow" style="left:290px;top:1474px;width:240px;height:48px"></div>
-      <div id="L-shS" class="cshadow" style="left:560px;top:1476px;width:220px;height:44px"></div>
-      <img id="L-tom" class="fig tom" src="assets/fig/L-tom.png" style="left:293px;top:700px;width:235px;height:800px" alt=""><img id="L-sum-lean" class="fig sum" src="assets/fig/L-sum-lean.png" style="left:546px;top:755px;width:248px;height:745px" alt=""><img id="L-sum-twirl" class="fig sum" src="assets/fig/L-sum-twirl.png" style="left:444px;top:735px;width:452px;height:765px" alt="">
-      <div id="L-fg" class="layer"><div class="plant"></div></div>
-      <svg id="L-hand" class="hand" viewBox="0 0 400 520" width="480" height="624" style="left:300px;top:648px">
-        <defs><linearGradient id="L-sk" x1="0" x2="1"><stop offset="0" stop-color="#f0c9a4"/><stop offset="1" stop-color="#d9a77c"/></linearGradient></defs>
-        <path d="M0 520 L40 300 Q60 230 120 220 L300 220 Q360 230 360 290 L400 520Z" fill="#1c1714"/>
-        <g fill="url(#L-sk)">
-          <rect x="90" y="40" width="46" height="230" rx="23" transform="rotate(-8 113 270)"/>
-          <rect x="150" y="10" width="50" height="260" rx="25"/>
-          <rect x="212" y="30" width="48" height="240" rx="24"/>
-          <rect x="270" y="80" width="42" height="190" rx="21" transform="rotate(8 291 270)"/>
-          <path d="M80 250 Q80 330 150 345 L290 345 Q330 330 320 250Z"/>
-          <rect x="28" y="190" width="44" height="150" rx="22" transform="rotate(-35 50 340)"/>
-        </g>
-        <g class="ring" fill="none"><ellipse cx="236" cy="236" rx="34" ry="12" stroke="#e9b84a" stroke-width="12"/>
-          <circle cx="236" cy="219" r="12" fill="#fff6d0"/></g>
-        <path class="glint" d="M236 170 L244 212 L286 220 L244 228 L236 270 L228 228 L186 220 L228 212Z" fill="#fff6d0" opacity="0" style="filter:blur(1px)"/>
-      </svg>
+    <div id="L-handw" class="layer handw">
+      <img id="L-handimg" class="handimg" src="assets/new/L-hand.jpg" style="left:-292px;top:23px;width:1714px;height:1928px" alt="">
+      
     </div>
-    <div class="layer bokehs"><div class="bk" style="left:581px;top:404px;width:61px;height:61px"></div><div class="bk" style="left:299px;top:324px;width:88px;height:88px"></div><div class="bk" style="left:798px;top:346px;width:59px;height:59px"></div><div class="bk" style="left:309px;top:769px;width:49px;height:49px"></div><div class="bk" style="left:288px;top:338px;width:63px;height:63px"></div><div class="bk" style="left:678px;top:321px;width:51px;height:51px"></div><div class="bk" style="left:342px;top:814px;width:63px;height:63px"></div><div class="bk" style="left:310px;top:829px;width:43px;height:43px"></div><div class="bk" style="left:478px;top:895px;width:76px;height:76px"></div><div class="bk" style="left:313px;top:840px;width:73px;height:73px"></div><div class="bk" style="left:656px;top:300px;width:50px;height:50px"></div><div class="bk" style="left:297px;top:820px;width:90px;height:90px"></div><div class="bk" style="left:386px;top:546px;width:62px;height:62px"></div><div class="bk" style="left:397px;top:803px;width:43px;height:43px"></div></div>
+    <div id="L-fgw" class="layer"><img class="fgp" src="assets/new/L-fg.png" style="left:1000px;top:0;width:450px;height:1920px" alt=""></div>
+    <div class="layer bokehs"><div class="bk" style="left:751px;top:823px;width:94px;height:94px"></div><div class="bk" style="left:993px;top:726px;width:68px;height:68px"></div><div class="bk" style="left:780px;top:851px;width:52px;height:52px"></div><div class="bk" style="left:614px;top:774px;width:70px;height:70px"></div><div class="bk" style="left:842px;top:878px;width:90px;height:90px"></div><div class="bk" style="left:615px;top:346px;width:68px;height:68px"></div><div class="bk" style="left:675px;top:395px;width:45px;height:45px"></div><div class="bk" style="left:795px;top:960px;width:80px;height:80px"></div><div class="bk" style="left:541px;top:859px;width:65px;height:65px"></div><div class="bk" style="left:751px;top:919px;width:87px;height:87px"></div><div class="bk" style="left:835px;top:915px;width:50px;height:50px"></div><div class="bk" style="left:839px;top:265px;width:93px;height:93px"></div><div class="bk" style="left:790px;top:314px;width:43px;height:43px"></div><div class="bk" style="left:538px;top:444px;width:96px;height:96px"></div></div>
     <div class="layer grade"></div>
+    <div id="L-flash" class="layer flash"></div>
    </div>
-    <div class="layer vign"></div>
-    <div class="label">EKSPEKTASI</div>
+   <div class="layer vign"></div>
+   <div class="label">EKSPEKTASI</div>
   </div>
   <div id="R" class="panel cool">
    <div id="R-in" class="layer">
-    <div id="R-bg" class="layer bg">
-      <div class="wall"></div><div class="door"></div><div class="sky"></div>
-      <div class="skyline"></div><div class="rail"></div>
-      <div class="floor"></div>
-      <div class="shaft s1"></div><div class="shaft s2"></div>
-      <i class="bulb" style="left:260px;top:344px"></i><i class="bulb" style="left:308px;top:349px"></i><i class="bulb" style="left:356px;top:354px"></i><i class="bulb" style="left:404px;top:357px"></i><i class="bulb" style="left:452px;top:359px"></i><i class="bulb" style="left:500px;top:360px"></i><i class="bulb" style="left:548px;top:360px"></i><i class="bulb" style="left:596px;top:360px"></i><i class="bulb" style="left:644px;top:358px"></i><i class="bulb" style="left:692px;top:356px"></i><i class="bulb" style="left:740px;top:352px"></i><i class="bulb" style="left:788px;top:348px"></i><i class="bulb" style="left:836px;top:342px"></i>
-      <div id="R-guests" class="layer"><div class="guest" style="left:360px;top:900px;width:120px;height:600px"></div><div class="guest" style="left:500px;top:860px;width:110px;height:640px"></div><div class="guest" style="left:850px;top:930px;width:130px;height:570px"></div><div class="guest" style="left:960px;top:890px;width:120px;height:610px"></div><div class="guest" style="left:300px;top:950px;width:100px;height:550px"></div></div>
-      
+    <div id="R-bg" class="layer"><div class="ceil"></div><img class="plate" src="assets/new/R-bg.jpg" style="left:-100px;top:0;width:1280px;height:1920px" alt=""></div>
+    <div id="R-world" class="layer">
+      <div id="R-glow" class="glow" style="left:620px;top:206px;width:520px;height:1034px"></div>
+      <div id="R-shg-tom" class="shg"><div class="ct" style="left:535px;top:1138px;width:171px;height:44px"></div><img class="cast" src="assets/new/R-tom-sh.png" style="left:505px;top:220px;width:276px;height:940px" alt=""></div><div id="R-shg-sum" class="shg"><div class="ct" style="left:791px;top:1138px;width:179px;height:44px"></div><img class="cast" src="assets/new/R-sum-sh.png" style="left:750px;top:286px;width:288px;height:874px" alt=""></div><div id="R-shg-hug" class="shg"><div class="ct" style="left:513px;top:1138px;width:254px;height:44px"></div><img class="cast" src="assets/new/R-hug-sh.png" style="left:552px;top:220px;width:409px;height:940px" alt=""></div><img id="R-tom" class="fig tom" src="assets/new/R-tom.png" style="left:505px;top:220px;width:276px;height:940px;" alt=""><img id="R-sum" class="fig sum" src="assets/new/R-sum.png" style="left:750px;top:286px;width:288px;height:874px;" alt=""><img id="R-hug" class="fig hug" src="assets/new/R-hug.png" style="left:552px;top:220px;width:409px;height:940px;" alt="">
     </div>
-    <div id="R-world" class="layer world">
-      <div id="R-shT" class="cshadow" style="left:290px;top:1474px;width:240px;height:48px"></div>
-      <div id="R-shS" class="cshadow" style="left:560px;top:1476px;width:220px;height:44px"></div>
-      <img id="R-tom" class="fig tom" src="assets/fig/R-tom.png" style="left:293px;top:700px;width:235px;height:800px" alt=""><img id="R-sum-lean" class="fig sum" src="assets/fig/R-sum-lean.png" style="left:546px;top:755px;width:248px;height:745px" alt=""><img id="R-sum-twirl" class="fig sum" src="assets/fig/R-sum-twirl.png" style="left:444px;top:735px;width:452px;height:765px" alt="">
-      <div id="R-fg" class="layer"><div class="plant"></div></div>
-      <svg id="R-hand" class="hand" viewBox="0 0 400 520" width="480" height="624" style="left:300px;top:648px">
-        <defs><linearGradient id="R-sk" x1="0" x2="1"><stop offset="0" stop-color="#f0c9a4"/><stop offset="1" stop-color="#d9a77c"/></linearGradient></defs>
-        <path d="M0 520 L40 300 Q60 230 120 220 L300 220 Q360 230 360 290 L400 520Z" fill="#1c1714"/>
-        <g fill="url(#R-sk)">
-          <rect x="90" y="40" width="46" height="230" rx="23" transform="rotate(-8 113 270)"/>
-          <rect x="150" y="10" width="50" height="260" rx="25"/>
-          <rect x="212" y="30" width="48" height="240" rx="24"/>
-          <rect x="270" y="80" width="42" height="190" rx="21" transform="rotate(8 291 270)"/>
-          <path d="M80 250 Q80 330 150 345 L290 345 Q330 330 320 250Z"/>
-          <rect x="28" y="190" width="44" height="150" rx="22" transform="rotate(-35 50 340)"/>
-        </g>
-        <g class="ring" fill="none"><ellipse cx="236" cy="236" rx="34" ry="12" stroke="#e9b84a" stroke-width="12"/>
-          <circle cx="236" cy="219" r="12" fill="#fff6d0"/></g>
-        <path class="glint" d="M236 170 L244 212 L286 220 L244 228 L236 270 L228 228 L186 220 L228 212Z" fill="#fff6d0" opacity="0" style="filter:blur(1px)"/>
-      </svg>
+    <div id="R-handw" class="layer handw">
+      <img id="R-handimg" class="handimg" src="assets/new/R-hand.jpg" style="left:-292px;top:23px;width:1714px;height:1928px" alt="">
+      <svg id="R-glint" class="glint" viewBox="-100 -100 200 200" width="200" height="200" style="left:444px;top:672px"><defs><radialGradient id="gl"><stop offset="0" stop-color="#fff6d8" stop-opacity=".95"/><stop offset=".35" stop-color="#ffe49a" stop-opacity=".45"/><stop offset="1" stop-color="#ffd070" stop-opacity="0"/></radialGradient></defs><circle r="60" fill="url(#gl)"/><path d="M0 -78 L5 -5 L78 0 L5 5 L0 78 L-5 5 L-78 0 L-5 -5Z" fill="#fff8e0" opacity=".9"/></svg>
     </div>
+    <div id="R-fgw" class="layer"><img class="fgp" src="assets/new/R-fg.png" style="left:1000px;top:0;width:450px;height:1920px" alt=""></div>
     <div class="layer bokehs"></div>
     <div class="layer grade"></div>
+    <div id="R-flash" class="layer flash"></div>
    </div>
-    <div class="layer vign"></div>
-    <div class="label">KENYATAAN</div>
+   <div class="layer vign"></div>
+   <div class="label">KENYATAAN</div>
   </div>
   <div id="split"></div>
   <div id="topgrad"></div>
@@ -145,129 +91,115 @@ html,body{width:1080px;height:1920px;background:#111;overflow:hidden}
  <audio id="sx4" src="assets/sfx/whoosh.wav" data-start="7.45" data-duration="0.7" data-track-index="7" data-volume="0.4"></audio>
 </div>
 <script>(function () {
-  var FLOOR = 1500;
   var tl = gsap.timeline({ paused: true });
   var VC = { L: 270, R: 810 };
-  var D = { L: { warm: 1 }, R: { warm: 0 } };
+  var P = { L: { warm: 1 }, R: { warm: 0 } };
   function camVars(k, cx, cy, s) {
-    var bs = 1 + (s - 1) * 0.7;                       // parallax: latar bergerak lebih lambat
+    var bs = 1 + (s - 1) * 0.7, fs = 1 + (s - 1) * 1.35;       // parallax: latar lambat, foreground cepat
     return {
       world: { x: VC[k] - cx * s, y: 960 - cy * s, scale: s },
-      bg: { x: VC[k] - (cx * 0.85 + 540 * 0.15) * bs, y: 960 - (cy * 0.85 + 960 * 0.15) * bs, scale: bs }
+      bg: { x: VC[k] - (cx * 0.85 + 540 * 0.15) * bs, y: 960 - (cy * 0.85 + 960 * 0.15) * bs, scale: bs },
+      fg: { x: VC[k] - (cx * 1.15 - 81) * fs, y: 960 - (cy * 1.15 - 144) * fs, scale: fs }
     };
   }
+  function targets(k) { return { world: "#" + k + "-world,#" + k + "-handw", bg: "#" + k + "-bg", fg: "#" + k + "-fgw" }; }
   function camSet(t, cx, cy, s) {
     ["L", "R"].forEach(function (k) {
-      var v = camVars(k, cx, cy, s);
-      tl.set("#" + k + "-world", v.world, t); tl.set("#" + k + "-bg", v.bg, t);
+      var v = camVars(k, cx, cy, s), g = targets(k);
+      ["world", "bg", "fg"].forEach(function (n) { tl.set(g[n], v[n], t); });
     });
   }
   function camMove(t, dur, cx, cy, s, ease) {
     ["L", "R"].forEach(function (k) {
-      var v = camVars(k, cx, cy, s);
-      tl.to("#" + k + "-world", Object.assign({ duration: dur, ease: ease }, v.world), t);
-      tl.to("#" + k + "-bg", Object.assign({ duration: dur, ease: ease }, v.bg), t);
+      var v = camVars(k, cx, cy, s), g = targets(k);
+      ["world", "bg", "fg"].forEach(function (n) { tl.to(g[n], Object.assign({ duration: dur, ease: ease }, v[n]), t); });
     });
   }
-  function $(id) { return document.getElementById(id); }
   ["L", "R"].forEach(function (k) {
-    var v = camVars(k, 540, 960, 1);
-    gsap.set("#" + k + "-world", v.world); gsap.set("#" + k + "-bg", v.bg);
+    var v = camVars(k, 750, 960, 1), g = targets(k);
+    ["world", "bg", "fg"].forEach(function (n) { gsap.set(g[n], v[n]); });
+    gsap.set("#" + k + "-hug," + "#" + k + "-shg-hug", { opacity: 0 });
+    gsap.set("#" + k + "-handw", { opacity: 0 });
   });
-  // Satu fungsi blocking dipakai untuk dua panel; hanya parameter pose/cahaya yang berbeda.
+
+  // Satu fungsi blocking untuk dua panel; yang berbeda hanya aset pelukan, cahaya, dan hasil akhir.
   function blocking(k, p) {
-    var tom = "#" + k + "-tom", lean = "#" + k + "-sum-lean", twirl = "#" + k + "-sum-twirl";
-    var shT = "#" + k + "-shT", shS = "#" + k + "-shS";
-    // pose Summer per panel: ekspektasi pakai twirl (melayang, hangat), kenyataan pakai lean (berdiri kaku)
-    var S = p.warm ? twirl : lean, Sx = p.warm ? lean : twirl;
-    gsap.set(Sx, { opacity: 0 });
-    gsap.set(twirl, { opacity: p.warm ? 1 : 0 });
-    gsap.set(lean, { opacity: p.warm ? 0 : 1 });
-        // napas (Tom & Summer, fase berbeda) - sama di dua sisi
-    tl.to(tom, { scaleY: 1.012, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 7 }, 0);
-    tl.to(S, { scaleY: 1.01, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 7 }, 0.6);
-    tl.to(tom, { rotation: 0.6, duration: 2.0, ease: "sine.inOut", yoyo: true, repeat: 4 }, 0);
-    // Shot A: Summer masuk (busur melayang di ekspektasi; kenyataan: sudah berdiri, hanya miring sedikit)
+    var tom = "#" + k + "-tom", sum = "#" + k + "-sum", hug = "#" + k + "-hug";
+    var shT = "#" + k + "-shg-tom", shS = "#" + k + "-shg-sum", shH = "#" + k + "-shg-hug";
+    var glow = "#" + k + "-glow", world = ["#" + k + "-bg", "#" + k + "-world", "#" + k + "-fgw"];
+    // A–B: berdiri berjarak, bernapas, bergoyang sangat halus (kaki tetap)
+    tl.to(tom, { scaleY: 1.008, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+    tl.to(sum, { scaleY: 1.008, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.6);
+    tl.to(tom, { rotation: 0.5, duration: 1.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+    tl.to(sum, { rotation: -0.7, duration: 1.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.2);
+    if (p.warm) tl.to(glow, { opacity: 0.9, duration: 0.8, ease: "power1.out" }, 0.3);
+    // rack focus latar pada bidikan B (sama di dua sisi)
+    tl.set("#" + k + "-bg", { filter: "blur(2.5px)" }, 1.9);
+    tl.set("#" + k + "-bg", { filter: "none" }, 3.9);
+    // C: potongan ke pelukan (aset pelukan menggantikan dua figur di titik potong)
+    tl.set([tom, sum, shT, shS], { opacity: 0 }, 3.9);
+    tl.set([hug, shH], { opacity: 1 }, 3.9);
+    tl.set(glow, { x: -170 }, 3.9);
     if (p.warm) {
-      tl.fromTo(S, { x: 160, y: -40, rotation: -30 }, { x: 0, y: 0, rotation: 0, duration: 0.6, ease: "power2.out" }, 0.3);
-      tl.fromTo(shS, { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
+      tl.fromTo("#L-flash", { opacity: 0.55 }, { opacity: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, 3.9);
+      tl.to(hug, { scaleY: 1.006, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.9);
+      tl.to(hug, { rotation: 0.8, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.9);
     } else {
-      tl.fromTo(S, { rotation: -2 }, { rotation: 0, duration: 0.8, ease: "power2.out" }, 0.3);
+      tl.to(hug, { scaleY: 1.004, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.9);
+      // pelukan kaku singkat lalu dilepas: dissolve cepat ke berdiri (Summer berdiri dekat, Tom melemas)
+      tl.set(sum, { x: -70 }, 3.9);
+      tl.to(hug, { opacity: 0, duration: 0.2 }, 4.85); tl.to(shH, { opacity: 0, duration: 0.2 }, 4.85);
+      tl.to([tom, sum, shT, shS], { opacity: 1, duration: 0.2 }, 4.85);
+      tl.to(tom, { rotation: -3, duration: 0.6, ease: "power2.out" }, 4.95);
     }
-    // Shot C: kedekatan. Kaki TIDAK bergeser: jarak ditetapkan saat potongan keras, lalu hanya rotasi dari pinggul.
-    var T = 3.9;
-    if (p.warm) { tl.set(twirl, { opacity: 0 }, T); tl.set(lean, { opacity: 1 }, T); }
-    tl.set(lean, { x: -55 }, T); tl.set(shS, { x: -55 }, T); tl.set(tom, { x: 0 }, T);
-    if (p.warm) {
-      tl.to(tom, { rotation: 6, duration: 0.5, ease: "power2.out" }, 4.3);
-      tl.to(lean, { rotation: -4, duration: 0.5, ease: "power2.out" }, 4.35);
-      tl.to([tom, lean], { y: -8, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 }, 4.9);   // goyang berdua (kaki terangkat sedikit)
-    } else {
-      tl.to(tom, { rotation: 4, duration: 0.4, ease: "power2.out" }, 4.3);
-      tl.to(lean, { rotation: 1.5, duration: 0.4, ease: "power2.out" }, 4.35);   // Summer tidak ikut condong
-      tl.to(tom, { rotation: 7, duration: 0.2 }, 4.9);                // Tom memeluk sendirian, kaku singkat
-      tl.to(lean, { rotation: 3.5, duration: 0.2 }, 4.9);               // Summer sedikit condong menjauh, tangan tetap di belakang
-      tl.to([tom, lean], { rotation: 0, duration: 0.35, ease: "power2.inOut" }, 5.5);
-      tl.to(tom, { rotation: -4, duration: 0.5, ease: "power2.out" }, 5.35);   // Tom melemas
-    }
-        // Shot D: sisipan tangan; figur disembunyikan (potongan keras)
-    var figs = [tom, lean, twirl, shT, shS, "#" + k + "-fg"];
-    tl.set(figs, { opacity: 0 }, 5.9);
-    tl.set("#" + k + "-hand", { opacity: 1 }, 5.9);
-    tl.fromTo("#" + k + "-hand", { y: 24, rotation: -2 }, { y: -8, rotation: 1.5, duration: 1.6, ease: "sine.inOut" }, 5.9);
+    if (p.warm) tl.set(sum, { x: -70 }, 3.9);
+    // D: sisipan tangan (potongan keras); latar & figur disembunyikan
+    tl.set(world.concat(["#" + k + "-glow"]), { opacity: 0 }, 5.9);
+    tl.set("#" + k + "-handw", { opacity: 1 }, 5.9);
+    tl.fromTo("#" + k + "-handimg", { y: 14, rotation: -0.4, transformOrigin: "50% 50%" }, { y: -10, rotation: 0.5, duration: 1.6, ease: "sine.inOut" }, 5.9);
     if (!p.warm) {
-      tl.set("#" + k + "-hand .ring", { opacity: 1 }, 6.55);
-      tl.fromTo("#" + k + "-hand .glint", { opacity: 0, x: 0 }, { opacity: 0.95, x: 0, duration: 0.5, ease: "power1.inOut" }, 6.55);
-      tl.to("#" + k + "-hand .glint", { opacity: 0, duration: 0.2 }, 7.05);
+      tl.fromTo("#R-glint", { opacity: 0, scale: 0.25, rotation: -25 }, { opacity: 1, scale: 1, rotation: 12, duration: 0.35, ease: "power2.out" }, 6.45);
+      tl.to("#R-glint", { opacity: 0, scale: 0.6, duration: 0.45, ease: "power1.in" }, 6.85);
     }
-    tl.set("#" + k + "-hand", { opacity: 0 }, 7.5);
-    // Shot E: kembali ke figur. Summer: ekspektasi larut jadi cahaya; kenyataan tetap nyata
-    tl.set([tom, shT, shS, "#" + k + "-fg"], { opacity: 1 }, 7.5);
-    tl.set(shT, { opacity: 1 }, 7.5);
-    tl.set(lean, { opacity: 1, x: -55 }, 7.5);
-    tl.set(shS, { x: -55 }, 7.5);
-    tl.set(tom, { rotation: p.warm ? 2 : -4, x: 0, y: 0 }, 7.5);
+    // E: kembali ke ruangan. Ekspektasi: Summer larut jadi cahaya. Kenyataan: Summer tetap nyata, Tom melemas.
+    tl.set("#" + k + "-handw", { opacity: 0 }, 7.5);
+    tl.set(world, { opacity: 1 }, 7.5);
+    tl.set([tom, sum, shT, shS], { opacity: 1 }, 7.5);
+    tl.set([hug, shH], { opacity: 0 }, 7.5);
+    tl.set(sum, { x: -70 }, 7.5);
+    tl.set(glow, { x: -70, opacity: p.warm ? 0.9 : 0 }, 7.5);
+    tl.set(tom, { rotation: p.warm ? 0.5 : -3 }, 7.5);
     if (p.warm) {
-      tl.set(lean, { mixBlendMode: "screen" }, 8.1);
-      tl.to(lean, { filter: "blur(14px) brightness(2.2)", scale: 1.15, duration: 0.9, ease: "power1.in" }, 8.1);
-      tl.to(lean, { opacity: 0, duration: 0.5 }, 8.6);
-      tl.to(shS, { opacity: 0, duration: 0.7 }, 8.1);
+      tl.set(sum, { mixBlendMode: "screen" }, 8.0);
+      tl.to(sum, { filter: "blur(14px) brightness(2.2)", scale: 1.12, duration: 0.9, ease: "power1.in" }, 8.0);
+      tl.to(sum, { opacity: 0, duration: 0.5 }, 8.5);
+      tl.to(shS, { opacity: 0, duration: 0.7 }, 8.0);
+      tl.to(glow, { opacity: 0, duration: 1.0 }, 8.4);
     } else {
-      tl.to(tom, { rotation: -6, duration: 1.2, ease: "sine.inOut" }, 7.9);
+      tl.to(tom, { rotation: -5, duration: 1.2, ease: "sine.inOut" }, 7.9);
+    }
+    // bokeh (hanya ekspektasi) hanyut perlahan
+    if (p.warm) {
+      var bks = document.querySelectorAll("#L .bk");
+      for (var i = 0; i < bks.length; i++) tl.to(bks[i], { y: i % 2 ? 40 : -40, duration: 9.5, ease: "none" }, 0);
     }
   }
-  blocking("L", D.L);
-  blocking("R", D.R);
+  blocking("L", P.L);
+  blocking("R", P.R);
 
-  // bayangan Tom menari di dinding (ekspektasi, shot A): ganti pose tiap 0.35 dtk
-  var da = "#L-dance-a", db = "#L-dance-b";
-  var t = 0.2, on = 0;
-  while (t < 1.9) {
-    tl.set(on ? db : da, { opacity: 0.4 }, t);
-    tl.set(on ? da : db, { opacity: 0 }, t);
-    tl.to(on ? db : da, { x: 14, duration: 0.35, ease: "sine.inOut" }, t);
-    on = 1 - on; t += 0.35;
-  }
-  tl.set([da, db], { opacity: 0 }, 1.9);
-  // bokeh bergerak lambat (ekspektasi)
-  var bks = document.querySelectorAll("#L .bk");
-  for (var i = 0; i < bks.length; i++) {
-    tl.to(bks[i], { y: (i % 2 ? 40 : -40), duration: 9.5, ease: "none" }, 0);
-  }
-
-  // Kamera: parameter shot yang SAMA dipakai dua panel. Potongan keras antar shot.
-  camSet(0, 540, 960, 1);
-  camMove(0.2, 1.7, 545, 960, 1.05, "sine.inOut");                      // A
-  camSet(1.9, 720, 1010, 1.6);                                          // B
-  camMove(1.9, 2.0, 670, 1010, 1.6, "sine.inOut");
-  camSet(3.9, 545, 1040, 1.12);                                         // C
-  camMove(3.9, 2.0, 540, 1040, 1.2, "sine.inOut");
-  camSet(5.9, 560, 1000, 1.9);                                          // D
-  camMove(5.9, 1.6, 560, 1000, 2.05, "sine.inOut");
-  camSet(7.5, 545, 1000, 1.15);                                         // E
-  camMove(7.5, 2.0, 540, 960, 1.0, "sine.inOut");
+  // Kamera: parameter shot yang SAMA untuk dua panel; potongan keras antar shot.
+  camSet(0, 750, 960, 1);
+  camMove(0.2, 1.7, 760, 960, 1.05, "sine.inOut");                    // A  wide
+  camSet(1.9, 900, 780, 1.5);                                         // B  medium Summer
+  camMove(1.9, 2.0, 870, 780, 1.5, "sine.inOut");
+  camSet(3.9, 770, 800, 1.1);                                         // C  pelukan
+  camMove(3.9, 2.0, 770, 790, 1.2, "sine.inOut");
+  camSet(5.9, 548, 800, 1.3);                                         // D  sisipan tangan
+  camMove(5.9, 1.6, 548, 790, 1.9, "sine.inOut");
+  camSet(7.5, 760, 900, 1.12);                                        // E  tarik mundur
+  camMove(7.5, 2.0, 750, 960, 1.0, "sine.inOut");
   // akhir: panel kenyataan melebar menutup layar
-  tl.to("#L", { opacity: 0.0, duration: 0.5, ease: "power1.in" }, 9.0);
+  tl.to("#L", { opacity: 0, duration: 0.5, ease: "power1.in" }, 9.0);
   tl.to("#R", { clipPath: "inset(0px 0px 0px 0px)", duration: 0.5, ease: "power2.inOut" }, 9.0);
   tl.to("#R-in", { x: -270, duration: 0.5, ease: "power2.inOut" }, 9.0);
   tl.to("#split", { opacity: 0, duration: 0.3 }, 8.9);
@@ -276,13 +208,8 @@ html,body{width:1080px;height:1920px;background:#111;overflow:hidden}
   tl.to(".label", { opacity: 1, duration: 0.3 }, 0.3);
   tl.to(".label", { opacity: 0, duration: 0.3 }, 2.2);
 
-  // Subtitle: tanpa kotak, hanya gradasi; mengikuti chunk VO05 (+0.05)
-  var subs = [
-    [0.17, 1.48, "Adegan paling terkenal:"],
-    [1.79, 3.79, "ekspektasi lawan kenyataan."],
-    [4.58, 7.0, "Tom ternyata lebih mencintai bayangannya tentang Summer,"],
-    [7.0, 9.25, "bukan Summer yang nyata."]
-  ];
+  var subs = [[0.17, 1.48, "Adegan paling terkenal:"], [1.79, 3.79, "ekspektasi lawan kenyataan."],
+    [4.58, 7.0, "Tom ternyata lebih mencintai bayangannya tentang Summer,"], [7.0, 9.25, "bukan Summer yang nyata."]];
   subs.forEach(function (s) {
     tl.set("#sub", { opacity: 1, innerHTML: s[2] }, s[0]);
     tl.set("#sub", { opacity: 0 }, s[1]);

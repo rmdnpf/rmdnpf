@@ -1,20 +1,12 @@
-# Prototipe Adegan 6 — Ekspektasi vs Kenyataan
+# Prototipe Adegan 6 — Ekspektasi vs Kenyataan (v2, aset ilustrasi)
 
-1080×1920, 30 fps, 9,5 dtk. Hanya folder ini yang berisi pekerjaan baru; proyek utama, VO 07/08, dan aset produksi tidak disentuh. Tidak di-commit.
+1080×1920, 30 fps, 9,5 dtk. Layar terbelah vertikal; dua panel dibangun dari satu fungsi `panel()` dan satu fungsi blocking `blocking(k, p)`; kamera memakai parameter shot yang sama (`camSet/camMove`). Aset asli, VO, storyboard lama, dan implementasi utama tidak diubah.
 
-- Bangun: `python3 scripts/build_index.py` (style.css + timeline.js -> index.html)
-- Cek: `plugin-cli.mjs check` · Render: `plugin-cli.mjs render . -q draft -o renders/evr-preview-draft.mp4`
-- Audit gerak: `node scripts/motion_audit.mjs`
-- Audio: VO lama `assets/vo/05.wav` (tak diubah, mulai 0,05 dtk), BGM/SFX lama sebagai placeholder.
-- Latar dan tangan digambar dari kode (PLACEHOLDER). Cutout tepi-bersih dibuat dari sumber di `assets/fig/` (aset asli tidak diubah).
+- Bangun: `python3 scripts/prep_new_assets.py` (kunci magenta) lalu `python3 scripts/build_index.py`
+- Cek: `plugin-cli.mjs check` · Render: `plugin-cli.mjs render . -q draft -o renders/evr-v2-preview-draft.mp4`
+- Audit teknis: `node scripts/motion_audit.mjs` (hanya hal terukur: kesamaan kamera, drift kaki, jendela statis)
+- Aset baru: `assets/new/` (sumber asli `assets/new/src/`). Tom berdiri memakai `assets/fig/tom-stand.png` (aset lama).
+- Shot: A wide 0,2–1,9 · B medium Summer 1,9–3,9 · C pelukan 3,9–5,9 · D insert tangan 5,9–7,5 · E tarik mundur 7,5–9,5.
 
-## Hasil
-Berhasil: kamera L/R identik (selisih 0,000 px, satu fungsi parameter kamera dan satu fungsi blocking); lima shot dengan potongan keras; tidak ada jendela statis >0,2 dtk; kaki Tom/Summer tidak bergeser di luar busur masuk Summer (0–0,9 dtk, melayang); `check` 0 error; snapshot deterministik; subtitle tanpa kotak; insert tangan tanpa vs dengan cincin terbaca tanpa teks.
-
-Gagal / terbatas:
-- Pelukan TIDAK berhasil: aset satu-pose tidak bisa merangkul. Hasilnya dua figur berdiri berdekatan dan sedikit condong. Perlu aset pelukan khusus.
-- Perbedaan Ekspektasi vs Kenyataan di shot C terutama dari cahaya/warna dan arah condong, bukan dari aksi.
-- Tepi Summer (lean) masih ada halo krem tipis dan serpihan putih di sisi kanan celana; belum bersih 100%.
-- Bayangan jatuh hanya elips kontak (bukan bayangan lemparan sesungguhnya); kaki terlihat agak melayang di beberapa frame.
-- Tangan dan latar kasar (placeholder). Split subtitle baris 3 ke dua bagian pada 7,0 dtk adalah perkiraan.
-- Sinkron audio: chunk ucapan 0,19–1,33 / 1,81–3,76 / 4,59–9,20; subtitle 0,17–1,48 / 1,79–3,79 / 4,58–9,25 (selisih ≤0,15 dtk).
+## Temuan
+Lihat laporan di percakapan; ringkasan: pelukan ilustrasi berhasil di Ekspektasi dan terbaca kaku di Kenyataan; transisi pose terjadi di potongan keras (kaki tidak bergeser); Tom berdiri (aset lama) belum sekelas gaya aset baru; plat latar tidak mengikuti spesifikasi garis lantai 78 % sehingga kaki ditempatkan berdasarkan perspektif plat (y dunia 1160).

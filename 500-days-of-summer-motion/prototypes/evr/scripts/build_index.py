@@ -1,85 +1,95 @@
 #!/usr/bin/env python3
-"""Bangun prototypes/evr/index.html. Dua panel dibuat dari SATU fungsi panel() dan satu fungsi timeline,
-sehingga kamera, blocking, dan timing identik secara konstruksi."""
-import shutil, os
+"""Bangun index.html (v2: aset ilustrasi). Dua panel dibuat dari SATU fungsi panel(); kamera & timing dari satu timeline.js."""
+import shutil, os, json
+import numpy as np
 from PIL import Image
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FIG = f"{R}/assets/fig"
-FLOOR = 1500
-TOM_H, SUM_H = 800, 745
+N = f"{R}/assets/new"; FIGDIR = f"{R}/assets/fig"
+FLOOR = 1160                      # y lantai dunia (hasil perspektif plat: Tom 940 px tinggi, kaki di lantai kayu tengah-bawah)
+TOM_H, SUM_H = 940, 874
+KH = 1.45                          # skala sisipan tangan
+RING_SRC = (574, 529)              # pusat cincin pada sumber hand (px)
+RING_WORLD = (540, 790)
 
-def fig(side, name, src, x, h, cls=""):
-    dst = f"{side}-{name}.png"            # salinan terpisah per panel (hindari duplicate media)
-    shutil.copy(f"{FIG}/{src}.png", f"{FIG}/{dst}")
-    w0, h0 = Image.open(f"{FIG}/{dst}").size
-    w = round(w0 * h / h0)
-    return (f'<img id="{side}-{name}" class="fig {cls}" src="assets/fig/{dst}" '
-            f'style="left:{x - w//2}px;top:{FLOOR - h}px;width:{w}px;height:{h}px" alt="">'), w
+def info(path):
+    a = np.array(Image.open(path)); al = a[..., 3] > 128
+    ys, xs = np.where(al); h, w = a.shape[:2]
+    bot = al[h - 50:]; bx = np.where(bot.any(0))[0]
+    return w, h, bx
+
+def foot_center(path, which="all"):
+    w, h, _ = info(path); a = np.array(Image.open(path))[..., 3] > 128
+    rows = a[h - 40:]; xs = np.where(rows.any(0))[0]
+    if which == "left":                       # klaster paling kiri (kaki Tom pada gambar pelukan)
+        gaps = np.where(np.diff(xs) > 25)[0]; xs = xs[: gaps[0] + 1] if len(gaps) else xs
+    return float(xs.mean())
+
+def img(side, name, srcpath, cx, k, extra="", cls="", anchor="all"):
+    dst = f"{side}-{name}.png"; shutil.copy(srcpath, f"{N}/{dst}")
+    w, h, _ = info(srcpath); ax = foot_center(srcpath, anchor)
+    W, H = round(w * k), round(h * k); left = round(cx - ax * k); top = FLOOR - H
+    return (f'<img id="{side}-{name}" class="fig {cls}" src="assets/new/{dst}" style="left:{left}px;top:{top}px;width:{W}px;height:{H}px;{extra}" alt="">', left, top, W, H)
+
+def shadow(side, name, srcpath, cx, k, anchor="all"):
+    dst = f"{side}-{name}-sh.png"; shutil.copy(srcpath, f"{N}/{dst}")
+    w, h, _ = info(srcpath); ax = foot_center(srcpath, anchor)
+    W, H = round(w * k), round(h * k); left = round(cx - ax * k); top = FLOOR - H
+    ew = round(W * 0.62)
+    return (f'<div id="{side}-shg-{name}" class="shg"><div class="ct" style="left:{round(cx)-ew//2}px;top:{FLOOR-22}px;width:{ew}px;height:44px"></div>'
+            f'<img class="cast" src="assets/new/{dst}" style="left:{left}px;top:{FLOOR-H}px;width:{W}px;height:{H}px" alt=""></div>')
+
+def hw(path): im = Image.open(path); return im.size
 
 def panel(side, warm):
-    f = {}
-    tom, tw = fig(side, "tom", "tom-stand", 410, TOM_H, "tom")
-    sl, _ = fig(side, "sum-lean", "summer-lean-flip", 670, SUM_H, "sum")
-    st, _ = fig(side, "sum-twirl", "summer-twirl-flip", 670, SUM_H + 20, "sum")
-    sh = ""
-    if warm:
-        d1, _ = fig(side, "dance-a", "tom-dance", 285, 690, "dsh")
-        d2, _ = fig(side, "dance-b", "tom-stand", 285, 800, "dsh")
-        sh = d1 + d2
-    guests = "".join(f'<div class="guest" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"></div>'
-                     for x, y, w, h in [(360,900,120,600),(500,860,110,640),(850,930,130,570),(960,890,120,610),(300,950,100,550)])
-    bokeh = ""
+    tomp = f"{FIGDIR}/tom-stand.png"
+    grp = f"{N}/greet.png"; hugp = f"{N}/{'hug-warm' if warm else 'hug-stiff'}.png"
+    kt = TOM_H / hw(tomp)[1]; ks = SUM_H / hw(grp)[1]; kh = TOM_H / hw(hugp)[1]
+    TOMX, SUMX, HUGX = 620, 880, 640
+    tom = img(side, "tom", tomp, TOMX, kt, cls="tom")[0]
+    sm = img(side, "sum", grp, SUMX, ks, cls="sum")[0]
+    hg = img(side, "hug", hugp, HUGX, kh, cls="hug", anchor="left")[0]
+    shs = shadow(side, "tom", tomp, TOMX, kt) + shadow(side, "sum", grp, SUMX, ks) + shadow(side, "hug", hugp, HUGX, kh, "left")
+    shutil.copy(f"{N}/bg.jpg", f"{N}/{side}-bg.jpg")
+    handsrc = "hand2x.jpg" if warm else "hand-ring2x.jpg"; shutil.copy(f"{N}/{handsrc}", f"{N}/{side}-hand.jpg")
+    hw_, hh_ = 1182 * KH, 1330 * KH
+    hl, ht = RING_WORLD[0] - RING_SRC[0] * KH, RING_WORLD[1] - RING_SRC[1] * KH
+    shutil.copy(f"{N}/fg-plant.png", f"{N}/{side}-fg.png")
+    bk = ""
     if warm:
         import random
-        rnd = random.Random(7)
-        bokeh = "".join(f'<div class="bk" style="left:{rnd.randint(250,830)}px;top:{rnd.randint(250,900)}px;'
-                        f'width:{(s:=rnd.randint(36,90))}px;height:{s}px"></div>' for _ in range(14))
-    lights = "".join(f'<i class="bulb" style="left:{x}px;top:{300 + int(60*((x-540)/540)**2*-1)+60}px"></i>' for x in range(260, 840, 48))
+        rnd = random.Random(11)
+        bk = "".join(f'<div class="bk" style="left:{rnd.randint(520,1000)}px;top:{rnd.randint(250,1000)}px;width:{(s:=rnd.randint(40,100))}px;height:{s}px"></div>' for _ in range(14))
+    ringx, ringy = RING_WORLD
+    ring = ""
+    if not warm:
+        ring = (f'<svg id="{side}-glint" class="glint" viewBox="-100 -100 200 200" width="200" height="200" style="left:{ringx+4-100}px;top:{ringy-18-100}px">'
+                '<defs><radialGradient id="gl"><stop offset="0" stop-color="#fff6d8" stop-opacity=".95"/><stop offset=".35" stop-color="#ffe49a" stop-opacity=".45"/><stop offset="1" stop-color="#ffd070" stop-opacity="0"/></radialGradient></defs>'
+                '<circle r="60" fill="url(#gl)"/><path d="M0 -78 L5 -5 L78 0 L5 5 L0 78 L-5 5 L-78 0 L-5 -5Z" fill="#fff8e0" opacity=".9"/></svg>')
     return f'''
   <div id="{side}" class="panel {'warm' if warm else 'cool'}">
    <div id="{side}-in" class="layer">
-    <div id="{side}-bg" class="layer bg">
-      <div class="wall"></div><div class="door"></div><div class="sky"></div>
-      <div class="skyline"></div><div class="rail"></div>
-      <div class="floor"></div>
-      <div class="shaft s1"></div><div class="shaft s2"></div>
-      {lights}
-      <div id="{side}-guests" class="layer">{guests}</div>
-      {sh}
+    <div id="{side}-bg" class="layer"><div class="ceil"></div><img class="plate" src="assets/new/{side}-bg.jpg" style="left:-100px;top:0;width:1280px;height:1920px" alt=""></div>
+    <div id="{side}-world" class="layer">
+      <div id="{side}-glow" class="glow" style="left:{SUMX-260}px;top:{FLOOR-SUM_H-80}px;width:520px;height:{SUM_H+160}px"></div>
+      {shs}{tom}{sm}{hg}
     </div>
-    <div id="{side}-world" class="layer world">
-      <div id="{side}-shT" class="cshadow" style="left:{410-120}px;top:{FLOOR-26}px;width:240px;height:48px"></div>
-      <div id="{side}-shS" class="cshadow" style="left:{670-110}px;top:{FLOOR-24}px;width:220px;height:44px"></div>
-      {tom}{sl}{st}
-      <div id="{side}-fg" class="layer"><div class="plant"></div></div>
-      <svg id="{side}-hand" class="hand" viewBox="0 0 400 520" width="480" height="624" style="left:300px;top:{960-312}px">
-        <defs><linearGradient id="{side}-sk" x1="0" x2="1"><stop offset="0" stop-color="#f0c9a4"/><stop offset="1" stop-color="#d9a77c"/></linearGradient></defs>
-        <path d="M0 520 L40 300 Q60 230 120 220 L300 220 Q360 230 360 290 L400 520Z" fill="#1c1714"/>
-        <g fill="url(#{side}-sk)">
-          <rect x="90" y="40" width="46" height="230" rx="23" transform="rotate(-8 113 270)"/>
-          <rect x="150" y="10" width="50" height="260" rx="25"/>
-          <rect x="212" y="30" width="48" height="240" rx="24"/>
-          <rect x="270" y="80" width="42" height="190" rx="21" transform="rotate(8 291 270)"/>
-          <path d="M80 250 Q80 330 150 345 L290 345 Q330 330 320 250Z"/>
-          <rect x="28" y="190" width="44" height="150" rx="22" transform="rotate(-35 50 340)"/>
-        </g>
-        <g class="ring" fill="none"><ellipse cx="236" cy="236" rx="34" ry="12" stroke="#e9b84a" stroke-width="12"/>
-          <circle cx="236" cy="219" r="12" fill="#fff6d0"/></g>
-        <path class="glint" d="M236 170 L244 212 L286 220 L244 228 L236 270 L228 228 L186 220 L228 212Z" fill="#fff6d0" opacity="0" style="filter:blur(1px)"/>
-      </svg>
+    <div id="{side}-handw" class="layer handw">
+      <img id="{side}-handimg" class="handimg" src="assets/new/{side}-hand.jpg" style="left:{hl:.0f}px;top:{ht:.0f}px;width:{hw_:.0f}px;height:{hh_:.0f}px" alt="">
+      {ring}
     </div>
-    <div class="layer bokehs">{bokeh}</div>
+    <div id="{side}-fgw" class="layer"><img class="fgp" src="assets/new/{side}-fg.png" style="left:1000px;top:0;width:450px;height:1920px" alt=""></div>
+    <div class="layer bokehs">{bk}</div>
     <div class="layer grade"></div>
+    <div id="{side}-flash" class="layer flash"></div>
    </div>
-    <div class="layer vign"></div>
-    <div class="label">{'EKSPEKTASI' if warm else 'KENYATAAN'}</div>
+   <div class="layer vign"></div>
+   <div class="label">{'EKSPEKTASI' if warm else 'KENYATAAN'}</div>
   </div>'''
 
-CSS = open(f"{R}/scripts/style.css").read()
-JS = open(f"{R}/scripts/timeline.js").read()
+CSS = open(f"{R}/scripts/style.css").read(); JS = open(f"{R}/scripts/timeline.js").read()
 html = f'''<!doctype html>
 <html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=1080, height=1920">
-<title>EVR Prototype</title>
+<title>EVR Prototype v2</title>
 <script src="assets/gsap.min.js"></script>
 <style>{CSS}</style></head><body>
 <div id="root" data-composition-id="evr" data-width="1080" data-height="1920" data-start="0" data-duration="9.5">
@@ -99,5 +109,4 @@ html = f'''<!doctype html>
 </div>
 <script>{JS}</script>
 </body></html>'''
-open(f"{R}/index.html", "w").write(html)
-print("ok", len(html))
+open(f"{R}/index.html", "w").write(html); print("ok", len(html))
