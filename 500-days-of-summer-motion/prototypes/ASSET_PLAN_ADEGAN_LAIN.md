@@ -144,3 +144,93 @@ Tom's younger sister Rachel, a young teenage girl, faceless, same outfit as the 
 1. **Gerbang 2a:** `P1` dan `tom-desk-new`. Kirim keduanya; saya cek skala, gaya, dan kecocokan dengan aset adegan 5 dan 6.
 2. **Gerbang 2b:** `tom-draw-new`, `summer-lean-new`, `rachel-new` (kirim bersama setelah 2a disetujui).
 3. Setelah itu saya pasang adegan 1 sampai 3 (kalender, kartu, dua dunia) dan adegan 7, lalu kirim render dan still.
+
+---
+
+## 7. GERBANG 3 — Adegan 4 dan 8 (prompt lengkap)
+
+**Keputusan arah hadap (menghindari cermin):** semua aset memakai cahaya kunci dari kanan, jadi arah hadap dibuat langsung di gambar, bukan dibalik.
+- **Bangku taman (adegan 8):** Tom duduk menghadap **kanan**. Summer datang dari kanan dan berdiri menghadap **kiri** (ke Tom): memakai `summer-stand-new` yang sudah ada dan sisipan cincin `hand-insert-ring` dari adegan 6. Kepergian Summer ditunjukkan dengan **potongan ke Tom sendirian** (tidak perlu pose berjalan menjauh).
+- **Lobi (adegan 8):** Tom berdiri menghadap **kanan** (`tom-stand-new` yang sudah ada). Autumn masuk dari kanan berjalan menghadap **kiri**, berhenti menghadap kiri, lalu pose berjalan menjauh menghadap **kanan** (Tom menyusul).
+
+**Referensi lama (hanya kostum/gaya, `assets/figures/src/`):** `autumn-walk.png` (rambut cokelat bergelombang, mantel oranye karat, atasan marun, celana abu, tas cokelat, sepatu hak), `mckenzie-cheers.png` (rambut keriting hitam, jaket suede cokelat, kemeja krem bergaris, kaus abu, celana cokelat, sneakers), `paul-cheers.png` (rambut cokelat sebahu, rompi rajut hijau, kemeja krem, celana cokelat, sepatu cokelat), `tom-walk.png`, `tom-sit.png`. Untuk gaya dan skala lampirkan aset yang sudah disetujui (`tom-stand-new`, `summer-stand-new`, `tom-desk-new`, plat `P1`).
+
+Blok gaya bersama sama dengan bagian 6 (tempel di awal setiap prompt):
+```
+2D anime film illustration, flat cel shading with clean ink lines and subtle paper texture, painterly warm colors, same style and line quality as the reference images tom-stand-new and summer-stand-new. Faceless characters (blank skin-toned face, no eyes, nose or mouth). Light: warm amber key light from the RIGHT, thin warm rim light on right-side edges, soft cool fill from the left, flat 2-tone shadows. No readable text, no numbers, no logos.
+```
+Aset figur: latar magenta #FF00FF solid, tanpa glow/bayangan/gradasi, tepi bersih, kanvas 1024×1536 (kecuali yang disebut lain), kaki rata dan terlihat utuh.
+
+### 7.1 Gerbang 3a (dibuat lebih dulu)
+
+**`P4` — bukit taman dengan bangku (plat, tanpa orang)**, kanvas 1024×1536:
+```
+[BLOK GAYA BERSAMA, no people]
+A quiet hilltop city park seen straight-on at low eye level (camera about 1.2 m high), vertical 2:3 composition. A grassy hill path in the foreground with a clearly visible ground plane; the lower 30% is plain path and grass with no objects. Center-left: an empty space reserved for a park bench and a seated character (do not draw the bench). Soft hazy downtown skyline far in the distance below the hill, a few trees at the left and right edges, soft overcast-gold late afternoon sky. Calm, gentle, slightly muted palette: sand #d9c3a0, soft grey-blue #a9c6e3, pale gold #e3a43c, olive #4d5a34. Warm light from the right casting soft long shadows toward the lower left.
+```
+
+**`tom-sit-new` — Tom duduk di bangku taman (bangku ikut dalam aset)**, kanvas 1536×1280:
+```
+[BLOK GAYA BERSAMA]
+Same character and outfit as tom-stand-new and the reference tom-sit: messy dark-brown hair, black open zip hoodie over a grey-cream shirt, thin black tie, khaki-olive messenger bag across the body, dark brown trousers, dark sneakers with cream trim. He sits on a classic dark-green iron-and-wood park bench in side view facing RIGHT, forearms resting on his knees, hands loosely clasped, shoulders a little lowered, head slightly lifted, calm and accepting (not slumped, not crying). The whole bench is included with its feet fully visible and flat on the ground. Canvas 1536x1280, solid pure magenta #FF00FF background, no glow, no shadow, crisp clean edges, no white outline. Tom's head the same size as in tom-stand-new.
+```
+
+### 7.2 Gerbang 3b
+
+**`P5` — lobi biro arsitektur (plat, tanpa orang)**, kanvas 1024×1536:
+```
+[BLOK GAYA BERSAMA, no people]
+A bright modern architecture-office lobby seen straight-on at low eye level (camera about 1.2 m high), vertical 2:3 composition. A very large floor-to-ceiling window on the right with a clear blue sky and a few white clouds, a waiting bench against the left wall, a small architectural scale model of a building on a low table, framed building sketches on the wall (no readable text), pale polished floor in clear perspective (clear floor-wall line at about 62% of image height) with a plain open floor in the center and lower 30%. Clean airy white and light-blue palette (#dbe8f4, #a9c6e3, #6f9bc9) with a few warm accents (wood, #e3a43c). Light from the right through the window casting soft diagonal light shapes on the floor toward the lower left.
+```
+
+**`autumn-stand-new` — Autumn menunggu, menghadap kiri:**
+```
+[BLOK GAYA BERSAMA]
+Autumn, a young woman, same outfit as the reference autumn-walk: long wavy auburn-brown hair, rust-orange long coat, maroon top, grey wide trousers, brown shoulder bag held at her hip, brown low heels. She stands waiting in three-quarter view facing LEFT, one hand holding a slim black portfolio folder against her side, the other holding the bag strap, weight on one leg, calm and slightly curious posture, head turned slightly to the left. Feet fully visible. Figure about 1330 px tall (about 0.92 of Tom).
+```
+
+### 7.3 Gerbang 3c
+
+**`autumn-walk-new` — berjalan masuk, menghadap kiri:**
+```
+[BLOK GAYA BERSAMA]
+Same Autumn and outfit as autumn-stand-new, walking in mid-step in side view facing LEFT, arms swinging gently, portfolio folder held in one hand, coat hem swinging slightly, relaxed and upright. Both feet visible, front foot just touching the ground. Figure about 1330 px tall.
+```
+**`autumn-walk-away` — berjalan menjauh, menghadap kanan:**
+```
+[BLOK GAYA BERSAMA]
+Same Autumn and outfit, walking away in mid-step in side view facing RIGHT, head turned slightly back over her shoulder toward the left as if glancing back, coat hem swinging, portfolio folder in one hand. Both feet visible. Figure about 1330 px tall.
+```
+**`summer-walk-new` — Summer berjalan datang, menghadap kiri:**
+```
+[BLOK GAYA BERSAMA]
+Same Summer and outfit as summer-stand-new, walking calmly in side view facing LEFT, mid-step, skirt swaying gently, one hand holding the bag strap, relaxed and kind. Both feet visible. Figure about 1340 px tall.
+```
+**`tom-walk-new` — Tom berjalan sendirian, kepala sedikit menunduk (adegan 4), menghadap kanan:**
+```
+[BLOK GAYA BERSAMA]
+Same Tom and outfit as tom-stand-new, walking alone in mid-step in side view facing RIGHT, hands in his trouser pockets, head slightly lowered, bag swinging a little, quiet and lonely mood. Both feet visible. Figure about 1440 px tall.
+```
+**`tom-walk-portfolio` — Tom berjalan membawa portofolio (adegan 8), menghadap kanan:**
+```
+[BLOK GAYA BERSAMA]
+Same Tom and outfit, walking confidently in mid-step in side view facing RIGHT, head up, one arm carrying a large flat black portfolio case under his arm, the other hand relaxed, determined and hopeful mood. Both feet visible. Figure about 1440 px tall.
+```
+
+### 7.4 Gerbang 3d (hanya jika adegan 4 ikut diperbarui)
+**`mckenzie-new` (menghadap kanan)** dan **`paul-new` (menghadap kiri)**, bersulang berhadapan:
+```
+[BLOK GAYA BERSAMA]
+McKenzie (curly black hair, brown suede jacket over a striped cream shirt and grey t-shirt, brown trousers, sneakers), friend of Tom, standing in three-quarter view facing RIGHT, raising a glass of amber drink in a toast with one hand, the other hand in his pocket, relaxed and cheerful. Full body, feet visible. Figure about 1440 px tall.
+```
+```
+[BLOK GAYA BERSAMA]
+Paul (shoulder-length light-brown hair, green knit vest over a cream striped shirt, brown trousers, brown leather shoes), friend of Tom, standing in three-quarter view facing LEFT, raising a glass of amber drink in a toast with one hand, the other hand in his pocket, relaxed and cheerful. Full body, feet visible. Figure about 1440 px tall.
+```
+
+### 7.5 Urutan pembuatan
+1. **3a:** `P4` dan `tom-sit-new` (kirim berdua, saya cek skala, gaya, dan kecocokan dengan aset sebelumnya).
+2. **3b:** `P5` dan `autumn-stand-new`.
+3. **3c:** `autumn-walk-new`, `autumn-walk-away`, `summer-walk-new`, `tom-walk-new`, `tom-walk-portfolio` (kirim bersama).
+4. **3d (opsional):** `mckenzie-new`, `paul-new`.
+5. Saya pasang adegan 8 (dan adegan 4 bila aset siap), lalu kirim render dan still.
