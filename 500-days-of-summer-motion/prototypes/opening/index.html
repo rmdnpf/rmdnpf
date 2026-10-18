@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=1080, height=1920">
+<title>Opening Prototype</title>
+<script src="assets/gsap.min.js"></script>
+<style>@font-face{font-family:"Caveat";src:url("assets/fonts/caveat.woff2") format("woff2");font-weight:500;font-style:normal}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:#16243a;overflow:hidden}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#16243a;font-family:"Space Mono",monospace}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.layer{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+.plate{position:absolute}
+#plate{filter:brightness(.42) saturate(.75) hue-rotate(-12deg)}
+.fig{position:absolute;transform-origin:50% 100%}
+#desk{filter:brightness(.8) saturate(.92)}
+.cast{position:absolute;filter:blur(8px);opacity:.38}
+.ground{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(10,8,14,.6),rgba(10,8,14,0) 70%)}
+#nightov{background:linear-gradient(180deg,rgba(18,30,56,.55),rgba(18,30,56,.42));mix-blend-mode:multiply}
+#lamp{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(255,196,110,.62),rgba(255,170,80,0) 68%);mix-blend-mode:screen}
+#bluecreep{position:absolute;left:0;top:700px;width:1080px;height:800px;background:radial-gradient(ellipse at 90% 40%,rgba(110,155,201,.5),rgba(110,155,201,0) 70%);opacity:0;mix-blend-mode:soft-light}
+.sheet{position:absolute;left:88px;top:237px;width:300px;height:282px;background:#efe3cf;box-shadow:0 2px 0 rgba(0,0,0,.25),0 10px 16px rgba(0,0,0,.25);transform-origin:0 0;text-align:center;overflow:hidden}
+.sheet i{display:block;font-style:normal;font-family:"Space Mono",monospace;font-size:22px;letter-spacing:6px;color:#4a4038;margin-top:20px}
+.sheet b{display:block;font-family:"League Gothic",sans-serif;font-weight:400;font-size:190px;line-height:1;color:#8a1f2a;margin-top:2px}
+.cardspr{position:absolute;width:260px;height:180px;background:#f3e9d4;border:2px solid #d9c3a0;box-shadow:0 8px 18px rgba(0,0,0,.4);transform-origin:50% 50%;opacity:0;overflow:hidden}
+.cardspr span{position:absolute;left:20px;top:34px;width:220px;font-family:"Caveat",cursive;font-size:44px;line-height:1.0;color:#2a211c;clip-path:inset(0 100% 0 0)}
+#s2{opacity:0;background:#5b3b25}
+#wood{position:absolute;left:-40px;top:-40px;width:1160px;height:2000px;background:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 3px,rgba(255,220,170,.05) 3px 9px),linear-gradient(180deg,#8a5a36,#6d4528)}
+.s2i{position:absolute}
+#wrap2{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:540px 900px}
+#cardw{position:absolute;left:0;top:0;width:1080px;height:1920px;perspective:2200px}
+.pg{position:absolute;top:560px;width:490px;height:680px;background:#f3e9d4;border:2px solid #d9c3a0;box-shadow:0 16px 28px rgba(0,0,0,.45)}
+#pr{left:540px}
+#pl{left:50px;transform-origin:100% 50%;transform-style:preserve-3d;backface-visibility:hidden;background:#f6eddb}
+#cv{left:540px;transform-origin:0 50%;background:linear-gradient(135deg,#2a5a8f,#1d3a63);border:2px solid #16243a;display:flex;align-items:center;justify-content:center}
+#cv em{font-style:normal;font-family:"League Gothic",sans-serif;font-size:120px;color:#e3a43c;letter-spacing:4px}
+#ttl{position:absolute;left:30px;top:200px;width:430px;font-family:"Caveat",cursive;font-size:84px;line-height:.95;color:#2a211c;clip-path:inset(0 100% 0 0)}
+#yr{position:absolute;left:36px;top:520px;font-family:"Space Mono",monospace;font-size:30px;letter-spacing:6px;color:#3f6aa0;opacity:0}
+#dir{position:absolute;left:36px;top:580px;font-family:"Space Mono",monospace;font-size:26px;letter-spacing:3px;color:#8a8178;opacity:0}
+#sk2{position:absolute;left:0;top:0}
+.sk2{fill:none;stroke:#3f6aa0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+#leak{background:linear-gradient(120deg,rgba(255,196,110,.0),rgba(255,176,90,.55) 45%,rgba(255,120,60,0));mix-blend-mode:screen;opacity:0}
+#white{background:#fff7e6;opacity:0}
+#pagetear{background:#efe3cf;clip-path:inset(100% 0 0 0);box-shadow:0 -12px 30px rgba(0,0,0,.35)}
+.grade{background:linear-gradient(180deg,rgba(255,205,120,.08),rgba(255,160,80,.08));mix-blend-mode:soft-light}
+.vign{background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.45) 100%)}
+#subgrad{position:absolute;left:0;top:1340px;width:1080px;height:580px;background:linear-gradient(180deg,rgba(14,10,8,0),rgba(14,10,8,.72) 70%,rgba(14,10,8,.82))}
+#sub{position:absolute;left:90px;top:1560px;width:900px;text-align:center;color:#f7f0e2;font-size:40px;line-height:1.35;text-shadow:0 2px 6px rgba(0,0,0,.8);opacity:0;min-height:110px}
+</style></head><body>
+<div id="root" data-composition-id="opening" data-width="1080" data-height="1920" data-start="0" data-duration="20.6">
+ <div id="stage" class="clip" data-start="0" data-duration="20.6" data-track-index="0">
+  <div id="in" class="layer">
+   <div id="world" class="layer">
+    <img id="plate" class="plate" src="assets/new/plate.jpg" style="left:-100px;top:0;width:1280px;height:1920px" alt="">
+    <div id="nightov" class="layer"></div>
+    <div id="lamp" style="left:90px;top:860px;width:760px;height:520px;opacity:.0"></div>
+    <div id="sumg" style="position:absolute;left:0;top:0;width:0;height:0">
+     <div class="ground" style="left:687px;top:1142px;width:229px;height:34px"></div>
+     <img class="cast" src="assets/new/lean-sil.png" style="left:707px;top:654px;width:149px;height:502px;transform-origin:50% 100%;transform:scaleY(-.3) skewX(35deg)" alt="">
+     <img id="lean" class="fig" src="assets/new/lean.png" style="left:707px;top:654px;width:149px;height:502px;opacity:0" alt="">
+    </div>
+    <div id="deskg" style="position:absolute;left:0;top:0;width:0;height:0">
+     <div class="ground" style="left:134px;top:1415px;width:672px;height:48px"></div>
+     <img class="cast" src="assets/new/desk-sil.png" style="left:104px;top:732px;width:712px;height:705px;transform-origin:50% 100%;transform:scaleY(-.3) skewX(35deg)" alt="">
+     <img id="desk" class="fig" src="assets/new/desk.png" style="left:104px;top:732px;width:712px;height:705px" alt="">
+    </div>
+    <div id="bluecreep"></div>
+    <div id="lline" style="position:absolute;left:560px;top:1255px;width:480px;height:5px;transform:rotate(-14deg);transform-origin:0 0;opacity:0;background:linear-gradient(90deg,rgba(255,226,170,0),rgba(255,226,170,.95),rgba(255,226,170,0));box-shadow:0 0 18px 4px rgba(255,214,140,.6)"></div>
+    <div id="card3" class="cardspr" style="left:330px;top:1010px"><i style="position:absolute;left:24px;top:40px;width:150px;height:5px;background:#c8bba0;border-radius:3px"></i><i style="position:absolute;left:24px;top:70px;width:190px;height:5px;background:#c8bba0;border-radius:3px"></i><i style="position:absolute;left:24px;top:100px;width:110px;height:5px;background:#c8bba0;border-radius:3px"></i><i style="position:absolute;right:20px;bottom:18px;width:34px;height:34px;border-radius:50%;background:#b8333d;opacity:.8"></i></div>
+    <div id="sh11" class="sheet"><i>HARI</i><b>1</b></div><div id="sh10" class="sheet"><i>HARI</i><b>9</b></div><div id="sh9" class="sheet"><i>HARI</i><b>31</b></div><div id="sh8" class="sheet"><i>HARI</i><b>60</b></div><div id="sh7" class="sheet"><i>HARI</i><b>96</b></div><div id="sh6" class="sheet"><i>HARI</i><b>140</b></div><div id="sh5" class="sheet"><i>HARI</i><b>190</b></div><div id="sh4" class="sheet"><i>HARI</i><b>250</b></div><div id="sh3" class="sheet"><i>HARI</i><b>310</b></div><div id="sh2" class="sheet"><i>HARI</i><b>372</b></div><div id="sh1" class="sheet"><i>HARI</i><b>431</b></div><div id="sh0" class="sheet"><i>HARI</i><b>500</b></div>
+    <div id="c1" class="cardspr" style="left:340px;top:1000px"><span id="c1t">ini bukan<br>kisah cinta</span></div>
+   </div>
+   <div id="s2" class="layer"><div id="wrap2">
+     <div id="wood"></div>
+     <div class="s2i" style="left:70px;top:1330px;width:380px;height:280px;background:#f3e9d4;border:2px solid #d9c3a0;transform:rotate(-8deg);box-shadow:0 12px 20px rgba(0,0,0,.4)"><svg width="380" height="280" viewBox="0 0 380 280"><path d="M40 240 L40 120 L90 120 L90 70 L150 70 L150 40 L200 40 L200 120 L260 120 L260 240 Z M40 240 L340 240" fill="none" stroke="#8a8178" stroke-width="2"/></svg></div>
+     <div class="s2i" style="left:820px;top:1370px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,#2a211c 0 52%,#3f6aa0 53% 58%,#dbe8f4 59% 72%,#a9c6e3 73%);box-shadow:0 12px 20px rgba(0,0,0,.4)"></div>
+     <div class="s2i" style="left:600px;top:1480px;width:300px;height:16px;border-radius:8px;background:linear-gradient(90deg,#2a211c 0 82%,#e3a43c 83%);transform:rotate(22deg);box-shadow:0 8px 12px rgba(0,0,0,.35)"></div>
+     <div class="s2i" style="left:90px;top:230px;width:240px;height:170px;background:#efe3cf;border:2px solid #d9c3a0;transform:rotate(7deg);box-shadow:0 10px 18px rgba(0,0,0,.4)"></div>
+     <div class="s2i" style="left:760px;top:250px;width:220px;height:150px;background:#dbe8f4;border:2px solid #a9c6e3;transform:rotate(-10deg);box-shadow:0 10px 18px rgba(0,0,0,.4)"></div>
+     <div id="cardw"><div id="cardg" style="position:absolute;left:0;top:0;width:1080px;height:1920px">
+       <div id="pr" class="pg"><svg id="sk2" width="490" height="680" viewBox="0 0 490 680"><path class="sk2" pathLength="1" d="M60 620 L60 330 L120 330 L120 250 L190 250 L190 190 L260 190 L260 330 L320 330 L320 620"/><path class="sk2" pathLength="1" d="M60 620 L440 620"/><path class="sk2" pathLength="1" d="M150 330 L150 620"/><path class="sk2" pathLength="1" d="M230 330 L230 620"/><path class="sk2" pathLength="1" d="M120 250 L260 250"/><path class="sk2" pathLength="1" d="M190 190 L190 130 L225 130 L225 190"/></svg></div>
+       <div id="pl" class="pg"><div class="ft" style="position:absolute;inset:0;backface-visibility:hidden"><div id="ttl">(500) Days of Summer</div><div id="yr">2009</div><div id="dir">MARC WEBB</div></div>
+        <div class="bk" style="position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;background:linear-gradient(135deg,#2a5a8f,#1d3a63);display:flex;align-items:center;justify-content:center"><em style="font-style:normal;font-family:'League Gothic',sans-serif;font-size:130px;color:#ffffff;letter-spacing:4px">500</em></div></div>
+     </div></div>
+   </div></div>
+   <div class="layer grade"></div><div class="layer vign"></div><div id="leak" class="layer"></div><div id="white" class="layer"></div><div id="pagetear" class="layer"></div>
+  </div>
+  <div id="subgrad"></div><div id="sub"></div>
+ </div>
+ <audio id="vo1" src="assets/vo/01.wav" data-start="0.4" data-duration="4.96" data-track-index="2" data-volume="1.0" data-audio-group="voiceover"></audio>
+ <audio id="vo2" src="assets/vo/02.wav" data-start="5.56" data-duration="6.08" data-track-index="2" data-volume="1.0" data-audio-group="voiceover"></audio>
+ <audio id="vo3" src="assets/vo/03.wav" data-start="11.84" data-duration="8.64" data-track-index="2" data-volume="1.0" data-audio-group="voiceover"></audio>
+ <audio id="bgm" src="assets/bgm.wav" data-start="0" data-duration="20.6" data-track-index="3" data-volume="0.35"></audio>
+ <audio id="sx0" src="assets/sfx/whoosh.wav" data-start="1.95" data-duration="0.7" data-track-index="4" data-volume=".5"></audio>
+ <audio id="sx1" src="assets/sfx/pop.wav" data-start="2.55" data-duration="0.18" data-track-index="5" data-volume=".5"></audio>
+ <audio id="sx2" src="assets/sfx/ding.wav" data-start="6.1" data-duration="1.4" data-track-index="6" data-volume=".5"></audio>
+ <audio id="sx3" src="assets/sfx/chime.wav" data-start="7.2" data-duration="2.4" data-track-index="7" data-volume=".5"></audio>
+ <audio id="sx4" src="assets/sfx/whoosh.wav" data-start="11.1" data-duration="0.7" data-track-index="8" data-volume=".5"></audio>
+ <audio id="sx5" src="assets/sfx/whoosh.wav" data-start="18.7" data-duration="0.7" data-track-index="9" data-volume=".5"></audio>
+ <audio id="sx6" src="assets/sfx/stamp.wav" data-start="19.7" data-duration="0.6" data-track-index="10" data-volume=".5"></audio>
+ <audio id="tk0" src="assets/sfx/tick.wav" data-start="0.50" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk1" src="assets/sfx/tick.wav" data-start="0.62" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk2" src="assets/sfx/tick.wav" data-start="0.74" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk3" src="assets/sfx/tick.wav" data-start="0.86" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk4" src="assets/sfx/tick.wav" data-start="0.98" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk5" src="assets/sfx/tick.wav" data-start="1.10" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk6" src="assets/sfx/tick.wav" data-start="1.22" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk7" src="assets/sfx/tick.wav" data-start="1.34" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk8" src="assets/sfx/tick.wav" data-start="1.46" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk9" src="assets/sfx/tick.wav" data-start="1.58" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+ <audio id="tk10" src="assets/sfx/tick.wav" data-start="1.70" data-duration="0.06" data-track-index="11" data-volume=".45"></audio>
+</div>
+<script>(function () {
+  var tl = gsap.timeline({ paused: true });
+  function camVars(cx, cy, s) { return { x: 540 - cx * s, y: 960 - cy * s, scale: s }; }
+  function camSet(t, cx, cy, s) { tl.set("#world", camVars(cx, cy, s), t); }
+  function camMove(t, dur, cx, cy, s, ease) { tl.to("#world", Object.assign({ duration: dur, ease: ease }, camVars(cx, cy, s)), t); }
+  gsap.set("#world", camVars(237, 378, 2.7));
+  gsap.set("#lean", { opacity: 0 });
+  gsap.set("#card3", { opacity: 0 });
+  gsap.set(".sk2", { strokeDashoffset: 1 });
+  for (var k = 1; k < 12; k++) { gsap.set("#sh" + k + " i,#sh" + k + " b", { opacity: 0 }); tl.set("#sh" + k + " i,#sh" + k + " b", { opacity: 1 }, 0.5 + (k - 1) * 0.12 + 0.05); }
+
+  // ===== ADEGAN 1 (0,0–5,5) =====
+  tl.set("#lamp", { opacity: 0.75 }, 0);
+  camSet(0, 237, 378, 2.7);
+  camMove(0.5, 1.6, 540, 960, 1.0, "power2.inOut");                              // tarik mundur dari kalender
+  for (var i = 0; i < 11; i++) {                                                  // halaman disobek mundur 500 -> 1
+    tl.to("#sh" + i, { x: -140, y: 540, rotation: -16, opacity: 0, duration: 0.35, ease: "power2.in" }, 0.5 + i * 0.12);
+  }
+  camMove(2.1, 1.3, 500, 1020, 1.1, "sine.inOut");
+  tl.to("#deskg", { y: 0, duration: 0.01 }, 0);
+  tl.to("#desk", { scaleY: 1.006, duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+  // kartu muncul di meja, dibalik ke arah kamera, tulisan tergambar, lalu memenuhi layar
+  tl.set("#c1", { opacity: 1, scale: 0.25, scaleX: -0.25, x: 0, y: 0, rotation: 6 }, 2.5);
+  tl.to("#c1", { scale: 0.5, scaleX: -0.5, duration: 0.25, ease: "back.out(2)" }, 2.5);
+  tl.to("#c1", { scaleX: 0.5, duration: 0.3, ease: "power2.inOut" }, 2.75);
+  tl.to("#c1t", { clipPath: "inset(0 0% 0 0)", duration: 1.0, ease: "none" }, 3.4);
+  tl.to("#c1", { x: 70, y: -185, scale: 4.2, scaleX: 4.2, rotation: -2, duration: 1.1, ease: "power2.inOut" }, 3.6);
+
+  // ===== ADEGAN 2 (5,5–11,8): kartu terbuka, judul =====
+  tl.set("#s2", { opacity: 1 }, 5.5);
+  tl.set("#c1", { opacity: 0 }, 5.5);
+  tl.set("#sh11", { opacity: 0 }, 5.5);
+  tl.set("#pl .bk", { opacity: 0 }, 6.3);
+  gsap.set("#pl", { rotationY: 180 });
+  gsap.set("#cardg", { x: -245 });
+  tl.set("#pl", { rotationY: 180 }, 5.5);
+  tl.fromTo("#wrap2", { scale: 1 }, { scale: 1, duration: 0.01, immediateRender: false }, 5.5);
+  tl.to("#pl", { rotationY: 0, duration: 1.0, ease: "power2.inOut" }, 5.75);
+  tl.to("#cardg", { x: 0, duration: 1.0, ease: "power2.inOut" }, 5.75);
+  tl.fromTo("#leak", { opacity: 0, x: -300 }, { opacity: 0.8, x: 100, duration: 0.8, ease: "power1.inOut", immediateRender: false }, 5.8);
+  tl.to("#leak", { opacity: 0, duration: 0.6 }, 6.7);
+  tl.to("#ttl", { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "none" }, 5.9);
+  tl.fromTo("#yr", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, immediateRender: false }, 8.1);
+  tl.fromTo("#dir", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, immediateRender: false }, 9.98);
+  tl.to("#sk2 path", { strokeDashoffset: 0, duration: 0.6, ease: "power1.inOut", stagger: 0.12 }, 9.9);
+  tl.to("#wrap2", { scale: 2.6, duration: 0.8, ease: "power2.in" }, 11.0);
+  tl.to("#white", { opacity: 1, duration: 0.5, ease: "power1.in" }, 11.3);
+
+  // ===== ADEGAN 3 (11,8–20,6): dua dunia =====
+  tl.set("#s2", { opacity: 0 }, 11.8);
+  tl.set("#sh11", { opacity: 1 }, 11.8);
+  tl.set("#plate", { filter: "brightness(1) saturate(1)" }, 11.8);
+  tl.set("#desk", { filter: "none" }, 11.8);
+  tl.set(["#nightov", "#lamp"], { opacity: 0 }, 11.8);
+  tl.set("#lean", { opacity: 1 }, 11.8);
+  tl.set("#world", { filter: "none" }, 11.8);
+  camSet(11.8, 440, 1080, 1.55);
+  tl.to("#white", { opacity: 0, duration: 0.5, ease: "power1.out" }, 11.85);
+  // fokus: Tom tajam, latar dan Summer buram
+  tl.set(["#plate", "#sumg"], { filter: "blur(3.5px)" }, 11.8);
+  tl.to("#deskg", { x: 0, duration: 0.01 }, 11.8);
+  tl.to("#desk", { rotation: 0.5, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 3, transformOrigin: "50% 100%" }, 12.0);
+  // pan lateral, fokus berpindah ke Summer; cahaya biru merembes ke meja Tom
+  camMove(16.3, 1.3, 790, 880, 1.8, "sine.inOut");
+  tl.to("#sumg", { filter: "blur(0px)", duration: 0.7 }, 16.3);
+  tl.to("#plate", { filter: "blur(1px)", duration: 0.7 }, 16.3);
+  tl.to("#deskg", { filter: "blur(3.5px)", duration: 0.7 }, 16.3);
+  tl.to("#bluecreep", { opacity: 0.55, duration: 1.2 }, 16.4);
+  // kartu melayang dari meja Tom ke arah Summer, berhenti di garis cahaya, lalu turun pelan
+  camMove(18.2, 0.9, 600, 980, 1.2, "sine.inOut");
+  tl.to("#sumg", { filter: "blur(0px)", duration: 0.01 }, 18.2);
+  tl.to("#deskg", { filter: "blur(0px)", duration: 0.5 }, 18.2);
+  tl.to("#plate", { filter: "blur(0px)", duration: 0.5 }, 18.2);
+  tl.to("#lline", { opacity: 1, duration: 0.4 }, 18.5);
+  tl.set("#card3", { opacity: 1, x: 0, y: 0, rotation: -4, scale: 0.7 }, 18.7);
+  tl.to("#card3", { x: 250, y: -170, rotation: 8, duration: 0.5, ease: "power2.out" }, 18.7);
+  tl.to("#card3", { x: 330, y: -150, rotation: 4, duration: 0.4, ease: "sine.inOut" }, 19.2);
+  tl.to("#card3", { y: 120, rotation: -3, duration: 0.5, ease: "power1.in" }, 19.6);
+  // halaman kalender menutup layar
+  tl.to("#pagetear", { clipPath: "inset(0% 0 0 0)", duration: 0.9, ease: "power2.in" }, 19.65);
+  tl.to("#bluecreep", { opacity: 0, duration: 0.2 }, 20.4);
+
+  // ===== subtitle (tanpa kotak) mengikuti jeda ucapan =====
+  var subs = [[0.55, 1.65, "Cowok bertemu cewek."], [2.6, 3.68, "Tapi sejak awal,"], [3.97, 5.3, "ini bukan kisah cinta."],
+    [5.79, 7.5, "(500) Days of Summer."], [8.1, 9.26, "Tahun 2009."], [9.98, 11.46, "Sutradara Marc Webb."],
+    [12.0, 15.59, "Tom, penulis kartu ucapan yang percaya cinta sejati."], [16.32, 18.5, "Summer, asisten baru bosnya,"], [18.7, 20.34, "yang tak mau hubungan serius."]];
+  subs.forEach(function (s) {
+    tl.set("#sub", { opacity: 1, innerHTML: s[2] }, s[0]);
+    tl.set("#sub", { opacity: 0 }, s[1]);
+  });
+  window.__timelines = window.__timelines || {};
+  window.__timelines["opening"] = tl;
+})();
+</script>
+</body></html>
