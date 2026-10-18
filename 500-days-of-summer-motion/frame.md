@@ -13,6 +13,7 @@ typography:
   ui: "Space Mono"
 ---
 
+Gaya figur: silhouette line-art satu warna (seperti Perfect Blue), warna sebagai identitas: Summer biru, Tom krem, Autumn oranye, pendukung abu-biru. Latar dasar navy.
 Konsep: cerita disusun dari lembar kalender yang melompat-lompat. Gaya kolase kertas datar: tepi tebal tinta, bayangan offset, warna hangat.
 Tiap scene punya satu elemen ilustrasi besar + satu baris teks besar. Subtitle di zona tengah-bawah (y 1300–1520), jauh dari zona UI ponsel.
 Transisi: lembar warna menyapu layar. Chip "HARI ke-N" di kiri atas menandai loncatan waktu.

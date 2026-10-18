@@ -1,8 +1,8 @@
 # Daftar aset gambar — (500) Days of Summer (14 gambar, disiapkan pengguna)
 
-Simpan di `assets/figures/src/` (PNG) dengan nama file persis seperti tabel. Semua figur: wajah KOSONG (tanpa mata, hidung, mulut),
-gaya anime sinematik sama dengan `assets/ref/tom-ref.png` dan `assets/ref/summer-ref.png`, **latar putih polos, tanpa cahaya atau glow,
-tanpa bayangan di lantai**, seluruh tubuh terlihat, portrait 1024×1536. Sertakan gambar referensi saat generate agar gaya konsisten.
+Simpan di `assets/figures/src/` (PNG) dengan nama file persis seperti tabel. Gaya: **silhouette line-art** (lihat `ART_STYLE.md`):
+siluet navy pekat rata dengan garis dalam tipis terang, tanpa wajah, tanpa bayangan, latar putih polos tanpa glow dan tanpa bayangan lantai,
+seluruh tubuh terlihat, portrait 1024×1536. Referensi Tom dan Summer hanya untuk pakaian dan postur.
 
 ## Jumlah per karakter
 
@@ -35,13 +35,14 @@ tanpa bayangan di lantai**, seluruh tubuh terlihat, portrait 1024×1536. Sertaka
 | `paul-cheers.png` | F4 | Pria berkemeja dan rompi rajut, bersandar santai, mengangkat gelas |
 | `autumn-walk.png` | F8 | Berjalan masuk dari samping, mantel/gaun oranye hangat, rambut sebahu, tas bahu |
 
-Catatan siluet: pendukung tampil hanya 2 sampai 3 detik, jadi bentuknya harus mudah dibedakan (McKenzie tinggi dan berjaket, Paul berompi rajut,
+Catatan siluet (warna akhir ditentukan saat pewarnaan ulang, bukan di gambar sumber): pendukung tampil hanya 2 sampai 3 detik, jadi bentuknya harus mudah dibedakan (McKenzie tinggi dan berjaket, Paul berompi rajut,
 Rachel lebih pendek berambut diikat, Autumn berwarna oranye hangat, berbeda jelas dari biru Summer).
 
 Prompt dasar (Inggris, untuk Gemini / generator gambar):
 
-> Full-body anime character illustration, cinematic flat-shaded style with sharp cel shadows, faceless (blank skin-colored face, no eyes nose or mouth),
-> [POSE], same style as the reference image, solid pure white background, no glow, no floor shadow, centered, portrait 1024x1536.
+> Full-body anime character SILHOUETTE illustration: solid flat dark navy fill (#0a1a6a), no shading, no skin tone, no face, with thin light inner line-art
+> only for clothing folds, hair strands, ribbons and small details. [POSE]. Outfit and posture like the reference image. Solid pure white background,
+> no glow, no floor shadow, centered, portrait 1024x1536.
 
 ## VO
 8 file di `assets/vo/01.wav … 08.wav` dari `VO_SCRIPT.md` (Cartesia, bahasa `id`, satu suara hangat dan santai).

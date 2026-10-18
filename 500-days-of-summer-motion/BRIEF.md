@@ -26,7 +26,7 @@ Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun
 
 ## Customizations
 
-- Figur diproses seperti Perfect Blue: hapus latar putih, lalu warnai ulang ke palet (badan navy, tepi hangat).
+- Figur bergaya silhouette line-art seperti Perfect Blue: hapus latar putih, lalu warnai ulang per karakter (Summer biru, Tom krem, Autumn oranye, pendukung abu-biru). Lihat ART_STYLE.md.
 - Semua elemen lain (kalender, kartu, kota, piringan hitam, grafik) orisinal dari SVG/HTML/GSAP.
 - Musik dan SFX orisinal hasil sintesis; BGM di-carve di bawah VO.
 - Tanpa footage, poster, atau musik asli film.
