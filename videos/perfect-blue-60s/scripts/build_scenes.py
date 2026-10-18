@@ -67,7 +67,7 @@ eye = f'''<svg class="abs" style="left:70px;top:290px" width="940" height="560" 
 f2 = f'''
 <div class="abs" style="inset:0;background:radial-gradient(ellipse 70% 40% at 50% 28%,{PINK}55,transparent 70%)"></div>
 <div class="abs" style="left:40px;top:230px;width:1000px;height:700px;border:16px solid #2a3170;border-radius:70px;background:{PANEL}"></div>
-{eye}
+<img id="f2-eye" class="abs" src="assets/figures/eye-blue.png" style="left:70px;top:345px;width:940px;height:auto">
 <div class="abs mono chip" style="left:70px;top:150px">[ NAMA: ??? ]</div>
 <div class="abs mono chip" style="right:70px;top:150px;color:{PINK};border-color:{PINK}">[ PERAN: ??? ]</div>
 <div class="abs mono chip" style="left:110px;top:970px;color:{BLUE};background:{PAPER}">[ DIRI: ??? ]</div>
@@ -130,7 +130,7 @@ f5 = f'''
  f'<div class="counter mono"><span>PENGUNJUNG</span>{"".join(f"<i>{n}</i>" for n in "00742")}</div>{ent}<div class="cmts">{cmts}</div>')}
 <div class="toast" style="top:520px;right:20px;background:{RED}"><span class="mono">⚠ ADA YANG MENGAWASI</span></div>
 <div class="toast" style="top:640px;right:20px;background:{NAVY};border:5px solid {RED}"><span class="mono" style="color:{RED}">● 1 ORANG TEWAS</span></div>
-<svg class="abs" style="left:790px;top:1180px" width="220" height="140" viewBox="0 0 220 140"><path d="M10 70 C60 10 160 10 210 70 C160 130 60 130 10 70Z" fill="{PAPER}" stroke="{RED}" stroke-width="8"/><circle cx="110" cy="70" r="30" fill="{RED}"/><circle cx="110" cy="70" r="12" fill="{NAVY}"/></svg>
+<img id="f5-eye" class="abs" src="assets/figures/eye-red.png" style="left:770px;top:1190px;width:240px;height:auto">
 <div class="abs" style="left:50px;top:760px;width:980px;height:22px;background:{PINK};mix-blend-mode:screen;opacity:.55;transform:translateX(-30px)"></div>
 <div class="abs" style="left:50px;top:1010px;width:980px;height:16px;background:{BLUE};mix-blend-mode:screen;opacity:.6;transform:translateX(34px)"></div>
 '''

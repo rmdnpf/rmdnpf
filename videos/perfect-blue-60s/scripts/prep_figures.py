@@ -60,4 +60,9 @@ for nm, sl in (("idol-long", slice(0, cut)), ("idol-twin", slice(cut, w))):
     aa, ll = aa[y0:y1 + 1, x0:x1 + 1], ll[y0:y1 + 1, x0:x1 + 1]
     save(aa, ll, f"assets/figures/{nm}.png")
     for k in NEED[nm]: save(aa, ll, f"assets/figures/{nm}-{k}.png", *PAL[k])
+for name in ["eye-blue", "eye-red", "mima-stand2"]:
+    a, al = cutout(src + name + ".png")
+    # rapikan: potong ke kotak isi
+    ys, xs = np.where(al > 0.05); y0, y1, x0, x1 = ys.min(), ys.max(), xs.min(), xs.max()
+    save(a[y0:y1 + 1, x0:x1 + 1], al[y0:y1 + 1, x0:x1 + 1], f"assets/figures/{name}.png")
 print("ok")
