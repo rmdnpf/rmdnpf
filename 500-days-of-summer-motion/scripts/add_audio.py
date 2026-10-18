@@ -5,11 +5,16 @@ Setelah VO ditambahkan, jalankan carve agar musik menyingkir dari suara:
 Pakai: python3 scripts/add_audio.py"""
 import json, os, re, wave
 
-VO_START = [0.4, 5.4, 11.4, 20.4, 30.4, 40.4, 48.4, 55.3]
+TIMING = json.load(open("scripts/timing.json"))
+VO_START = [TIMING["L"][str(n)] for n in range(1, 9)]
 vo = [(i + 1, t) for i, t in enumerate(VO_START) if os.path.exists(f"assets/vo/{i + 1:02d}.wav")]
 lines = []
+def _len(path):
+    with wave.open(path) as w:
+        return w.getnframes() / w.getframerate()
+
 for n, t in vo:
-    lines.append(f'      <audio id="vo{n:02d}" src="assets/vo/{n:02d}.wav" data-start="{t}" data-track-index="7" data-volume="1"></audio>')
+    lines.append(f'      <audio id="vo{n:02d}" src="assets/vo/{n:02d}.wav" data-start="{t}" data-duration="{round(_len(f"assets/vo/{n:02d}.wav"), 2)}" data-track-index="7" data-volume="1"></audio>')
 vol = "0.5" if vo else "0.6"
 carve = ""
 if vo:

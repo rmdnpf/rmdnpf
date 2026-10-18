@@ -73,20 +73,27 @@ SFX = dict(tick=tick(), whoosh=whoosh(), pop=pop(), stamp=stamp(), ding=ding(), 
 for k, v in SFX.items():
     save(f"assets/sfx/{k}.wav", v)
 
-S = dict(f1=0, f2=5, f3=11, f4=20, f5=30, f6=40, f7=48, f8=55)
-ev = [("tick", .75 + i * .4) for i in range(7)] + [("stamp", 3.5), ("pop", 3.95)]
-for k in ("f2", "f3", "f4", "f5", "f6", "f7", "f8"):
-    ev.append(("whoosh", S[k] - .42))
-ev += [("stamp", S["f2"] + 1.6), ("pop", S["f2"] + 2.2),
-       ("pop", S["f3"] + 1.2), ("pop", S["f3"] + 6.4),
-       ("tick", S["f4"] + .6), ("tick", S["f4"] + 4.4), ("ding", S["f4"] + 7.1),
-       ("pop", S["f5"] + .9), ("ding", S["f5"] + 2.0),
-       ("vinyl", S["f6"] + .3), ("pop", S["f6"] + 3.4),
-       ("ding", S["f7"] + 2.6)] + [("coin", S["f7"] + 1.3 + i * .16) for i in range(7)] + [
-       ("stamp", S["f8"] + .5), ("chime", S["f8"] + 1.9)] + [("pop", S["f8"] + 1.2 + i * .18) for i in range(5)]
+TM = json.load(open("scripts/timing.json"))
+L = {int(k): v for k, v in TM["L"].items()}
+S = {int(k): v for k, v in TM["S"].items()}
+CH = {int(k): v for k, v in TM["chunks"].items()}
+cs = lambda n, i: L[n] + CH[n][i][0]
+ce = lambda n, i: L[n] + CH[n][i][1]
+ev = [("tick", L[1] + .5 + i * .4) for i in range(7)] + [("stamp", cs(1, 1) + 1.4), ("pop", cs(1, 1) + 1.5)]
+for n in range(2, 9):
+    ev.append(("whoosh", S[n] - .42))
+ev += [("stamp", L[2] + .65), ("pop", cs(2, 1)), ("pop", cs(2, 2)),
+       ("pop", cs(3, 0) + .9), ("pop", ce(3, 1) - 1.6),
+       ("tick", cs(4, 0) + .7), ("tick", cs(4, 0) + 1.5), ("pop", cs(4, 2) + .1), ("ding", cs(4, 2) + 1.0),
+       ("pop", S[5] + .9), ("ding", cs(5, 1) + 1.2),
+       ("vinyl", S[6] + .3), ("pop", L[6] + 2.3), ("pop", L[6] + 4.3),
+       ("ding", cs(7, 1) + .3), ("pop", ce(7, 1) - 1.0)]
+ev += [("coin", cs(7, 0) + .6 + i * .22) for i in range(7)]
+ev += [("stamp", cs(8, 0) + .45), ("chime", cs(8, 3))] + [("pop", cs(8, 1) + .05 + i * .16) for i in range(5)]
 ev.sort(key=lambda e: e[1])
 json.dump([(n, round(t, 2)) for n, t in ev], open("assets/sfx/sfx.json", "w"))
 
+S5 = S[5]
 # ---------- Musik latar: ukulele + bass + perkusi lembut, 104 BPM ----------
 n = int(SR * TOTAL); out = np.zeros(n)
 bpm = 104; beat = 60 / bpm
@@ -98,7 +105,7 @@ bar = beat * 4
 nb = int(TOTAL / bar) + 1
 for b in range(nb):
     t0 = b * bar
-    prog = prog1 if t0 < 30 else prog2
+    prog = prog1 if t0 < S5 else prog2
     ch = prog[b % 4]
     # strum: 8 petikan per bar
     for s in range(8):
