@@ -91,3 +91,56 @@ Prioritas fallback bila Anda ingin menghemat: aset lama tetap bisa dipakai untuk
 
 - **Otomatis (hanya yang terukur):** ukuran kanvas, skala relatif Tom, sisa magenta di tepi, kesamaan kamera kiri-kanan (khusus layar terbelah), drift kaki, `check` render, determinisme snapshot, sinkron audio.
 - **Manual (wajib):** kualitas ilustrasi 2D, kecocokan gaya antar aset, kesesuaian dengan film, kewajaran gerak, apakah tiap gerakan punya tujuan visual/naratif.
+
+---
+
+## 6. GERBANG 2 — Adegan 1, 2, 3, 4, 7 (prompt lengkap)
+
+Satu plat `P1` di-grade menjadi: kamar kerja malam (adegan 1, 2), kantor siang (adegan 3, 4), apartemen Tom malam (adegan 7). Teks, angka kalender, dan tulisan di kartu **tidak boleh ada di gambar** (dibuat dari kode).
+
+**Referensi lama yang dilampirkan** (hanya untuk kostum dan gaya, `assets/figures/src/`): `tom-desk.png` (Tom menulis kartu di meja, jadi acuan kostum dan isi meja), `rachel-pat.png` (Rachel: rambut pirang diikat, kaus oranye, celana pendek navy bergaris, kaus kaki bergaris, sneakers), `summer-lean.png` (hanya untuk pose bersandar; kostum diganti rok), serta aset baru yang sudah disetujui (`tom-stand-new`, `summer-stand-new`, `hug-warm`) untuk gaya.
+
+**Blok gaya bersama (tempel di awal setiap prompt):**
+```
+2D anime film illustration, flat cel shading with clean ink lines and subtle paper texture, painterly warm colors, same style and line quality as the reference images tom-stand-new and summer-stand-new. Faceless characters (blank skin-toned face, no eyes, nose or mouth). Light: warm amber key light from the RIGHT, thin warm rim light on right-side edges, soft cool fill from the left, flat 2-tone shadows. No readable text, no numbers, no logos.
+```
+
+### 6.1 `P1` — plat kamar kerja / kantor (dibuat lebih dulu)
+Kanvas 1024×1536, ilustrasi penuh, **tanpa orang**. Perbaikan dari adegan 6: lantai terbaca dan lantai kosong tidak terlalu besar.
+```
+[BLOK GAYA BERSAMA, no people]
+A small greeting-card company work room seen straight-on at low eye level (camera about 1.2 m high), vertical 2:3 composition. Left third: a plain beige wall with a large blank wall calendar grid (empty squares, no numbers, no text) and several pinned architectural sketches of buildings (no readable text). Center: an empty floor area with a wooden floor in clear perspective (clear floor-wall line at about 62% of image height), kept free for a desk or a standing character; the lower 30% is plain wooden floor. Right third: a tall window with a city skyline beyond and a low office partition panel in front of it. Warm amber daylight enters from the right window and casts diagonal light shapes across the floor toward the lower left. Palette: paper #efe3cf, sand #d9c3a0, amber #e3a43c, burnt orange #c8622a, blue-grey #6f9bc9, ink #2a211c. Neutral enough to be re-graded to night.
+```
+
+### 6.2 `tom-desk-new` — Tom menulis kartu di meja (termasuk meja)
+Kanvas 1536×1280, latar magenta. Meja sudah ikut dalam aset (tidak ada meja di plat di titik ini). Skala kepala sama dengan `tom-stand-new`.
+```
+[BLOK GAYA BERSAMA]
+Same character and outfit as the reference tom-desk and tom-stand-new: messy dark-brown hair, black open zip hoodie over a grey-cream shirt, thin black tie, dark brown trousers, dark sneakers with cream trim. He sits on a wooden chair in side view facing RIGHT at a small worn wooden desk with metal legs, leaning over and writing on a blank greeting card with a pen. The desk holds a pen holder with pens and scissors, a mug, and a few stacked blank cards and envelopes (no text, no drawings with words). Chair and desk legs fully visible and flat on the ground, nothing cropped. Canvas 1536x1280, solid pure magenta #FF00FF background, no glow, no shadow, crisp clean edges, no white outline. Tom's head the same size as in tom-stand-new.
+```
+
+### 6.3 `tom-draw-new` — Tom menggambar di meja gambar (adegan 7)
+Sama dengan 6.2 tetapi duduk di meja gambar miring.
+```
+[BLOK GAYA BERSAMA]
+Same character and outfit as tom-desk-new, now sitting on a stool in side view facing RIGHT at a tilted drafting table, drawing a building with a pencil on a large sheet (only simple blank sketch lines, no text). A desk lamp clamped to the table edge, a few rolled sheets and pencils on a small side tray. He looks focused and calm, shoulders a little lifted compared to the slumped card-writing pose. Stool and table legs fully visible. Canvas 1536x1280, solid pure magenta #FF00FF background, no glow, no shadow, crisp clean edges. Head the same size as in tom-stand-new.
+```
+
+### 6.4 `summer-lean-new` — Summer bersandar di sekat (adegan 3, 4)
+Kanvas 1024×1536, latar magenta. Sekat ikut dalam aset.
+```
+[BLOK GAYA BERSAMA]
+Same character and outfit as summer-stand-new: long wavy dark-brown hair with straight bangs, white sleeveless blouse with small collar, blue-grey flared skirt, navy ballet flats, small brown shoulder bag. She leans her shoulder and back against a plain office partition panel (include a narrow vertical beige partition edge on the right side so she has something to lean on), one foot crossed over the other, arms relaxed, head turned slightly toward the LEFT, calm and friendly, a little distant but kind. Facing LEFT in three-quarter view. Feet fully visible on the ground. Canvas 1024x1536, solid pure magenta #FF00FF background, no glow, no shadow, crisp clean edges. Figure about 1340 px tall.
+```
+
+### 6.5 `rachel-new` — Rachel, adik perempuan Tom (adegan 7)
+Kanvas 1024×1536, latar magenta. Skala sedikit lebih kecil dari Tom (adik).
+```
+[BLOK GAYA BERSAMA]
+Tom's younger sister Rachel, a young teenage girl, faceless, same outfit as the reference rachel-pat: blonde hair in a ponytail, orange short-sleeved t-shirt, navy shorts with white stripes, white knee socks with stripes, dark sneakers with white stripes. She stands slightly forward in three-quarter view facing RIGHT and reaches one arm forward as if gently touching someone's shoulder, the other arm relaxed at her side, kind and concerned posture. Feet fully visible. Canvas 1024x1536, solid pure magenta #FF00FF background, no glow, no shadow, crisp clean edges. Figure about 1230 px tall (about 0.85 of Tom's height).
+```
+
+### 6.6 Urutan pembuatan
+1. **Gerbang 2a:** `P1` dan `tom-desk-new`. Kirim keduanya; saya cek skala, gaya, dan kecocokan dengan aset adegan 5 dan 6.
+2. **Gerbang 2b:** `tom-draw-new`, `summer-lean-new`, `rachel-new` (kirim bersama setelah 2a disetujui).
+3. Setelah itu saya pasang adegan 1 sampai 3 (kalender, kartu, dua dunia) dan adegan 7, lalu kirim render dan still.
