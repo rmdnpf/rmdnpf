@@ -53,6 +53,22 @@ def particles(n, color=CREAM, y0=0, y1=1500, op=.6):
     return "".join(f'<i class="abs pt" style="left:{R.randint(20,1000)}px;top:{R.randint(y0,y1)}px;width:{(s:=R.choice([4,6,8]))}px;height:{s}px;background:{color};opacity:{op*R.uniform(.4,1):.2f}"></i>' for _ in range(n))
 def tagchip(text, x, y, color=YEL, size=46):
     return f'<div class="abs chip" style="left:{x}px;top:{y}px;border-color:{color};color:{color};font-size:{size}px">{text}</div>'
+import re, json
+LINES = [l.split('|')[3].strip() for l in open('VO_SCRIPT.md') if re.match(r'\| `\d\d\.wav`', l)]
+def phrases(text):
+    out, cur = [], ""
+    for w in text.split():
+        cur = (cur + " " + w).strip()
+        end = w[-1] in ".?:" or (w[-1] == "," and len(cur) >= 18) or len(cur) >= 34
+        if end: out.append(cur); cur = ""
+    if cur: out.append(cur)
+    if len(out) > 1 and len(out[-1]) < 10: out[-2] += " " + out.pop()
+    return out
+CAPS = []
+for n in range(1, 11):
+    ph = phrases(LINES[n - 1]); tot = sum(len(p) for p in ph); t0 = LS[n] + 0.04; span = D[n - 1] - 0.12
+    for p in ph:
+        t1 = t0 + span * len(p) / tot; CAPS.append((p.rstrip(",").rstrip("."), round(t0, 2), round(t1, 2))); t0 = t1
 def sub(n): return f'<div class="sub"><span>{SUB[n]}</span></div>' if not HAS_VO else ""
 
 
@@ -77,17 +93,17 @@ F[2] = (wide_bg("color/bg-wall", -900, "filter:brightness(.8)", "f2-bg") + parti
         f'<div id="f2-line" class="abs" style="left:140px;top:950px;width:800px;height:14px;background:{YEL}"></div>'
         f'<div id="f2-sub" class="abs center disp" style="top:990px;font-size:90px;letter-spacing:.2em;color:{YEL}">SEASON 1 · 2021</div>' + alt(.06, "0 M", pid="f2-alt") + sub(2))
 # 3 Mark
-F[3] = (wide_bg("color/bg-city-night", -380, "", "f3-bg") + img("color/mark-standing", "left:30px;top:90px;height:1500px;width:auto", "f3-mark") + tagchip("MARK GRAYSON", 90, 1690, YEL, 64) +
-        '<div class="abs mono" style="left:96px;top:1790px;font-size:34px;letter-spacing:.12em;color:#E9DCC3;text-shadow:0 2px 12px #000">17 TAHUN · PUTRA OMNI-MAN</div>' + alt(.14, "100 M", pid="f3-alt") + sub(3))
+F[3] = (wide_bg("color/bg-city-night", -380, "", "f3-bg") + img("color/mark-standing", "left:60px;top:60px;height:1380px;width:auto", "f3-mark") + tagchip("MARK GRAYSON", 90, 1450, YEL, 64) +
+        '<div class="abs mono" style="left:96px;top:1555px;font-size:34px;letter-spacing:.12em;color:#E9DCC3;text-shadow:0 2px 12px #000">17 TAHUN · PUTRA OMNI-MAN</div>' + alt(.14, "100 M", pid="f3-alt") + sub(3))
 # 4 Terbang
 speed = "".join(f'<line x1="{x}" y1="{y}" x2="{x+8}" y2="{y+R.randint(160,360)}" stroke="{CREAM}" stroke-opacity=".28" stroke-width="3"/>' for x, y in [(R.randint(40,980), R.randint(0,1400)) for _ in range(18)])
 F[4] = (tall_bg(os.environ.get("SKY4","color/bg-sky"), "", "f4-bg") +
-        f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{speed}</svg>' +
+        f'<svg id="f4-speed" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{speed}</svg>' +
         img("color/mark-flying", "left:30px;top:760px;height:760px;width:auto", "f4-mark") + img("color/omni-flying", "left:310px;top:200px;height:1180px;width:auto", "f4-omni") +
         alt(.4, "2.000 M", pid="f4-alt") + sub(4))
 # 5 Guardians tewas
 F[5] = (wide_bg("color/bg-city-wreck", -900, "filter:brightness(.8)", "f5-bg") + '<div id="f5-red" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 80%,#B3202A66,transparent 70%)"></div>' +
-        img("color/guardians-group", "left:-90px;top:640px;width:1260px;height:auto;filter:brightness(.45) saturate(.7);transform:rotate(-7deg)", "f5-guard") +
+        img("color/guardians-group", "left:-90px;top:640px;width:1260px;height:auto;filter:brightness(.45) saturate(.7)", "f5-guard") +
         img("color/omni-standing", "left:150px;top:470px;height:1080px;width:auto;filter:drop-shadow(0 0 40px #B3202A)", "f5-omni") + particles(30, "#f25a4a", 200, 1400, .7) +
         alt(.5, "—", RED, "f5-alt") + sub(5))
 # 6 Foto pecah
@@ -106,7 +122,7 @@ F[7] = (tall_bg("space-bg", "", "f7-bg") +
 # 8 Pertarungan
 F[8] = (tall_bg("color/bg-sky-dusk", "", "f8-bg") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="f8-wave" fill="none" stroke="{YEL}" stroke-width="6"><circle cx="420" cy="860" r="110" stroke-opacity=".9"/><circle cx="420" cy="860" r="190" stroke-opacity=".55"/><circle cx="420" cy="860" r="280" stroke-opacity=".3"/></g></svg>' +
-        img("color/omni-flying", "left:440px;top:90px;height:980px;width:auto", "f8-omni") + img("color/mark-flying", "left:20px;top:980px;height:640px;width:auto;transform:rotate(150deg)", "f8-mark") +
+        img("color/omni-flying", "left:440px;top:90px;height:980px;width:auto", "f8-omni") + img("color/mark-flying", "left:20px;top:820px;height:640px;width:auto", "f8-mark") +
         f'<svg id="f8-tear" class="abs" style="left:560px;top:760px" width="50" height="80" viewBox="0 0 50 80"><path d="M25 4 C25 4 4 40 4 54 A21 21 0 0 0 46 54 C46 40 25 4 25 4Z" fill="#9fb4ff" stroke="{CREAM}" stroke-width="3"/></svg>' +
         alt(.6, "ANGKASA", pid="f8-alt") + sub(8))
 # 9 Tafsiran
@@ -115,7 +131,7 @@ F[9] = (wall_framed("filter:brightness(.55)", "f9-bg") +
         f'<svg id="f9-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(FX0 + round(FW*.46), FY0 + round(FH*.5), 5, 20, 260, 12, CREAM, 4)}</g></svg>' +
         '<div class="abs theory"><span>TAFSIRAN</span></div><div class="abs tframe"></div>' + sub(9))
 # 10 Penutup# 10 Penutup
-F[10] = (wide_bg("color/bg-city-night", -380, "filter:brightness(.75)", "f10-bg") + img("color/mark-standing", "left:30px;top:250px;height:1400px;width:auto", "f10-mark") +
+F[10] = (wide_bg("color/bg-city-night", -380, "filter:brightness(.75)", "f10-bg") + img("color/mark-standing", "left:60px;top:230px;height:1250px;width:auto", "f10-mark") +
          f'<div id="f10-title" class="abs center disp" style="top:90px;font-size:190px;color:{YEL};text-shadow:0 6px 40px #000">SIAPA DIRIMU?</div>' + alt(.14, "100 M", pid="f10-alt") +
          '<div class="abs theory" style="top:1100px;opacity:0"><span>TAFSIRAN</span></div>' + sub(10))
 
@@ -131,7 +147,7 @@ html,body{{margin:0;background:{NAVY}}}
 .pt{{border-radius:50%}}
 .warn{{left:50%;margin-left:-150px;width:300px;top:70px;text-align:center;padding:8px 0;border:3px solid {RED};color:#f3b5ac;background:#14080acc;font-family:"League Gothic",sans-serif;font-size:44px;letter-spacing:.2em}}
 .chip{{padding:8px 26px;border:4px solid;background:#0B1230d9;font-family:"League Gothic",sans-serif;letter-spacing:.06em}}
-.sub{{position:absolute;left:60px;right:60px;top:1500px;display:flex;justify-content:center}}
+.sub{{position:absolute;left:50px;right:50px;top:1600px;pointer-events:none;display:flex;justify-content:center}}
 .sub span{{display:inline-block;padding:14px 30px;border-radius:14px;background:rgba(11,18,48,.82);color:{CREAM};text-align:center;font-weight:900;font-size:50px;line-height:1.2;max-width:960px}}
 .theory{{left:0;right:0;top:120px;text-align:center}}
 .theory span{{display:inline-block;padding:8px 30px;border:3px dashed {CREAM};background:#0B1230cc;font-family:"League Gothic",sans-serif;font-size:56px;letter-spacing:.2em}}
@@ -140,7 +156,18 @@ html,body{{margin:0;background:{NAVY}}}
 def scene(n):
     return f'<section id="f{n}" class="scene clip" data-start="{ST[n]}" data-duration="{DUR[n]}" data-track-index="1">{F[n]}<div class="vig"></div></section>'
 body = "\n      ".join(scene(n) for n in range(1, 11))
-audio = "\n      ".join(f'<audio id="vo{n:02d}" src="assets/vo/{n:02d}.wav" data-start="{LS[n]}" data-track-index="7" data-volume="1"></audio>' for n in range(1, 11) if os.path.exists(f"assets/vo/{n:02d}.wav"))
+caps_html = "\n      ".join(f'<div id="cap{i}" class="sub" style="opacity:0"><span>{c[0]}</span></div>' for i, c in enumerate(CAPS))
+audio = "\n      ".join(f'<audio id="vo{n:02d}" src="assets/vo/{n:02d}.wav" data-start="{LS[n]}" data-duration="{D[n-1]:.2f}" data-track-index="7" data-volume="1"></audio>' for n in range(1, 11) if os.path.exists(f"assets/vo/{n:02d}.wav"))
+TIMING = {"LS": LS, "ST": ST, "DUR": DUR, "TOTAL": TOTAL, "D": D, "CAPS": CAPS}
+JS = open("scripts/timeline.js").read().replace("__T__", json.dumps(TIMING))
+if os.path.exists("assets/bgm.wav"):
+    audio += f'\n      <audio id="bgm" src="assets/bgm.wav" data-start="0" data-duration="{TOTAL}" data-track-index="8" data-volume="0.5"></audio>'
+sfx = json.load(open("assets/sfx/sfx.json")) if os.path.exists("assets/sfx/sfx.json") else []
+import wave as _w
+def _wd(nm):
+    with _w.open(f"assets/sfx/{nm}.wav") as w: return round(w.getnframes() / w.getframerate(), 2)
+for i, (name, t_) in enumerate(sfx):
+    audio += f'\n      <audio id="sfx{i:02d}" src="assets/sfx/{name}.wav" data-start="{t_}" data-duration="{_wd(name)}" data-track-index="{10 + i}" data-volume="0.8"></audio>'
 html = f"""<!doctype html>
 <html lang="id"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/>
 <title>Invincible Season 1</title>
@@ -148,7 +175,10 @@ html = f"""<!doctype html>
 <body><div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL}" data-width="1080" data-height="1920">
       {body}
       {audio}
-</div><script>window.__timelines=window.__timelines||{{}};window.__timelines["main"]=gsap.timeline({{paused:true}});</script></body></html>
+<div id="flash" class="abs" style="inset:0;background:#fff;opacity:0;pointer-events:none"></div>
+      {caps_html}
+      <div id="fade" class="abs" style="inset:0;background:#000;opacity:0;pointer-events:none"></div>
+</div><script>{JS}</script></body></html>
 """
 open("index.html", "w").write(html)
 import json; json.dump({"LS": LS, "ST": ST, "DUR": DUR, "TOTAL": TOTAL, "D": D}, open("scripts/timing.json", "w"))
