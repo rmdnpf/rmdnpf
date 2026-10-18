@@ -8,7 +8,7 @@ aspect: 1080x1920
 language: id
 audience: "penonton film umum di Indonesia"
 length: 60s
-angle: "malam kota biru-hangat, hari-hari berhamburan seperti lembar kalender dan foto; tokoh anime berwarna tanpa wajah"
+angle: "ilustrasi kartu ucapan hangat era 2009: kertas, tinta, tanah dan biru abu; hari-hari berhamburan seperti lembar kalender dan foto; tokoh anime berwarna tanpa wajah"
 ---
 
 ## Intent
@@ -36,6 +36,6 @@ Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun
 ## Notes
 
 - Fakta: rilis 2009, sutradara Marc Webb, anggaran sekitar US$7,5 juta, sekitar 85% kritikus positif (agregator). Angka box office tidak dipakai (sumber berbeda). Durasi sekitar 95 menit: diperiksa ulang sebelum build.
-- Palet (dari film): navy #0f1b3d, biru Summer #5aa0f0, biru muda #cfe3f7, amber #f2b84b, krem #f4ead8, oranye Autumn #e8793a, abu-biru Kenyataan #7f8aa3, mawar #e8607a hanya untuk hati.
+- Palet (diturunkan dari gambar karakter): paper #efe3cf, sand #d9c3a0, ink #2a211c, night #1d2c3f, slate #5f7fa3 (biru Summer), pale #c9d6e3, amber #e3a43c, burnt #c8622a, maroon #b8333d (hati), olive #4d5a34, reality #8a8178. Lihat frame.md.
 - Font: League Gothic (judul), Space Mono (label dan subtitle).
 - Versi pertama (vektor, krem-kuning) ada di index.html lama; dibangun ulang setelah storyboard disetujui.

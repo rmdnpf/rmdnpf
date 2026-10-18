@@ -12,13 +12,13 @@ Satu-satunya pemrosesan: potong latar putih menjadi PNG transparan (`scripts/pre
 - `rachel-point` masih berlatar hitam + glow; menunggu versi latar putih (sementara Frame 7 memakai `rachel-pat`).
 
 ## Menyatukan figur dengan latar (dikerjakan di kode)
-- Latar dasar malam navy supaya warna hangat figur menonjol; elemen dekor memakai palet video.
-- Garis tepi putih tipis di sekeliling figur (gaya stiker) agar terpisah dari latar gelap, ditambah bayangan lembut di bawah kaki.
-- Frame 5 dibalik: sisi Ekspektasi berlatar hangat dan cerah, sisi Kenyataan gelap dan pudar (figur dikurangi saturasinya lewat filter di komposisi saja, file aslinya tidak diubah).
-- Ukuran tampil: tinggi figur sekitar 700–900 px pada kanvas 1080×1920; pendukung sedikit lebih kecil sesuai proporsi.
+- Warna latar mengikuti terang-gelap figur: figur gelap di atas krem/amber, figur terang di atas biru abu (slate) atau malam (night). Detail di `frame.md`.
+- Garis tepi tipis (putih di latar gelap, tinta di latar terang) dan bayangan lembut di bawah kaki, supaya figur terpisah dari latar.
+- Frame 5: sisi Ekspektasi hangat dan cerah (amber, krem), sisi Kenyataan abu hangat pudar (figur dikurangi saturasinya lewat filter di komposisi saja, file aslinya tidak diubah).
+- Ukuran tampil: tinggi figur sekitar 700–900 px pada kanvas 1080×1920; pendukung sedikit lebih kecil.
 
-## Palet video (menyesuaikan warna figur yang hangat dan netral)
-navy #0f1b3d (dasar), panel #18295a, biru Summer #5aa0f0 (aksen grafis dan teks), biru muda #cfe3f7, amber #f2b84b, krem #f4ead8, oranye #e8793a, abu-biru #7f8aa3, mawar #e8607a (hanya hati).
+## Palet video (diturunkan dari warna figur)
+paper #efe3cf · sand #d9c3a0 · ink #2a211c · night #1d2c3f · slate #5f7fa3 (biru Summer) · pale #c9d6e3 · amber #e3a43c · burnt #c8622a · maroon #b8333d (hati) · olive #4d5a34 · reality #8a8178.
 
 ## Dibuat dari kode
 Kalender, bingkai foto, kartu ucapan, grafik, kota, piringan hitam, layar terbelah, stempel, dan teks.
