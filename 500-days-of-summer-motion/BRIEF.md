@@ -8,7 +8,7 @@ aspect: 1080x1920
 language: id
 audience: "penonton film umum di Indonesia"
 length: 60s
-angle: "malam kota biru-hangat, hari-hari berhamburan seperti lembar kalender dan foto; tokoh gambar anime tanpa wajah"
+angle: "malam kota biru-hangat, hari-hari berhamburan seperti lembar kalender dan foto; tokoh anime berwarna tanpa wajah"
 ---
 
 ## Intent
@@ -21,12 +21,12 @@ Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun
 ## Assets
 
 - assets/ref/tom-ref.png, assets/ref/summer-ref.png — referensi gaya (latar hitam + cahaya). Dipakai sebagai acuan prompt.
-- assets/figures/src/*.png — gambar sumber latar putih polos (lihat ASSET_LIST.md). Belum tersedia.
+- assets/figures/src/*.png — 14 gambar figur dari pengguna (diterima); assets/figures/*.png — hasil potong latar.
 - assets/vo/01.wav … 08.wav — VO hasil generate pengguna dari VO_SCRIPT.md. Belum tersedia.
 
 ## Customizations
 
-- Figur bergaya silhouette line-art seperti Perfect Blue: hapus latar putih, lalu warnai ulang per karakter (Summer biru, Tom krem, Autumn oranye, pendukung abu-biru). Lihat ART_STYLE.md.
+- Figur dipakai apa adanya dari gambar pengguna (anime berwarna penuh, wajah kosong); hanya latar putih dipotong (scripts/prep_figures.py). Tidak ada konversi siluet atau pewarnaan ulang. Lihat ART_STYLE.md.
 - Semua elemen lain (kalender, kartu, kota, piringan hitam, grafik) orisinal dari SVG/HTML/GSAP.
 - Musik dan SFX orisinal hasil sintesis; BGM di-carve di bawah VO.
 - Tanpa footage, poster, atau musik asli film.

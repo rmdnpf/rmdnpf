@@ -1,8 +1,11 @@
 # Daftar aset gambar — (500) Days of Summer (14 gambar, disiapkan pengguna)
 
-Simpan di `assets/figures/src/` (PNG) dengan nama file persis seperti tabel. Gaya: **silhouette line-art** (lihat `ART_STYLE.md`):
-siluet navy pekat rata dengan garis dalam tipis terang, tanpa wajah, tanpa bayangan, latar putih polos tanpa glow dan tanpa bayangan lantai,
-seluruh tubuh terlihat, portrait 1024×1536. Referensi Tom dan Summer hanya untuk pakaian dan postur.
+Status: **14 gambar sudah diterima** (di `assets/figures/src/`), dipakai apa adanya (anime berwarna penuh, wajah kosong). Lihat `ART_STYLE.md`.
+Hasil potong latar putih: `assets/figures/*.png` (dibuat oleh `scripts/prep_figures.py`).
+
+Masih perlu perhatian:
+- `rachel-point.png` berlatar hitam + glow, belum bisa dipotong bersih. Sementara Frame 7 memakai `rachel-pat`; jika ingin pose menunjuk, perlu versi latar putih.
+- `summer-stand.png` setengah badan; dipakai sebagai potret kecil di Frame 4.
 
 ## Jumlah per karakter
 
@@ -37,12 +40,6 @@ seluruh tubuh terlihat, portrait 1024×1536. Referensi Tom dan Summer hanya untu
 
 Catatan siluet (warna akhir ditentukan saat pewarnaan ulang, bukan di gambar sumber): pendukung tampil hanya 2 sampai 3 detik, jadi bentuknya harus mudah dibedakan (McKenzie tinggi dan berjaket, Paul berompi rajut,
 Rachel lebih pendek berambut diikat, Autumn berwarna oranye hangat, berbeda jelas dari biru Summer).
-
-Prompt dasar (Inggris, untuk Gemini / generator gambar):
-
-> Full-body anime character SILHOUETTE illustration: solid flat dark navy fill (#0a1a6a), no shading, no skin tone, no face, with thin light inner line-art
-> only for clothing folds, hair strands, ribbons and small details. [POSE]. Outfit and posture like the reference image. Solid pure white background,
-> no glow, no floor shadow, centered, portrait 1024x1536.
 
 ## VO
 8 file di `assets/vo/01.wav … 08.wav` dari `VO_SCRIPT.md` (Cartesia, bahasa `id`, satu suara hangat dan santai).

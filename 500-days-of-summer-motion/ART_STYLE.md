@@ -1,34 +1,24 @@
-# Panduan gaya — (500) Days of Summer: silhouette line-art
+# Panduan gaya — (500) Days of Summer
 
-Gaya mengikuti Perfect Blue: figur berupa siluet satu warna dengan garis dalam tipis terang, tanpa wajah, latar putih untuk dipotong.
-Gambar referensi `assets/ref/tom-ref.png` dan `assets/ref/summer-ref.png` dipakai hanya untuk pakaian, postur, dan proporsi, bukan untuk gaya render.
+Keputusan: figur dipakai **apa adanya** seperti gambar yang disiapkan pengguna (anime cel-shaded berwarna penuh, wajah kosong). Tidak dikonversi ke siluet.
+Satu-satunya pemrosesan: potong latar putih menjadi PNG transparan (`scripts/prep_figures.py`), tanpa mengubah warna, garis, atau bayangan.
 
-## Gambar sumber (yang Anda siapkan)
-- Isi tubuh: satu warna navy pekat rata (sekitar #0a1a6a), tanpa bayangan, tanpa warna kulit atau pakaian.
-- Detail: garis tipis terang di dalam siluet saja (lipatan kemeja, dasi, kancing, pita pinggang, rimpel rok, helai rambut, tali sepatu, gelas).
-- Wajah tidak digambar; kepala murni siluet. Telinga dan rambut tetap terbaca dari bentuk luarnya.
-- Latar putih polos, tanpa glow, tanpa bayangan lantai; seluruh tubuh terlihat; portrait 1024×1536.
-- Properti yang menempel pada pose (kartu, gelas, tas) ikut digambar sebagai siluet.
+## Figur
+- Sumber: `assets/figures/src/*.png` (asli). Hasil potong: `assets/figures/*.png` (RGBA, dipangkas ke isi).
+- Wajah kosong dibiarkan; telinga dan rambut tetap terbaca.
+- Warna asli dipertahankan (cokelat, krem, abu, oranye, biru-abu). Tidak ada pewarnaan ulang.
+- Pakaian Summer berganti (celana di `lean` dan `stand`, rok di `twirl` dan `walk`); dibaca sebagai hari yang berbeda, sesuai struktur "HARI ke-N".
+- `summer-stand` setengah badan: dipakai sebagai potret kecil di grafik (Frame 4), bukan figur penuh.
+- `rachel-point` masih berlatar hitam + glow; menunggu versi latar putih (sementara Frame 7 memakai `rachel-pat`).
 
-## Warna adalah identitas (saya yang mewarnai ulang)
-Pewarnaan ulang memakai pemetaan terang-gelap seperti `prep_figures.py` di Perfect Blue: badan satu warna, garis dalam jadi tepi terang.
+## Menyatukan figur dengan latar (dikerjakan di kode)
+- Latar dasar malam navy supaya warna hangat figur menonjol; elemen dekor memakai palet video.
+- Garis tepi putih tipis di sekeliling figur (gaya stiker) agar terpisah dari latar gelap, ditambah bayangan lembut di bawah kaki.
+- Frame 5 dibalik: sisi Ekspektasi berlatar hangat dan cerah, sisi Kenyataan gelap dan pudar (figur dikurangi saturasinya lewat filter di komposisi saja, file aslinya tidak diubah).
+- Ukuran tampil: tinggi figur sekitar 700–900 px pada kanvas 1080×1920; pendukung sedikit lebih kecil sesuai proporsi.
 
-| Karakter | Warna badan | Tepi/garis | Alasan |
-|---|---|---|---|
-| Summer | biru #5aa0f0 | biru muda #cfe3f7 | biru adalah warna Summer |
-| Tom | krem kertas #f4ead8 | putih hangat | tokoh utama, kontras tertinggi di latar gelap |
-| Autumn | oranye #e8793a | kuning muda | satu-satunya oranye; isyarat musim |
-| Rachel, McKenzie, Paul | abu-biru #7f8aa3 | putih | pendukung, tidak menyaingi dua tokoh utama |
+## Palet video (menyesuaikan warna figur yang hangat dan netral)
+navy #0f1b3d (dasar), panel #18295a, biru Summer #5aa0f0 (aksen grafis dan teks), biru muda #cfe3f7, amber #f2b84b, krem #f4ead8, oranye #e8793a, abu-biru #7f8aa3, mawar #e8607a (hanya hati).
 
-## Latar
-- Dasar video malam biru-navy (#0f1b3d), figur terang di atasnya, seperti Perfect Blue.
-- Pembalikan di Frame 5: sisi Ekspektasi berlatar hangat (kuning-krem) dengan siluet navy, sisi Kenyataan berlatar gelap pudar dengan siluet abu. Pembalikan terang-gelap itu sendiri yang menceritakan perbedaannya.
-- Elemen kode (kalender, bingkai foto, kartu, grafik, kota, piringan hitam, stempel, teks) memakai palet yang sama.
-
-## Karena siluet tidak berekspresi
-- Emosi dibawa oleh gerak dan komposisi: melompat, berputar, menunduk, berjarak. Pose di `ASSET_LIST.md` dipilih untuk itu.
-- Pose harus terbaca dari bentuk luar saja; hindari tangan atau properti yang menyatu dengan badan.
-- Siluet tiap tokoh harus unik: Tom berambut mencuat dan berdasi tipis menjuntai; Summer berponi dengan rok A-line dan pita; Rachel kecil berkuncir; McKenzie tinggi berjaket; Paul berompi rajut; Autumn berambut sebahu bermantel.
-
-## Proporsi
-Tom 1,0 · Summer 0,93 · McKenzie 1,05 · Paul 0,98 · Autumn 0,92 · Rachel 0,78 (tinggi relatif).
+## Dibuat dari kode
+Kalender, bingkai foto, kartu ucapan, grafik, kota, piringan hitam, layar terbelah, stempel, dan teks.
