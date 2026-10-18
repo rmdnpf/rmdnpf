@@ -17,8 +17,9 @@ Satu-satunya pemrosesan: potong latar putih menjadi PNG transparan (`scripts/pre
 - Frame 5: sisi Ekspektasi hangat dan cerah (amber, krem), sisi Kenyataan abu hangat pudar (figur dikurangi saturasinya lewat filter di komposisi saja, file aslinya tidak diubah).
 - Ukuran tampil: tinggi figur sekitar 700–900 px pada kanvas 1080×1920; pendukung sedikit lebih kecil.
 
-## Palet video (diturunkan dari warna figur)
-paper #efe3cf · sand #d9c3a0 · ink #2a211c · night #1d2c3f · slate #5f7fa3 (biru Summer) · pale #c9d6e3 · amber #e3a43c · burnt #c8622a · maroon #b8333d (hati) · olive #4d5a34 · reality #8a8178.
+## Palet video (diturunkan dari warna figur dan bahasa warna film)
+paper #efe3cf · sand #d9c3a0 · ink #2a211c · night #16243a · deretan biru Summer: blue1 #dbe8f4, blue2 #a9c6e3, blue3 #6f9bc9, blue4 #3f6aa0, blue5 #1d3a63 · amber #e3a43c · burnt #c8622a · maroon #b8333d (hati) · olive #4d5a34 · reality #8a8178.
+Cerita lewat warna: dunia Tom coklat-krem, dunia Summer biru, hari baik semarak, hari buruk abu. Detail di `frame.md`.
 
 ## Dibuat dari kode
 Kalender, bingkai foto, kartu ucapan, grafik, kota, piringan hitam, layar terbelah, stempel, dan teks.
