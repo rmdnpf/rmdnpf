@@ -80,7 +80,7 @@ F[3] = (tall_bg("mark-standing", "", "f3-bg") + tagchip("MARK GRAYSON", 90, 1250
         '<div class="abs mono" style="left:96px;top:1340px;font-size:34px;letter-spacing:.12em;color:#E9DCC3;text-shadow:0 2px 12px #000">17 TAHUN · PUTRA OMNI-MAN</div>' + alt(.14, "100 M", pid="f3-alt") + sub(3))
 # 4 Terbang
 speed = "".join(f'<line x1="{x}" y1="{y}" x2="{x+8}" y2="{y+R.randint(160,360)}" stroke="{CREAM}" stroke-opacity=".28" stroke-width="3"/>' for x, y in [(R.randint(40,980), R.randint(0,1400)) for _ in range(18)])
-F[4] = (tall_bg("sky-day", "", "f4-bg") +
+F[4] = (tall_bg(os.environ.get("SKY4","sky-day"), "", "f4-bg") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{speed}</svg>' +
         img("mark-flying", "left:30px;top:760px;height:760px;width:auto", "f4-mark") + img("omni-flying", "left:310px;top:200px;height:1180px;width:auto", "f4-omni") +
         alt(.4, "2.000 M", pid="f4-alt") + sub(4))
