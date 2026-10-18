@@ -1,32 +1,47 @@
-# Daftar aset gambar — (500) Days of Summer
+# Daftar aset gambar — (500) Days of Summer (14 gambar, disiapkan pengguna)
 
-Simpan di `assets/figures/src/` (PNG). Semua figur: wajah KOSONG (tanpa mata, hidung, mulut), gaya anime sinematik sama dengan
-`assets/ref/tom-ref.png` dan `assets/ref/summer-ref.png`, **latar putih polos, tanpa cahaya atau glow, tanpa bayangan di lantai**
-(supaya mudah dipotong), seluruh tubuh terlihat, ukuran portrait 1024×1536. Sertakan gambar referensi saat generate agar konsisten.
+Simpan di `assets/figures/src/` (PNG) dengan nama file persis seperti tabel. Semua figur: wajah KOSONG (tanpa mata, hidung, mulut),
+gaya anime sinematik sama dengan `assets/ref/tom-ref.png` dan `assets/ref/summer-ref.png`, **latar putih polos, tanpa cahaya atau glow,
+tanpa bayangan di lantai**, seluruh tubuh terlihat, portrait 1024×1536. Sertakan gambar referensi saat generate agar gaya konsisten.
 
-Pendukung: wajah kosong juga, jangan meniru wajah aktor, pakaian ringkas dan mudah dibedakan siluetnya. Pakaian tetap (Autumn: mantel/gaun oranye hangat, dibedakan jelas dari biru Summer): Tom — kemeja biru muda lengan digulung, dasi tipis gelap, celana navy, sepatu kets.
-Summer — gaun biru tanpa lengan dengan pita pinggang, rambut panjang berponi, tas cokelat, flat shoes.
+## Jumlah per karakter
 
-| File | Dipakai di | Pose |
+| Karakter | Pose | Keputusan |
 |---|---|---|
-| `tom-stand.png` | F4 | Berdiri, tangan di saku (seperti referensi) — versi latar putih |
-| `summer-stand.png` | F4 | Berdiri, menoleh ke samping (seperti referensi) — versi latar putih |
-| `tom-desk.png` | F3 | Duduk di meja kerja kecil, menulis di kartu ucapan, kartu bertebaran di meja |
-| `summer-lean.png` | F3 | Bersandar ke dinding, tangan di belakang, menoleh santai |
-| `tom-dance.png` | F5 | Melompat gembira, satu tangan terangkat, pose menari |
-| `summer-twirl.png` | F5 | Berputar, rok mengembang |
+| Tom | 5 | stand, desk, dance, sit, walk |
+| Summer | 4 | stand, lean, twirl, walk |
+| Rachel | 2 | pat, point |
+| McKenzie | 1 | cheers |
+| Paul | 1 | cheers |
+| Autumn | 1 | walk |
+| **Total** | **14** | |
+
+## Daftar file
+
+| File | Frame | Pose |
+|---|---|---|
+| `tom-stand.png` | F4 | Berdiri, tangan di saku (seperti referensi), versi latar putih |
+| `tom-desk.png` | F3 | Duduk di meja kerja kecil, menulis di kartu ucapan, kartu bertebaran |
+| `tom-dance.png` | F5 | Melompat gembira, satu tangan terangkat |
 | `tom-sit.png` | F5, F8 | Duduk sendirian di bangku, bahu turun, kepala menunduk |
-| `tom-summer-walk.png` | F6 | Berjalan berdampingan membelakangi kamera, sedikit berjarak |
-| `autumn-walk.png` | F8 | Berjalan masuk dari samping, gaun/mantel oranye hangat, rambut sebahu, tangan memegang tas bahu; wajah kosong |
-| `vance-boss.png` | F3 | Pria paruh baya berjas dan dasi, memegang papan jepit, berdiri tegak |
-| `mckenzie-paul.png` | F4 | Dua pria berdampingan, bersandar santai; satu berbadan tinggi berjaket, satu berkemeja rompi rajut, masing-masing memegang gelas |
-| `rachel-pat.png` | F5 | Anak perempuan remaja (lebih pendek dari Tom), rambut diikat, satu tangan terangkat seperti menepuk bahu, dilihat dari samping |
-| `tom-point.png` (opsional) | F7 | Berdiri, satu tangan menunjuk ke samping |
+| `tom-walk.png` | F6 | Berjalan, dilihat dari samping atau belakang |
+| `summer-stand.png` | F4 | Berdiri menoleh ke samping (seperti referensi), versi latar putih |
+| `summer-lean.png` | F3 | Bersandar ke dinding, tangan di belakang, menoleh santai |
+| `summer-twirl.png` | F5 | Berputar, rok mengembang |
+| `summer-walk.png` | F6 | Berjalan, dilihat dari samping atau belakang, serasi dengan `tom-walk` |
+| `rachel-pat.png` | F5 | Remaja perempuan (lebih pendek dari Tom), rambut diikat, satu tangan terangkat seperti menepuk bahu, tampak samping |
+| `rachel-point.png` | F7 | Berdiri, satu tangan menunjuk ke samping |
+| `mckenzie-cheers.png` | F4 | Pria berbadan tinggi berjaket, bersandar santai, mengangkat gelas |
+| `paul-cheers.png` | F4 | Pria berkemeja dan rompi rajut, bersandar santai, mengangkat gelas |
+| `autumn-walk.png` | F8 | Berjalan masuk dari samping, mantel/gaun oranye hangat, rambut sebahu, tas bahu |
+
+Catatan siluet: pendukung tampil hanya 2 sampai 3 detik, jadi bentuknya harus mudah dibedakan (McKenzie tinggi dan berjaket, Paul berompi rajut,
+Rachel lebih pendek berambut diikat, Autumn berwarna oranye hangat, berbeda jelas dari biru Summer).
 
 Prompt dasar (Inggris, untuk Gemini / generator gambar):
 
 > Full-body anime character illustration, cinematic flat-shaded style with sharp cel shadows, faceless (blank skin-colored face, no eyes nose or mouth),
-> [POSE], same outfit and style as the reference image, solid pure white background, no glow, no floor shadow, centered, portrait 1024x1536.
+> [POSE], same style as the reference image, solid pure white background, no glow, no floor shadow, centered, portrait 1024x1536.
 
 ## VO
 8 file di `assets/vo/01.wav … 08.wav` dari `VO_SCRIPT.md` (Cartesia, bahasa `id`, satu suara hangat dan santai).

@@ -38,22 +38,22 @@ Nilai di beat pertama: janji film yang jujur, bukan nama film.
 - status: outline
 - duration: 8s
 - transition_in: crossfade
-- scene: Layar terbagi dua pita vertikal. Tom (tom-desk, menulis kartu) di kiri dengan kartu ucapan berterbangan; Summer (summer-lean, menoleh) di kanan dengan satu hati yang retak. Di latar kiri-atas, siluet bos (vance-boss) memegang papan jepit dengan label kecil "VANCE · BOS"; label "SUMMER · ASISTEN BARU" muncul di samping Summer. Garis putus-putus menghubungkan keduanya.
+- scene: Layar terbagi dua pita vertikal. Tom (tom-desk, menulis kartu) di kiri dengan kartu ucapan berterbangan; Summer (summer-lean, menoleh) di kanan dengan satu hati yang retak. Label "SUMMER · ASISTEN BARU" muncul di samping Summer. Garis putus-putus menghubungkan keduanya.
 - voiceover: "Tom, penulis kartu ucapan yang percaya cinta sejati. Summer, asisten baru bosnya, yang sama sekali tidak percaya."
 - blueprint: comparison-split
 - rules: svg-path-draw, waterfall-entry
-- assets: tom-desk, summer-lean, vance-boss (tom-ref, summer-ref sebagai acuan gaya)
+- assets: tom-desk, summer-lean (tom-ref, summer-ref sebagai acuan gaya)
 
 ## Frame 4 — Tak berurutan
 
 - status: outline
 - duration: 9s
 - transition_in: wipe
-- scene: Dinding bingkai foto bernomor hari (1, 8, 31, 34, 290, 322, 488, 500) tertata acak lalu tertukar posisi. Grafik garis bahagia versus patah hati tergambar menembus bingkai, penanda bergantian hati dan bintang. Di sudut kanan-bawah, dua sahabat (mckenzie-paul) bersandar di tepi grafik dengan label "MCKENZIE & PAUL · SAHABAT", mengangkat gelas saat grafik naik dan menunduk saat turun.
+- scene: Dinding bingkai foto bernomor hari (1, 8, 31, 34, 290, 322, 488, 500) tertata acak lalu tertukar posisi. Grafik garis bahagia versus patah hati tergambar menembus bingkai, penanda bergantian hati dan bintang. Di sudut kanan-bawah, dua sahabat (mckenzie-cheers, paul-cheers) bersandar di tepi grafik dengan label "MCKENZIE & PAUL · SAHABAT", mengangkat gelas saat grafik naik dan menunduk saat turun.
 - voiceover: "Ceritanya melompat-lompat antar hari. Dari hari pertama sampai hari ke-500, bahagia dan patah hati bergantian."
 - blueprint: data-chart
 - rules: svg-path-draw, counting-dynamic-scale
-- assets: tom-stand, summer-stand kecil sebagai penanda di grafik, mckenzie-paul
+- assets: tom-stand, summer-stand kecil sebagai penanda di grafik, mckenzie-cheers, paul-cheers
 
 ## Frame 5 — Ekspektasi vs Kenyataan
 
@@ -71,22 +71,22 @@ Nilai di beat pertama: janji film yang jujur, bukan nama film.
 - status: outline
 - duration: 7s
 - transition_in: crossfade
-- scene: Senja Los Angeles: siluet kota, piringan hitam raksasa berputar, equalizer berdenyut. Tom dan Summer berdiri berdampingan di depan kota (tom-summer-walk), titik cahaya jendela menyala satu per satu.
+- scene: Senja Los Angeles: siluet kota, piringan hitam raksasa berputar, equalizer berdenyut. Tom dan Summer berjalan berdampingan di depan kota (tom-walk, summer-walk, dua gambar terpisah), titik cahaya jendela menyala satu per satu.
 - voiceover: "Tapi ada juga tarian di jalan, lagu-lagu indie, dan kota Los Angeles yang jadi saksi."
 - blueprint: camera-journey
 - rules: viewport-change, spring-pop-entrance
-- assets: tom-summer-walk
+- assets: tom-walk, summer-walk
 
 ## Frame 7 — Angka
 
 - status: outline
 - duration: 6.5s
 - transition_in: wipe
-- scene: Tiga kartu data: cincin 85% dengan tomat, tumpukan koin "US$7,5 juta", jam "95 menit" (diperiksa ulang). Satu figur kecil menunjuk tiap kartu bergantian.
+- scene: Tiga kartu data: cincin 85% dengan tomat, tumpukan koin "US$7,5 juta", jam "95 menit" (diperiksa ulang). Rachel (rachel-point) berdiri di tepi kanan dan menunjuk tiap kartu bergantian.
 - voiceover: "Dibuat hanya dengan sekitar tujuh setengah juta dolar, dan dipuji kritikus sampai sekarang."
 - blueprint: data-chart
 - rules: counting-dynamic-scale, stat-bars-and-fills
-- assets: tom-point (opsional)
+- assets: rachel-point
 
 ## Frame 8 — Verdict: musim berganti
 
