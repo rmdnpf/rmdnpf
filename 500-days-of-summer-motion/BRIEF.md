@@ -30,7 +30,7 @@ Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun
 - Semua elemen lain (kalender, kartu, kota, piringan hitam, grafik) orisinal dari SVG/HTML/GSAP.
 - Musik dan SFX orisinal hasil sintesis; BGM di-carve di bawah VO.
 - Tanpa footage, poster, atau musik asli film.
-- Karakter pendukung dipakai sebagai cameo visual berlabel kecil (tanpa VO): McKenzie dan Paul (sahabat) di F4, Rachel (adik) di F5 dan F7. Autumn di F8 hanya isyarat. Vance tidak dipakai.
+- Karakter pendukung dipakai sebagai cameo visual berlabel kecil (tanpa VO): McKenzie dan Paul (sahabat) di F4, Rachel (label "RACHEL" saja, hubungan keluarga tidak ditulis) di F5 dan F7. Autumn di F8 hanya isyarat. Vance tidak dipakai.
 - Total 14 gambar figur, disiapkan pengguna: Tom 5, Summer 4, Rachel 2, McKenzie 1, Paul 1, Autumn 1.
 
 ## Notes

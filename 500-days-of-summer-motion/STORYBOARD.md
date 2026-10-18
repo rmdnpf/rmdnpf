@@ -42,7 +42,7 @@ Warna latar dipilih menurut terang-gelap figur dan dipakai sebagai cerita: dunia
 - status: outline
 - duration: 9s
 - transition_in: wipe
-- scene: Latar malam (night) dengan grid halus. Dinding bingkai foto krem bernomor hari (1, 8, 31, 34, 290, 322, 488, 500) tertata acak lalu bertukar posisi; bingkai berganti semarak (amber, biru terang) dan abu (reality) mengikuti naik-turunnya grafik; sebatang pohon kecil di tepi grafik bermekaran saat naik dan gundul saat turun; Tom berdiri (tom-stand) di kiri dan potret Summer (summer-stand, setengah badan) di kanan sebagai penanda di tepi grafik. Grafik bahagia vs patah hati tergambar menembus bingkai. McKenzie dan Paul (mckenzie-cheers, paul-cheers) bersandar di kanan-bawah dengan label "SAHABAT", gelas amber terangkat saat grafik naik.
+- scene: Latar malam (night) dengan grid halus. Dinding bingkai foto krem bernomor hari (1, 8, 31, 34, 290, 322, 488, 500) tertata acak lalu bertukar posisi; bingkai berganti semarak (amber, biru terang) dan abu (reality) mengikuti naik-turunnya grafik; sebatang pohon kecil di tepi grafik bermekaran saat naik dan gundul saat turun; Tom berdiri (tom-stand) di kiri dan potret Summer (summer-stand, setengah badan) di kanan sebagai penanda di tepi grafik. Grafik bahagia vs patah hati tergambar menembus bingkai. McKenzie dan Paul (mckenzie-cheers, paul-cheers) berdiri berhadapan (Paul dicerminkan) dengan label "SAHABAT TOM", gelas amber terangkat saat grafik naik.
 - voiceover: "Ceritanya melompat-lompat antar hari. Dari hari pertama sampai hari ke-500, bahagia dan patah hati bergantian."
 - assets: tom-stand, summer-stand, mckenzie-cheers, paul-cheers
 
@@ -51,7 +51,7 @@ Warna latar dipilih menurut terang-gelap figur dan dipakai sebagai cerita: dunia
 - status: outline
 - duration: 9s
 - transition_in: glitch
-- scene: Layar terbelah. Atas semarak (amber, biru terang, krem): Tom dan Summer berjalan bersama (tom-walk, summer-walk) di bawah balon dan konfeti. Bawah abu hangat pudar dengan hujan (biru memudar jadi abu, ranting gundul): Tom duduk sendirian di bangku (tom-sit), Rachel berdiri di sisi kirinya menjulurkan tangan ke bahunya (rachel-pat, label "RACHEL · ADIK"). Garis pemisah menggeser, VS berputar.
+- scene: Layar terbelah. Atas semarak (amber, biru terang, krem): Tom dan Summer berjalan bersama (tom-walk, summer-walk) di bawah balon dan konfeti. Bawah abu hangat pudar dengan hujan (biru memudar jadi abu, ranting gundul): Tom duduk sendirian di bangku (tom-sit), Rachel berdiri di sisi kirinya menjulurkan tangan ke bahunya (rachel-pat, label "RACHEL"). Garis pemisah menggeser, VS berputar.
 - voiceover: "Adegan paling terkenal: ekspektasi lawan kenyataan. Tom ternyata lebih mencintai bayangannya tentang Summer, bukan Summer yang nyata."
 - assets: tom-walk, summer-walk, tom-sit, rachel-pat
 

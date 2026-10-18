@@ -3,7 +3,7 @@
 2) segarkan jadwal VO (make_timing.py) dan blok audio (add_audio.py).
 Pakai: python3 scripts/build_index.py"""
 import re, shutil, subprocess, sys
-from PIL import Image
+from PIL import Image, ImageOps
 
 used = {}
 
@@ -17,6 +17,10 @@ def fig(m):
         dup = f"{name}-{used[name]}"
         shutil.copyfile(f"assets/figures/{name}.png", f"assets/figures/{dup}.png")
         kv["name"] = dup
+    if kv.get("flip"):   # cermin horizontal (berhadapan)
+        flipped = f"{kv['name']}-flip"
+        ImageOps.mirror(Image.open(f"assets/figures/{kv['name']}.png")).save(f"assets/figures/{flipped}.png")
+        kv["name"] = flipped
     w0, h0 = Image.open(f"assets/figures/{kv['name']}.png").size
     h = float(kv["h"]); w = round(h * w0 / h0)
     cls = "fig" + (" " + kv["cls"] if "cls" in kv else "")
