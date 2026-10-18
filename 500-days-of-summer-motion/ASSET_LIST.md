@@ -38,7 +38,7 @@ Masih perlu perhatian:
 | `paul-cheers.png` | F4 | Pria berkemeja dan rompi rajut, bersandar santai, mengangkat gelas |
 | `autumn-walk.png` | F8 | Berjalan masuk dari samping, mantel/gaun oranye hangat, rambut sebahu, tas bahu |
 
-Catatan siluet (warna akhir ditentukan saat pewarnaan ulang, bukan di gambar sumber): pendukung tampil hanya 2 sampai 3 detik, jadi bentuknya harus mudah dibedakan (McKenzie tinggi dan berjaket, Paul berompi rajut,
+Catatan: pendukung tampil hanya 2 sampai 3 detik, jadi bentuknya harus mudah dibedakan (McKenzie tinggi dan berjaket, Paul berompi rajut,
 Rachel lebih pendek berambut diikat, Autumn berwarna oranye hangat, berbeda jelas dari biru Summer).
 
 ## VO
