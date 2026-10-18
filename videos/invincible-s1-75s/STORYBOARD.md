@@ -11,7 +11,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 1 — Hook: ayah dan anak
 
-- status: outline
+- status: built
 - duration: 8s
 - act: Babak 1: Pahlawan dan pewarisnya
 - scene: Foto keluarga utuh di tengah layar (siluet ayah, ibu, anak). Peringatan "SPOILER" kecil di atas. Altimeter di 0 m.
@@ -23,7 +23,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 2 — Judul
 
-- status: outline
+- status: built
 - duration: 7s
 - scene: Dinding bingkai kosong menyala satu per satu; judul "INVINCIBLE" (League Gothic) muncul dengan garis kuning, "Season 1 · 2021" di bawahnya.
 - voiceover: "Invincible, serial animasi karya Robert Kirkman yang tayang di Prime Video pada tahun dua ribu dua puluh satu."
@@ -34,7 +34,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 3 — Mark
 
-- status: outline
+- status: built
 - duration: 7s
 - scene: Siluet Mark berdiri di atap kota malam; kota berupa siluet gedung; altimeter naik ke 100 m (ketinggian atap).
 - voiceover: "Mark Grayson, remaja tujuh belas tahun, putra dari Omni-Man, pahlawan terkuat di dunia."
@@ -45,7 +45,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 4 — Cita-cita terbang
 
-- status: outline
+- status: built
 - duration: 9s
 - scene: Mark dan Omni-Man terbang berdampingan di atas kota; altimeter naik cepat ke 2.000 m; dinding bingkai muncul tipis di awan (foto hangat).
 - voiceover: "Saat kekuatannya muncul, Mark ingin mengikuti jejak sang ayah. Terbang tinggi, menyelamatkan kota, dan membuat ayahnya bangga."
@@ -56,7 +56,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 5 — Guardians tewas
 
-- status: outline
+- status: built
 - duration: 9s
 - act: Babak 2: Retak
 - scene: Enam siluet Guardians berbaris, lalu jatuh satu per satu; satu siluet besar (Omni-Man) berdiri di atas dengan latar merah. Bingkai foto keluarga di latar retak besar.
@@ -68,7 +68,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 6 — Kebohongan terungkap
 
-- status: outline
+- status: built
 - duration: 9s
 - scene: Foto keluarga di tengah; kaca bingkai pecah, siluet Omni-Man di foto menjadi gelap dan terpisah dari keluarga. Altimeter menunjukkan 30.000 m (langit tinggi).
 - voiceover: "Sepanjang musim, Mark percaya ayahnya adalah pahlawan. Sampai finale membuka kebenarannya: kisah asal-usul Omni-Man ternyata bohong."
@@ -79,7 +79,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 7 — Viltrum
 
-- status: outline
+- status: built
 - duration: 8s
 - scene: Angkasa gelap; planet kecil Bumi di bawah, siluet armada dan lambang bangsa asing di atas (simbol buatan sendiri). Altimeter melewati 100 km (angkasa).
 - voiceover: "Ia berasal dari Viltrum, dan datang ke Bumi sebagai bagian dari rencana bangsanya untuk menguasai planet ini."
@@ -90,7 +90,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 8 — Pertarungan
 
-- status: outline
+- status: built
 - duration: 9s
 - scene: Dua siluet (ayah dan anak) bertarung di langit; Mark jatuh; Omni-Man terbang ke atas, menjauh ke angkasa; satu tetes air mata (SVG) jatuh.
 - voiceover: "Mark menolak. Ayah dan anak bertarung, dan Mark kalah. Tapi kata-katanya membuat Omni-Man pergi, menangis, terbang ke luar angkasa."
@@ -101,7 +101,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 9 — Tafsiran
 
-- status: outline
+- status: built
 - duration: 8s
 - act: Babak 3: Makna
 - scene: Dinding bingkai berisi satu foto; dua siluet saling berhadapan di dalamnya, retakan di antaranya. Bingkai putus-putus dan label "TAFSIRAN".
@@ -113,7 +113,7 @@ Perangkat tetap di semua frame: (1) altimeter vertikal di tepi kanan, angka naik
 
 ## Frame 10 — Penutup
 
-- status: outline
+- status: built
 - duration: 8s
 - scene: Mark sendirian di atap, kota di bawah; altimeter menunjuk satu angka, dinding bingkai di belakang berisi satu foto kosong. Teks "Siapa dirimu?" (League Gothic).
 - voiceover: "Sekuat apa pun seorang pahlawan, ujian terberatnya adalah memilih siapa dirinya, bukan siapa ayahnya."
