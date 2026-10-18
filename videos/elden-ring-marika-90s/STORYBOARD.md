@@ -9,7 +9,7 @@ mode: collaborative
 
 ## Frame 1 — Hook: sang dewi menghancurkan cincinnya
 
-- status: outline
+- status: built
 - duration: 8s
 - act: Babak 1: Golden Order
 - transition_in: cut
@@ -27,7 +27,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 2 — Golden Order
 
-- status: outline
+- status: built
 - duration: 8s
 - transition_in: continuous descent
 - scene: Aula emas di bawah ranting Erdtree; Marika di singgasana, Elden Ring sebagai lingkaran cahaya di belakangnya.
@@ -42,7 +42,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 3 — Night of Black Knives
 
-- status: outline
+- status: built
 - duration: 7.5s
 - act: Babak 2: Malam dan Pecahnya Tatanan
 - transition_in: warna beralih emas → biru malam
@@ -58,7 +58,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 4 — Dalangnya: Ranni
 
-- status: outline
+- status: built
 - duration: 8s
 - transition_in: crossfade ke bulan
 - scene: Bulan raksasa; Ranni berdiri di depannya; di atas, bayangan dua jari emas raksasa (Two Fingers) mengawasi.
@@ -73,7 +73,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 5 — Marika menghancurkan Elden Ring
 
-- status: outline
+- status: built
 - duration: 8.5s
 - act: Babak 3: Shattering
 - transition_in: hard cut + kilatan emas
@@ -89,7 +89,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 6 — Perang demigod
 
-- status: outline
+- status: built
 - duration: 8s
 - transition_in: pecahan emas → titik di peta
 - scene: Peta sederhana Lands Between dengan simbol demigod; api merah menyebar dari tiap titik; Erdtree meredup di tengah.
@@ -104,7 +104,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 7 — Pertanyaan tanpa jawaban
 
-- status: outline
+- status: built
 - duration: 8s
 - act: Babak 4: Tiga Teori
 - transition_in: dari gelap; tiga akar terbelah di dasar pohon
@@ -120,7 +120,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 8 — Teori 1: Duka
 
-- status: outline
+- status: built
 - duration: 8.5s
 - transition_in: masuk ke akar amber
 - scene: Marika di ruang remang, menunduk ke arah bayangan Godwyn; hujan abu emas pelan. Bingkai emas putus-putus + label TEORI.
@@ -135,7 +135,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 9 — Teori 2: Pemberontakan
 
-- status: outline
+- status: built
 - duration: 8.5s
 - transition_in: masuk ke akar merah
 - scene: Dari langit, jari emas raksasa dan rantai emas menarik Marika; ia mengangkat palu dan rantai putus.
@@ -150,7 +150,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 10 — Teori 3: Rencana
 
-- status: outline
+- status: built
 - duration: 8.5s
 - transition_in: masuk ke akar biru
 - scene: Sosok Tarnished kecil berdiri di bawah akar; cahaya Grace emas menunjuk jalan ke Erdtree yang retak; garis rencana tipis menghubungkan titik di peta.
@@ -165,7 +165,7 @@ Hook di 3 detik pertama: pertanyaan "mengapa" dengan citra paling kuat (dewi + c
 
 ## Frame 11 — Penutup
 
-- status: outline
+- status: built
 - duration: 9.5s
 - act: Babak 5: Penutup
 - transition_in: tiga cahaya menyatu
