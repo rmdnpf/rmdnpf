@@ -7,7 +7,7 @@ audience: "penonton film dan anime umum di Indonesia"
 mode: collaborative
 ---
 
-Kerangka tetap: timer **00:60 → 00:00** di atas layar sepanjang video; altimeter diganti **bar "KEKUATAN vs KENDALI"** di tepi kanan yang terus naik. Dunia visual: peta HUD Neo-Tokyo (grid, radar, jalur).
+Kerangka tetap: timer **00:60 → 00:00** di atas layar sepanjang video; **bar "KEKUATAN vs KENDALI"** di tepi kanan yang terus naik. Dunia visual: peta Neo-Tokyo bergaya cetak (grid tinta, radar, jalur merah). Tampilan: poster 80-an merah–hitam–krem (lihat frame.md).
 
 ## Frame 1 — Peringatan spoiler
 - duration: 2.5s · transition_in: cut · VO: (tanpa)

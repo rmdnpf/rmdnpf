@@ -1,6 +1,7 @@
-# Desain — Akira (formula Perfect Blue, mode A)
-- Dasar navy #0A0F24, aksen merah alarm #E0243A, kuning HUD #F2C230 (hemat), putih kertas #F2F0EA, abu-biru #5B6B9A.
-- Tokoh: siluet navy dengan rim light biru tipis. Aksen merah hanya untuk motor, lingkaran energi, ledakan, dan timer kritis.
-- Elemen: grid peta, radar, jalur dan titik, scanline, retakan, kubah putih/merah, stempel militer, alarm berkedip.
-- Timer 00:60 → 00:00 di atas layar (League Gothic). Bar KEKUATAN vs KENDALI di tepi kanan.
-- Subtitle Inter di bawah, kotak gelap. Teks besar.
+# Desain — Akira (poster 80-an merah–hitam–krem)
+- Kertas krem #EFE6D2 sebagai dasar; blok merah besar #D7192D / #8E0F1E untuk adegan kritis; hitam tinta #111 untuk garis, siluet, tipografi.
+- Tokoh dan latar: ilustrasi tinta hitam tebal + halftone (dari Gemini), aksen merah datar hanya pada motor, jaket, dan energi.
+- Elemen: peta/grid dengan garis tinta, radar, jalur merah, titik halftone yang membesar, stempel tebal (TERTANGKAP, RAHASIA), retakan tinta, kubah ledakan lingkaran konsentris, tekstur kertas dan grain.
+- Timer 00:60 → 00:00 di atas (League Gothic, hitam di atas krem; menjadi putih di atas merah saat kritis). Bar KEKUATAN vs KENDALI di tepi kanan.
+- Subtitle Inter tebal di bawah, kotak hitam teks krem. Teks besar, hindari teks kecil.
+- Transisi: sapuan blok merah, kilat putih, potongan panel bergaya manga.
