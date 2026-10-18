@@ -1,18 +1,20 @@
-# Naskah VO — Akira (1988) · ±60 dtk · Bahasa Indonesia, spoiler
+# Naskah VO — Akira (1988) · ±60 dtk · Bahasa Indonesia, spoiler (versi hitung mundur)
 
-Satu suara Cartesia. Generate PER BARIS, simpan WAV di `assets/vo/` (01.wav … 08.wav). Speed ±1,0.
+Satu suara Cartesia. Generate PER BARIS, simpan WAV di `assets/vo/` (01.wav … 09.wav). Speed ±1,0.
 **[F]** = fakta film · **[T]** = tafsiran. Emosi = pilihan di Cartesia (satu emosi per generate).
+Struktur: pembuka dingin dari detik terakhir (baris 01), lalu timer mundur 60→0 sepanjang baris 02–09; sumbu yang menyala = alur cerita.
 
 | File | Tipe | Teks (copy-paste) | Emosi |
 |---|---|---|---|
-| `01.wav` | F | Akira, tahun seribu sembilan ratus delapan puluh delapan. Karya Katsuhiro Otomo. Enam puluh detik untuk memahami film ini. | Calm |
-| `02.wav` | F | Tokyo dihancurkan oleh sebuah ledakan misterius. Tiga puluh satu tahun kemudian, Neo-Tokyo berdiri di atas puing-puingnya, penuh kerusuhan dan korupsi. | Neutral |
-| `03.wav` | F | Di jalanannya, Kaneda memimpin geng motor bernama Capsules. Sampai sahabatnya, Tetsuo, menabrak seorang anak yang kabur dari laboratorium pemerintah. | Excited |
-| `04.wav` | F | Anak itu adalah seorang esper. Militer menangkap Tetsuo, dan kekuatan di dalam tubuhnya mulai tumbuh. | Scared |
-| `05.wav` | F | Kekuatan yang sama dengan Akira, sosok di balik ledakan yang menghancurkan Tokyo. | Scared |
-| `06.wav` | F | Tetsuo mengamuk menembus Neo-Tokyo menuju stadion olimpiade, tempat Akira disimpan. Tapi yang ia temukan hanya sisa tubuh Akira dalam tabung penelitian. | Sad |
-| `07.wav` | T | Akira bukan sekadar film tentang motor dan ledakan. Ia bertanya apa yang terjadi ketika kekuasaan tumbuh lebih cepat daripada kemampuan kita mengendalikannya. | Calm |
-| `08.wav` | T | Dan di tengah kehancuran itu, yang tersisa hanyalah satu hal: persahabatan dua remaja. Kalau waktumu hanya enam puluh detik, apa yang kamu pertahankan? | Calm |
+| `01.wav` | T | Neo-Tokyo punya enam puluh detik sebelum meledak. Siapa yang menyalakan sumbunya? | Scared |
+| `02.wav` | F | Akira, film tahun seribu sembilan ratus delapan puluh delapan karya Katsuhiro Otomo. | Calm |
+| `03.wav` | F | Tokyo dihancurkan oleh ledakan misterius. Tiga puluh satu tahun kemudian, Neo-Tokyo berdiri di atas puing-puingnya. | Neutral |
+| `04.wav` | F+T | Kaneda memimpin geng motor bernama Capsules. Sahabatnya, Tetsuo, menabrak seorang anak yang kabur dari laboratorium. Itulah sumbunya. | Excited |
+| `05.wav` | F | Anak itu seorang esper. Militer menangkap Tetsuo, dan kekuatannya mulai tumbuh. | Scared |
+| `06.wav` | F | Kekuatan yang sama dengan Akira, penyebab ledakan itu. Tetsuo mengamuk menuju stadion olimpiade. | Scared |
+| `07.wav` | F | Di sana, ia hanya menemukan sisa tubuh Akira dalam tabung. | Sad |
+| `08.wav` | T | Akira bukan sekadar film tentang motor dan ledakan. Ia bertanya: apa jadinya bila kekuasaan tumbuh lebih cepat daripada kendali? | Calm |
+| `09.wav` | T | Di tengah kehancuran, yang tersisa persahabatan dua remaja. Kalau waktumu tinggal enam puluh detik, apa yang kamu pertahankan? | Calm |
 
-Catatan: ±135 kata; perkiraan total VO ±55–60 dtk (kecepatan Cartesia ±140 kata/menit). Bila VO lebih dari ±60 dtk, kalimat dipangkas.
-Tips: ejaan fonetik bila perlu: "Katsuhiro Otomo", "Neo-Tokyo", "Capsules", "esper". Boleh generate satu file dengan jeda panjang antarbaris, tapi per baris lebih aman.
+Catatan: ±130 kata; perkiraan total VO ±55 dtk. Satu file dengan jeda panjang antarbaris juga boleh (9 bagian); per baris lebih aman.
+Ejaan fonetik bila perlu: "Katsuhiro Otomo", "Neo-Tokyo", "Capsules", "esper".

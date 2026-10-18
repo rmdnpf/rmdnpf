@@ -11,7 +11,7 @@ no gradients, no painting, no 3D render, no text, no watermark, no ground shadow
 plain flat pure white background (#FFFFFF), the whole subject fully visible with generous empty space on all sides.
 ```
 
-## Daftar (8 gambar)
+## Daftar (9 gambar)
 | File | Isi | Catatan |
 |---|---|---|
 | `kaneda-standing.png` | Remaja biker berjaket panjang, tangan di saku/berdiri tegap, tampak depan-3/4, seluruh badan. Jaket merah datar dengan lambang kapsul generik. | Gambar acuan gaya. |
@@ -21,7 +21,8 @@ plain flat pure white background (#FFFFFF), the whole subject fully visible with
 | `esper-kids.png` | Tiga anak kecil botak berwajah tua, berpiyama polos, berdiri berjajar menghadap depan. | Seluruh badan, tanpa merah. |
 | `soldiers-group.png` | Lima prajurit berhelm dan senapan, siluet berjajar dari sisi, dalam barisan. | Tanpa merah. |
 | `neo-tokyo-skyline.png` | Skyline kota malam yang luas, tinggi bangunan bervariasi, kabel dan papan reklame, setengah bangunan reruntuhan. Format landscape lebar. | Tanpa tokoh. Langit putih polos (saya beri warna). |
+| `specimen-jars.png` | Deretan tabung kaca penelitian di ruang bawah tanah, berisi sisa-sisa tubuh (tanpa darah, tanpa detail grafis, siluet tinta), tampak depan. Format landscape. | Tanpa tokoh dan tanpa merah. |
 | `stadium.png` | Stadion olimpiade yang sedang dibangun: rangka beton melengkung, derek, tiang lampu. Format landscape. | Tanpa tokoh. Langit putih polos. |
 
 ## Setelah gambar masuk
-Saya hapus latar putih, memasang tokoh di 9 frame, menambah blok merah, halftone, tekstur kertas, timer dan peta, lalu tampilkan sketsa statis untuk disetujui sebelum animasi.
+Saya hapus latar putih, memasang tokoh di 10 frame, menambah blok merah, halftone, tekstur kertas, timer dan peta, lalu tampilkan sketsa statis untuk disetujui sebelum animasi.
