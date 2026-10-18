@@ -16,7 +16,7 @@ angle: "malam kota biru-hangat, hari-hari berhamburan seperti lembar kalender da
 Motion graphic 60 detik tentang (500) Days of Summer (2009, sutradara Marc Webb). Bukan hanya tipografi: figur Tom dan Summer
 (gambar anime tanpa wajah, referensi di assets/ref/), lembar kalender, bingkai foto, kartu ucapan, layar terbelah, piringan hitam,
 siluet kota. Narasi Indonesia (Cartesia, di-generate pengguna) menjadi patokan timing; animasi mengikuti durasi tiap baris VO.
-Tanpa spoiler berat. Fokus: ketepatan pesan dan detail per frame, bukan jumlah efek.
+Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun), tidak dinamai dan tidak dijelaskan. Fokus: ketepatan pesan dan detail per frame, bukan jumlah efek.
 
 ## Assets
 
@@ -30,6 +30,7 @@ Tanpa spoiler berat. Fokus: ketepatan pesan dan detail per frame, bukan jumlah e
 - Semua elemen lain (kalender, kartu, kota, piringan hitam, grafik) orisinal dari SVG/HTML/GSAP.
 - Musik dan SFX orisinal hasil sintesis; BGM di-carve di bawah VO.
 - Tanpa footage, poster, atau musik asli film.
+- Karakter pendukung lain (Rachel, McKenzie, Paul, Vance) tidak dipakai di versi ini.
 
 ## Notes
 

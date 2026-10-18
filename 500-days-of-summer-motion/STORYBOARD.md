@@ -88,13 +88,15 @@ Nilai di beat pertama: janji film yang jujur, bukan nama film.
 - rules: counting-dynamic-scale, stat-bars-and-fills
 - assets: tom-point (opsional)
 
-## Frame 8 — Verdict
+## Frame 8 — Verdict: musim berganti
 
 - status: outline
-- duration: 5s
+- duration: 7s
 - transition_in: crossfade
-- scene: Tom dan Summer duduk berdampingan di bangku menghadap matahari terbit (tom-summer-bench). Stempel "Layak Ditonton" turun, lima bintang menyala empat.
-- voiceover: "Layak ditonton? Ya. Terutama kalau kamu pernah berharap terlalu banyak."
+- scene: Tom duduk sendirian di bangku (tom-sit). Sinar musim panas memudar, lembar kalender "Hari 500" menguning dan berubah menjadi daun-daun musim gugur yang berjatuhan. Dari tepi kanan, satu siluet perempuan berpakaian oranye hangat berjalan masuk (autumn-walk) tanpa dijelaskan. Stempel "Layak Ditonton" turun, lima bintang menyala empat.
+- voiceover: "Layak ditonton? Ya. Terutama kalau kamu pernah berharap terlalu banyak. Dan musim pun berganti."
 - blueprint: titlecard-reveal
-- rules: spring-pop-entrance
-- assets: tom-summer-bench
+- rules: spring-pop-entrance, waterfall-entry
+- assets: tom-sit, autumn-walk
+
+Autumn hanya isyarat visual (warna dan daun); namanya tidak disebut di VO atau teks. Tidak ada penjelasan akhir cerita.
