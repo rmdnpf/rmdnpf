@@ -63,8 +63,8 @@ F[3] = (bg("bg-night") + glow(540, 760, 380, "#E9DCC3", .22) +
         '<div class="abs center" style="top:104px"><span class="cin chap pill" style="color:#b9cdea">NIGHT OF BLACK KNIVES</span></div>' + sub(3))
 # 4 Ranni
 F[4] = (bg("bg-moon") +
-        img("ranni", "left:-110px;top:520px;height:1180px;width:auto;filter:drop-shadow(0 10px 40px #000)", "f4-ranni") +
-        img("two-fingers", "left:380px;top:-60px;width:720px;height:auto;filter:brightness(.85) drop-shadow(0 20px 60px #000)", "f4-fingers") + particles(30, "#cfe0ff", 0, 1300, .6) +
+        img("ranni", "left:-160px;top:610px;height:1180px;width:auto;filter:drop-shadow(0 10px 40px #000)", "f4-ranni") +
+        img("two-fingers", "left:590px;top:-100px;width:480px;height:auto;filter:brightness(.85) drop-shadow(0 20px 60px #000)", "f4-fingers") + particles(30, "#cfe0ff", 0, 1300, .6) +
         '<div class="abs center" style="top:1330px"><span class="cin chap pill" style="color:#cfe0ff;font-size:44px">RANNI · TWO FINGERS</span></div>' + sub(4))
 # 5 Shattering
 F[5] = (bg("bg-hall", "filter:brightness(.55) saturate(.7)") + glow(540, 480, 560, CRIM, .45) +
@@ -92,9 +92,9 @@ F[8] = (bg("bg-hall", "filter:brightness(.5) saturate(.6) sepia(.3)") + glow(540
         img("godwyn", "left:520px;top:520px;height:900px;width:auto;opacity:.35;filter:blur(2px) saturate(.5)", "f8-godwyn") + particles(70, "#d9c39a", 0, 1500, .5) +
         tag(8, "TEORI 1 · DUKA", "#E8A33C") + sub(8))
 # 9 Teori 2: Pemberontakan
-chains = "".join(f'<path d="M{x} 0 Q{x+dx} 380 {x2} 640" fill="none" stroke="{GOLD}" stroke-width="5" stroke-dasharray="26 12" opacity=".8"/>' for x, dx, x2 in [(440, -40, 520), (640, 50, 590), (540, 0, 560)])
+chains = "".join(f'<path d="{d}" fill="none" stroke="{GOLD}" stroke-width="7" stroke-dasharray="22 9" stroke-linecap="round" opacity=".9"/>' for d in ["M634 385 Q640 600 735 790", "M940 515 Q900 660 770 800", "M780 330 Q760 560 750 780"])
 F[9] = (bg("bg-battlefield", "filter:brightness(.85)") +
-        img("two-fingers", "left:220px;top:-90px;width:640px;height:auto;filter:brightness(.9) drop-shadow(0 20px 60px #000)", "f9-fingers") +
+        img("two-fingers", "left:590px;top:-190px;width:470px;height:auto;filter:brightness(.9) drop-shadow(0 20px 60px #000)", "f9-fingers") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{chains}</svg>' +
         img("marika-hammer", "left:-10px;top:440px;height:1450px;width:auto;filter:drop-shadow(0 10px 40px #000a)", "f9-marika") + particles(60, "#ff8a60", 200, 1500, .8) +
         tag(9, "TEORI 2 · PEMBERONTAKAN", "#e0584a") + sub(9))
