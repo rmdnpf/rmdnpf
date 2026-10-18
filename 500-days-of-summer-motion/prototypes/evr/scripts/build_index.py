@@ -52,7 +52,7 @@ def panel(side, warm):
     hg = img(side, "hug", hugp, HUGX, kh, cls="hug", anchor="left")[0]
     shs = shadow(side, "tom", tomp, TOMX, kt) + shadow(side, "sum", grp, SUMX, ks) + shadow(side, "sum2", sp2, SUMX2, ks2) + shadow(side, "hug", hugp, HUGX, kh, "left")
     shutil.copy(f"{N}/bg.jpg", f"{N}/{side}-bg.jpg")
-    handsrc = "hand2x.jpg" if warm else "hand-ring2x.jpg"; shutil.copy(f"{N}/{handsrc}", f"{N}/{side}-hand.jpg")
+    handsrc = "hand-ring2x.jpg" if warm else "hand2x.jpg"; shutil.copy(f"{N}/{handsrc}", f"{N}/{side}-hand.jpg")   # cincin di sisi EKSPEKTASI (arahan terbaru)
     hw_, hh_ = 1182 * KH, 1330 * KH
     hl, ht = RING_WORLD[0] - RING_SRC[0] * KH, RING_WORLD[1] - RING_SRC[1] * KH
     shutil.copy(f"{N}/fg-plant.png", f"{N}/{side}-fg.png")
@@ -63,7 +63,7 @@ def panel(side, warm):
         bk = "".join(f'<div class="bk" style="left:{rnd.randint(520,1000)}px;top:{rnd.randint(250,1000)}px;width:{(s:=rnd.randint(40,100))}px;height:{s}px"></div>' for _ in range(14))
     ringx, ringy = RING_WORLD
     ring = ""
-    if not warm:
+    if warm:
         ring = (f'<svg id="{side}-glint" class="glint" viewBox="-100 -100 200 200" width="200" height="200" style="left:{ringx+4-100}px;top:{ringy-18-100}px">'
                 '<defs><radialGradient id="gl"><stop offset="0" stop-color="#fff6d8" stop-opacity=".95"/><stop offset=".35" stop-color="#ffe49a" stop-opacity=".45"/><stop offset="1" stop-color="#ffd070" stop-opacity="0"/></radialGradient></defs>'
                 '<circle r="60" fill="url(#gl)"/><path d="M0 -78 L5 -5 L78 0 L5 5 L0 78 L-5 5 L-78 0 L-5 -5Z" fill="#fff8e0" opacity=".9"/></svg>')

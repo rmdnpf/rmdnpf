@@ -63,9 +63,9 @@
     tl.set(world.concat(["#" + k + "-glow"]), { opacity: 0 }, 5.9);
     tl.set("#" + k + "-handw", { opacity: 1 }, 5.9);
     tl.fromTo("#" + k + "-handimg", { y: 14, rotation: -0.4, transformOrigin: "50% 50%" }, { y: -10, rotation: 0.5, duration: 1.6, ease: "sine.inOut" }, 5.9);
-    if (!p.warm) {
-      tl.fromTo("#R-glint", { opacity: 0, scale: 0.25, rotation: -25 }, { opacity: 1, scale: 1, rotation: 12, duration: 0.35, ease: "power2.out" }, 6.45);
-      tl.to("#R-glint", { opacity: 0, scale: 0.6, duration: 0.45, ease: "power1.in" }, 6.85);
+    if (p.warm) {
+      tl.fromTo("#L-glint", { opacity: 0, scale: 0.25, rotation: -25 }, { opacity: 1, scale: 1, rotation: 12, duration: 0.35, ease: "power2.out" }, 6.45);
+      tl.to("#L-glint", { opacity: 0, scale: 0.6, duration: 0.45, ease: "power1.in" }, 6.85);
     }
     // E: kembali ke ruangan. Ekspektasi: Summer larut jadi cahaya. Kenyataan: Summer tetap nyata, Tom melemas.
     tl.set("#" + k + "-handw", { opacity: 0 }, 7.5);
