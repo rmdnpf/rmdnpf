@@ -60,40 +60,41 @@ def sub(n): return f'<div class="sub"><span>{SUB[n]}</span></div>' if not HAS_VO
 WS = 2.44; WCX, WCY = 784, 475.5; WL = round(540 - WCX * WS); WT = round(840 - WCY * WS)
 FX0, FY0 = round(WL + 653 * WS), round(WT + 313 * WS); FW, FH = round(262 * WS), round(325 * WS)
 def wall_framed(extra="", id_=""):
-    return img("photo-wall", f"left:{WL}px;top:{WT}px;width:{round(1536*WS)}px;height:auto;max-width:none;{extra}", id_, "bg")
+    return img("color/bg-wall", f"left:{WL}px;top:{WT}px;width:{round(1536*WS)}px;height:auto;max-width:none;{extra}", id_, "bg")
 def in_frame(inner, id_="", cls=""):
     return f'<div id="{id_}" class="abs {cls}" style="left:{FX0}px;top:{FY0}px;width:{FW}px;height:{FH}px;overflow:hidden">{inner}</div>'
 
 F = {}
+BGS = "background:linear-gradient(160deg,#f1d9a8,#d49a66)"
 # 1 Hook
 F[1] = (wall_framed("filter:brightness(.7)", "f1-bg") + particles(20) +
-        in_frame('<img id="f1-photo" src="assets/art/family-photo.png" style="width:100%;height:100%;object-fit:cover;display:block">', "f1-fwrap") +
+        in_frame('<img id="f1-photo" src="assets/art/color/family-photo.png" style="background:linear-gradient(160deg,#f1d9a8,#d49a66);width:100%;height:100%;object-fit:cover;display:block">', "f1-fwrap") +
         f'<svg id="f1-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g stroke="{CREAM}" stroke-width="4" fill="none" stroke-linecap="round"><polyline class="crk" points="{FX0+FW},{FY0} {FX0+FW-70},{FY0+90} {FX0+FW-40},{FY0+170}"/><polyline class="crk" points="{FX0+FW-70},{FY0+90} {FX0+FW-150},{FY0+110}"/></g></svg>' +
         '<div id="f1-warn" class="abs warn">⚠ SPOILER</div>' + alt(.03, "0 M", pid="f1-alt") + sub(1))
 # 2 Judul
-F[2] = (wide_bg("photo-wall", -900, "filter:brightness(.8)", "f2-bg") + particles(24) +
+F[2] = (wide_bg("color/bg-wall", -900, "filter:brightness(.8)", "f2-bg") + particles(24) +
         '<div id="f2-title" class="abs center disp" style="top:620px;font-size:330px;color:#E9DCC3;text-shadow:0 6px 40px #000c">INVINCIBLE</div>'
         f'<div id="f2-line" class="abs" style="left:140px;top:950px;width:800px;height:14px;background:{YEL}"></div>'
         f'<div id="f2-sub" class="abs center disp" style="top:990px;font-size:90px;letter-spacing:.2em;color:{YEL}">SEASON 1 · 2021</div>' + alt(.06, "0 M", pid="f2-alt") + sub(2))
 # 3 Mark
-F[3] = (tall_bg("mark-standing", "", "f3-bg") + tagchip("MARK GRAYSON", 90, 1250, YEL, 64) +
-        '<div class="abs mono" style="left:96px;top:1340px;font-size:34px;letter-spacing:.12em;color:#E9DCC3;text-shadow:0 2px 12px #000">17 TAHUN · PUTRA OMNI-MAN</div>' + alt(.14, "100 M", pid="f3-alt") + sub(3))
+F[3] = (wide_bg("color/bg-city-night", -380, "", "f3-bg") + img("color/mark-standing", "left:30px;top:90px;height:1500px;width:auto", "f3-mark") + tagchip("MARK GRAYSON", 90, 1690, YEL, 64) +
+        '<div class="abs mono" style="left:96px;top:1790px;font-size:34px;letter-spacing:.12em;color:#E9DCC3;text-shadow:0 2px 12px #000">17 TAHUN · PUTRA OMNI-MAN</div>' + alt(.14, "100 M", pid="f3-alt") + sub(3))
 # 4 Terbang
 speed = "".join(f'<line x1="{x}" y1="{y}" x2="{x+8}" y2="{y+R.randint(160,360)}" stroke="{CREAM}" stroke-opacity=".28" stroke-width="3"/>' for x, y in [(R.randint(40,980), R.randint(0,1400)) for _ in range(18)])
-F[4] = (tall_bg(os.environ.get("SKY4","sky-day"), "", "f4-bg") +
+F[4] = (tall_bg(os.environ.get("SKY4","color/bg-sky"), "", "f4-bg") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{speed}</svg>' +
-        img("mark-flying", "left:30px;top:760px;height:760px;width:auto", "f4-mark") + img("omni-flying", "left:310px;top:200px;height:1180px;width:auto", "f4-omni") +
+        img("color/mark-flying", "left:30px;top:760px;height:760px;width:auto", "f4-mark") + img("color/omni-flying", "left:310px;top:200px;height:1180px;width:auto", "f4-omni") +
         alt(.4, "2.000 M", pid="f4-alt") + sub(4))
 # 5 Guardians tewas
-F[5] = (wide_bg("city-wreck", -900, "filter:brightness(.8)", "f5-bg") + '<div id="f5-red" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 80%,#B3202A66,transparent 70%)"></div>' +
-        img("guardians-group", "left:-90px;top:640px;width:1260px;height:auto;filter:brightness(.45) saturate(.7);transform:rotate(-7deg)", "f5-guard") +
-        img("omni-standing", "left:150px;top:470px;height:1080px;width:auto;filter:drop-shadow(0 0 40px #B3202A)", "f5-omni") + particles(30, "#f25a4a", 200, 1400, .7) +
+F[5] = (wide_bg("color/bg-city-wreck", -900, "filter:brightness(.8)", "f5-bg") + '<div id="f5-red" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 80%,#B3202A66,transparent 70%)"></div>' +
+        img("color/guardians-group", "left:-90px;top:640px;width:1260px;height:auto;filter:brightness(.45) saturate(.7);transform:rotate(-7deg)", "f5-guard") +
+        img("color/omni-standing", "left:150px;top:470px;height:1080px;width:auto;filter:drop-shadow(0 0 40px #B3202A)", "f5-omni") + particles(30, "#f25a4a", 200, 1400, .7) +
         alt(.5, "—", RED, "f5-alt") + sub(5))
 # 6 Foto pecah
 LEFT = "polygon(0 0,56% 0,61% 18%,54% 40%,61% 66%,55% 100%,0 100%)"; RIGHT = "polygon(56% 0,100% 0,100% 100%,55% 100%,61% 66%,54% 40%,61% 18%)"
 F[6] = (wall_framed("filter:brightness(.5)", "f6-bg") +
-        in_frame('<img id="f6-left" class="abs" src="assets/art/family-photo.png" style="left:0;top:0;width:100%;height:100%;object-fit:cover;clip-path:' + LEFT + '">', "f6-fwrapL") +
-        f'<div id="f6-fwrapR" class="abs" style="left:{FX0}px;top:{FY0}px;width:{FW}px;height:{FH}px"><img id="f6-right" class="abs" src="assets/art/family-photo.png" style="left:34px;top:-18px;width:100%;height:100%;object-fit:cover;clip-path:{RIGHT};filter:brightness(.35) saturate(.7)"></div>' +
+        in_frame('<img id="f6-left" class="abs" src="assets/art/color/family-photo.png" style="background:linear-gradient(160deg,#f1d9a8,#d49a66);left:0;top:0;width:100%;height:100%;object-fit:cover;clip-path:' + LEFT + '">', "f6-fwrapL") +
+        f'<div id="f6-fwrapR" class="abs" style="left:{FX0}px;top:{FY0}px;width:{FW}px;height:{FH}px"><img id="f6-right" class="abs" src="assets/art/color/family-photo.png" style="{BGS};left:34px;top:-18px;width:100%;height:100%;object-fit:cover;clip-path:{RIGHT};filter:brightness(.4) saturate(.7)"></div>' +
         f'<svg id="f6-cracks" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(FX0 + round(FW*.58), FY0 + round(FH*.42), 8, 30, 360, 6, CREAM, 5)}</g>'
         + "".join(f'<polygon class="shard" points="{x},{y} {x+60},{y+24} {x+18},{y+76}" fill="{CREAM}" fill-opacity=".18" stroke="{CREAM}" stroke-width="3"/>' for x, y in [(FX0+30, FY0+FH+30), (FX0+FW-120, FY0+FH+60), (FX0+200, FY0-60), (FX0+FW+20, FY0+FH-120)]) + '</svg>' +
         alt(.7, "30.000 M", pid="f6-alt") + sub(6))
@@ -103,18 +104,18 @@ F[7] = (tall_bg("space-bg", "", "f7-bg") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="f7-sym" transform="translate(540 380)"><circle r="190" fill="none" stroke="{RED}" stroke-width="10"/><circle r="150" fill="{RED}" fill-opacity=".14" stroke="{RED}" stroke-width="4" stroke-dasharray="14 10"/><path d="M-90 -80 L0 90 L90 -80 L50 -80 L0 20 L-50 -80 Z" fill="{RED}"/></g>{fleet}</svg>' +
         f'<div id="f7-name" class="abs center disp" style="top:620px;font-size:110px;letter-spacing:.3em;color:{RED};text-shadow:0 0 30px #000">VILTRUM</div>' + alt(.9, "100 KM", pid="f7-alt") + sub(7))
 # 8 Pertarungan
-F[8] = (tall_bg("sky-day", "filter:brightness(.8) hue-rotate(10deg)", "f8-bg") +
+F[8] = (tall_bg("color/bg-sky-dusk", "", "f8-bg") +
         f'<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="f8-wave" fill="none" stroke="{YEL}" stroke-width="6"><circle cx="420" cy="860" r="110" stroke-opacity=".9"/><circle cx="420" cy="860" r="190" stroke-opacity=".55"/><circle cx="420" cy="860" r="280" stroke-opacity=".3"/></g></svg>' +
-        img("omni-flying", "left:440px;top:90px;height:980px;width:auto", "f8-omni") + img("mark-flying", "left:20px;top:980px;height:640px;width:auto;transform:rotate(150deg)", "f8-mark") +
+        img("color/omni-flying", "left:440px;top:90px;height:980px;width:auto", "f8-omni") + img("color/mark-flying", "left:20px;top:980px;height:640px;width:auto;transform:rotate(150deg)", "f8-mark") +
         f'<svg id="f8-tear" class="abs" style="left:560px;top:760px" width="50" height="80" viewBox="0 0 50 80"><path d="M25 4 C25 4 4 40 4 54 A21 21 0 0 0 46 54 C46 40 25 4 25 4Z" fill="#9fb4ff" stroke="{CREAM}" stroke-width="3"/></svg>' +
         alt(.6, "ANGKASA", pid="f8-alt") + sub(8))
 # 9 Tafsiran
 F[9] = (wall_framed("filter:brightness(.55)", "f9-bg") +
-        in_frame('<img id="f9-omni" class="abs" src="assets/art/omni-standing.png" style="left:' + str(round(FW*0.42)) + 'px;top:40px;height:' + str(round(FH*0.95)) + 'px;width:auto"><img id="f9-mark" class="abs" src="assets/art/mark-standing2.png" style="left:-40px;top:150px;height:' + str(round(FH*0.78)) + 'px;width:auto">', "f9-fwrap") +
+        in_frame('<div class="abs" style="inset:0;background:linear-gradient(180deg,#2a2250,#8a4a5a)"></div><img id="f9-omni" class="abs" src="assets/art/color/omni-standing.png" style="left:' + str(round(FW*0.42)) + 'px;top:40px;height:' + str(round(FH*0.95)) + 'px;width:auto"><img id="f9-mark" class="abs" src="assets/art/color/mark-standing.png" style="left:-40px;top:150px;height:' + str(round(FH*0.78)) + 'px;width:auto">', "f9-fwrap") +
         f'<svg id="f9-crack" class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g>{cracks(FX0 + round(FW*.46), FY0 + round(FH*.5), 5, 20, 260, 12, CREAM, 4)}</g></svg>' +
         '<div class="abs theory"><span>TAFSIRAN</span></div><div class="abs tframe"></div>' + sub(9))
 # 10 Penutup# 10 Penutup
-F[10] = (tall_bg("mark-standing", "filter:brightness(.7);top:250px", "f10-bg") +
+F[10] = (wide_bg("color/bg-city-night", -380, "filter:brightness(.75)", "f10-bg") + img("color/mark-standing", "left:30px;top:250px;height:1400px;width:auto", "f10-mark") +
          f'<div id="f10-title" class="abs center disp" style="top:90px;font-size:190px;color:{YEL};text-shadow:0 6px 40px #000">SIAPA DIRIMU?</div>' + alt(.14, "100 M", pid="f10-alt") +
          '<div class="abs theory" style="top:1100px;opacity:0"><span>TAFSIRAN</span></div>' + sub(10))
 
