@@ -108,7 +108,7 @@ stage = f"""<svg id="f4-stage" class="abs" style="left:40px;top:500px" width="10
  <image id="f4-idolL" href="assets/figures/idol-long.png" x="40" y="130" width="{int(560*484/1416)}" height="560" opacity=".62"/>
  <image id="f4-idolR" href="assets/figures/idol-twin.png" x="700" y="150" width="{int(540*444/1356)}" height="540" opacity=".62"/>
  <image id="f4-mima" href="assets/figures/mima-mic.png" x="300" y="30" width="400" height="600"/>
- <g id="f4-crowd">{crowd}</g>
+ <image id="f4-crowd" href="assets/figures/crowd.png" x="-20" y="286" width="1040" height="420" preserveAspectRatio="xMidYMax slice"/>
  <path id="f4-curL" d="M0 0 H90 Q60 300 70 700 H0 Z" fill="{RED}" opacity=".9"/>
  <path id="f4-curR" d="M1000 0 H910 Q940 300 930 700 H1000 Z" fill="{RED}" opacity=".9"/>
 </svg>"""
