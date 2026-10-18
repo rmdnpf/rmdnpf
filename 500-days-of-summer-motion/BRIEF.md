@@ -1,36 +1,39 @@
 ---
 workflow: general-video
-flow: automation
-storyboard: no
-message: "(500) Days of Summer adalah komedi romantis non-linear yang jujur: bukan kisah cinta, tapi kisah tentang berharap terlalu banyak"
+flow: companion
+storyboard: yes
+message: "(500) Days of Summer jujur sejak awal: ini bukan kisah cinta, ini kisah tentang berharap terlalu banyak. Layak ditonton."
 destination: shorts-reels
 aspect: 1080x1920
 language: id
 audience: "penonton film umum di Indonesia"
 length: 60s
-angle: "motion graphic kalender hari-ke-N dengan banyak elemen visual ilustratif, bukan hanya tipografi"
+angle: "malam kota biru-hangat, hari-hari berhamburan seperti lembar kalender dan foto; tokoh gambar anime tanpa wajah"
 ---
 
 ## Intent
 
-Motion graphic 60 detik tentang film (500) Days of Summer (2009, sutradara Marc Webb). Bukan hanya tipografi:
-ilustrasi vektor orisinal (kalender, tokoh Tom dan Summer versi gaya datar, kartu ucapan, grafik suasana hati,
-layar terbelah Ekspektasi vs Kenyataan, piringan hitam, siluet kota Los Angeles, koin, jam, tomat, stempel).
-Perangkat visual utama: penghitung "HARI ke-N" yang melompat-lompat, meniru struktur cerita non-linear.
-Tanpa spoiler berat. Subtitle Indonesia selalu tampil; narasi (VO) opsional.
+Motion graphic 60 detik tentang (500) Days of Summer (2009, sutradara Marc Webb). Bukan hanya tipografi: figur Tom dan Summer
+(gambar anime tanpa wajah, referensi di assets/ref/), lembar kalender, bingkai foto, kartu ucapan, layar terbelah, piringan hitam,
+siluet kota. Narasi Indonesia (Cartesia, di-generate pengguna) menjadi patokan timing; animasi mengikuti durasi tiap baris VO.
+Tanpa spoiler berat. Fokus: ketepatan pesan dan detail per frame, bukan jumlah efek.
 
 ## Assets
 
-- assets/vo/01.wav … 08.wav — voice-over Indonesia, opsional (generate dari VO_SCRIPT.md, lalu jalankan scripts/add_audio.py).
+- assets/ref/tom-ref.png, assets/ref/summer-ref.png — referensi gaya (latar hitam + cahaya). Dipakai sebagai acuan prompt.
+- assets/figures/src/*.png — gambar sumber latar putih polos (lihat ASSET_LIST.md). Belum tersedia.
+- assets/vo/01.wav … 08.wav — VO hasil generate pengguna dari VO_SCRIPT.md. Belum tersedia.
 
 ## Customizations
 
-- Semua visual orisinal (SVG/HTML/GSAP). Tidak memakai cuplikan, poster, wajah aktor, atau musik asli film.
-- Musik dan SFX orisinal hasil sintesis (scripts/make_audio.py).
+- Figur diproses seperti Perfect Blue: hapus latar putih, lalu warnai ulang ke palet (badan navy, tepi hangat).
+- Semua elemen lain (kalender, kartu, kota, piringan hitam, grafik) orisinal dari SVG/HTML/GSAP.
+- Musik dan SFX orisinal hasil sintesis; BGM di-carve di bawah VO.
+- Tanpa footage, poster, atau musik asli film.
 
 ## Notes
 
-- Fakta yang dipakai: rilis 2009, sutradara Marc Webb, anggaran sekitar US$7,5 juta, durasi sekitar 95 menit,
-  kritikus sekitar 85% positif (agregator). Angka pendapatan film sengaja tidak dipakai karena sumber saling berbeda.
-- Palet: krem #f6ebd6, tinta #1e2233, biru langit #4c8df6, biru tua #1d3b8b, kuning matahari #ffc93c, mawar #f0647e.
+- Fakta: rilis 2009, sutradara Marc Webb, anggaran sekitar US$7,5 juta, sekitar 85% kritikus positif (agregator). Angka box office tidak dipakai (sumber berbeda). Durasi sekitar 95 menit: diperiksa ulang sebelum build.
+- Palet: navy #0b1a33, panel #13264a, biru Summer #4c8df6, hangat #f2b872, kertas #f4ead8, mawar #f0647e (aksen tunggal).
 - Font: League Gothic (judul), Space Mono (label dan subtitle).
+- Versi pertama (vektor, krem-kuning) ada di index.html lama; dibangun ulang setelah storyboard disetujui.
