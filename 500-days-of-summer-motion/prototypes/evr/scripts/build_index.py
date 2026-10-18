@@ -41,14 +41,16 @@ def shadow(side, name, srcpath, cx, k, anchor="all"):
 def hw(path): im = Image.open(path); return im.size
 
 def panel(side, warm):
-    tomp = f"{FIGDIR}/tom-stand.png"
+    tomp = f"{N}/tom-new.png"; sp2 = f"{N}/stand.png"
     grp = f"{N}/greet.png"; hugp = f"{N}/{'hug-warm' if warm else 'hug-stiff'}.png"
     kt = TOM_H / hw(tomp)[1]; ks = SUM_H / hw(grp)[1]; kh = TOM_H / hw(hugp)[1]
-    TOMX, SUMX, HUGX = 620, 880, 640
+    TOMX, SUMX, SUMX2, HUGX = 620, 880, 810, 640
+    ks2 = SUM_H / hw(sp2)[1]
     tom = img(side, "tom", tomp, TOMX, kt, cls="tom")[0]
     sm = img(side, "sum", grp, SUMX, ks, cls="sum")[0]
+    sm2 = img(side, "sum2", sp2, SUMX2, ks2, cls="sum2")[0]
     hg = img(side, "hug", hugp, HUGX, kh, cls="hug", anchor="left")[0]
-    shs = shadow(side, "tom", tomp, TOMX, kt) + shadow(side, "sum", grp, SUMX, ks) + shadow(side, "hug", hugp, HUGX, kh, "left")
+    shs = shadow(side, "tom", tomp, TOMX, kt) + shadow(side, "sum", grp, SUMX, ks) + shadow(side, "sum2", sp2, SUMX2, ks2) + shadow(side, "hug", hugp, HUGX, kh, "left")
     shutil.copy(f"{N}/bg.jpg", f"{N}/{side}-bg.jpg")
     handsrc = "hand2x.jpg" if warm else "hand-ring2x.jpg"; shutil.copy(f"{N}/{handsrc}", f"{N}/{side}-hand.jpg")
     hw_, hh_ = 1182 * KH, 1330 * KH
@@ -71,7 +73,7 @@ def panel(side, warm):
     <div id="{side}-bg" class="layer"><div class="ceil"></div><img class="plate" src="assets/new/{side}-bg.jpg" style="left:-100px;top:0;width:1280px;height:1920px" alt=""></div>
     <div id="{side}-world" class="layer">
       <div id="{side}-glow" class="glow" style="left:{SUMX-260}px;top:{FLOOR-SUM_H-80}px;width:520px;height:{SUM_H+160}px"></div>
-      {shs}{tom}{sm}{hg}
+      {shs}{tom}{sm}{sm2}{hg}
     </div>
     <div id="{side}-handw" class="layer handw">
       <img id="{side}-handimg" class="handimg" src="assets/new/{side}-hand.jpg" style="left:{hl:.0f}px;top:{ht:.0f}px;width:{hw_:.0f}px;height:{hh_:.0f}px" alt="">

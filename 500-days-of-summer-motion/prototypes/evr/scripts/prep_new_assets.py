@@ -42,6 +42,8 @@ def key(name, out, crop=True, soft=False, flip=False, xmax=None, thr=40):
 key("summer-greet", "greet")
 key("hug-warm", "hug-warm")
 key("hug-stiff", "hug-stiff")
+key("tom-stand-new", "tom-new")
+key("summer-stand-new", "stand")
 key("hand-insert", "hand", crop=False)
 key("hand-insert-ring", "hand-ring", crop=False)
 key("P3-fg", "fg-plant", crop=False, soft=True, flip=True, xmax=360)
@@ -51,7 +53,7 @@ for n, o in (("hand", "hand2x"), ("hand-ring", "hand-ring2x")):   # sisipan tang
     bgc.convert("RGB").resize((a.width * 2, a.height * 2), Image.LANCZOS).save(O + o + ".jpg", quality=93)
 json.dump(meta, open(O + "meta.json", "w"), indent=1)
 # validasi tepi: sisa magenta pada piksel tepi
-for n in ("greet", "hug-warm", "hug-stiff", "hand", "hand-ring"):
+for n in ("greet", "hug-warm", "hug-stiff", "tom-new", "stand", "hand", "hand-ring"):
     a = np.array(Image.open(O + n + ".png")).astype(float); al = a[..., 3] / 255
     mm = np.minimum(a[..., 0], a[..., 2]) - a[..., 1]; edge = (al > 0.05) & (al < 0.95)
     print(n, "sisa magenta pada tepi:", int(((mm > 40) & (al > 0.05)).sum()), "px; tepi semi:", int(edge.sum()))

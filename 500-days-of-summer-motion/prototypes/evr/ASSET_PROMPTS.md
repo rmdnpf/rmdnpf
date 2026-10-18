@@ -122,3 +122,30 @@ Foreground-only layer for the same apartment scene, 2D anime film illustration, 
 **Manual (wajib, oleh Anda dan saya):** kualitas ilustrasi 2D, kecocokan gaya dengan figur lama, kesesuaian dengan film (kostum, pesta teras atap, Summer tidak antagonis), kewajaran pelukan dan tangan, kontras ekspektasi vs kenyataan tanpa audio, tiap gerakan punya tujuan visual/naratif.
 
 **Kriteria yang direvisi (sesuai arahan):** stillness disengaja boleh untuk penekanan emosional (tidak ada kewajiban gerak per 0,5 dtk); tidak wajib tiga kanal gerak per bidikan, tiap gerakan harus punya fungsi.
+
+---
+
+## 6. Tambahan setelah evaluasi v2
+
+Dua aset untuk merapikan shot berdiri (A, B, E). Lampirkan referensi yang sama (`hug-warm.png`, `summer-greet.png`, dan figur lama di `assets/figures/src/`). Kanvas 1024×1536, latar magenta #FF00FF.
+
+### 6.1 `tom-stand-new` — Tom berdiri (gaya sama dengan hug-warm)
+Skala: tinggi Tom ±1440 px pada kanvas (sama dengan Tom di `hug-warm`); kaki rata, alas sepatu ±50 px dari tepi bawah.
+```
+Full-body 2D anime film illustration, same style, line quality, colors and lighting as the reference image hug-warm: flat cel shading with clean ink lines, faceless character (blank skin-toned face, no eyes, nose or mouth).
+A young man standing relaxed in three-quarter view facing RIGHT, weight slightly on one leg, both hands in his trouser pockets, shoulders a little lowered, head slightly turned toward the right. Outfit identical to the reference: black open zip hoodie over a grey-cream shirt, thin black tie, khaki-olive messenger bag across the body, dark brown trousers, dark sneakers with cream trim. Messy dark-brown hair.
+Light: warm amber key light from the RIGHT, thin warm rim light on right-side edges, soft cool fill from the left, flat 2-tone shadows. Feet fully visible and flat on the ground.
+Solid pure magenta #FF00FF background, no glow, no shadow, no gradient, crisp clean edges, no white outline. Full body, nothing cropped. Canvas 1024x1536, figure about 1440 px tall.
+```
+
+### 6.2 `summer-stand-new` — Summer berdiri tanpa lambaian
+Untuk sisi Kenyataan setelah pelukan: sopan, hangat tipis, tidak dingin. Skala: tinggi Summer ±1340 px pada kanvas (0,93× Tom).
+```
+Full-body 2D anime film illustration, same character, outfit, style and lighting as the reference image summer-greet, faceless (blank skin-toned face, no eyes, nose or mouth).
+Pose: standing in three-quarter view facing LEFT, weight on one leg, both arms relaxed: one hand holding the brown shoulder-bag strap, the other hand hanging loosely at her side (no waving, no raised hand). Head turned slightly toward the left, shoulders relaxed. Polite and kind, a little reserved, not cold and not hostile. Skirt hangs naturally with a very slight sway.
+Outfit identical: long wavy dark-brown hair with straight bangs, white sleeveless blouse with small collar, blue-grey flared skirt above the knee, navy ballet flats, small brown shoulder bag. Feet fully visible and flat on the ground.
+Light: warm amber key light from the RIGHT, thin warm rim light on right-side edges, soft cool fill from the left, flat 2-tone shadows.
+Solid pure magenta #FF00FF background, no glow, no shadow, no gradient, crisp clean edges, no white outline. Full body, nothing cropped. Canvas 1024x1536, figure about 1340 px tall.
+```
+
+Setelah kedua gambar jadi: simpan sebagai `tom-stand-new.png` dan `summer-stand-new.png` di `prototypes/evr/assets/new/src/` (atau kirim ke chat), lalu saya pasang ke prototipe dan render ulang.

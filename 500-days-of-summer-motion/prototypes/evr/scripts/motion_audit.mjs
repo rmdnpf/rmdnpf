@@ -23,7 +23,7 @@ const rows = await page.evaluate(({ FPS, N }) => {
       const w = document.getElementById(k + "-world");
       r[k + "w"] = [g(w, "scaleX"), g(w, "scaleY"), g(w, "x"), g(w, "y")];
       
-      for (const n of ["tom", "sum", "hug"]) {
+      for (const n of ["tom", "sum", "sum2", "hug"]) {
         const el = document.getElementById(k + "-" + n);
         // posisi kaki dalam koordinat dunia: tengah-bawah elemen + translasi GSAP (pivot di kaki, rotasi tidak menggeser kaki)
         r[k + n] = { op: +getComputedStyle(el).opacity, fx: el.offsetLeft + el.offsetWidth / 2 + g(el, "x"), fy: el.offsetTop + el.offsetHeight + g(el, "y"), rot: g(el, "rotation") };
@@ -63,7 +63,7 @@ report.push(`jendela statis terpanjang: ${(maxStill / FPS).toFixed(2)} s (batas 
 // 4) kaki Summer/Tom berdiri: drift kaki dalam ruang dunia per 0.5 s di luar potongan/busur
 function world(r, k, n) { return rows.length && r[k + n].fx; }
 const drift = [];
-for (const k of ["L", "R"]) for (const n of ["tom", "sum", "hug"]) {
+for (const k of ["L", "R"]) for (const n of ["tom", "sum", "sum2", "hug"]) {
   let worst = 0, at = 0;
   for (let i = 15; i < rows.length - 15; i++) {
     const a = rows[i], b = rows[i + 15];

@@ -26,14 +26,14 @@
   ["L", "R"].forEach(function (k) {
     var v = camVars(k, 750, 960, 1), g = targets(k);
     ["world", "bg", "fg"].forEach(function (n) { gsap.set(g[n], v[n]); });
-    gsap.set("#" + k + "-hug," + "#" + k + "-shg-hug", { opacity: 0 });
+    gsap.set("#" + k + "-hug," + "#" + k + "-shg-hug," + "#" + k + "-sum2," + "#" + k + "-shg-sum2", { opacity: 0 });
     gsap.set("#" + k + "-handw", { opacity: 0 });
   });
 
   // Satu fungsi blocking untuk dua panel; yang berbeda hanya aset pelukan, cahaya, dan hasil akhir.
   function blocking(k, p) {
     var tom = "#" + k + "-tom", sum = "#" + k + "-sum", hug = "#" + k + "-hug";
-    var shT = "#" + k + "-shg-tom", shS = "#" + k + "-shg-sum", shH = "#" + k + "-shg-hug";
+    var shT = "#" + k + "-shg-tom", shS = "#" + k + "-shg-sum", shH = "#" + k + "-shg-hug", sum2 = "#" + k + "-sum2", shS2 = "#" + k + "-shg-sum2";
     var glow = "#" + k + "-glow", world = ["#" + k + "-bg", "#" + k + "-world", "#" + k + "-fgw"];
     // A–B: berdiri berjarak, bernapas, bergoyang sangat halus (kaki tetap)
     tl.to(tom, { scaleY: 1.008, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
@@ -55,12 +55,10 @@
     } else {
       tl.to(hug, { scaleY: 1.004, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.9);
       // pelukan kaku singkat lalu dilepas: dissolve cepat ke berdiri (Summer berdiri dekat, Tom melemas)
-      tl.set(sum, { x: -70 }, 3.9);
       tl.to(hug, { opacity: 0, duration: 0.2 }, 4.85); tl.to(shH, { opacity: 0, duration: 0.2 }, 4.85);
-      tl.to([tom, sum, shT, shS], { opacity: 1, duration: 0.2 }, 4.85);
+      tl.to([tom, sum2, shT, shS2], { opacity: 1, duration: 0.2 }, 4.85);
       tl.to(tom, { rotation: -3, duration: 0.6, ease: "power2.out" }, 4.95);
     }
-    if (p.warm) tl.set(sum, { x: -70 }, 3.9);
     // D: sisipan tangan (potongan keras); latar & figur disembunyikan
     tl.set(world.concat(["#" + k + "-glow"]), { opacity: 0 }, 5.9);
     tl.set("#" + k + "-handw", { opacity: 1 }, 5.9);
@@ -72,16 +70,16 @@
     // E: kembali ke ruangan. Ekspektasi: Summer larut jadi cahaya. Kenyataan: Summer tetap nyata, Tom melemas.
     tl.set("#" + k + "-handw", { opacity: 0 }, 7.5);
     tl.set(world, { opacity: 1 }, 7.5);
-    tl.set([tom, sum, shT, shS], { opacity: 1 }, 7.5);
+    tl.set([tom, sum2, shT, shS2], { opacity: 1 }, 7.5);
     tl.set([hug, shH], { opacity: 0 }, 7.5);
-    tl.set(sum, { x: -70 }, 7.5);
+    tl.to(sum2, { scaleY: 1.008, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 7.5);
     tl.set(glow, { x: -70, opacity: p.warm ? 0.9 : 0 }, 7.5);
     tl.set(tom, { rotation: p.warm ? 0.5 : -3 }, 7.5);
     if (p.warm) {
-      tl.set(sum, { mixBlendMode: "screen" }, 8.0);
-      tl.to(sum, { filter: "blur(14px) brightness(2.2)", scale: 1.12, duration: 0.9, ease: "power1.in" }, 8.0);
-      tl.to(sum, { opacity: 0, duration: 0.5 }, 8.5);
-      tl.to(shS, { opacity: 0, duration: 0.7 }, 8.0);
+      tl.set(sum2, { mixBlendMode: "screen" }, 8.0);
+      tl.to(sum2, { filter: "blur(14px) brightness(2.2)", scale: 1.12, duration: 0.9, ease: "power1.in" }, 8.0);
+      tl.to(sum2, { opacity: 0, duration: 0.5 }, 8.5);
+      tl.to(shS2, { opacity: 0, duration: 0.7 }, 8.0);
       tl.to(glow, { opacity: 0, duration: 1.0 }, 8.4);
     } else {
       tl.to(tom, { rotation: -5, duration: 1.2, ease: "sine.inOut" }, 7.9);
