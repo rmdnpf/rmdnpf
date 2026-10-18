@@ -38,33 +38,33 @@ Nilai di beat pertama: janji film yang jujur, bukan nama film.
 - status: outline
 - duration: 8s
 - transition_in: crossfade
-- scene: Layar terbagi dua pita vertikal. Tom (tom-desk, menulis kartu) di kiri dengan kartu ucapan berterbangan; Summer (summer-lean, menoleh) di kanan dengan satu hati yang retak. Garis putus-putus menghubungkan keduanya.
-- voiceover: "Tom, penulis kartu ucapan yang percaya cinta sejati. Summer, perempuan yang sama sekali tidak percaya."
+- scene: Layar terbagi dua pita vertikal. Tom (tom-desk, menulis kartu) di kiri dengan kartu ucapan berterbangan; Summer (summer-lean, menoleh) di kanan dengan satu hati yang retak. Di latar kiri-atas, siluet bos (vance-boss) memegang papan jepit dengan label kecil "VANCE · BOS"; label "SUMMER · ASISTEN BARU" muncul di samping Summer. Garis putus-putus menghubungkan keduanya.
+- voiceover: "Tom, penulis kartu ucapan yang percaya cinta sejati. Summer, asisten baru bosnya, yang sama sekali tidak percaya."
 - blueprint: comparison-split
 - rules: svg-path-draw, waterfall-entry
-- assets: tom-desk, summer-lean (tom-ref, summer-ref sebagai acuan gaya)
+- assets: tom-desk, summer-lean, vance-boss (tom-ref, summer-ref sebagai acuan gaya)
 
 ## Frame 4 — Tak berurutan
 
 - status: outline
 - duration: 9s
 - transition_in: wipe
-- scene: Dinding bingkai foto bernomor hari (1, 8, 31, 34, 290, 322, 488, 500) tertata acak lalu tertukar posisi. Grafik garis bahagia versus patah hati tergambar menembus bingkai, penanda bergantian hati dan bintang.
+- scene: Dinding bingkai foto bernomor hari (1, 8, 31, 34, 290, 322, 488, 500) tertata acak lalu tertukar posisi. Grafik garis bahagia versus patah hati tergambar menembus bingkai, penanda bergantian hati dan bintang. Di sudut kanan-bawah, dua sahabat (mckenzie-paul) bersandar di tepi grafik dengan label "MCKENZIE & PAUL · SAHABAT", mengangkat gelas saat grafik naik dan menunduk saat turun.
 - voiceover: "Ceritanya melompat-lompat antar hari. Dari hari pertama sampai hari ke-500, bahagia dan patah hati bergantian."
 - blueprint: data-chart
 - rules: svg-path-draw, counting-dynamic-scale
-- assets: tom-stand, summer-stand kecil sebagai penanda di grafik
+- assets: tom-stand, summer-stand kecil sebagai penanda di grafik, mckenzie-paul
 
 ## Frame 5 — Ekspektasi vs Kenyataan
 
 - status: outline
 - duration: 9s
 - transition_in: glitch
-- scene: Layar terbelah. Atas hangat: balon, konfeti, Tom dan Summer menari (tom-dance, summer-twirl). Bawah pudar abu-biru: hujan, Tom duduk sendirian di bangku (tom-sit), kursi kosong. Garis pemisah menggeser, VS berputar.
+- scene: Layar terbelah. Atas hangat: balon, konfeti, Tom dan Summer menari (tom-dance, summer-twirl). Bawah pudar abu-biru: hujan, Tom duduk sendirian di bangku (tom-sit), kursi kosong. Di sisi Kenyataan, adik Tom (rachel-pat) berdiri di samping bangku dan menepuk bahunya, dengan label "RACHEL · ADIK". Garis pemisah menggeser, VS berputar.
 - voiceover: "Adegan paling terkenal: ekspektasi lawan kenyataan. Layar terbelah, dan kenyataan tak pernah selembut harapan."
 - blueprint: comparison-split
 - rules: viewport-change, waterfall-entry
-- assets: tom-dance, summer-twirl, tom-sit
+- assets: tom-dance, summer-twirl, tom-sit, rachel-pat
 
 ## Frame 6 — Kenangan: lagu dan kota
 

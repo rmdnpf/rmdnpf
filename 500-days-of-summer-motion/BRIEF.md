@@ -30,7 +30,7 @@ Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun
 - Semua elemen lain (kalender, kartu, kota, piringan hitam, grafik) orisinal dari SVG/HTML/GSAP.
 - Musik dan SFX orisinal hasil sintesis; BGM di-carve di bawah VO.
 - Tanpa footage, poster, atau musik asli film.
-- Karakter pendukung lain (Rachel, McKenzie, Paul, Vance) tidak dipakai di versi ini.
+- Karakter pendukung dipakai sebagai cameo visual berlabel kecil (tanpa VO): Vance (bos) di F3, McKenzie dan Paul (sahabat) di F4, Rachel (adik) di F5. Autumn di F8 hanya isyarat.
 
 ## Notes
 

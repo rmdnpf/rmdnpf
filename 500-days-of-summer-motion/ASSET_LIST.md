@@ -4,7 +4,7 @@ Simpan di `assets/figures/src/` (PNG). Semua figur: wajah KOSONG (tanpa mata, hi
 `assets/ref/tom-ref.png` dan `assets/ref/summer-ref.png`, **latar putih polos, tanpa cahaya atau glow, tanpa bayangan di lantai**
 (supaya mudah dipotong), seluruh tubuh terlihat, ukuran portrait 1024×1536. Sertakan gambar referensi saat generate agar konsisten.
 
-Pakaian tetap (Autumn: mantel/gaun oranye hangat, dibedakan jelas dari biru Summer): Tom — kemeja biru muda lengan digulung, dasi tipis gelap, celana navy, sepatu kets.
+Pendukung: wajah kosong juga, jangan meniru wajah aktor, pakaian ringkas dan mudah dibedakan siluetnya. Pakaian tetap (Autumn: mantel/gaun oranye hangat, dibedakan jelas dari biru Summer): Tom — kemeja biru muda lengan digulung, dasi tipis gelap, celana navy, sepatu kets.
 Summer — gaun biru tanpa lengan dengan pita pinggang, rambut panjang berponi, tas cokelat, flat shoes.
 
 | File | Dipakai di | Pose |
@@ -18,6 +18,9 @@ Summer — gaun biru tanpa lengan dengan pita pinggang, rambut panjang berponi, 
 | `tom-sit.png` | F5, F8 | Duduk sendirian di bangku, bahu turun, kepala menunduk |
 | `tom-summer-walk.png` | F6 | Berjalan berdampingan membelakangi kamera, sedikit berjarak |
 | `autumn-walk.png` | F8 | Berjalan masuk dari samping, gaun/mantel oranye hangat, rambut sebahu, tangan memegang tas bahu; wajah kosong |
+| `vance-boss.png` | F3 | Pria paruh baya berjas dan dasi, memegang papan jepit, berdiri tegak |
+| `mckenzie-paul.png` | F4 | Dua pria berdampingan, bersandar santai; satu berbadan tinggi berjaket, satu berkemeja rompi rajut, masing-masing memegang gelas |
+| `rachel-pat.png` | F5 | Anak perempuan remaja (lebih pendek dari Tom), rambut diikat, satu tangan terangkat seperti menepuk bahu, dilihat dari samping |
 | `tom-point.png` (opsional) | F7 | Berdiri, satu tangan menunjuk ke samping |
 
 Prompt dasar (Inggris, untuk Gemini / generator gambar):
