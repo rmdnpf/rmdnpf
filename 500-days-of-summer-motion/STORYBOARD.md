@@ -39,7 +39,7 @@ Nilai di beat pertama: janji film yang jujur, bukan nama film.
 - duration: 8s
 - transition_in: crossfade
 - scene: Layar terbagi dua pita vertikal. Tom (tom-desk, menulis kartu) di kiri dengan kartu ucapan berterbangan; Summer (summer-lean, menoleh) di kanan dengan satu hati yang retak. Label "SUMMER · ASISTEN BARU" muncul di samping Summer. Garis putus-putus menghubungkan keduanya.
-- voiceover: "Tom, penulis kartu ucapan yang percaya cinta sejati. Summer, asisten baru bosnya, yang sama sekali tidak percaya."
+- voiceover: "Tom, penulis kartu ucapan yang percaya cinta sejati. Summer, asisten baru bosnya, yang tak mau hubungan serius."
 - blueprint: comparison-split
 - rules: svg-path-draw, waterfall-entry
 - assets: tom-desk, summer-lean (tom-ref, summer-ref sebagai acuan gaya)
@@ -61,7 +61,7 @@ Nilai di beat pertama: janji film yang jujur, bukan nama film.
 - duration: 9s
 - transition_in: glitch
 - scene: Layar terbelah. Atas hangat: balon, konfeti, Tom dan Summer menari (tom-dance, summer-twirl). Bawah pudar abu-biru: hujan, Tom duduk sendirian di bangku (tom-sit), kursi kosong. Di sisi Kenyataan, adik Tom (rachel-pat) berdiri di samping bangku dan menepuk bahunya, dengan label "RACHEL · ADIK". Garis pemisah menggeser, VS berputar.
-- voiceover: "Adegan paling terkenal: ekspektasi lawan kenyataan. Layar terbelah, dan kenyataan tak pernah selembut harapan."
+- voiceover: "Adegan paling terkenal: ekspektasi lawan kenyataan. Tom ternyata lebih mencintai bayangannya tentang Summer, bukan Summer yang nyata."
 - blueprint: comparison-split
 - rules: viewport-change, waterfall-entry
 - assets: tom-dance, summer-twirl, tom-sit, rachel-pat

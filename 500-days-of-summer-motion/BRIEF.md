@@ -36,6 +36,6 @@ Spoiler ringan: Autumn muncul di akhir hanya sebagai isyarat visual (warna, daun
 ## Notes
 
 - Fakta: rilis 2009, sutradara Marc Webb, anggaran sekitar US$7,5 juta, sekitar 85% kritikus positif (agregator). Angka box office tidak dipakai (sumber berbeda). Durasi sekitar 95 menit: diperiksa ulang sebelum build.
-- Palet: navy #0b1a33, panel #13264a, biru Summer #4c8df6, hangat #f2b872, kertas #f4ead8, mawar #f0647e (aksen tunggal).
+- Palet (dari film): navy #0f1b3d, biru Summer #5aa0f0, biru muda #cfe3f7, amber #f2b84b, krem #f4ead8, oranye Autumn #e8793a, abu-biru Kenyataan #7f8aa3, mawar #e8607a hanya untuk hati.
 - Font: League Gothic (judul), Space Mono (label dan subtitle).
 - Versi pertama (vektor, krem-kuning) ada di index.html lama; dibangun ulang setelah storyboard disetujui.

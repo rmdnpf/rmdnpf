@@ -1,19 +1,22 @@
 ---
-name: 500 Days — kalender hari-ke-N
+name: 500 Days — malam biru, matahari hangat
 colors:
-  cream: "#f6ebd6"
-  ink: "#1e2233"
-  sky: "#4c8df6"
-  deep: "#1d3b8b"
-  sun: "#ffc93c"
-  rose: "#f0647e"
-  grey: "#8a8f9c"
+  navy: "#0f1b3d"
+  panel: "#18295a"
+  summer_blue: "#5aa0f0"
+  pale_blue: "#cfe3f7"
+  amber: "#f2b84b"
+  cream: "#f4ead8"
+  autumn: "#e8793a"
+  reality: "#7f8aa3"
+  heart: "#e8607a"
 typography:
   display: "League Gothic"
   ui: "Space Mono"
 ---
 
-Gaya figur: silhouette line-art satu warna (seperti Perfect Blue), warna sebagai identitas: Summer biru, Tom krem, Autumn oranye, pendukung abu-biru. Latar dasar navy.
-Konsep: cerita disusun dari lembar kalender yang melompat-lompat. Gaya kolase kertas datar: tepi tebal tinta, bayangan offset, warna hangat.
-Tiap scene punya satu elemen ilustrasi besar + satu baris teks besar. Subtitle di zona tengah-bawah (y 1300–1520), jauh dari zona UI ponsel.
-Transisi: lembar warna menyapu layar. Chip "HARI ke-N" di kiri atas menandai loncatan waktu.
+Palet diambil dari film: biru adalah warna Summer (gaun biru, mata biru), kuning-amber hangat dari matahari Los Angeles dan lampu jalan,
+krem kertas dari kartu ucapan Tom, oranye hanya untuk Autumn, abu-biru pudar untuk Kenyataan, mawar hanya untuk hati (sedikit, sebagai kejutan).
+Dasar video malam biru-navy; matahari amber memberi kehangatan di Frame 2, 6, dan 8.
+Gaya figur: silhouette line-art satu warna (seperti Perfect Blue), warna sebagai identitas: Summer biru, Tom krem, Autumn oranye, pendukung abu-biru.
+Fokus tiap frame: satu elemen besar + satu baris teks ≥ 36px. Subtitle di zona tengah-bawah (y 1300–1520), jauh dari zona UI ponsel.

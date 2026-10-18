@@ -15,13 +15,13 @@ Pewarnaan ulang memakai pemetaan terang-gelap seperti `prep_figures.py` di Perfe
 
 | Karakter | Warna badan | Tepi/garis | Alasan |
 |---|---|---|---|
-| Summer | biru #4c8df6 | biru muda #cfe0ff | biru adalah warna Summer |
+| Summer | biru #5aa0f0 | biru muda #cfe3f7 | biru adalah warna Summer |
 | Tom | krem kertas #f4ead8 | putih hangat | tokoh utama, kontras tertinggi di latar gelap |
-| Autumn | oranye #f08a3c | kuning muda | satu-satunya oranye; isyarat musim |
-| Rachel, McKenzie, Paul | abu-biru #8fa0c0 | putih | pendukung, tidak menyaingi dua tokoh utama |
+| Autumn | oranye #e8793a | kuning muda | satu-satunya oranye; isyarat musim |
+| Rachel, McKenzie, Paul | abu-biru #7f8aa3 | putih | pendukung, tidak menyaingi dua tokoh utama |
 
 ## Latar
-- Dasar video malam biru-navy (#0b1a33), figur terang di atasnya, seperti Perfect Blue.
+- Dasar video malam biru-navy (#0f1b3d), figur terang di atasnya, seperti Perfect Blue.
 - Pembalikan di Frame 5: sisi Ekspektasi berlatar hangat (kuning-krem) dengan siluet navy, sisi Kenyataan berlatar gelap pudar dengan siluet abu. Pembalikan terang-gelap itu sendiri yang menceritakan perbedaannya.
 - Elemen kode (kalender, bingkai foto, kartu, grafik, kota, piringan hitam, stempel, teks) memakai palet yang sama.
 
