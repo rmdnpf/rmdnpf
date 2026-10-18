@@ -9,7 +9,7 @@ mode: collaborative
 
 ## Frame 1 — Peringatan spoiler
 
-- status: outline
+- status: built
 - duration: 2.5s
 - transition_in: cut
 - scene: Kotak dialog error bergaya OS lama "PERINGATAN: SPOILER" berkedip dengan glitch RGB dan scanline CRT.
@@ -22,7 +22,7 @@ Penonton tahu sejak detik pertama bahwa ini membahas twist film.
 
 ## Frame 2 — Hook: siapa dirimu sebenarnya
 
-- status: outline
+- status: built
 - duration: 6.5s
 - transition_in: glitch
 - scene: Close-up mata besar (garis digambar), pantulan panggung idola di pupil; satu tarikan zoom-out menembus layar monitor, kamar, hingga cermin.
@@ -34,7 +34,7 @@ Nilai di beat pertama: pertanyaan identitas, bukan nama film.
 
 ## Frame 3 — Judul
 
-- status: outline
+- status: built
 - duration: 5.5s
 - transition_in: cut
 - scene: Jendela OS dengan kursor mengetik "PERFECT BLUE · 1997 · Satoshi Kon"; ikon file piksel berjatuhan, bar loading biru.
@@ -45,7 +45,7 @@ Nilai di beat pertama: pertanyaan identitas, bukan nama film.
 
 ## Frame 4 — Mima, sang idola
 
-- status: outline
+- status: built
 - duration: 9s
 - transition_in: crossfade
 - scene: Panggung pink dengan balok lampu, light stick, kilatan kamera, tiga siluet idola. Kursor menekan tombol "Keluar dari grup": dua siluet pudar, satu tersisa, tirai menutup. Titik merah kecil menandai "mata" yang mengawasi.
@@ -55,7 +55,7 @@ Nilai di beat pertama: pertanyaan identitas, bukan nama film.
 
 ## Frame 5 — Situs yang menulis hidupnya
 
-- status: outline
+- status: built
 - duration: 11s
 - transition_in: wipe
 - scene: Jendela browser "Mima's Room": entri harian muncul diketik, penghitung pengunjung naik, komentar masuk, ikon mata merah. Tiba-tiba notifikasi merah beruntun dan layar menggeliat glitch RGB.
@@ -66,7 +66,7 @@ Nilai di beat pertama: pertanyaan identitas, bukan nama film.
 
 ## Frame 6 — Batas yang kabur
 
-- status: outline
+- status: built
 - duration: 9s
 - transition_in: glitch
 - scene: Jendela bersarang tak berujung; siluet Mima menggandakan diri; label "PERAN" dan "DIRI" saling bertukar sisi lalu cermin retak dan pecahan kaca berterbangan.
@@ -77,7 +77,7 @@ Nilai di beat pertama: pertanyaan identitas, bukan nama film.
 
 ## Frame 7 — Pengungkapan
 
-- status: outline
+- status: built
 - duration: 8s
 - transition_in: cut
 - scene: Semua lapisan terkelupas; di cermin muncul siluet Rumi dengan label "RUMI — MANAJER". Warna biru-pink tertukar, teks "MIMA YANG ASLI?" diketik lalu dicoret.
@@ -87,7 +87,7 @@ Nilai di beat pertama: pertanyaan identitas, bukan nama film.
 
 ## Frame 8 — Makna dan penutup
 
-- status: outline
+- status: built
 - duration: 8.5s
 - transition_in: crossfade
 - scene: Hening: satu jendela, kursor mengetik "aku yang asli." Gerakan lambat, layar CRT meredup, lalu kartu judul "PERFECT BLUE (1997)" dengan satu cap garis tipis.

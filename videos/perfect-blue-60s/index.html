@@ -1,55 +1,142 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Perfect Blue — Lapisan Realitas</title>
+    <script src="assets/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
-        overflow: hidden;
-        background: #0a0a0a;
-      }
-      #root {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
-    </style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;background:#0b1230}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:#0b1230;color:#f2f0ff;font-family:Inter,sans-serif}
+.scene{position:absolute;inset:0;overflow:hidden;background:#0b1230}
+.abs{position:absolute} .center{left:0;right:0;text-align:center}
+.display{font-family:"League Gothic",sans-serif;text-transform:uppercase;line-height:.92;letter-spacing:.01em}
+.mono{font-family:"Space Mono",monospace}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2f5bff22 2px,transparent 2px),linear-gradient(90deg,#2f5bff22 2px,transparent 2px);background-size:90px 90px}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 2px,transparent 2px 5px)}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.6))}
+.win{position:absolute;background:#f2f0ff;border:6px solid #f2f0ff;color:#0b1230;box-shadow:14px 14px 0 #2f5bff88;font-family:"Space Mono",monospace;overflow:hidden}
+.win .bar{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#f2f0ff;font-weight:700;font-size:30px}
+.win .ctl i{display:inline-block;width:26px;height:26px;margin-left:10px;background:#f2f0ff;border:3px solid #0b1230}
+.win .body{padding:34px 40px}
+.row{display:flex;align-items:center;gap:26px}
+.ghost{text-shadow:7px 0 #ff5fa2,-7px 0 #2f5bff}
+.btns{display:flex;gap:26px;margin-top:34px}
+.btn{display:inline-block;padding:16px 38px;border:5px solid #0b1230;font-weight:700;font-size:38px;background:#f2f0ff}
+.chip{padding:10px 22px;border:4px solid #f2f0ff;font-size:32px;font-weight:700;background:#0b1230}
+.tag{padding:8px 26px;font-family:"Space Mono",monospace;font-weight:700;font-size:44px;letter-spacing:.1em}
+.load{border:5px solid #0b1230;padding:8px;background:#fff} .segs{display:flex;gap:8px} .segs i{display:block;flex:1;height:44px}
+.caret{display:inline-block;width:40px;height:150px;background:#ff5fa2;margin-left:10px;vertical-align:-10px}
+.addr{border:4px solid #0b1230;padding:10px 18px;font-size:30px;margin-bottom:18px}
+.head{font-size:130px;padding:6px 26px;line-height:1.0;margin-bottom:18px}
+.counter{display:flex;align-items:center;gap:8px;font-size:30px;font-weight:700;margin-bottom:22px} .counter span{margin-right:14px}
+.counter i{font-style:normal;background:#0b1230;color:#ff5fa2;padding:6px 14px;font-size:42px}
+.entry{margin-bottom:20px;font-size:34px} .entry p{margin-top:4px;line-height:1.25}
+.cmts{margin-top:22px;border-top:4px solid #0b1230;padding-top:16px} .cmt{display:flex;align-items:center;gap:16px;margin:10px 0;font-size:32px} .cmt i{display:block;width:44px;height:44px;border:3px solid #0b1230}
+.toast{position:absolute;padding:20px 28px;font-size:34px;font-weight:700;color:#f2f0ff;box-shadow:10px 10px 0 #0006}
+</style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1080" data-height="1920">
+      <section id="f1" class="scene clip" data-start="0" data-duration="2.5" data-track-index="1">
+<div class="grid"></div>
+<div class="abs mono" style="left:60px;top:150px;font-size:32px;opacity:.75">● REC &nbsp; PERFECT_BLUE.TAPE &nbsp; 00:00:01</div>
+<div class="abs mono" style="right:60px;top:150px;font-size:32px;opacity:.75;color:#ff5fa2">CH 03</div>
+<div id="f1-win" class="win" style="left:110px;top:600px;width:860px;height:740px;"><div class="bar" style="background:linear-gradient(90deg,#e5233b,#2f5bffaa)"><span>SYSTEM_ALERT.EXE</span><span class="ctl"><i></i><i></i><i style="background:#ff5fa2"></i></span></div><div class="body"><div class="row"><svg width="150" height="150" viewBox="0 0 100 100"><path d="M50 8 L94 88 H6 Z" fill="#e5233b" stroke="#0b1230" stroke-width="6" stroke-linejoin="round"/><rect x="45" y="34" width="10" height="28" fill="#f2f0ff"/><rect x="45" y="68" width="10" height="10" fill="#f2f0ff"/></svg><div class="display ghost" style="font-size:150px;color:#e5233b">PERINGATAN:<br>SPOILER</div></div><p class="mono" style="font-size:36px;margin:22px 0 0">Video ini membuka twist dan akhir cerita film.</p><div class="btns"><span class="btn" style="background:#2f5bff;color:#f2f0ff">LANJUT</span><span class="btn">KELUAR</span></div></div></div>
+<svg class="cursor abs" style="left:470px;top:1250px" width="64" height="90" viewBox="0 0 34 50"><path d="M2 2 L2 40 L12 31 L19 47 L26 44 L19 28 L33 28 Z" fill="#f2f0ff" stroke="#0b1230" stroke-width="3" stroke-linejoin="round"/></svg>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f2" class="scene clip" data-start="2.5" data-duration="6.5" data-track-index="1">
+<div class="abs" style="inset:0;background:radial-gradient(ellipse 70% 40% at 50% 28%,#ff5fa255,transparent 70%)"></div>
+<div class="abs" style="left:40px;top:230px;width:1000px;height:700px;border:16px solid #2a3170;border-radius:70px;background:#141c46"></div>
+<svg class="abs" style="left:70px;top:290px" width="940" height="560" viewBox="0 0 940 560">
+ <defs><radialGradient id="iris" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff5fa2"/><stop offset=".45" stop-color="#2f5bff"/><stop offset="1" stop-color="#0b1230"/></radialGradient>
+ <clipPath id="pupilclip"><circle cx="470" cy="290" r="78"/></clipPath></defs>
+ <path d="M30 290 C210 70 730 70 910 290 C730 500 210 500 30 290 Z" fill="#f2f0ff" stroke="#0b1230" stroke-width="12" stroke-linejoin="round"/>
+ <circle cx="470" cy="290" r="176" fill="url(#iris)" stroke="#0b1230" stroke-width="8"/>
+ <circle cx="470" cy="290" r="78" fill="#0b1230"/>
+ <g clip-path="url(#pupilclip)"><path d="M470 214 L420 330 H520 Z M470 214 L380 330 H430 Z M470 214 L510 330 H560 Z" fill="#ff5fa2" opacity=".85"/><rect x="380" y="320" width="180" height="14" fill="#f2f0ff" opacity=".6"/></g>
+ <circle cx="410" cy="225" r="24" fill="#fff"/><circle cx="520" cy="352" r="9" fill="#fff"/>
+ <path d="M60 270 C 235 80 700 78 880 270" fill="none" stroke="#0b1230" stroke-width="16" stroke-linecap="round"/>
+ <g stroke="#0b1230" stroke-width="9" stroke-linecap="round" fill="none">
+  <path d="M120 215 C100 180 88 160 66 140"/><path d="M200 160 C186 122 176 98 160 74"/><path d="M300 126 C296 86 292 62 284 40"/>
+  <path d="M430 110 C434 70 440 46 448 24"/><path d="M560 112 C568 74 580 52 596 32"/><path d="M690 134 C706 100 724 80 750 62"/><path d="M790 176 C812 150 836 134 862 124"/></g>
+ <path d="M70 330 C230 470 700 470 868 330" fill="none" stroke="#0b1230" stroke-width="10" stroke-linecap="round" opacity=".6"/>
+</svg>
+<div class="abs mono chip" style="left:70px;top:150px">[ NAMA: ??? ]</div>
+<div class="abs mono chip" style="right:70px;top:150px;color:#ff5fa2;border-color:#ff5fa2">[ PERAN: ??? ]</div>
+<div class="abs mono chip" style="left:110px;top:970px;color:#2f5bff;background:#f2f0ff">[ DIRI: ??? ]</div>
+<div class="abs display center" style="top:1070px;font-size:200px">SIAPA<br>DIRIMU<br><span style="color:#ff5fa2">SEBENARNYA?</span></div>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f3" class="scene clip" data-start="9" data-duration="5.5" data-track-index="1">
+<div class="grid"></div>
+<svg class="abs icon" style="left:70px;top:300px;transform:rotate(-14deg) scale(1.5)" width="60" height="60" viewBox="0 0 52 56"><path d="M6 4 H30 L42 16 V54 H6 Z" fill="#f2f0ff" stroke="#0b1230" stroke-width="4" stroke-linejoin="round"/><path d="M30 4 V16 H42" fill="none" stroke="#0b1230" stroke-width="4"/><path d="M14 30 H34 M14 40 H34" stroke="#2f5bff" stroke-width="4"/></svg><svg class="abs icon" style="left:880px;top:330px;transform:rotate(12deg) scale(1.6)" width="60" height="60" viewBox="0 0 52 56"><path d="M4 14 H20 L26 20 H48 V50 H4 Z" fill="#ff5fa2" stroke="#0b1230" stroke-width="4" stroke-linejoin="round"/></svg><svg class="abs icon" style="left:840px;top:1180px;transform:rotate(-10deg) scale(1.5)" width="60" height="60" viewBox="0 0 52 56"><path d="M4 4 H40 L48 12 V50 H4 Z" fill="#2f5bff" stroke="#0b1230" stroke-width="4" stroke-linejoin="round"/><rect x="12" y="4" width="22" height="16" fill="#f2f0ff" stroke="#0b1230" stroke-width="3"/><rect x="12" y="32" width="28" height="18" fill="#0b1230"/></svg><svg class="abs icon" style="left:120px;top:1230px;transform:rotate(18deg) scale(1.4)" width="60" height="60" viewBox="0 0 52 56"><path d="M6 4 H30 L42 16 V54 H6 Z" fill="#f2f0ff" stroke="#0b1230" stroke-width="4" stroke-linejoin="round"/><path d="M30 4 V16 H42" fill="none" stroke="#0b1230" stroke-width="4"/><path d="M14 30 H34 M14 40 H34" stroke="#2f5bff" stroke-width="4"/></svg><svg class="abs icon" style="left:460px;top:250px;transform:rotate(8deg) scale(1.2)" width="60" height="60" viewBox="0 0 52 56"><path d="M4 4 H40 L48 12 V50 H4 Z" fill="#2f5bff" stroke="#0b1230" stroke-width="4" stroke-linejoin="round"/><rect x="12" y="4" width="22" height="16" fill="#f2f0ff" stroke="#0b1230" stroke-width="3"/><rect x="12" y="32" width="28" height="18" fill="#0b1230"/></svg><svg class="abs icon" style="left:600px;top:1320px;transform:rotate(-16deg) scale(1.3)" width="60" height="60" viewBox="0 0 52 56"><path d="M4 14 H20 L26 20 H48 V50 H4 Z" fill="#ff5fa2" stroke="#0b1230" stroke-width="4" stroke-linejoin="round"/></svg>
+<div id="f3-win" class="win" style="left:90px;top:500px;width:900px;height:760px;"><div class="bar" style="background:linear-gradient(90deg,#2f5bff,#2f5bffaa)"><span>perfect_blue.avi</span><span class="ctl"><i></i><i></i><i style="background:#ff5fa2"></i></span></div><div class="body"><div class="display" style="font-size:210px;line-height:.9;color:#0b1230">PERFECT<br><span style="color:#2f5bff">BLUE</span><span class="caret"></span></div><p class="mono" style="font-size:42px;margin:12px 0 18px;font-weight:700">1997 · SATOSHI KON</p><div class="load"><div class="segs"><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#ff5fa2"></i><i style="background:#c9c5ef"></i><i style="background:#c9c5ef"></i><i style="background:#c9c5ef"></i><i style="background:#c9c5ef"></i></div></div><p class="mono" style="font-size:30px;margin:10px 0 0">MEMUAT… 78%</p></div></div>
+<svg class="cursor abs" style="left:760px;top:1040px" width="64" height="90" viewBox="0 0 34 50"><path d="M2 2 L2 40 L12 31 L19 47 L26 44 L19 28 L33 28 Z" fill="#f2f0ff" stroke="#0b1230" stroke-width="3" stroke-linejoin="round"/></svg>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f4" class="scene clip" data-start="14.5" data-duration="9" data-track-index="1">
+<div class="abs" style="inset:0;background:radial-gradient(ellipse 80% 30% at 50% 30%,#ff5fa244,transparent 70%)"></div>
+<div class="abs display center" style="top:110px;font-size:260px;color:#ff5fa2;text-shadow:8px 0 #2f5bff">MIMA</div>
+<div class="abs mono center" style="top:372px;font-size:40px;font-weight:700">IDOLA POP → AKTRIS</div>
+<svg class="abs" style="left:40px;top:500px" width="1000" height="720" viewBox="0 0 1000 700">
+ <defs><linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a0f4a"/><stop offset="1" stop-color="#ff5fa2"/></linearGradient>
+ <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+ <rect width="1000" height="700" rx="26" fill="url(#bg4)" stroke="#f2f0ff" stroke-width="8"/>
+ <polygon points="170,0 60,700 280,700" fill="url(#beam)"/><polygon points="400,0 308,700 528,700" fill="url(#beam)"/><polygon points="620,0 546,700 766,700" fill="url(#beam)"/><polygon points="810,0 754,700 974,700" fill="url(#beam)"/>
+ <ellipse cx="500" cy="520" rx="470" ry="74" fill="#0b1230" opacity=".55"/>
+ <g opacity="0.28"><path d="M216.0 334.0 L130.0 250.0 M284.0 334.0 L370.0 235.0" stroke="#ff5fa2" stroke-width="16.0" stroke-linecap="round" fill="none"/><path d="M206.0 322.0 Q250 304.0 294.0 322.0 L334.0 520 L166.0 520 Z" fill="#0b1230" stroke="#ff5fa2" stroke-width="5"/><circle cx="250" cy="274.0" r="36.0" fill="#0b1230" stroke="#ff5fa2" stroke-width="5"/></g><g opacity="0.28"><path d="M716.0 334.0 L630.0 250.0 M784.0 334.0 L870.0 235.0" stroke="#ff5fa2" stroke-width="16.0" stroke-linecap="round" fill="none"/><path d="M706.0 322.0 Q750 304.0 794.0 322.0 L834.0 520 L666.0 520 Z" fill="#0b1230" stroke="#ff5fa2" stroke-width="5"/><circle cx="750" cy="274.0" r="36.0" fill="#0b1230" stroke="#ff5fa2" stroke-width="5"/></g><g opacity="1"><path d="M457.5 307.5 L350.0 202.5 M542.5 307.5 L650.0 183.75" stroke="#f2f0ff" stroke-width="20.0" stroke-linecap="round" fill="none"/><path d="M445.0 292.5 Q500 270.0 555.0 292.5 L605.0 540 L395.0 540 Z" fill="#0b1230" stroke="#f2f0ff" stroke-width="5"/><circle cx="500" cy="232.5" r="45.0" fill="#0b1230" stroke="#f2f0ff" stroke-width="5"/></g>
+ <circle cx="39" cy="632" r="26" fill="#0b1230"/><rect x="31" y="486" width="14" height="110" rx="7" fill="#ff5fa2" transform="rotate(4 39 606)"/><circle cx="102" cy="640" r="26" fill="#0b1230"/><rect x="94" y="494" width="14" height="110" rx="7" fill="#2f5bff" transform="rotate(-17 102 614)"/><circle cx="158" cy="648" r="26" fill="#0b1230"/><rect x="150" y="502" width="14" height="110" rx="7" fill="#f2f0ff" transform="rotate(-3 158 622)"/><circle cx="226" cy="625" r="26" fill="#0b1230"/><rect x="218" y="479" width="14" height="110" rx="7" fill="#ff5fa2" transform="rotate(-8 226 599)"/><circle cx="271" cy="635" r="26" fill="#0b1230"/><rect x="263" y="489" width="14" height="110" rx="7" fill="#2f5bff" transform="rotate(12 271 609)"/><circle cx="337" cy="636" r="26" fill="#0b1230"/><rect x="329" y="490" width="14" height="110" rx="7" fill="#f2f0ff" transform="rotate(16 337 610)"/><circle cx="395" cy="642" r="26" fill="#0b1230"/><rect x="387" y="496" width="14" height="110" rx="7" fill="#ff5fa2" transform="rotate(-3 395 616)"/><circle cx="454" cy="647" r="26" fill="#0b1230"/><rect x="446" y="501" width="14" height="110" rx="7" fill="#2f5bff" transform="rotate(-5 454 621)"/><circle cx="529" cy="632" r="26" fill="#0b1230"/><rect x="521" y="486" width="14" height="110" rx="7" fill="#f2f0ff" transform="rotate(-7 529 606)"/><circle cx="590" cy="629" r="26" fill="#0b1230"/><rect x="582" y="483" width="14" height="110" rx="7" fill="#ff5fa2" transform="rotate(-14 590 603)"/><circle cx="644" cy="643" r="26" fill="#0b1230"/><rect x="636" y="497" width="14" height="110" rx="7" fill="#2f5bff" transform="rotate(10 644 617)"/><circle cx="706" cy="628" r="26" fill="#0b1230"/><rect x="698" y="482" width="14" height="110" rx="7" fill="#f2f0ff" transform="rotate(-18 706 602)"/><circle cx="764" cy="630" r="26" fill="#0b1230"/><rect x="756" y="484" width="14" height="110" rx="7" fill="#ff5fa2" transform="rotate(-5 764 604)"/><circle cx="831" cy="651" r="26" fill="#0b1230"/><rect x="823" y="505" width="14" height="110" rx="7" fill="#2f5bff" transform="rotate(-8 831 625)"/><circle cx="897" cy="634" r="26" fill="#0b1230"/><rect x="889" y="488" width="14" height="110" rx="7" fill="#f2f0ff" transform="rotate(-6 897 608)"/><circle cx="967" cy="652" r="26" fill="#0b1230"/><rect x="959" y="506" width="14" height="110" rx="7" fill="#ff5fa2" transform="rotate(-5 967 626)"/>
+ <path d="M0 0 H90 Q60 300 70 700 H0 Z M1000 0 H910 Q940 300 930 700 H1000 Z" fill="#e5233b" opacity=".9"/>
+</svg><svg class="abs" style="left:150px;top:560px;opacity:0.9" width="120" height="120" viewBox="-50 -50 100 100"><path d="M0 -50 L7 -7 L50 0 L7 7 L0 50 L-7 7 L-50 0 L-7 -7 Z" fill="#fff"/></svg><svg class="abs" style="left:840px;top:700px;opacity:0.8" width="90" height="90" viewBox="-50 -50 100 100"><path d="M0 -50 L7 -7 L50 0 L7 7 L0 50 L-7 7 L-50 0 L-7 -7 Z" fill="#fff"/></svg><svg class="abs" style="left:560px;top:600px;opacity:0.7" width="70" height="70" viewBox="-50 -50 100 100"><path d="M0 -50 L7 -7 L50 0 L7 7 L0 50 L-7 7 L-50 0 L-7 -7 Z" fill="#fff"/></svg>
+<div id="f4-win" class="win" style="left:150px;top:1250px;width:780px;height:380px;"><div class="bar" style="background:linear-gradient(90deg,#2f5bff,#2f5bffaa)"><span>CHAM!.exe</span><span class="ctl"><i></i><i></i><i style="background:#ff5fa2"></i></span></div><div class="body"><div class="display" style="font-size:96px;line-height:1">Keluar dari grup?</div><div class="btns"><span class="btn" style="background:#ff5fa2;color:#0b1230">YA</span><span class="btn">TIDAK</span></div></div></div>
+<svg class="cursor abs" style="left:410px;top:1500px" width="64" height="90" viewBox="0 0 34 50"><path d="M2 2 L2 40 L12 31 L19 47 L26 44 L19 28 L33 28 Z" fill="#f2f0ff" stroke="#0b1230" stroke-width="3" stroke-linejoin="round"/></svg>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f5" class="scene clip" data-start="23.5" data-duration="11" data-track-index="1">
+<div class="grid"></div>
+<div id="f5-win" class="win" style="left:50px;top:220px;width:980px;height:1220px;"><div class="bar" style="background:linear-gradient(90deg,#2f5bff,#2f5bffaa)"><span>mima_room.htm — Mima's Room</span><span class="ctl"><i></i><i></i><i style="background:#ff5fa2"></i></span></div><div class="body"><div class="addr mono">http://mima-room.jp/diary</div><div class="head display" style="background:#ff5fa2;color:#0b1230">MIMA'S ROOM</div><div class="counter mono"><span>PENGUNJUNG</span><i>0</i><i>0</i><i>7</i><i>4</i><i>2</i></div><div class="entry"><b style="color:#2f5bff">12 MEI</b><p>Hari ini aku pulang larut. Lampu kota terasa dingin.</p></div><div class="entry"><b style="color:#2f5bff">14 MEI</b><p>Mereka bilang aku berubah. Aku tidak merasa begitu.</p></div><div class="entry"><b style="color:#2f5bff">17 MEI</b><p>Seseorang tahu semua yang kulakukan.</p></div><div class="cmts"><div class="cmt"><i style="background:#ff5fa2"></i><span>Aku selalu melihatmu.</span></div><div class="cmt"><i style="background:#2f5bff"></i><span>Mima, ini kau yang asli?</span></div></div></div></div>
+<div class="toast" style="top:520px;right:20px;background:#e5233b"><span class="mono">⚠ ADA YANG MENGAWASI</span></div>
+<div class="toast" style="top:640px;right:20px;background:#0b1230;border:5px solid #e5233b"><span class="mono" style="color:#e5233b">● 1 ORANG TEWAS</span></div>
+<svg class="abs" style="left:790px;top:1180px" width="220" height="140" viewBox="0 0 220 140"><path d="M10 70 C60 10 160 10 210 70 C160 130 60 130 10 70Z" fill="#f2f0ff" stroke="#e5233b" stroke-width="8"/><circle cx="110" cy="70" r="30" fill="#e5233b"/><circle cx="110" cy="70" r="12" fill="#0b1230"/></svg>
+<div class="abs" style="left:50px;top:760px;width:980px;height:22px;background:#ff5fa2;mix-blend-mode:screen;opacity:.55;transform:translateX(-30px)"></div>
+<div class="abs" style="left:50px;top:1010px;width:980px;height:16px;background:#2f5bff;mix-blend-mode:screen;opacity:.6;transform:translateX(34px)"></div>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f6" class="scene clip" data-start="34.5" data-duration="9" data-track-index="1">
+<div class="grid"></div>
+<div class="abs nest" style="left:60px;top:220px;width:960px;height:1280px;border:10px solid #2f5bff;transform:rotate(-2deg);background:#141c46"></div><div class="abs nest" style="left:150px;top:340px;width:780px;height:1040px;border:10px solid #ff5fa2;transform:rotate(1.5deg);background:#0b1230"></div><div class="abs nest" style="left:230px;top:445px;width:620px;height:830px;border:10px solid #2f5bff;transform:rotate(-1deg);background:#141c46"></div><div class="abs nest" style="left:305px;top:545px;width:470px;height:630px;border:10px solid #ff5fa2;transform:rotate(2.5deg);background:#0b1230"></div><div class="abs nest" style="left:370px;top:635px;width:340px;height:450px;border:10px solid #2f5bff;transform:rotate(-3deg);background:#141c46"></div><svg class="abs" style="left:380px;top:690px" width="320" height="400" viewBox="0 0 320 400">
+ <g transform="translate(-28,0)"><g opacity="1"><path d="M150.4 201.79999999999998 Q190 185.6 229.6 201.79999999999998 L265.6 380 L114.39999999999999 380 Z" fill="#ff5fa2cc" stroke="#ff5fa2" stroke-width="5"/><circle cx="190" cy="158.60000000000002" r="32.4" fill="#ff5fa2cc" stroke="#ff5fa2" stroke-width="5"/></g></g>
+ <g transform="translate(28,0)"><g opacity="1"><path d="M90.4 201.79999999999998 Q130 185.6 169.6 201.79999999999998 L205.60000000000002 380 L54.39999999999999 380 Z" fill="#2f5bffcc" stroke="#f2f0ff" stroke-width="5"/><circle cx="130" cy="158.60000000000002" r="32.4" fill="#2f5bffcc" stroke="#f2f0ff" stroke-width="5"/></g></g></svg>
+<div class="abs tag" style="left:70px;top:210px;background:#ff5fa2;color:#0b1230">PERAN</div>
+<div class="abs tag" style="right:70px;top:1370px;background:#2f5bff;color:#f2f0ff">DIRI</div>
+<svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><polyline points="700,460 814,454 959,390 1132,387 1325,324" fill="none" stroke="#f2f0ff" stroke-width="4" stroke-linecap="round"/><polyline points="700,460 801,517 945,592 1114,677 1285,775" fill="none" stroke="#f2f0ff" stroke-width="4" stroke-linecap="round"/><polyline points="700,460 700,577 675,720 702,887 716,1078" fill="none" stroke="#f2f0ff" stroke-width="5" stroke-linecap="round"/><polyline points="700,460 634,576 533,696 440,842 409,1003" fill="none" stroke="#f2f0ff" stroke-width="3" stroke-linecap="round"/><polyline points="700,460 588,496 454,534 280,558 78,587" fill="none" stroke="#f2f0ff" stroke-width="5" stroke-linecap="round"/><polyline points="700,460 593,456 455,421 281,353 79,321" fill="none" stroke="#f2f0ff" stroke-width="4" stroke-linecap="round"/><polyline points="700,460 654,366 592,238 556,107 464,-75" fill="none" stroke="#f2f0ff" stroke-width="4" stroke-linecap="round"/><polyline points="700,460 675,343 681,201 659,32 617,-161" fill="none" stroke="#f2f0ff" stroke-width="4" stroke-linecap="round"/><polyline points="700,460 766,371 850,273 973,120 1048,-69" fill="none" stroke="#f2f0ff" stroke-width="4" stroke-linecap="round"/><polygon points="790,330 860,360 810,420" fill="#f2f0ff" fill-opacity=".14" stroke="#f2f0ff" stroke-width="3"/><polygon points="880,520 950,550 900,610" fill="#f2f0ff" fill-opacity=".14" stroke="#f2f0ff" stroke-width="3"/><polygon points="610,340 680,370 630,430" fill="#f2f0ff" fill-opacity=".14" stroke="#f2f0ff" stroke-width="3"/><polygon points="820,700 890,730 840,790" fill="#f2f0ff" fill-opacity=".14" stroke="#f2f0ff" stroke-width="3"/><polygon points="150,1180 220,1210 170,1270" fill="#f2f0ff" fill-opacity=".14" stroke="#f2f0ff" stroke-width="3"/><polygon points="260,1340 330,1370 280,1430" fill="#f2f0ff" fill-opacity=".14" stroke="#f2f0ff" stroke-width="3"/></svg>
+<div class="abs mono center" style="top:1500px;font-size:36px;color:#ff5fa2">[ realitas.exe berhenti merespons ]</div>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f7" class="scene clip" data-start="43.5" data-duration="8" data-track-index="1">
+<div class="abs" style="inset:0;background:radial-gradient(ellipse 80% 40% at 50% 35%,#ff5fa255,transparent 70%)"></div>
+<div class="abs" style="left:-80px;top:-60px;width:360px;height:360px;background:#f2f0ff;opacity:.12;transform:rotate(18deg)"></div>
+<div class="abs" style="right:-100px;top:-50px;width:380px;height:300px;background:#2f5bff;opacity:.35;transform:rotate(-22deg)"></div>
+<div class="abs" style="left:-90px;bottom:-60px;width:340px;height:300px;background:#ff5fa2;opacity:.3;transform:rotate(-16deg)"></div>
+<svg class="abs" style="left:190px;top:260px" width="700" height="980" viewBox="0 0 700 980">
+ <path d="M30 960 V330 C30 130 160 30 350 30 C540 30 670 130 670 330 V960 Z" fill="#ff5fa2" stroke="#f2f0ff" stroke-width="16"/>
+ <path d="M70 940 V334 C70 160 180 72 350 72 C520 72 630 160 630 334 V940 Z" fill="#2f5bff" opacity=".85"/>
+ <g transform="translate(0,40)"><path d="M264 480 Q262 372 350 366 Q438 372 436 480 Q438 540 414 584 L286 584 Q262 540 264 480 Z" fill="#0b1230" stroke="#f2f0ff" stroke-width="5"/><g opacity="1"><path d="M262.0 534.0 Q350 498.0 438.0 534.0 L518.0 930 L182.0 930 Z" fill="#0b1230" stroke="#f2f0ff" stroke-width="5"/><circle cx="350" cy="438.00000000000006" r="72.0" fill="#0b1230" stroke="#f2f0ff" stroke-width="5"/></g>
+ <path d="M282 420 Q350 350 418 420 Q380 396 350 392 Q316 396 282 420Z" fill="#0b1230" stroke="#f2f0ff" stroke-width="4"/></g>
+ <path d="M520 120 L610 60 L580 200Z" fill="#f2f0ff" fill-opacity=".22"/>
+</svg>
+<div class="abs tag" style="left:190px;top:1180px;background:#f2f0ff;color:#0b1230;font-size:38px">RUMI — MANAJER</div>
+<div class="abs display center" style="top:1290px;font-size:150px">MIMA YANG ASLI?</div>
+<div class="abs" style="left:170px;top:1378px;width:740px;height:14px;background:#e5233b;transform:rotate(-3deg)"></div>
+<div class="scan"></div><div class="vig"></div></section>
+      <section id="f8" class="scene clip" data-start="51.5" data-duration="8.5" data-track-index="1">
+<div class="grid" style="opacity:.5"></div>
+<div id="f8-win" class="win" style="left:90px;top:480px;width:900px;height:420px;"><div class="bar" style="background:linear-gradient(90deg,#2f5bff,#2f5bffaa)"><span>identitas.txt</span><span class="ctl"><i></i><i></i><i style="background:#ff5fa2"></i></span></div><div class="body"><div class="mono" style="font-size:88px;font-weight:700;line-height:1.1;color:#0b1230">aku yang asli.<span class="caret" style="height:80px;width:46px"></span></div></div></div>
+<div class="abs" style="left:150px;top:1010px;width:780px;height:5px;background:#ff5fa2"></div>
+<div class="abs display center" style="top:1040px;font-size:230px">PERFECT BLUE</div>
+<div class="abs display center" style="top:1280px;font-size:140px;color:#2f5bff">(1997)</div>
+<div class="scan"></div><div class="vig"></div></section>
     </div>
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
     </script>
   </body>
 </html>
