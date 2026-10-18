@@ -117,8 +117,8 @@ tl.fromTo("#f7-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power
 tl.fromTo("#f8-win", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, S.f8 + 0.2);
 tl.fromTo("#f8-gh1", { opacity: 0, y: 30 }, { opacity: 0.16, y: 0, duration: 1.6 }, S.f8 + 0.5);
 tl.fromTo("#f8-gh2", { opacity: 0, y: 30 }, { opacity: 0.14, y: 0, duration: 1.6 }, S.f8 + 0.9);
-typeIn("#f8-win div:nth-of-type(1)", L[7] + 3.45, 0.07);
-typeIn("#f8-win div:nth-of-type(2)", L[7] + 8.85, 0.06);
+typeIn("#f8-l1", L[7] + 3.45, 0.07);
+typeIn("#f8-l2", L[7] + 8.85, 0.06);
 blink("#f8-caret", L[7] + 0.5, TOTAL);
 tl.fromTo("#f8-line", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, L[7] + 10.1);
 tl.fromTo("#f8-title", { scale: 1.35, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)", transformOrigin: "50% 50%" }, L[7] + 10.2);

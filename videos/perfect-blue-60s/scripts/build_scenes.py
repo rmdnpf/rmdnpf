@@ -192,8 +192,8 @@ f8 = f"""
 <img id="f8-gh1" class="abs" src="assets/figures/mima-stand-pink.png" style="left:150px;top:880px;height:900px;width:auto;opacity:0">
 <img id="f8-gh2" class="abs" src="assets/figures/rumi-mgr-paper.png" style="left:470px;top:900px;height:880px;width:auto;opacity:0">
 {win("f8-win", 90, 440, 900, 460, "identitas.txt",
- f'<div class="mono" style="font-size:44px;color:#59608f;height:60px;margin-bottom:10px">{tsp("identitas di era layar")}</div>'
- f'<div class="mono" style="font-size:88px;font-weight:700;line-height:1.1;color:{NAVY}">{tsp("aku yang asli.")}<span class="caret" id="f8-caret" style="height:80px;width:46px"></span></div>')}
+ f'<div id="f8-l1" class="mono" style="font-size:44px;color:#59608f;height:60px;margin-bottom:10px">{tsp("identitas di era layar")}</div>'
+ f'<div id="f8-l2" class="mono" style="font-size:88px;font-weight:700;line-height:1.1;color:{NAVY}">{tsp("aku yang asli.")}<span class="caret" id="f8-caret" style="height:80px;width:46px"></span></div>')}
 <div id="f8-line" class="abs" style="left:150px;top:1010px;width:780px;height:5px;background:{PINK};transform-origin:left center"></div>
 <div id="f8-title" class="abs display center" style="top:1040px;font-size:230px">PERFECT BLUE</div>
 <div id="f8-year" class="abs display center" style="top:1280px;font-size:140px;color:{BLUE}">(1997)</div>
