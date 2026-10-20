@@ -1,0 +1,42 @@
+@font-face{font-family:"Caveat";src:url("assets/fonts/caveat.woff2") format("woff2");font-weight:500;font-style:normal}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:#16243a;overflow:hidden}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#16243a;font-family:"Space Mono",monospace}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.layer{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+.plate{position:absolute}
+#plate{filter:brightness(.42) saturate(.75) hue-rotate(-12deg)}
+.fig{position:absolute;transform-origin:50% 100%}
+#desk{filter:brightness(.8) saturate(.92)}
+.cast{position:absolute;filter:blur(8px);opacity:.38}
+.ground{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(10,8,14,.6),rgba(10,8,14,0) 70%)}
+#nightov{background:linear-gradient(180deg,rgba(18,30,56,.55),rgba(18,30,56,.42));mix-blend-mode:multiply}
+#lamp{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(255,196,110,.62),rgba(255,170,80,0) 68%);mix-blend-mode:screen}
+#bluecreep{position:absolute;left:0;top:700px;width:1080px;height:800px;background:radial-gradient(ellipse at 90% 40%,rgba(110,155,201,.5),rgba(110,155,201,0) 70%);opacity:0;mix-blend-mode:soft-light}
+.sheet{position:absolute;left:88px;top:237px;width:300px;height:282px;background:#efe3cf;box-shadow:0 2px 0 rgba(0,0,0,.25),0 10px 16px rgba(0,0,0,.25);transform-origin:0 0;text-align:center;overflow:hidden}
+.sheet i{display:block;font-style:normal;font-family:"Space Mono",monospace;font-size:22px;letter-spacing:6px;color:#4a4038;margin-top:20px}
+.sheet b{display:block;font-family:"League Gothic",sans-serif;font-weight:400;font-size:190px;line-height:1;color:#8a1f2a;margin-top:2px}
+.cardspr{position:absolute;width:260px;height:180px;background:#f3e9d4;border:2px solid #d9c3a0;box-shadow:0 8px 18px rgba(0,0,0,.4);transform-origin:50% 50%;opacity:0;overflow:hidden}
+.cardspr span{position:absolute;left:20px;top:34px;width:220px;font-family:"Caveat",cursive;font-size:44px;line-height:1.0;color:#2a211c;clip-path:inset(0 100% 0 0)}
+#s2{opacity:0;background:#5b3b25}
+#wood{position:absolute;left:-40px;top:-40px;width:1160px;height:2000px;background:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 3px,rgba(255,220,170,.05) 3px 9px),linear-gradient(180deg,#8a5a36,#6d4528)}
+.s2i{position:absolute}
+#wrap2{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:540px 900px}
+#cardw{position:absolute;left:0;top:0;width:1080px;height:1920px;perspective:2200px}
+.pg{position:absolute;top:560px;width:490px;height:680px;background:#f3e9d4;border:2px solid #d9c3a0;box-shadow:0 16px 28px rgba(0,0,0,.45)}
+#pr{left:540px}
+#pl{left:50px;transform-origin:100% 50%;transform-style:preserve-3d;backface-visibility:hidden;background:#f6eddb}
+#cv{left:540px;transform-origin:0 50%;background:linear-gradient(135deg,#2a5a8f,#1d3a63);border:2px solid #16243a;display:flex;align-items:center;justify-content:center}
+#cv em{font-style:normal;font-family:"League Gothic",sans-serif;font-size:120px;color:#e3a43c;letter-spacing:4px}
+#ttl{position:absolute;left:30px;top:200px;width:430px;font-family:"Caveat",cursive;font-size:84px;line-height:.95;color:#2a211c;clip-path:inset(0 100% 0 0)}
+#yr{position:absolute;left:36px;top:520px;font-family:"Space Mono",monospace;font-size:30px;letter-spacing:6px;color:#3f6aa0;opacity:0}
+#dir{position:absolute;left:36px;top:580px;font-family:"Space Mono",monospace;font-size:26px;letter-spacing:3px;color:#8a8178;opacity:0}
+#sk2{position:absolute;left:0;top:0}
+.sk2{fill:none;stroke:#3f6aa0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+#leak{background:linear-gradient(120deg,rgba(255,196,110,.0),rgba(255,176,90,.55) 45%,rgba(255,120,60,0));mix-blend-mode:screen;opacity:0}
+#white{background:#fff7e6;opacity:0}
+#pagetear{background:#efe3cf;clip-path:inset(100% 0 0 0);box-shadow:0 -12px 30px rgba(0,0,0,.35)}
+.grade{background:linear-gradient(180deg,rgba(255,205,120,.08),rgba(255,160,80,.08));mix-blend-mode:soft-light}
+.vign{background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.45) 100%)}
+#subgrad{position:absolute;left:0;top:1340px;width:1080px;height:580px;background:linear-gradient(180deg,rgba(14,10,8,0),rgba(14,10,8,.72) 70%,rgba(14,10,8,.82))}
+#sub{position:absolute;left:90px;top:1560px;width:900px;text-align:center;color:#f7f0e2;font-size:40px;line-height:1.35;text-shadow:0 2px 6px rgba(0,0,0,.8);opacity:0;min-height:110px}

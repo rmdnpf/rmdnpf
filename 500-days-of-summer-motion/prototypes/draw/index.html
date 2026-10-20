@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=1080, height=1920">
+<title>Draw Prototype</title>
+<script src="assets/gsap.min.js"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:#16243a;overflow:hidden}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#16243a;font-family:"Space Mono",monospace}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.layer{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+.plate{position:absolute;filter:brightness(.44) saturate(.78) hue-rotate(-12deg)}
+.fig{position:absolute;transform-origin:50% 100%}
+#tom{filter:brightness(.82) saturate(.92)}
+#rach{filter:brightness(.78) saturate(.9);opacity:0}
+.cast{position:absolute;filter:blur(7px);opacity:.34}
+.ground{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(10,8,14,.6),rgba(10,8,14,0) 70%)}
+#nightov{background:linear-gradient(180deg,rgba(18,30,56,.55),rgba(18,30,56,.42));mix-blend-mode:multiply}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(ellipse,rgba(255,196,110,.65),rgba(255,170,80,0) 68%);mix-blend-mode:screen}
+#door{position:absolute;left:0;top:0;width:360px;height:1920px;background:linear-gradient(90deg,rgba(255,226,170,.75),rgba(255,226,170,0));mix-blend-mode:screen;opacity:0}
+.ph{position:absolute;width:150px;height:120px;background:#f3e9d4;border:2px solid #d9c3a0;box-shadow:0 8px 14px rgba(0,0,0,.45);padding:8px}
+.ph u{display:block;width:100%;height:100%;background:linear-gradient(135deg,#f6b45a,#e07a3c 60%,#8a3b3a)}
+.pg{position:absolute;width:150px;height:120px;background:#c9c4bb;border:2px solid #a9a39a;box-shadow:0 8px 14px rgba(0,0,0,.4);opacity:0}
+.pg u{position:absolute;left:14px;top:22px;width:100px;height:4px;background:#8a8178;box-shadow:0 14px 0 #8a8178,0 28px 0 #8a8178,0 42px 0 #8a8178;border-radius:2px}
+#folder{position:absolute;left:830px;top:1160px;width:200px;height:140px;background:#d9c3a0;border:2px solid #b69a6e;border-radius:6px 6px 4px 4px;box-shadow:0 10px 16px rgba(0,0,0,.45);opacity:0}
+.sheet{position:absolute;width:150px;height:110px;background:#f3e9d4;border:2px solid #d9c3a0;box-shadow:0 8px 14px rgba(0,0,0,.45);opacity:0;overflow:hidden}
+#sktop{position:absolute;transform-origin:0 0}
+.sk,.sks{fill:none;stroke:#2a211c;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+#lab{position:absolute;left:46px;top:1285px;font-family:"Space Mono",monospace;font-size:26px;letter-spacing:4px;color:#f4ead8;text-shadow:0 2px 8px rgba(0,0,0,.7);opacity:0}
+.grade{background:linear-gradient(180deg,rgba(255,205,120,.08),rgba(255,160,80,.08));mix-blend-mode:soft-light}
+.vign{background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.45) 100%)}
+#subgrad{position:absolute;left:0;top:1340px;width:1080px;height:580px;background:linear-gradient(180deg,rgba(14,10,8,0),rgba(14,10,8,.72) 70%,rgba(14,10,8,.82))}
+#sub{position:absolute;left:90px;top:1560px;width:900px;text-align:center;color:#f7f0e2;font-size:40px;line-height:1.35;text-shadow:0 2px 6px rgba(0,0,0,.8);opacity:0;min-height:110px}
+</style></head><body>
+<div id="root" data-composition-id="draw" data-width="1080" data-height="1920" data-start="0" data-duration="4.7">
+ <div id="stage" class="clip" data-start="0" data-duration="4.7" data-track-index="0">
+  <div id="in" class="layer">
+   <div id="world" class="layer">
+    <img class="plate" src="assets/new/plate.jpg" style="left:-100px;top:0;width:1280px;height:1920px" alt="">
+    <div id="nightov" class="layer"></div>
+    <div class="glow" style="left:630px;top:673px;width:520px;height:620px"></div>
+    <div class="glow" style="left:518px;top:796px;width:620px;height:420px;opacity:.5"></div>
+    <div id="ph0" class="ph" style="left:104px;top:262px;transform:rotate(-4deg)"><u></u></div><div id="ph1" class="ph" style="left:290px;top:250px;transform:rotate(3deg)"><u></u></div><div id="ph2" class="ph" style="left:140px;top:420px;transform:rotate(2deg)"><u></u></div><div id="ph3" class="ph" style="left:310px;top:430px;transform:rotate(-3deg)"><u></u></div><div id="ph4" class="ph" style="left:222px;top:566px;transform:rotate(-2deg)"><u></u></div><div id="pg0" class="pg" style="left:104px;top:262px;transform:rotate(-4deg)"><u></u></div><div id="pg1" class="pg" style="left:290px;top:250px;transform:rotate(3deg)"><u></u></div><div id="pg2" class="pg" style="left:140px;top:420px;transform:rotate(2deg)"><u></u></div><div id="pg3" class="pg" style="left:310px;top:430px;transform:rotate(-3deg)"><u></u></div><div id="pg4" class="pg" style="left:222px;top:566px;transform:rotate(-2deg)"><u></u></div>
+    <div id="rg" style="position:absolute;left:0;top:0;width:0;height:0">
+     <div class="ground" style="left:46px;top:1246px;width:220px;height:34px"></div>
+     <img class="cast" src="assets/new/rachel-sil.png" style="left:57px;top:679px;width:376px;height:581px;transform-origin:99px 581px;transform:scaleY(-.3) skewX(35deg)" alt="">
+     <img id="rach" class="fig" src="assets/new/rachel.png" style="left:57px;top:679px;width:376px;height:581px;transform-origin:99px 581px" alt="">
+    </div>
+    <div id="tg" style="position:absolute;left:0;top:0;width:0;height:0">
+     <div class="ground" style="left:548px;top:1244px;width:486px;height:38px"></div>
+     <img class="cast" src="assets/new/draw-sil.png" style="left:518px;top:736px;width:526px;height:524px;transform-origin:263px 524px;transform:scaleY(-.3) skewX(35deg)" alt="">
+     <img id="tom" class="fig" src="assets/new/draw.png" style="left:518px;top:736px;width:526px;height:524px" alt="">
+    </div>
+    <div id="sktop" style="left:834px;top:860px;width:200px;height:130px;transform:rotate(-17deg)"><svg width="200" height="130" viewBox="0 0 200 130"><path class="sk" pathLength="1" d="M20 120 L20 70 L50 70 L50 45 L80 45 L80 25 L105 25 L105 45 L135 45 L135 70 L170 70 L170 120"/><path class="sk" pathLength="1" d="M10 120 L190 120"/><path class="sk" pathLength="1" d="M80 70 L80 120"/><path class="sk" pathLength="1" d="M110 70 L110 120"/><path class="sk" pathLength="1" d="M140 70 L140 120"/></svg></div>
+    <div id="folder"></div>
+    <div id="sh0" class="sheet" style="left:859px;top:875px"><svg width="150" height="110" viewBox="0 0 200 130" style="position:absolute;left:0;top:0"><path class="sks" pathLength="1" d="M20 120 L20 70 L50 70 L50 45 L80 45 L80 25 L105 25 L105 45 L135 45 L135 70 L170 70 L170 120"/><path class="sks" pathLength="1" d="M10 120 L190 120"/><path class="sks" pathLength="1" d="M80 70 L80 120"/><path class="sks" pathLength="1" d="M110 70 L110 120"/><path class="sks" pathLength="1" d="M140 70 L140 120"/></svg></div><div id="sh1" class="sheet" style="left:859px;top:875px"><svg width="150" height="110" viewBox="0 0 200 130" style="position:absolute;left:0;top:0"><path class="sks" pathLength="1" d="M20 120 L20 70 L50 70 L50 45 L80 45 L80 25 L105 25 L105 45 L135 45 L135 70 L170 70 L170 120"/><path class="sks" pathLength="1" d="M10 120 L190 120"/><path class="sks" pathLength="1" d="M80 70 L80 120"/><path class="sks" pathLength="1" d="M110 70 L110 120"/><path class="sks" pathLength="1" d="M140 70 L140 120"/></svg></div><div id="sh2" class="sheet" style="left:859px;top:875px"><svg width="150" height="110" viewBox="0 0 200 130" style="position:absolute;left:0;top:0"><path class="sks" pathLength="1" d="M20 120 L20 70 L50 70 L50 45 L80 45 L80 25 L105 25 L105 45 L135 45 L135 70 L170 70 L170 120"/><path class="sks" pathLength="1" d="M10 120 L190 120"/><path class="sks" pathLength="1" d="M80 70 L80 120"/><path class="sks" pathLength="1" d="M110 70 L110 120"/><path class="sks" pathLength="1" d="M140 70 L140 120"/></svg></div>
+   </div>
+   <div class="layer" id="doorw"><div id="door"></div></div>
+   <div class="layer grade"></div><div class="layer vign"></div>
+   <div id="lab">RACHEL · ADIK TOM</div>
+  </div>
+  <div id="subgrad"></div><div id="sub"></div>
+ </div>
+ <audio id="bgm" src="assets/bgm.wav" data-start="0" data-duration="4.7" data-track-index="3" data-volume=".35"></audio>
+ <audio id="sx0" src="assets/sfx/whoosh.wav" data-start="0.3" data-duration="0.7" data-track-index="4" data-volume=".5"></audio>
+ <audio id="sx1" src="assets/sfx/ding.wav" data-start="2.0" data-duration="1.4" data-track-index="5" data-volume=".5"></audio>
+ <audio id="sx2" src="assets/sfx/whoosh.wav" data-start="2.4" data-duration="0.7" data-track-index="6" data-volume=".5"></audio>
+ <audio id="sx3" src="assets/sfx/pop.wav" data-start="3.4" data-duration="0.18" data-track-index="7" data-volume=".5"></audio>
+ <audio id="sx4" src="assets/sfx/pop.wav" data-start="3.8" data-duration="0.18" data-track-index="8" data-volume=".5"></audio>
+ <audio id="sx5" src="assets/sfx/pop.wav" data-start="4.2" data-duration="0.18" data-track-index="9" data-volume=".5"></audio>
+</div>
+<script>const CFG={"rotate": 14, "board": [934, 930], "lamp": [890, 793], "rfeet": [156, 1260]};
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  function camVars(cx, cy, s) { return { x: 540 - cx * s, y: 960 - cy * s, scale: s }; }
+  function camSet(t, cx, cy, s) { tl.set("#world", camVars(cx, cy, s), t); }
+  function camMove(t, dur, cx, cy, s, ease) { tl.to("#world", Object.assign({ duration: dur, ease: ease }, camVars(cx, cy, s)), t); }
+  gsap.set("#world", camVars(540, 960, 1.0));
+  gsap.set(".sks", { strokeDashoffset: 1 });
+  gsap.set(".sk", { strokeDashoffset: 1 });
+  var b = CFG.board;
+  // napas Tom dan Rachel (kaki tetap)
+  tl.to("#tom", { scaleY: 1.006, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+  // Rachel masuk lewat cahaya pintu (tanpa berjalan): cahaya terbuka, lalu ia muncul
+  tl.to("#door", { opacity: 0.85, duration: 0.45, ease: "power1.out" }, 0.3);
+  tl.set("#rach", { opacity: 0, rotation: 0 }, 0);
+  tl.to("#rach", { opacity: 1, duration: 0.3 }, 0.8);
+  tl.to("#door", { opacity: 0.25, duration: 0.6 }, 1.3);
+  // menjangkau bahu Tom
+  tl.to("#rach", { rotation: CFG.rotate, duration: 0.6, ease: "power2.inOut" }, 1.4);
+  tl.fromTo("#lab", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, 0.9);
+  tl.to("#lab", { opacity: 0, duration: 0.4 }, 2.5);
+  // foto kenangan hangat tergeser, halaman abu muncul di sela-selanya
+  for (var i = 0; i < 5; i++) {
+    tl.to("#pg" + i, { opacity: 1, duration: 0.3 }, 1.7 + i * 0.1);
+    tl.to("#ph" + i, { x: (i % 2 ? 26 : -26), y: (i % 2 ? -18 : 14), rotation: "+=" + (i % 2 ? 5 : -5), duration: 0.5, ease: "power2.out" }, 1.7 + i * 0.1);
+    tl.to("#ph" + i, { opacity: 0.55, duration: 0.5 }, 2.2 + i * 0.1);
+  }
+  // Rachel mundur; garis pertama gedung tergambar di papan
+  tl.to("#rach", { rotation: -2, duration: 0.6, ease: "power2.inOut" }, 3.0);
+  tl.to("#sktop path", { strokeDashoffset: 0, duration: 0.8, ease: "power1.inOut", stagger: 0.1 }, 2.6);
+  // lembar sketsa menumpuk menjadi portofolio
+  tl.to("#folder", { opacity: 1, duration: 0.3 }, 3.2);
+  for (var j = 0; j < 3; j++) {
+    tl.set("#sh" + j, { opacity: 1, x: 0, y: 0, rotation: -17, scale: 1 }, 3.4 + j * 0.4);
+    tl.to("#sh" + j + " path", { strokeDashoffset: 0, duration: 0.25 }, 3.4 + j * 0.4);
+    tl.to("#sh" + j, { x: 850 + j * 6 - (b[0] - 75), y: 1150 - j * 8 - (b[1] - 55), rotation: -4 + j * 3, duration: 0.5, ease: "power2.inOut" }, 3.55 + j * 0.4);
+  }
+  // kamera: lebar lalu mendorong ke Tom dan papan
+  camMove(2.4, 2.3, 760, 1000, 1.45, "sine.inOut");
+  var subs = [[1.4, 3.0, "Adiknya mengingatkan: Tom hanya mengingat yang indah."], [3.0, 4.7, "Ia pun kembali menggambar."]];
+  subs.forEach(function (s) { tl.set("#sub", { opacity: 1, innerHTML: s[2] }, s[0]); tl.set("#sub", { opacity: 0 }, s[1]); });
+  tl.to("#subgrad", { opacity: 0, duration: 0.2 }, 4.5);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["draw"] = tl;
+})();
+</script>
+</body></html>

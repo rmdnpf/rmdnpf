@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920"><title>Layout B</title>
+<script src="assets/gsap.min.js"></script><style>
+:root{--paper:#efe3cf;--paper2:#f8f0e1;--ink:#2a211c;--blue:#6f9bc9;--blued:#1d3a63;--blue1:#dbe8f4;--amber:#e3a43c;--grey:#8a8178;--orange:#c8622a;--maroon:#b8333d}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;background:#2a211c}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:#efe3cf;font-family:"Space Mono",monospace;color:#2a211c}
+.f{position:absolute;inset:0;overflow:hidden;background:#efe3cf;background-image:radial-gradient(#2a211c1c 4px,transparent 5px);background-size:56px 56px}
+.a{position:absolute}
+.disp{font-family:"League Gothic",sans-serif;text-transform:uppercase;line-height:.9;letter-spacing:.01em}
+.mono{font-family:"Space Mono",monospace;font-weight:700}
+.chip{position:absolute;left:50px;top:64px;height:78px;padding:0 28px;background:#f8f0e1;border:7px solid #2a211c;border-radius:20px;box-shadow:8px 8px 0 #e3a43c;font:700 40px/64px "Space Mono",monospace;letter-spacing:.04em}
+.micro{position:absolute;right:50px;top:84px;font:700 26px/1 "Space Mono",monospace;color:#2a211c99;letter-spacing:.06em}
+.card{position:absolute;background:#f8f0e1;border:8px solid #2a211c;border-radius:36px;box-shadow:14px 14px 0 #1d3a63;overflow:hidden}
+.tape{position:absolute;width:150px;height:46px;background:#e3a43ccc;border:3px solid #2a211c33}
+.fig{position:absolute;filter:drop-shadow(0 14px 12px rgba(30,20,10,.28))}
+.tag{position:absolute;padding:6px 22px;background:#f8f0e1;border:6px solid #2a211c;border-radius:999px;font:700 30px/1.2 "Space Mono",monospace;white-space:nowrap}
+.lbl{position:absolute;font:700 28px/1.2 "Space Mono",monospace;letter-spacing:.05em}
+.sub{position:absolute;left:70px;width:940px;top:1410px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px 34px;background:#2a211c;border:6px solid #efe3cf;border-radius:34px;box-shadow:10px 10px 0 #6f9bc9;color:#efe3cf;font:700 46px/1.28 "Space Mono",monospace}
+.stamp{position:absolute;background:#2a211c;color:#efe3cf;border:8px solid #f8f0e1;border-radius:24px;text-align:center;padding:18px 34px;outline:4px solid #2a211c}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+<section class="f" data-start="0" data-duration="1" id="s1">
+ <div class="micro">[ KARTU 01/08 ]</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px">
+   <div class="a" style="left:40px;top:40px;width:880px;height:700px;background:#6f9bc9;border:6px solid #2a211c;border-radius:28px"></div>
+   <div class="a mono" style="left:70px;top:62px;font-size:26px;color:#1d3a63">[ HARI 1 → 500 ]</div>
+   <div class="a" style="left:230px;top:120px;width:520px;height:560px;background:#f8f0e1;border:8px solid #2a211c;border-radius:30px;box-shadow:12px 12px 0 #1d3a63;overflow:hidden">
+     <div class="a" style="left:0;right:0;top:0;height:110px;background:#1d3a63;border-bottom:8px solid #2a211c"></div>
+     <div class="a mono" style="left:0;right:0;top:26px;text-align:center;font-size:52px;letter-spacing:.2em;color:#efe3cf">HARI</div>
+     <div class="a disp" style="left:0;right:0;top:112px;text-align:center;font-size:370px;line-height:430px">500</div>
+   </div>
+   <div class="a" style="left:300px;top:96px;width:36px;height:70px;border-radius:18px;background:#2a211c"></div>
+   <div class="a" style="left:650px;top:96px;width:36px;height:70px;border-radius:18px;background:#2a211c"></div>
+   <div class="stamp" style="left:70px;top:790px;width:820px;transform:rotate(-3deg)"><div class="disp" style="font-size:150px;line-height:150px">Ini bukan <span style="color:#e3a43c">kisah cinta</span></div></div>
+   <svg class="a" style="left:760px;top:690px;width:130px;height:130px;fill:#b8333d;stroke:#2a211c;stroke-width:4;overflow:visible" viewBox="0 0 100 100"><path d="M50 88C20 66 6 48 6 30C6 16 17 8 29 8C39 8 46 14 50 22C54 14 61 8 71 8C83 8 94 16 94 30C94 48 80 66 50 88Z"/><path d="M52 14L38 48L58 62L44 88" fill="none" stroke="#2a211c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </div>
+ <div class="tape" style="left:90px;top:176px;transform:rotate(-8deg)"></div><div class="tape" style="left:850px;top:176px;transform:rotate(7deg)"></div>
+ <div class="sub">Tapi sejak awal, ini bukan kisah cinta.</div>
+</section>
+<section class="f" data-start="1" data-duration="1" id="s2">
+ <div class="chip">HARI 1</div><div class="micro">[ KARTU 02/08 ]</div><div class="sub" style="">Sutradara Marc Webb.</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px">
+   <div class="a" style="left:0;top:0;width:960px;height:560px;background:#6f9bc9;border-bottom:8px solid #2a211c"></div>
+   <div class="a disp" style="left:0;right:0;top:30px;text-align:center;font-size:290px;color:#f8f0e1;text-shadow:7px 7px 0 #1d3a63">(500)</div>
+   <div class="tag" style="left:355px;top:290px;background:#e3a43c;font-size:38px;padding:4px 32px">DAYS OF</div>
+   <div class="a disp" style="left:0;right:0;top:318px;text-align:center;font-size:240px;color:#2a211c;text-shadow:7px 7px 0 #f8f0e1">Summer</div>
+   <div class="a" style="left:40px;top:600px;width:260px;height:440px;border-radius:130px 130px 20px 20px;background:#a9c6e3;border:8px solid #2a211c;overflow:hidden"><img class="fig" src="assets/figures/tom-stand.png" alt="" style="left:-130px;top:-60px;width:550px;height:1870px;filter:none"></div>
+   <div class="a" style="left:660px;top:600px;width:260px;height:440px;border-radius:130px 130px 20px 20px;background:#a9c6e3;border:8px solid #2a211c;overflow:hidden"><img class="fig" src="assets/figures/summer-stand.png" alt="" style="left:-120px;top:-10px;width:500px;height:1505px;filter:none"></div>
+   <div class="a mono" style="left:40px;top:1056px;font-size:26px;width:260px;text-align:center">TOM</div>
+   <div class="a mono" style="left:660px;top:1056px;font-size:26px;width:260px;text-align:center">SUMMER</div>
+   <div class="a" style="left:350px;top:620px;width:260px;height:260px;border-radius:50%;background:#b8333d;border:8px solid #2a211c;display:flex;align-items:center;justify-content:center"><span class="disp" style="font-size:120px;color:#efe3cf">2009</span></div>
+   <div class="a mono" style="left:320px;top:920px;width:320px;text-align:center;font-size:28px;line-height:1.3">SUTRADARA<br>MARC WEBB</div>
+ </div>
+</section>
+<section class="f" data-start="2" data-duration="1" id="s3">
+ <div class="chip">HARI 8</div><div class="micro">[ KARTU 03/08 ]</div>
+ <div class="card" style="left:60px;top:180px;width:960px;height:580px">
+   <div class="a mono" style="left:44px;top:34px;font-size:26px;color:#2a211c99">[ DARI: ]</div>
+   <div class="a disp" style="left:44px;top:70px;font-size:190px">Tom</div>
+   <div class="a mono" style="left:48px;top:268px;font-size:30px;line-height:1.3">PENULIS KARTU<br>UCAPAN</div>
+   <div class="a" style="left:48px;top:380px;width:96px;height:124px;background:#f8f0e1;border:6px solid #2a211c;border-radius:12px;box-shadow:6px 6px 0 #b8333d;transform:rotate(-8deg)"></div>
+   <div class="a" style="left:128px;top:396px;width:96px;height:124px;background:#f8f0e1;border:6px solid #2a211c;border-radius:12px;box-shadow:6px 6px 0 #1d3a63;transform:rotate(5deg)"></div>
+   <img class="fig" src="assets/figures/tom-desk.png" alt="" style="left:430px;top:110px;width:465px;height:420px;filter:none">
+ </div>
+ <div class="card" style="left:60px;top:800px;width:960px;height:580px;background:#6f9bc9;box-shadow:14px 14px 0 #e3a43c">
+   <div class="a mono" style="left:44px;top:34px;font-size:26px;color:#1d3a63">[ UNTUK: ]</div>
+   <div class="a disp" style="left:44px;top:70px;font-size:170px;color:#f8f0e1;text-shadow:7px 7px 0 #1d3a63">Summer</div>
+   <div class="a mono" style="left:48px;top:250px;font-size:30px;line-height:1.3;color:#1d3a63">ASISTEN BARU<br>SANG BOS</div>
+   <svg class="a" style="left:420px;top:330px;width:120px;height:120px;fill:#b8333d;stroke:#2a211c;stroke-width:4;overflow:visible" viewBox="0 0 100 100"><path d="M50 88C20 66 6 48 6 30C6 16 17 8 29 8C39 8 46 14 50 22C54 14 61 8 71 8C83 8 94 16 94 30C94 48 80 66 50 88Z"/><path d="M52 14L38 48L58 62L44 88" fill="none" stroke="#2a211c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <img class="fig" src="assets/figures/summer-lean.png" alt="" style="left:640px;top:70px;width:158px;height:470px;filter:none">
+ </div>
+ <div class="sub" style="font-size:40px">Summer, asisten baru bosnya, yang tak mau hubungan serius.</div>
+</section>
+<section class="f" data-start="3" data-duration="1" id="s4">
+ <div class="chip">HARI 322</div><div class="micro">[ KARTU 04/08 ]</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px">
+   <div class="a disp" style="left:0;right:0;top:36px;text-align:center;font-size:150px">Tidak <span style="color:#6f9bc9;text-shadow:5px 5px 0 #1d3a63">berurutan</span></div>
+   <div class="a" style="left:50px;top:200px;width:860px;height:560px;background:#dbe8f4;border:7px solid #2a211c;border-radius:26px;overflow:hidden">
+     <div class="a mono" style="left:26px;top:18px;font-size:24px;color:#1d3a63">BAHAGIA</div>
+     <div class="a mono" style="left:26px;top:520px;font-size:24px">PATAH HATI</div>
+     <svg class="a" style="left:0;top:0;width:860px;height:560px" viewBox="0 0 860 640" preserveAspectRatio="none"><line x1="70" y1="60" x2="70" y2="580" stroke="#2a211c" stroke-width="6"/><line x1="70" y1="580" x2="820" y2="580" stroke="#2a211c" stroke-width="6"/><line x1="70" y1="320" x2="820" y2="320" stroke="#2a211c55" stroke-width="3" stroke-dasharray="14 12"/>
+       <path d="M70 470L170 190L270 430L380 150L490 400L600 540L710 220L820 360" fill="none" stroke="#b8333d" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+       <g fill="#b8333d" stroke="#2a211c" stroke-width="4"><circle cx="170" cy="190" r="16"/><circle cx="380" cy="150" r="16"/><circle cx="710" cy="220" r="16"/></g><g fill="#8a8178" stroke="#2a211c" stroke-width="4"><circle cx="270" cy="430" r="16"/><circle cx="490" cy="400" r="16"/><circle cx="600" cy="540" r="16"/></g></svg>
+     <div class="tag" style="left:110px;top:88px;font-size:24px;padding:3px 14px;background:#e3a43c">HARI 1</div>
+     <div class="tag" style="left:305px;top:52px;font-size:24px;padding:3px 14px;background:#e3a43c">HARI 31</div>
+     <div class="tag" style="left:200px;top:412px;font-size:24px;padding:3px 14px;background:#d4cdc3">HARI 290</div>
+     <div class="tag" style="left:425px;top:390px;font-size:24px;padding:3px 14px;background:#d4cdc3">HARI 322</div>
+     <div class="tag" style="left:560px;top:508px;font-size:24px;padding:3px 14px;background:#d4cdc3;z-index:2">HARI 488</div>
+     <div class="tag" style="left:640px;top:114px;font-size:24px;padding:3px 14px;background:#e3a43c">HARI 500</div>
+   </div>
+   <img class="fig" src="assets/figures/mckenzie-cheers.png" alt="" style="left:339px;top:800px;width:131px;height:290px">
+   <img class="fig" src="assets/figures/paul-cheers.png" alt="" style="left:490px;top:800px;width:116px;height:290px;transform:scaleX(-1)">
+   <div class="tag" style="left:350px;top:1100px;background:#e3a43c;font-size:28px;z-index:3">SAHABAT TOM</div>
+ </div>
+ <div class="sub">bahagia dan patah hati bergantian.</div>
+</section>
+<section class="f" data-start="4" data-duration="1" id="s5">
+ <div class="chip">HARI 290</div><div class="micro">[ KARTU 05/08 ]</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px">
+   <div class="a" style="left:0;top:0;width:960px;height:580px;background:#6f9bc9"></div>
+   <div class="a" style="left:0;top:588px;width:960px;height:590px;background:#8a8178"></div>
+   <div class="a" style="left:0;top:578px;width:960px;height:14px;background:#2a211c"></div>
+   <div class="tag" style="left:40px;top:36px;background:#e3a43c;font-size:32px">EKSPEKTASI</div>
+   <div class="tag" style="left:40px;top:632px;font-size:32px">KENYATAAN</div>
+   <img class="fig" src="assets/figures/tom-walk.png" alt="" style="left:230px;top:90px;width:242px;height:470px">
+   <img class="fig" src="assets/figures/summer-walk.png" alt="" style="left:520px;top:90px;width:268px;height:470px">
+   <div class="a disp" style="left:380px;top:515px;width:200px;height:120px;border-radius:50%;background:#b8333d;border:8px solid #2a211c;text-align:center;font-size:84px;line-height:110px;color:#efe3cf;z-index:3">VS</div>
+   <img class="fig" src="assets/figures/tom-sit.png" alt="" style="left:370px;top:690px;width:485px;height:440px;filter:grayscale(.85) brightness(.92) drop-shadow(0 14px 12px rgba(30,20,10,.28))">
+   <img class="fig" src="assets/figures/rachel-pat.png" alt="" style="left:230px;top:770px;width:242px;height:380px;filter:grayscale(.85) brightness(.92) drop-shadow(0 14px 12px rgba(30,20,10,.28))">
+   <div class="tag" style="left:40px;top:1080px;font-size:26px;padding:3px 18px">RACHEL</div>
+ </div>
+ <div class="sub" style="font-size:38px">Tom ternyata lebih mencintai bayangannya tentang Summer, bukan Summer yang nyata.</div>
+</section>
+<section class="f" data-start="5" data-duration="1" id="s6">
+ <div class="chip">HARI 34</div><div class="micro">[ KARTU 06/08 ]</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px;background:#6f9bc9">
+   <div class="a" style="left:300px;top:760px;width:360px;height:360px;border-radius:50%;background:#e3a43c;border:8px solid #2a211c"></div>
+   <div class="a" style="left:300px;top:50px;width:360px;height:360px;border-radius:50%;background:repeating-radial-gradient(circle,#2a211c 0 6px,#3a2f29 6px 11px);border:8px solid #f8f0e1">
+     <div class="a" style="left:110px;top:110px;width:120px;height:120px;border-radius:50%;background:#b8333d;border:6px solid #2a211c"></div></div>
+   <div class="a" id="sky" style="left:0;top:880px;width:960px;height:300px;background:#1d3a63"></div>
+   <div class="a" style="left:40px;top:760px;width:110px;height:420px;background:#1d3a63"></div><div class="a" style="left:170px;top:820px;width:90px;height:360px;background:#1d3a63"></div>
+   <div class="a" style="left:700px;top:790px;width:120px;height:390px;background:#1d3a63"></div><div class="a" style="left:830px;top:850px;width:100px;height:330px;background:#1d3a63"></div>
+   <div class="a" style="left:70px;top:800px;width:14px;height:20px;background:#e3a43c"></div><div class="a" style="left:100px;top:850px;width:14px;height:20px;background:#e3a43c"></div><div class="a" style="left:730px;top:840px;width:14px;height:20px;background:#e3a43c"></div><div class="a" style="left:760px;top:900px;width:14px;height:20px;background:#e3a43c"></div>
+   <img class="fig" src="assets/figures/tom-dance.png" alt="" style="left:110px;top:420px;width:293px;height:600px">
+   <img class="fig" src="assets/figures/summer-twirl.png" alt="" style="left:520px;top:440px;width:344px;height:580px">
+   <div class="a mono" style="left:0;right:0;top:1100px;text-align:center;font-size:30px;color:#efe3cf;letter-spacing:.1em">[ LOS ANGELES · LAGU INDIE ]</div>
+ </div>
+ <div class="sub" style="font-size:40px">Tapi ada juga tarian di jalan, lagu-lagu indie, dan kota Los Angeles yang jadi saksi.</div>
+</section>
+<section class="f" data-start="6" data-duration="1" id="s7">
+ <div class="chip">HARI 500</div><div class="micro">[ KARTU 07/08 ]</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px">
+   <img class="fig" src="assets/figures/rachel-pat.png" alt="" style="left:30px;top:520px;width:332px;height:520px">
+   <div class="a" style="left:360px;top:60px;width:540px;height:320px;background:#f8f0e1;border:8px solid #2a211c;border-radius:30px;box-shadow:10px 10px 0 #e3a43c">
+     <div class="a" style="left:30px;top:96px;width:180px;height:50px;border-radius:50%;background:#e3a43c;border:6px solid #2a211c"></div>
+     <div class="a" style="left:30px;top:130px;width:180px;height:50px;border-radius:50%;background:#e3a43c;border:6px solid #2a211c"></div>
+     <div class="a" style="left:30px;top:164px;width:180px;height:50px;border-radius:50%;background:#e3a43c;border:6px solid #2a211c"></div>
+     <div class="a disp" style="left:250px;top:50px;font-size:140px">US$7,5</div><div class="a mono" style="left:252px;top:200px;font-size:30px;line-height:1.3">JUTA<br>ANGGARAN</div></div>
+   <div class="a" style="left:360px;top:420px;width:540px;height:320px;background:#f8f0e1;border:8px solid #2a211c;border-radius:30px;box-shadow:10px 10px 0 #6f9bc9">
+     <div class="a" style="left:28px;top:50px;width:210px;height:210px;border-radius:50%;border:30px solid #2a211c1c"></div>
+     <div class="a" style="left:28px;top:50px;width:210px;height:210px;border-radius:50%;border:30px solid #b8333d;border-right-color:transparent;transform:rotate(-30deg)"></div>
+     <div class="a disp" style="left:28px;top:112px;width:210px;text-align:center;font-size:90px">85%</div>
+     <div class="a mono" style="left:270px;top:90px;font-size:30px;line-height:1.3">KRITIKUS<br>SEKITAR 85%<br>MEMUJI</div></div>
+   <div class="a" style="left:360px;top:780px;width:540px;height:300px;background:#f8f0e1;border:8px solid #2a211c;border-radius:30px;box-shadow:10px 10px 0 #b8333d">
+     <div class="a" style="left:30px;top:50px;width:190px;height:190px;border-radius:50%;background:#fff4de;border:8px solid #2a211c"><div class="a" style="left:83px;top:22px;width:10px;height:74px;background:#2a211c;border-radius:5px;transform-origin:5px 66px;transform:rotate(130deg)"></div><div class="a" style="left:78px;top:78px;width:20px;height:20px;border-radius:50%;background:#b8333d"></div></div>
+     <div class="a disp" style="left:250px;top:56px;font-size:96px;white-space:nowrap">95 menit</div><div class="a mono" style="left:254px;top:180px;font-size:28px">DURASI FILM</div></div>
+ </div>
+ <div class="sub">dan dipuji kritikus sampai sekarang.</div>
+</section>
+<section class="f" data-start="7" data-duration="1" id="s8">
+ <div class="chip">HARI 500</div><div class="micro">[ KARTU 08/08 ]</div>
+ <div class="card" style="left:60px;top:190px;width:960px;height:1170px">
+   <div class="a" style="left:0;top:0;width:960px;height:600px;background:#e3a43c;border-bottom:8px solid #2a211c"></div>
+   <div class="stamp" style="left:110px;top:70px;width:740px;transform:rotate(-4deg);background:#f8f0e1;color:#2a211c;border-color:#2a211c;outline:none;box-shadow:12px 12px 0 #1d3a63;padding:14px 20px"><div class="disp" style="font-size:200px;line-height:190px;color:#1d3a63">Layak</div><div class="disp" style="font-size:180px;line-height:170px">Ditonton</div></div>
+   <svg class="a" style="left:70px;top:480px;width:820px;height:90px" viewBox="0 0 820 90"><g fill="#e3a43c" stroke="#2a211c" stroke-width="4"><path transform="translate(60 0) scale(.8)" d="M50 0L61 39L100 50L61 61L50 100L39 61L0 50L39 39Z"/><path transform="translate(210 0) scale(.8)" d="M50 0L61 39L100 50L61 61L50 100L39 61L0 50L39 39Z"/><path transform="translate(360 0) scale(.8)" d="M50 0L61 39L100 50L61 61L50 100L39 61L0 50L39 39Z"/><path transform="translate(510 0) scale(.8)" d="M50 0L61 39L100 50L61 61L50 100L39 61L0 50L39 39Z"/></g><path transform="translate(660 0) scale(.8)" d="M50 0L61 39L100 50L61 61L50 100L39 61L0 50L39 39Z" fill="#f8f0e1" stroke="#2a211c" stroke-width="4"/></svg>
+   <div class="a" style="left:780px;top:640px;width:130px;height:130px;background:#f8f0e1;border:6px solid #2a211c;border-radius:20px;overflow:hidden"><div class="a" style="left:0;right:0;top:0;height:38px;background:#1d3a63;border-bottom:5px solid #2a211c"></div><div class="a mono" style="left:0;right:0;top:4px;text-align:center;font-size:18px;color:#efe3cf">HARI</div><div class="a disp" style="left:0;right:0;top:40px;text-align:center;font-size:80px;line-height:84px;color:#c8622a">500</div></div>
+   <img class="fig" src="assets/figures/tom-sit.png" alt="" style="left:350px;top:690px;width:518px;height:470px">
+   <img class="fig" src="assets/figures/autumn-walk.png" alt="" style="left:70px;top:620px;width:268px;height:560px">
+   <svg class="a" style="left:270px;top:660px;width:50px;height:50px;fill:#c8622a;stroke:#2a211c;stroke-width:4" viewBox="0 0 100 100"><path d="M50 6C86 24 92 62 50 94C8 62 14 24 50 6Z"/></svg>
+   <svg class="a" style="left:180px;top:1100px;width:44px;height:44px;fill:#c8622a;stroke:#2a211c;stroke-width:4" viewBox="0 0 100 100"><path d="M50 6C86 24 92 62 50 94C8 62 14 24 50 6Z"/></svg>
+ </div>
+ <div class="sub">Dan musim pun berganti.</div>
+</section>
+</div>
+<script>window.__timelines["main"] = gsap.timeline({ paused: true });</script>
+</body></html>
